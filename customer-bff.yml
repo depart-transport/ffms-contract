@@ -1,0 +1,893 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Customers BFF API
+  description: API to get the information for the frontend
+
+servers:
+  - url: https://depart.com/api/v1
+
+paths:
+  /customers:
+    post:
+      description: Lets a user to create a new customer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customers'
+      responses:
+        '200':
+          description: 'Successfully created a new customer'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    Customers:
+      type: object
+      required:
+      properties:
+        id:
+          type: integer
+          format: int64
+        details:
+          $ref: '#/components/schemas/Details'
+    Details:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        address:
+          $ref: '#/components/schemas/Address'
+    Enterprise:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        legalName:
+          type: string
+          maxLength: 50
+        businessName:
+          type: string
+          maxLength: 50
+        industryType:
+          type: string
+          maxLength: 50
+        enterpriseAddress:
+          $ref: '#/components/schemas/Address'
+        enterpriseComm:
+          $ref: '#/components/schemas/Communication'
+        owner:
+          $ref: '#/components/schemas/Person'
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        brokers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Broker'
+        billingInfo:
+          $ref: '#/components/schemas/BillingInfo'
+        status:
+          $ref: '#/components/schemas/EnterpriseStatus'
+    EnterpriseStatus:
+      type: string
+      enum: [ 'PEND', 'APPD', 'BCRD' ]
+      default: 'PEND'
+      description: >
+        Status:
+        * 'APPD' - Approuved
+        * 'PEND' - Pending
+        * 'BCRD' - Bad credit
+    BusinessFile:
+      allOf:
+        - $ref: '#/components/schemas/Enterprise'
+        - type: object
+          properties:
+            branches:
+              type: array
+              items:
+                $ref: '#/components/schemas/Branch'
+            locations:
+              type: array
+              items:
+                $ref: '#/components/schemas/Location'
+            commodities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Commodity'
+            salesRep:
+              $ref: '#/components/schemas/Enterprise'
+            rating:
+              $ref: '#/components/schemas/Rating'
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        isBusiness:
+          type: boolean
+          default: false
+        isPublicLocation:
+          type: boolean
+        locationId:
+          type: string
+        locationAddress:
+          $ref: '#/components/schemas/Address'
+        locationComm:
+          $ref: '#/components/schemas/Communication'
+        locationContact:
+          $ref: '#/components/schemas/Contact'
+        availability:
+          $ref: '#/components/schemas/OpeningHours'
+        is53Ft:
+          type: boolean
+        maxTruckSize:
+          $ref: '#/components/schemas/TruckSize'
+        isTailgate:
+          type: boolean
+        isDock:
+          type: boolean
+    TruckSize:
+      type: string
+      enum: [ 'DAYCAB', 'FT30', 'FT28', 'FT26', 'FT24', 'FT22', 'FT20' ]
+      description: >
+        TruckSize:
+        * 'DAYCAB' - Daycab
+        * 'FT30' - 30 feet
+        * 'FT28' - 28 feet
+        * 'FT26' - 26 feet
+        * 'FT24' - 24 feet
+        * 'FT22' - 22 feet
+        * 'FT20' - 20 feet
+    Commodity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        commodityIdName:
+          type: integer
+        commodityId:
+          type: string
+        packaging:
+          type: string
+        packageType:
+          type: string
+        description:
+          type: string
+        hsCode:
+          type: string
+        isDocOnly:
+          type: boolean
+        length:
+          type: number
+        width:
+          type: number
+        minHeight:
+          type: number
+        maxHeight:
+          type: number
+        nmfc:
+          type: string
+        freightClass:
+          type: string
+        freightSubClass:
+          type: string
+        isHazmat:
+          type: boolean
+        unCode:
+          type: string
+        hazmatClass:
+          type: string
+        emergencyTel:
+          type: string
+        emergencyContactName:
+          type: string
+        isFreezeProtection:
+          type: boolean
+        protectionStartDate:
+          type: string
+          format: date
+        protectionEndDate:
+          type: string
+          format: date
+        freshUnit:
+          $ref: '#/components/schemas/TemperatureUnit'
+        freshMin:
+          type: number
+        freshMax:
+          type: number
+        frozenUnit:
+          $ref: '#/components/schemas/TemperatureUnit'
+        frozenMin:
+          type: number
+        frozenMax:
+          type: number
+    TemperatureUnit:
+      type: string
+      enum: ['F','C']
+      description: >
+        * 'F' - Fahrenheit
+        * 'C' - Celcius
+    Rating:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        margins:
+          type: array
+          items:
+            $ref: '#/components/schemas/Margin'
+        minMargin:
+          type: number
+        additionalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        zones:
+          $ref: '#/components/schemas/Zone'
+        rateSchedules:
+          $ref: '#/components/schemas/RateSchedule'
+    Margin:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        lowBracket:
+          type: number
+        highBracket:
+          type: number
+        margin:
+          type: number
+    Branch:
+      allOf:
+        - $ref: '#/components/schemas/Enterprise'
+        - type: object
+          properties:
+            branchIdName:
+              type: string
+    OpeningHours:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sunday:
+          $ref: '#/components/schemas/DayHours'
+        monday:
+          $ref: '#/components/schemas/DayHours'
+        tuesday:
+          $ref: '#/components/schemas/DayHours'
+        wednesday:
+          $ref: '#/components/schemas/DayHours'
+        thursday:
+          $ref: '#/components/schemas/DayHours'
+        friday:
+          $ref: '#/components/schemas/DayHours'
+        saturday:
+          $ref: '#/components/schemas/DayHours'
+    DayHours:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        open:
+          type: string
+          format: date-time
+        clsoe:
+          type: string
+          format: date-time
+    BillingInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        currency:
+          $ref: '#/components/schemas/Currency'
+        podRequired:
+          type: boolean
+          default: false
+        isDiffBillAdd:
+          type: boolean
+          default: false
+        isPayableCreditCard:
+          type: boolean
+          default: false
+        creditCard:
+          $ref: '#/components/schemas/CreditCard'
+        isPayableInvoice:
+          type: boolean
+          default: false
+        billingAddress:
+          $ref: '#/components/schemas/Address'
+        bankAccount:
+          $ref: '#/components/schemas/BankAccount'
+        creditLimit:
+          type: number
+        balance:
+          type: number
+        terms:
+          type: number
+        creditStatus:
+          $ref: '#/components/schemas/CreditStatus'
+        creditApprouvedBy:
+          type: string
+        creditVerification:
+          $ref: '#/components/schemas/CreditVerification'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        viewStatement:
+          type: string
+        podRequirement:
+          $ref: '#/components/schemas/PODRequirement'
+        tradeReferences:
+          type: array
+          items:
+            type: string
+        checkedBy:
+          type: string
+    Broker:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        country:
+          $ref: '#/components/schemas/Country'
+        brokerName:
+          type: string
+        accountNumber:
+          type: number
+        primaryContact:
+          $ref: '#/components/schemas/Contact'
+        alternateContact:
+          $ref: '#/components/schemas/Contact'
+        brokerPhone:
+          type: string
+        brokerEmail:
+          type: string
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        contactPerson:
+          $ref: '#/components/schemas/Person'
+        contactAddress:
+          $ref: '#/components/schemas/Address'
+        contactCommunication:
+          $ref: '#/components/schemas/Communication'
+        functionTitle:
+          type: string
+        userType:
+          type: string
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        genderTitle:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        initial:
+          type: string
+        lastName:
+          type: string
+    Communication:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        landLine:
+          type: string
+          maxLength: 10
+        extension:
+          type: string
+          maxLength: 7
+        cellPhone:
+          type: string
+          maxLength: 10
+        tollFree:
+          type: string
+          maxLength: 11
+        fax:
+          type: string
+          maxLength: 10
+        email:
+          type: string
+        website:
+          type: string
+    Address:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        address:
+          type: string
+          maxLength: 100
+        address2:
+          type: string
+          maxLength: 100
+        city:
+          type: string
+          maxLength: 60
+        postalZipCode:
+          type: string
+          maxLength: 10
+        provinceState:
+          type: string
+          maxLength: 50
+        country:
+          $ref: '#/components/schemas/Country'
+    Country:
+      maxLength: 56
+      type: string
+      enum: ['AFG', 'ALA', 'ALB', 'DZA', 'ASM', 'AND', 'AGO', 'AIA', 'ATA', 'ATG', 'ARG', 'ARM', 'ABW', 'AUS', 'AUT', 'AZE', 'BHS', 'BHR', 'BGD', 'BRB', 'BLR', 'BEL', 'BLZ', 'BEN', 'BMU', 'BTN', 'BOL', 'BIH', 'BWA', 'BVT', 'BRA', 'VGB', 'IOT', 'BRN', 'BGR', 'BFA', 'BDI', 'KHM', 'CMR', 'CAN', 'CPV', 'CYM', 'CAF', 'TCD', 'CHL', 'CHN', 'HKG', 'MAC', 'CXR', 'CCK', 'COL', 'COM', 'COG', 'COD', 'COK', 'CRI', 'CIV', 'HRV', 'CUB', 'CYP', 'CZE', 'DNK', 'DJI', 'DMA', 'DOM', 'ECU', 'EGY', 'SLV', 'GNQ', 'ERI', 'EST', 'ETH', 'FLK', 'FRO', 'FJI', 'FIN', 'FRA', 'GUF', 'PYF', 'ATF', 'GAB', 'GMB', 'GEO', 'DEU', 'GHA', 'GIB', 'GRC', 'GRL', 'GRD', 'GLP', 'GUM', 'GTM', 'GGY', 'GIN', 'GNB', 'GUY', 'HTI', 'HMD', 'VAT', 'HND', 'HUN', 'ISL', 'IND', 'IDN', 'IRN', 'IRQ', 'IRL', 'IMN', 'ISR', 'ITA', 'JAM', 'JPN', 'JEY', 'JOR', 'KAZ', 'KEN', 'KIR', 'PRK', 'KOR', 'KWT', 'KGZ', 'LAO', 'LVA', 'LBN', 'LSO', 'LBR', 'LBY', 'LIE', 'LTU', 'LUX', 'MKD', 'MDG', 'MWI', 'MYS', 'MDV', 'MLI', 'MLT', 'MHL', 'MTQ', 'MRT', 'MUS', 'MYT', 'MEX', 'FSM', 'MDA', 'MCO', 'MNG', 'MNE', 'MSR', 'MAR', 'MOZ', 'MMR', 'NAM', 'NRU', 'NPL', 'NLD', 'ANT', 'NCL', 'NZL', 'NIC', 'NER', 'NGA', 'NIU', 'NFK', 'MNP', 'NOR', 'OMN', 'PAK', 'PLW', 'PSE', 'PAN', 'PNG', 'PRY', 'PER', 'PHL', 'PCN', 'POL', 'PRT', 'PRI', 'QAT', 'REU', 'ROU', 'RUS', 'RWA', 'BLM', 'SHN', 'KNA', 'LCA', 'MAF', 'SPM', 'VCT', 'WSM', 'SMR', 'STP', 'SAU', 'SEN', 'SRB', 'SYC', 'SLE', 'SGP', 'SVK', 'SVN', 'SLB', 'SOM', 'ZAF', 'SGS', 'SSD', 'ESP', 'LKA', 'SDN', 'SUR', 'SJM', 'SWZ', 'SWE', 'CHE', 'SYR', 'TWN', 'TJK', 'TZA', 'THA', 'TLS', 'TGO', 'TKL', 'TON', 'TTO', 'TUN', 'TUR', 'TKM', 'TCA', 'TUV', 'UGA', 'UKR', 'ARE', 'GBR', 'USA', 'UMI', 'URY', 'UZB', 'VUT', 'VEN', 'VNM', 'VIR', 'WLF', 'ESH', 'YEM', 'ZMB', 'ZWE']
+      default: 'CAD'
+      description: >
+        Country name:
+        * 'AFG' - Afghanistan
+        * 'ALA' - Aland Islands
+        * 'ALB' - Albania
+        * 'DZA' - Algeria
+        * 'ASM' - American Samoa
+        * 'AND' - Andorra
+        * 'AGO' - Angola
+        * 'AIA' - Anguilla
+        * 'ATA' - Antarctica
+        * 'ATG' - Antigua and Barbuda
+        * 'ARG' - Argentina
+        * 'ARM' - Armenia
+        * 'ABW' - Aruba
+        * 'AUS' - Australia
+        * 'AUT' - Austria
+        * 'AZE' - Azerbaijan
+        * 'BHS' - Bahamas
+        * 'BHR' - Bahrain
+        * 'BGD' - Bangladesh
+        * 'BRB' - Barbados
+        * 'BLR' - Belarus
+        * 'BEL' - Belgium
+        * 'BLZ' - Belize
+        * 'BEN' - Benin
+        * 'BMU' - Bermuda
+        * 'BTN' - Bhutan
+        * 'BOL' - Bolivia
+        * 'BIH' - Bosnia and Herzegovina
+        * 'BWA' - Botswana
+        * 'BVT' - Bouvet Island
+        * 'BRA' - Brazil
+        * 'VGB' - British Virgin Islands
+        * 'IOT' - British Indian Ocean Territory
+        * 'BRN' - Brunei Darussalam
+        * 'BGR' - Bulgaria
+        * 'BFA' - Burkina Faso
+        * 'BDI' - Burundi
+        * 'KHM' - Cambodia
+        * 'CMR' - Cameroon
+        * 'CAN' - Canada
+        * 'CPV' - Cape Verde
+        * 'CYM' - Cayman Islands
+        * 'CAF' - Central African Republic
+        * 'TCD' - Chad
+        * 'CHL' - Chile
+        * 'CHN' - China
+        * 'HKG' - Hong Kong, SAR China
+        * 'MAC' - Macao, SAR China
+        * 'CXR' - Christmas Island
+        * 'CCK' - Cocos (Keeling) Islands
+        * 'COL' - Colombia
+        * 'COM' - Comoros
+        * 'COG' - Congo (Brazzaville)
+        * 'COD' - Congo, (Kinshasa)
+        * 'COK' - Cook Islands
+        * 'CRI' - Costa Rica
+        * 'CIV' - Côte d'Ivoire
+        * 'HRV' - Croatia
+        * 'CUB' - Cuba
+        * 'CYP' - Cyprus
+        * 'CZE' - Czech Republic
+        * 'DNK' - Denmark
+        * 'DJI' - Djibouti
+        * 'DMA' - Dominica
+        * 'DOM' - Dominican Republic
+        * 'ECU' - Ecuador
+        * 'EGY' - Egypt
+        * 'SLV' - El Salvador
+        * 'GNQ' - Equatorial Guinea
+        * 'ERI' - Eritrea
+        * 'EST' - Estonia
+        * 'ETH' - Ethiopia
+        * 'FLK' - Falkland Islands (Malvinas)
+        * 'FRO' - Faroe Islands
+        * 'FJI' - Fiji
+        * 'FIN' - Finland
+        * 'FRA' - France
+        * 'GUF' - French Guiana
+        * 'PYF' - French Polynesia
+        * 'ATF' - French Southern Territories
+        * 'GAB' - Gabon
+        * 'GMB' - Gambia
+        * 'GEO' - Georgia
+        * 'DEU' - Germany
+        * 'GHA' - Ghana
+        * 'GIB' - Gibraltar
+        * 'GRC' - Greece
+        * 'GRL' - Greenland
+        * 'GRD' - Grenada
+        * 'GLP' - Guadeloupe
+        * 'GUM' - Guam
+        * 'GTM' - Guatemala
+        * 'GGY' - Guernsey
+        * 'GIN' - Guinea
+        * 'GNB' - Guinea-Bissau
+        * 'GUY' - Guyana
+        * 'HTI' - Haiti
+        * 'HMD' - Heard and Mcdonald Islands
+        * 'VAT' - Holy See (Vatican City State)
+        * 'HND' - Honduras
+        * 'HUN' - Hungary
+        * 'ISL' - Iceland
+        * 'IND' - India
+        * 'IDN' - Indonesia
+        * 'IRN' - Iran, Islamic Republic of
+        * 'IRQ' - Iraq
+        * 'IRL' - Ireland
+        * 'IMN' - Isle of Man
+        * 'ISR' - Israel
+        * 'ITA' - Italy
+        * 'JAM' - Jamaica
+        * 'JPN' - Japan
+        * 'JEY' - Jersey
+        * 'JOR' - Jordan
+        * 'KAZ' - Kazakhstan
+        * 'KEN' - Kenya
+        * 'KIR' - Kiribati
+        * 'PRK' - Korea (North)
+        * 'KOR' - Korea (South)
+        * 'KWT' - Kuwait
+        * 'KGZ' - Kyrgyzstan
+        * 'LAO' - Lao PDR
+        * 'LVA' - Latvia
+        * 'LBN' - Lebanon
+        * 'LSO' - Lesotho
+        * 'LBR' - Liberia
+        * 'LBY' - Libya
+        * 'LIE' - Liechtenstein
+        * 'LTU' - Lithuania
+        * 'LUX' - Luxembourg
+        * 'MKD' - Macedonia, Republic of
+        * 'MDG' - Madagascar
+        * 'MWI' - Malawi
+        * 'MYS' - Malaysia
+        * 'MDV' - Maldives
+        * 'MLI' - Mali
+        * 'MLT' - Malta
+        * 'MHL' - Marshall Islands
+        * 'MTQ' - Martinique
+        * 'MRT' - Mauritania
+        * 'MUS' - Mauritius
+        * 'MYT' - Mayotte
+        * 'MEX' - Mexico
+        * 'FSM' - Micronesia, Federated States of
+        * 'MDA' - Moldova
+        * 'MCO' - Monaco
+        * 'MNG' - Mongolia
+        * 'MNE' - Montenegro
+        * 'MSR' - Montserrat
+        * 'MAR' - Morocco
+        * 'MOZ' - Mozambique
+        * 'MMR' - Myanmar
+        * 'NAM' - Namibia
+        * 'NRU' - Nauru
+        * 'NPL' - Nepal
+        * 'NLD' - Netherlands
+        * 'ANT' - Netherlands Antilles
+        * 'NCL' - New Caledonia
+        * 'NZL' - New Zealand
+        * 'NIC' - Nicaragua
+        * 'NER' - Niger
+        * 'NGA' - Nigeria
+        * 'NIU' - Niue
+        * 'NFK' - Norfolk Island
+        * 'MNP' - Northern Mariana Islands
+        * 'NOR' - Norway
+        * 'OMN' - Oman
+        * 'PAK' - Pakistan
+        * 'PLW' - Palau
+        * 'PSE' - Palestinian Territory
+        * 'PAN' - Panama
+        * 'PNG' - Papua New Guinea
+        * 'PRY' - Paraguay
+        * 'PER' - Peru
+        * 'PHL' - Philippines
+        * 'PCN' - Pitcairn
+        * 'POL' - Poland
+        * 'PRT' - Portugal
+        * 'PRI' - Puerto Rico
+        * 'QAT' - Qatar
+        * 'REU' - Réunion
+        * 'ROU' - Romania
+        * 'RUS' - Russian Federation
+        * 'RWA' - Rwanda
+        * 'BLM' - Saint-Barthélemy
+        * 'SHN' - Saint Helena
+        * 'KNA' - Saint Kitts and Nevis
+        * 'LCA' - Saint Lucia
+        * 'MAF' - Saint-Martin (French part)
+        * 'SPM' - Saint Pierre and Miquelon
+        * 'VCT' - Saint Vincent and Grenadines
+        * 'WSM' - Samoa
+        * 'SMR' - San Marino
+        * 'STP' - Sao Tome and Principe
+        * 'SAU' - Saudi Arabia
+        * 'SEN' - Senegal
+        * 'SRB' - Serbia
+        * 'SYC' - Seychelles
+        * 'SLE' - Sierra Leone
+        * 'SGP' - Singapore
+        * 'SVK' - Slovakia
+        * 'SVN' - Slovenia
+        * 'SLB' - Solomon Islands
+        * 'SOM' - Somalia
+        * 'ZAF' - South Africa
+        * 'SGS' - South Georgia and the South Sandwich Islands
+        * 'SSD' - South Sudan
+        * 'ESP' - Spain
+        * 'LKA' - Sri Lanka
+        * 'SDN' - Sudan
+        * 'SUR' - Suriname
+        * 'SJM' - Svalbard and Jan Mayen Islands
+        * 'SWZ' - Swaziland
+        * 'SWE' - Sweden
+        * 'CHE' - Switzerland
+        * 'SYR' - Syrian Arab Republic (Syria)
+        * 'TWN' - Taiwan, Republic of China
+        * 'TJK' - Tajikistan
+        * 'TZA' - Tanzania, United Republic of
+        * 'THA' - Thailand
+        * 'TLS' - Timor-Leste
+        * 'TGO' - Togo
+        * 'TKL' - Tokelau
+        * 'TON' - Tonga
+        * 'TTO' - Trinidad and Tobago
+        * 'TUN' - Tunisia
+        * 'TUR' - Turkey
+        * 'TKM' - Turkmenistan
+        * 'TCA' - Turks and Caicos Islands
+        * 'TUV' - Tuvalu
+        * 'UGA' - Uganda
+        * 'UKR' - Ukraine
+        * 'ARE' - United Arab Emirates
+        * 'GBR' - United Kingdom
+        * 'USA' - United States of America
+        * 'UMI' - US Minor Outlying Islands
+        * 'URY' - Uruguay
+        * 'UZB' - Uzbekistan
+        * 'VUT' - Vanuatu
+        * 'VEN' - Venezuela (Bolivarian Republic)
+        * 'VNM' - Viet Nam
+        * 'VIR' - Virgin Islands, US
+        * 'WLF' - Wallis and Futuna Islands
+        * 'ESH' - Western Sahara
+        * 'YEM' - Yemen
+        * 'ZMB' - Zambia
+        * 'ZWE' - Zimbabwe
+    AccessoryCharge:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        chargeName:
+          type: string
+        chargeMethod:
+          $ref: '#/components/schemas/ChargeMethod'
+        freeUpTo:
+          type: number
+        price:
+          type: number
+        maxPrice:
+          type: number
+    ChargeMethod:
+      type: string
+      enum: [ 'CWT','PU','TIME','FIX','PFR','SQ' ]
+      description: >
+        Charge Method:
+        * 'CWT' - Charge Weight
+        * 'PU' - Per unit
+        * 'TIME' - Per time (hourly)
+        * 'FIX' - Fixed fees
+        * 'PFR' - Percentage of freight
+        * 'SQ' - Spot quote
+    Zone:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        zoneName:
+          type: string
+        cities:
+          type: array
+          items:
+            type: string
+    RateSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        origineRoute:
+          type: string
+        destinationRoutes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateDestination'
+    RateDestination:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        destinationRoute:
+          type: string
+        fixedRateUnit:
+          type: string
+        volumeRateUnit:
+          type: string
+        weightRateUnit:
+          type: string
+        fixedRates:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              unit:
+                $ref: '#/components/schemas/FixedRate'
+              rate:
+                $ref: '#/components/schemas/Rate'
+        weightRate:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              weigth:
+                $ref: '#/components/schemas/WeightRate'
+              rate:
+                $ref: '#/components/schemas/Rate'
+        skidRate:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              weigth:
+                $ref: '#/components/schemas/SkidRate'
+              rate:
+                $ref: '#/components/schemas/Rate'
+    SkidRate:
+      type: string
+      enum: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+    WeightRate:
+      type: string
+      enum: ['LTL', '500', '1000', '2000', '5000', '10000', '20000', '30000']
+    FixedRate:
+      type: string
+      enum: ['PAL','FTL','HRS']
+      description: >
+        Fix rate unit:
+        * 'PAL' = 'Pallet',
+        * 'FTL' = 'Full Truck Load',
+        * 'HRS' = 'Hourly'
+    Rate:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        price:
+          type: number
+        vendors:
+          type: array
+          items:
+            type: string
+    CreditCard:
+      type: object
+      required: [cardholder, creditCardNumber, expDate, cvc]
+      properties:
+        cardholder:
+          type: string
+        creditCardNumber:
+          type: number
+          maxLength: 16
+        expDate:
+          type: number
+          maxLength: 4
+        cvc:
+          type: number
+          maxLength: 3
+    BankAccount:
+      type: object
+      properties:
+        branchName:
+          type: string
+        institution:
+          type: number
+          maxLength: 3
+        transit:
+          type: string
+          maxLength: 5
+        account:
+          type: string
+          maxLength: 8
+        address:
+          $ref: '#/components/schemas/Address'
+        communication:
+          $ref: '#/components/schemas/Communication'
+        contact:
+          $ref: '#/components/schemas/Contact'
+    CreditStatus:
+      type: string
+      enum: ['APPD', 'PEND', 'REF', 'INACT', 'PROS']
+      description: >
+        Credit status:
+        * 'APPD' - Approuved
+        * 'PEND' - Pending
+        * 'REF' - Refused
+        * 'INACT' - Inactive
+        * 'PROS' - Prospect
+    CreditVerification:
+      type: string
+      enum: ['TBC','API']
+      description: >
+        Credit verification type:
+        * 'TBC' -
+        * 'API' -
+    PaymentType:
+      type: string
+      enum: ['CHQ', 'EFT', 'CC']
+      description: >
+        Payment type:
+        * CHQ - Check
+        * EFT - Electronic fund transfer
+        * CC - Credit card
+    PODRequirement:
+      type: string
+      enum: ['ORGNL', 'POD', 'NO_POD']
+      description: >
+        Proof of delivery requirement:
+        * 'ORGNL' - Original
+        * 'POD' - Proof of delivery
+        * 'NO_POD' - No proof of delivery required
+    Currency:
+      type: string
+      enum: ['CAD','USD']
+
