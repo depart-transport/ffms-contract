@@ -25,23 +25,32 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+                $ref: '#/components/schemas/ErrorResponse'
 components:
   securitySchemes:
     BasicAuth:
       type: http
       scheme: basic
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
     Customers:
       type: object
-      required:
       properties:
         id:
           type: integer
           format: int64
+        thirdParty:
+          $ref: '#/components/schemas/Enterprise'
+        businessClient:
+          $ref: '#/components/schemas/BusinessFile'
+        personalClient:
+          $ref: '#/components/schemas/PersonalFile'
         details:
           $ref: '#/components/schemas/Details'
     Details:
@@ -80,7 +89,7 @@ components:
         brokers:
           type: array
           items:
-            $ref: '#/components/schemas/Broker'
+            $ref: '#/components/schemas/CustomBroker'
         billingInfo:
           $ref: '#/components/schemas/BillingInfo'
         status:
@@ -117,6 +126,7 @@ components:
               $ref: '#/components/schemas/Rating'
     Location:
       type: object
+      required: : [isBusiness, isPublicLocation, locationId, locationAddress, locationComm]
       properties:
         id:
           type: integer
@@ -126,8 +136,10 @@ components:
           default: false
         isPublicLocation:
           type: boolean
+          default: false
         locationId:
           type: string
+          maxLength: 30
         locationAddress:
           $ref: '#/components/schemas/Address'
         locationComm:
@@ -163,8 +175,6 @@ components:
           type: integer
           format: int64
         commodityIdName:
-          type: integer
-        commodityId:
           type: string
         packaging:
           type: string
@@ -299,6 +309,12 @@ components:
           format: date-time
     BillingInfo:
       type: object
+      required:
+        - currency
+        - podRequired
+        - isDiffBillAdd
+        - isPayableCreditCard
+        - isPayableCreditCard
       properties:
         id:
           type: integer
@@ -307,18 +323,14 @@ components:
           $ref: '#/components/schemas/Currency'
         podRequired:
           type: boolean
-          default: false
         isDiffBillAdd:
           type: boolean
-          default: false
         isPayableCreditCard:
           type: boolean
-          default: false
         creditCard:
           $ref: '#/components/schemas/CreditCard'
         isPayableInvoice:
           type: boolean
-          default: false
         billingAddress:
           $ref: '#/components/schemas/Address'
         bankAccount:
@@ -347,8 +359,9 @@ components:
             type: string
         checkedBy:
           type: string
-    Broker:
+    CustomBroker:
       type: object
+      required: [brokerName, country, accountNumber ]
       properties:
         id:
           type: integer
@@ -357,16 +370,20 @@ components:
           $ref: '#/components/schemas/Country'
         brokerName:
           type: string
+          maxLength: 50
         accountNumber:
           type: number
+          maxLength: 20
         primaryContact:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
         brokerPhone:
           type: string
+          maxLength: 10
         brokerEmail:
           type: string
+          maxLength: 100
     Contact:
       type: object
       properties:
@@ -385,20 +402,31 @@ components:
           type: string
     Person:
       type: object
+      required: [firstName, lastName]
       properties:
         id:
           type: integer
           format: int64
         genderTitle:
-          type: string
+          $ref: '#/components/schemas/GenderTitle'
         firstName:
           type: string
+          maxLength:
         middleName:
           type: string
         initial:
           type: string
         lastName:
           type: string
+    GenderTitle:
+      type: string
+      maxLength: 4
+      enum: ['Mr', 'Mrs', 'Ms']
+      description: >
+        Gender title:
+        * Mr - Mister
+        * Mrs - Misses
+        * Ms - Miss
     Communication:
       type: object
       properties:
@@ -426,6 +454,7 @@ components:
           type: string
     Address:
       type: object
+      required: [address, address2, city, postalZipCode, provinceState, country]
       properties:
         id:
           type: integer
@@ -746,18 +775,26 @@ components:
         id:
           type: integer
           format: int64
-        origineRoute:
-          type: string
-        destinationRoutes:
-          type: array
-          items:
-            $ref: '#/components/schemas/RateDestination'
-    RateDestination:
+        inboundRates:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateRoute'
+        outboundRates:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateRoute'
+    RateRoute:
       type: object
       properties:
         id:
           type: integer
           format: int64
+        origineRoute:
+          type: string
         destinationRoute:
           type: string
         fixedRateUnit:
@@ -795,10 +832,11 @@ components:
                 $ref: '#/components/schemas/Rate'
     SkidRate:
       type: string
-      enum: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+      enum: ['SKID1', 'SKID2', 'SKID3', 'SKID4', 'SKID5', 'SKID6', 'SKID7', 'SKID8', 'SKID9', 'SKID10', 'SKID11',
+             'SKID12', 'SKID13', 'SKID14', 'SKID15']
     WeightRate:
       type: string
-      enum: ['LTL', '500', '1000', '2000', '5000', '10000', '20000', '30000']
+      enum: ['LTL', 'WFT500', 'WFT1K', 'WFT2K', 'WFT5K', 'WFT10K', 'WFT20K', 'WFT30K']
     FixedRate:
       type: string
       enum: ['PAL','FTL','HRS']
@@ -825,6 +863,8 @@ components:
       properties:
         cardholder:
           type: string
+          minLength: 2
+          maxLength: 26
         creditCardNumber:
           type: number
           maxLength: 16
@@ -836,7 +876,11 @@ components:
           maxLength: 3
     BankAccount:
       type: object
+      required: [institution, transit, account, branchName]
       properties:
+        id:
+          type: number
+          format: int64
         branchName:
           type: string
         institution:
@@ -884,10 +928,13 @@ components:
       enum: ['ORGNL', 'POD', 'NO_POD']
       description: >
         Proof of delivery requirement:
-        * 'ORGNL' - Original
+        * 'ORI' - Original
         * 'POD' - Proof of delivery
-        * 'NO_POD' - No proof of delivery required
+        * 'NOP' - No proof of delivery required
     Currency:
       type: string
       enum: ['CAD','USD']
+    PersonalFile:
+      type: object
+
 
