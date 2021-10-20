@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.0.1
 info:
   title: OpenAPI definition
   version: v0.1
@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8080
     description: Generated server url
 paths:
-  /api/v1/autotransport/customer-bff/customers:
+  /api/v1/autotransport/identification/customers:
     get:
       tags:
         - customer-controller
@@ -148,7 +148,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/customer-bff/customers/{id}:
+  /api/v1/autotransport/identification/customers/{id}:
     get:
       tags:
         - customer-controller
@@ -291,23 +291,21 @@ components:
           type: string
           maxLength: 255
         chargeMethod:
-          $ref: '#/components/schemas/ChargeMethodEnum'
+          type: string
+          maxLength: 255
+          enum:
+            - CWT
+            - PU
+            - TIME
+            - FIX
+            - PFR
+            - SQ
         freeUpTo:
           type: number
         price:
           type: number
         maxPrice:
           type: number
-    ChargeMethodEnum:
-      type: string
-      maxLength: 255
-      enum:
-        - CWT
-        - PU
-        - TIME
-        - FIX
-        - PFR
-        - SQ
     Address:
       type: object
       properties:
@@ -352,8 +350,11 @@ components:
         billingId:
           type: integer
           format: int64
-        currency:
-          $ref: '#/components/schemas/CurrencyEnum'
+        currencyType:
+          type: string
+          enum:
+            - CAD
+            - USD
         podRequired:
           type: boolean
         isSameBillAdd:
@@ -376,15 +377,29 @@ components:
         creditApprouvedBy:
           type: string
           maxLength: 255
-        creditVerification:
-          $ref: '#/components/schemas/CreditVerificationEnum'
-        payment:
-          $ref: '#/components/schemas/PaymentEnum'
+        creditVerificationType:
+          type: string
+          maxLength: 5
+          enum:
+            - TBC
+            - API
+        paymentType:
+          type: string
+          maxLength: 5
+          enum:
+            - CHQ
+            - EFT
+            - CC
         viewStatement:
           type: string
           maxLength: 255
         podRequirement:
-          $ref: '#/components/schemas/PodRequirementEnum'
+          type: string
+          maxLength: 5
+          enum:
+            - ORI
+            - POD
+            - NOP
         creditApplication:
           $ref: '#/components/schemas/CreditApplication'
         checkedBy:
@@ -396,25 +411,6 @@ components:
           type: boolean
         diffBillAdd:
           type: boolean
-    CurrencyEnum:
-      type: string
-      enum:
-        - CAD
-        - USD
-    PodRequirementEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - ORI
-        - POD
-        - NOP
-    PaymentEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - CHQ
-        - EFT
-        - CC
     CreditStatus:
       type: string
       maxLength: 10
@@ -424,12 +420,6 @@ components:
         - REF
         - INACT
         - PROS
-    CreditVerificationEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - TBC
-        - API
     Branch:
       type: object
       properties:
@@ -455,6 +445,15 @@ components:
             $ref: '#/components/schemas/Branch'
         saleRep:
           $ref: '#/components/schemas/Enterprise'
+    City:
+      type: object
+      properties:
+        cityId:
+          type: integer
+          format: int64
+        city:
+          type: string
+          maxLength: 255
     Commodity:
       type: object
       properties:
@@ -465,9 +464,22 @@ components:
           type: string
           maxLength: 255
         packaging:
-          $ref: '#/components/schemas/PackagingEnum'
+          type: string
+          maxLength: 5
+          enum:
+            - BOX
+            - LSE
+            - SRK
+            - WRP
         shipmentType:
-          $ref: '#/components/schemas/ShipmentTypeEnum'
+          type: string
+          maxLength: 5
+          enum:
+            - LTR
+            - PCK
+            - PCL
+            - LTL
+            - FTL
         hsCode:
           type: string
           maxLength: 10
@@ -505,7 +517,11 @@ components:
           type: string
           format: date
         freshUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          type: string
+          maxLength: 1
+          enum:
+            - F
+            - C
         freshMin:
           type: integer
           format: int32
@@ -513,7 +529,11 @@ components:
           type: integer
           format: int32
         frozenUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          type: string
+          maxLength: 1
+          enum:
+            - F
+            - C
         frozenMin:
           type: integer
           format: int32
@@ -521,7 +541,11 @@ components:
           type: integer
           format: int32
         heatUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          type: string
+          maxLength: 1
+          enum:
+            - F
+            - C
         heatMin:
           type: integer
           format: int32
@@ -534,29 +558,6 @@ components:
           type: boolean
         freezeProtect:
           type: boolean
-    PackagingEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - BOX
-        - LSE
-        - SRK
-        - WRP
-    ShipmentTypeEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - LTR
-        - PCK
-        - PCL
-        - LTL
-        - FTL
-    TemperatureEnum:
-      type: string
-      maxLength: 1
-      enum:
-        - F
-        - C
     Communication:
       type: object
       properties:
@@ -565,23 +566,23 @@ components:
           format: int64
         telephone:
           type: string
-#          maxLength: 10
+          maxLength: 10
           pattern: '^\d{10}$'
         extension:
           type: string
-#          maxLength: 7
+          maxLength: 7
           pattern: '^\d{0,7}$'
         cell:
           type: string
-#          maxLength: 10
+          maxLength: 10
           pattern: '^\d{10}$'
         tollFree:
           type: string
-#          maxLength: 10
+          maxLength: 10
           pattern: '^\d{10}$'
         fax:
           type: string
-#          maxLength: 10
+          maxLength: 10
           pattern: '^\d{10}$'
         email:
           type: string
@@ -613,6 +614,8 @@ components:
         creditApplicationId:
           type: integer
           format: int64
+        creditStatus:
+
         dateOfReq:
           type: string
           format: date
@@ -659,15 +662,15 @@ components:
           maxLength: 100
         creditCardNumber:
           type: string
-#          maxLength: 16
+          maxLength: 16
           pattern: '^\d{16}$'
         expDate:
           type: string
-#          maxLength: 4
+          maxLength: 4
           pattern: '^\d{4}$'
         cvc:
           type: string
-#          maxLength: 3
+          maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
       type: object
@@ -686,9 +689,11 @@ components:
         telephone:
           type: string
           maxLength: 10
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -717,15 +722,16 @@ components:
           type: integer
           format: int64
         customerStatus:
-          $ref: '#/components/schemas/BusinessStatusEnum'
-        isBusiness:
-          type: boolean
+          type: string
+          enum:
+            - ACTIVE
+            - PROSPECT
+            - INACTIVE
+            - GUEST
         business:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
-        thirdParty:
-          $ref: '#/components/schemas/Enterprise'
         locations:
           type: array
           items:
@@ -738,19 +744,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Person'
-        brokers:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomBroker'
         rating:
-          $ref: '#/components/schemas/PreferredRating'
-    BusinessStatusEnum:
-      type: string
-      enum:
-        - ACTIVE
-        - PROSPECT
-        - INACTIVE
-        - GUEST
+          $ref: '#/components/schemas/Rating'
     Enterprise:
       type: object
       properties:
@@ -774,6 +769,14 @@ components:
           $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
+        brokers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomBroker'
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
     EquipmentType:
       type: object
       maxLength: 30
@@ -844,18 +847,6 @@ components:
         locationId:
           type: integer
           format: int64
-        locationType:
-          $ref: '#/components/schemas/LocationTypeEnum'
-        isPublicLocation:
-          type: boolean
-        isApptRequired:
-          type: boolean
-        apptWindow:
-          type: string
-        apptNumber:
-          type: string
-        isLumperRequired:
-          type: boolean
         locName:
           type: string
           maxLength: 255
@@ -868,69 +859,26 @@ components:
         availability:
           $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
-          $ref: '#/components/schemas/TruckSizeEnum'
-        isDock:
+          type: string
+          maxLength: 5
+          enum:
+            - DCAB
+            - FT30
+            - FT28
+            - FT26
+            - FT24
+            - FT22
+            - FT20
+        public:
           type: boolean
-        isTailgate:
+        business:
           type: boolean
-        isCurbside:
+        dock:
+          type: boolean
+        tailgate:
           type: boolean
         is53Ft:
           type: boolean
-        isAddLaborRequired:
-          type: boolean
-        isInside:
-          type: boolean
-        insideThreshold:
-          type: string
-        insideElevator:
-          type: string
-        isDriverAssist:
-          type: boolean
-        insideStairs:
-          type: string
-        insideFreightElevator:
-          type: string
-        isForkLiftAvail:
-          type: boolean
-        isPaletteJackAvail:
-          type: boolean
-        isOnsiteSleepAvail:
-          type: boolean
-        sleepSection:
-          type: string
-    LocationTypeEnum:
-      type: string
-      enum:
-        - BUS
-        - RES_APP
-        - RES_HOU
-        - OTR_JS
-        - OTR_CC
-        - OTR_OB
-        - OTR_HTL
-        - OTR_SHL
-      description: >
-        Location type signification:
-        * BUS: Business
-        * RES_APT: Residential apartment
-        * RES_HOU: Residential house
-        * OTR_JS: Other - Jobsite
-        * OTR_CC: Other - Convention Center
-        * OTR_OB: Other - Office Building
-        * OTR_HTL:  Other - Hotel
-        * OTR_SHL:  Other - School
-    TruckSizeEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - DCAB
-        - FT30
-        - FT28
-        - FT26
-        - FT24
-        - FT22
-        - FT20
     Margin:
       type: object
       properties:
@@ -996,7 +944,12 @@ components:
           type: integer
           format: int64
         rateType:
-          $ref: '#/components/schemas/RateTypeEnum'
+          type: string
+          maxLength: 5
+          enum:
+            - FX
+            - WT
+            - SK
         rateMeasure:
           type: string
           maxLength: 5
@@ -1006,13 +959,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Vendor'
-    RateTypeEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - FX
-        - WT
-        - SK
     RateSchedule:
       type: object
       properties:
@@ -1037,7 +983,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
-    PreferredRating:
+    Rating:
       type: object
       properties:
         ratingId:
@@ -1054,14 +1000,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccessoryCharge'
+        rateSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateSchedule'
         inboundCity:
           type: array
           items:
-            $ref: '#/components/schemas/RateSchedule'
+            $ref: '#/components/schemas/City'
         outboundCity:
           type: array
           items:
-            $ref: '#/components/schemas/RateSchedule'
+            $ref: '#/components/schemas/City'
     TimeTable:
       type: object
       properties:
@@ -1159,8 +1109,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EquipmentType'
-        reviews:
-            $ref: '#/components/schemas/ReviewsRatingEnum'
+        rating:
+          type: string
+          maxLength: 10
+          enum:
+            - UNRATED
+            - PREFERRED
+            - EXCELLENT
+            - GOOD
+            - POOR
+            - NOT_RECOMMENDED
+            - DO_NOT_USE
+            - BLANK
+            - PROBATIONNARY
         fuelSurcharge:
           type: number
         contractOnFile:
@@ -1199,16 +1160,3 @@ components:
           $ref: '#/components/schemas/InsuranceDetails'
         cargoInsuranceDetails:
           $ref: '#/components/schemas/InsuranceDetails'
-    ReviewsRatingEnum:
-      type: string
-      maxLength: 10
-      enum:
-        - UNRATED
-        - PREFERRED
-        - EXCELLENT
-        - GOOD
-        - POOR
-        - NOT_RECOMMENDED
-        - DO_NOT_USE
-        - BLANK
-        - PROBATIONNARY
