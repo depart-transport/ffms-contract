@@ -565,24 +565,24 @@ components:
           format: int64
         telephone:
           type: string
-#          maxLength: 10
-          pattern: '^\d{10}$'
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         extension:
           type: string
-#          maxLength: 7
+          maxLength: 7
           pattern: '^\d{0,7}$'
         cell:
           type: string
-#          maxLength: 10
-          pattern: '^\d{10}$'
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         tollFree:
           type: string
-#          maxLength: 10
-          pattern: '^\d{10}$'
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         fax:
           type: string
-#          maxLength: 10
-          pattern: '^\d{10}$'
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         email:
           type: string
           maxLength: 255
@@ -659,15 +659,15 @@ components:
           maxLength: 100
         creditCardNumber:
           type: string
-#          maxLength: 16
-          pattern: '^\d{16}$'
+          maxLength: 19
+          pattern: '^\d{4} \d{4} \d{4} \d{4}$'
         expDate:
           type: string
-#          maxLength: 4
-          pattern: '^\d{4}$'
+          maxLength: 5
+          pattern: '^\d{2}\/\d{2}$'
         cvc:
           type: string
-#          maxLength: 3
+          maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
       type: object
@@ -685,10 +685,12 @@ components:
           maxLength: 255
         telephone:
           type: string
-          maxLength: 10
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         fax:
           type: string
-          maxLength: 10
+          maxLength: 14
+          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
         email:
           type: string
           maxLength: 255
