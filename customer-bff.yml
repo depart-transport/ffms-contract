@@ -326,6 +326,8 @@ components:
           type: string
         country:
           type: string
+          maxLength: 3
+          pattern: '^[A-Z]{3}$'
     BankAccount:
       type: object
       properties:
@@ -566,7 +568,7 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         extension:
           type: string
           maxLength: 7
@@ -574,15 +576,15 @@ components:
         cell:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         tollFree:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         email:
           type: string
           maxLength: 255
@@ -686,11 +688,11 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^\\(d{3}\) \d{3}-\d(4)$'
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         email:
           type: string
           maxLength: 255
@@ -703,6 +705,7 @@ components:
         country:
           type: string
           maxLength: 3
+          pattern: '^[A-Z]{3}$'
         brokerName:
           $ref: '#/components/schemas/Enterprise'
         accountNumber:
