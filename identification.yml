@@ -912,9 +912,6 @@ components:
         lastName:
           type: string
           maxLength: 100
-        position:
-          type: string
-          maxLength: 50
         address:
           $ref: '#/components/schemas/Address'
         commInfo:
