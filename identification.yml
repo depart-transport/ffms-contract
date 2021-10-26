@@ -324,6 +324,8 @@ components:
           type: string
         country:
           type: string
+          maxLength: 3
+          pattern: '^[A-Z]{3}$'
     BankAccount:
       type: object
       properties:
@@ -334,10 +336,13 @@ components:
           type: string
         institution:
           type: string
+          maxLength: 9
         transit:
           type: string
+          maxLength: 9
         account:
           type: string
+          maxLength: 17
         address:
           $ref: '#/components/schemas/Address'
         comm:
@@ -358,6 +363,8 @@ components:
         podRequired:
           type: boolean
         isSameBillAdd:
+          type: boolean
+        payableCreditCard:
           type: boolean
         creditCard:
           $ref: '#/components/schemas/CreditCard'
@@ -405,8 +412,6 @@ components:
         checkedBy:
           type: string
           maxLength: 255
-        payableCreditCard:
-          type: boolean
         payableInvoice:
           type: boolean
         diffBillAdd:
@@ -453,7 +458,7 @@ components:
           format: int64
         city:
           type: string
-          maxLength: 255
+          maxLength: 85
     Commodity:
       type: object
       properties:
@@ -507,6 +512,7 @@ components:
         emergencyTel:
           type: string
           maxLength: 10
+          pattern: '^\d{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -614,8 +620,6 @@ components:
         creditApplicationId:
           type: integer
           format: int64
-        creditStatus:
-
         dateOfReq:
           type: string
           format: date
@@ -706,6 +710,7 @@ components:
         country:
           type: string
           maxLength: 3
+          pattern: '^[A-Z]{3}$'
         brokerName:
           $ref: '#/components/schemas/Enterprise'
         accountNumber:
@@ -732,6 +737,8 @@ components:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
+        thirdParty:
+          $ref: '#/components/schemas/Enterprise'
         locations:
           type: array
           items:
@@ -743,7 +750,11 @@ components:
         contacts:
           type: array
           items:
-            $ref: '#/components/schemas/Person'
+            $ref: '#/components/schemas/Contact'
+        brokers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomBroker'
         rating:
           $ref: '#/components/schemas/Rating'
     Enterprise:
@@ -769,14 +780,6 @@ components:
           $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
-        brokers:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomBroker'
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
     EquipmentType:
       type: object
       maxLength: 30
@@ -847,6 +850,18 @@ components:
         locationId:
           type: integer
           format: int64
+        locationType:
+          $ref: '#/components/schemas/LocationTypeEnum'
+        isPublicLocation:
+          type: boolean
+        isApptRequired:
+          type: boolean
+        apptWindow:
+          type: string
+        apptNumber:
+          type: string
+        isLumperRequired:
+          type: boolean
         locName:
           type: string
           maxLength: 255
@@ -859,26 +874,69 @@ components:
         availability:
           $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
-          type: string
-          maxLength: 5
-          enum:
-            - DCAB
-            - FT30
-            - FT28
-            - FT26
-            - FT24
-            - FT22
-            - FT20
-        public:
+          $ref: '#/components/schemas/TruckSizeEnum'
+        isDock:
           type: boolean
-        business:
+        isTailgate:
           type: boolean
-        dock:
-          type: boolean
-        tailgate:
+        isCurbside:
           type: boolean
         is53Ft:
           type: boolean
+        isAddLaborRequired:
+          type: boolean
+        isInside:
+          type: boolean
+        insideThresholdClear:
+          type: string
+        insideElevatorClear:
+          type: string
+        isDriverAssist:
+          type: boolean
+        insideStairsClear:
+          type: string
+        insideFreightElevatorClear:
+          type: string
+        isForkLiftAvail:
+          type: boolean
+        isPaletteJackAvail:
+          type: boolean
+        isOnsiteSleepAvail:
+          type: boolean
+        sleepSectionDesc:
+          type: string
+    LocationTypeEnum:
+      type: string
+      enum:
+        - BUS
+        - RES_APP
+        - RES_HOU
+        - OTR_JS
+        - OTR_CC
+        - OTR_OB
+        - OTR_HTL
+        - OTR_SHL
+      description: >
+        Location type signification:
+        * BUS: Business
+        * RES_APT: Residential apartment
+        * RES_HOU: Residential house
+        * OTR_JS: Other - Jobsite
+        * OTR_CC: Other - Convention Center
+        * OTR_OB: Other - Office Building
+        * OTR_HTL:  Other - Hotel
+        * OTR_SHL:  Other - School
+    TruckSizeEnum:
+      type: string
+      maxLength: 5
+      enum:
+        - DCAB
+        - FT30
+        - FT28
+        - FT26
+        - FT24
+        - FT22
+        - FT20
     Margin:
       type: object
       properties:
@@ -886,14 +944,11 @@ components:
           type: integer
           format: int64
         lowerBound:
-          type: integer
-          format: int32
+          type: number
         upperBound:
-          type: integer
-          format: int32
+          type: number
         price:
-          type: integer
-          format: int32
+          type: number
     Person:
       type: object
       properties:
@@ -963,11 +1018,9 @@ components:
           type: integer
           format: int64
         origine:
-          type: string
-          maxLength: 85
+          $ref: '#/components/schemas/City'
         destination:
-          type: string
-          maxLength: 85
+          $ref: '#/components/schemas/City'
         fixedRates:
           type: array
           items:
@@ -991,8 +1044,7 @@ components:
           items:
             $ref: '#/components/schemas/Margin'
         minMargin:
-          type: integer
-          format: int32
+          type: number
         additionalFees:
           type: array
           items:
@@ -1060,100 +1112,100 @@ components:
         accountNumber:
           type: string
           maxLength: 10
-        federalIdNumber:
-          type: string
-          maxLength: 10
-        flag1099Required:
-          type: boolean
-        vendorType:
-          type: string
-          maxLength: 30
-          enum:
-            - CARR_US_AUTH
-            - CARR_CAN
-            - CARR_MEX
-            - CARR_COMM
-            - CARR_INTMOD
-            - CARR_LCL_CART
-            - CARR_AIR_FRGT
-            - CARR_OCEAN_FRGT
-            - OWNER_OPERATOR_US
-            - OWNER_OPERATOR_CANADIAN
-            - OWNER_OPERATOR_LOCAL
-            - CUSTOMS_BRKR
-            - FRGT_BRKR
-            - FRGT_FORWARDER
-            - VDR_BANK
-            - VDR_CONTRACT_LABOUR
-            - VDR_CRANE
-            - VDR_CRATING
-            - VDR_DESTUFFING
-            - VDR_INSURANCE
-            - VDR_EQUIPMENT
-            - VDR_FUEL
-            - VDR_FUEL_TAX
-            - VDR_GOVERNMENT_SERVICES
-            - VDR_MAINTENANCE
-            - VDR_PILOT_CAR
-            - VDR_PORT_FACILITY
-            - VDR_TIRE
-            - VDR_TOWING
-            - VDR_TRAILER_RENTALS
-            - VDR_TRUCK_RENTALS
-            - VDR_WAREHOUSING
-            - VDR_OTHER
-        equipmentTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/EquipmentType'
-        rating:
-          type: string
-          maxLength: 10
-          enum:
-            - UNRATED
-            - PREFERRED
-            - EXCELLENT
-            - GOOD
-            - POOR
-            - NOT_RECOMMENDED
-            - DO_NOT_USE
-            - BLANK
-            - PROBATIONNARY
-        fuelSurcharge:
-          type: number
-        contractOnFile:
-          type: boolean
-        docketNumber:
-          type: string
-          maxLength: 10
-        dotNumber:
-          type: string
-          maxLength: 10
-        wcbNumber:
-          type: string
-          maxLength: 10
-        usBondNumber:
-          type: string
-          maxLength: 10
-        scac:
-          type: string
-          maxLength: 10
-        hazmat:
-          type: boolean
-        smc3TarriffCode:
-          type: string
-          maxLength: 10
-        vendorApprovedFlag:
-          type: boolean
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-        Locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
-        liabilityInsuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
-        cargoInsuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
+#        federalIdNumber:
+#          type: string
+#          maxLength: 10
+#        flag1099Required:
+#          type: boolean
+#        vendorType:
+#          type: string
+#          maxLength: 30
+#          enum:
+#            - CARR_US_AUTH
+#            - CARR_CAN
+#            - CARR_MEX
+#            - CARR_COMM
+#            - CARR_INTMOD
+#            - CARR_LCL_CART
+#            - CARR_AIR_FRGT
+#            - CARR_OCEAN_FRGT
+#            - OWNER_OPERATOR_US
+#            - OWNER_OPERATOR_CANADIAN
+#            - OWNER_OPERATOR_LOCAL
+#            - CUSTOMS_BRKR
+#            - FRGT_BRKR
+#            - FRGT_FORWARDER
+#            - VDR_BANK
+#            - VDR_CONTRACT_LABOUR
+#            - VDR_CRANE
+#            - VDR_CRATING
+#            - VDR_DESTUFFING
+#            - VDR_INSURANCE
+#            - VDR_EQUIPMENT
+#            - VDR_FUEL
+#            - VDR_FUEL_TAX
+#            - VDR_GOVERNMENT_SERVICES
+#            - VDR_MAINTENANCE
+#            - VDR_PILOT_CAR
+#            - VDR_PORT_FACILITY
+#            - VDR_TIRE
+#            - VDR_TOWING
+#            - VDR_TRAILER_RENTALS
+#            - VDR_TRUCK_RENTALS
+#            - VDR_WAREHOUSING
+#            - VDR_OTHER
+#        equipmentTypes:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/EquipmentType'
+#        rating:
+#          type: string
+#          maxLength: 10
+#          enum:
+#            - UNRATED
+#            - PREFERRED
+#            - EXCELLENT
+#            - GOOD
+#            - POOR
+#            - NOT_RECOMMENDED
+#            - DO_NOT_USE
+#            - BLANK
+#            - PROBATIONNARY
+#        fuelSurcharge:
+#          type: number
+#        contractOnFile:
+#          type: boolean
+#        docketNumber:
+#          type: string
+#          maxLength: 10
+#        dotNumber:
+#          type: string
+#          maxLength: 10
+#        wcbNumber:
+#          type: string
+#          maxLength: 10
+#        usBondNumber:
+#          type: string
+#          maxLength: 10
+#        scac:
+#          type: string
+#          maxLength: 10
+#        hazmat:
+#          type: boolean
+#        smc3TarriffCode:
+#          type: string
+#          maxLength: 10
+#        vendorApprovedFlag:
+#          type: boolean
+#        contacts:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/Contact'
+#        Locations:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/Location'
+#        liabilityInsuranceDetails:
+#          $ref: '#/components/schemas/InsuranceDetails'
+#        cargoInsuranceDetails:
+#          $ref: '#/components/schemas/InsuranceDetails'

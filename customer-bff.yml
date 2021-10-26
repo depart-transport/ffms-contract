@@ -338,10 +338,13 @@ components:
           type: string
         institution:
           type: string
+          maxLength: 9
         transit:
           type: string
+          maxLength: 9
         account:
           type: string
+          maxLength: 17
         address:
           $ref: '#/components/schemas/Address'
         comm:
@@ -496,7 +499,8 @@ components:
           format: int32
         emergencyTel:
           type: string
-          maxLength: 10
+          maxLength: 14
+          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -742,7 +746,7 @@ components:
         contacts:
           type: array
           items:
-            $ref: '#/components/schemas/Person'
+            $ref: '#/components/schemas/Contact'
         brokers:
           type: array
           items:
@@ -886,15 +890,15 @@ components:
           type: boolean
         isInside:
           type: boolean
-        insideThreshold:
+        insideThresholdClear:
           type: string
-        insideElevator:
+        insideElevatorClear:
           type: string
         isDriverAssist:
           type: boolean
-        insideStairs:
+        insideStairsClear:
           type: string
-        insideFreightElevator:
+        insideFreightElevatorClear:
           type: string
         isForkLiftAvail:
           type: boolean
@@ -902,7 +906,7 @@ components:
           type: boolean
         isOnsiteSleepAvail:
           type: boolean
-        sleepSection:
+        sleepSectionDesc:
           type: string
     LocationTypeEnum:
       type: string
@@ -943,14 +947,11 @@ components:
           type: integer
           format: int64
         lowerBound:
-          type: integer
-          format: int32
+          type: number
         upperBound:
-          type: integer
-          format: int32
+          type: number
         price:
-          type: integer
-          format: int32
+          type: number
     Person:
       type: object
       properties:
@@ -1022,11 +1023,9 @@ components:
           type: integer
           format: int64
         origine:
-          type: string
-          maxLength: 85
+          $ref: '#/components/schemas/City'
         destination:
-          type: string
-          maxLength: 85
+          $ref: '#/components/schemas/City'
         fixedRates:
           type: array
           items:
@@ -1050,8 +1049,7 @@ components:
           items:
             $ref: '#/components/schemas/Margin'
         minMargin:
-          type: integer
-          format: int32
+          type: number
         additionalFees:
           type: array
           items:
@@ -1059,11 +1057,11 @@ components:
         inboundCity:
           type: array
           items:
-            $ref: '#/components/schemas/RateSchedule'
+            $ref: '#/components/schemas/CitiesRateSchedules'
         outboundCity:
           type: array
           items:
-            $ref: '#/components/schemas/RateSchedule'
+            $ref: '#/components/schemas/CitiesRateSchedules'
     TimeTable:
       type: object
       properties:
@@ -1214,3 +1212,21 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
+    City:
+      type: object
+      properties:
+        cityId:
+          type: integer
+          format: int64
+        city:
+          type: string
+          maxLength: 85
+    CitiesRateSchedules:
+      type: object
+      properties:
+        city:
+          $ref: '#/components/schemas/City'
+        rateSchedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateSchedule'
