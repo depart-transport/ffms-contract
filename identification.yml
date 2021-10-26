@@ -381,7 +381,7 @@ components:
           format: int32
         creditStatus:
           $ref: '#/components/schemas/CreditStatus'
-        creditApprouvedBy:
+        creditApprovedBy:
           type: string
           maxLength: 255
         creditVerificationType:
@@ -413,8 +413,6 @@ components:
           type: string
           maxLength: 255
         payableInvoice:
-          type: boolean
-        diffBillAdd:
           type: boolean
     CreditStatus:
       type: string
