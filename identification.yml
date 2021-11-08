@@ -484,8 +484,9 @@ components:
             - LTL
             - FTL
         hsCode:
-          type: string
-          maxLength: 10
+          type: integer
+          format: int64
+          minimum: 999999999999
         length:
           type: integer
           format: int32
@@ -501,12 +502,16 @@ components:
         nmfc:
           type: integer
           format: int32
+          maximum: 999999
         freightClass:
           type: integer
           format: int32
+          maximum: 999
         freightSubClass:
           type: integer
           format: int32
+          minimum: 0
+          maximum: 9
         emergencyTel:
           type: string
           maxLength: 10
@@ -651,8 +656,9 @@ components:
           type: string
           maxLength: 50
         usaTaxInfo:
-          type: string
-          maxLength: 255
+          type: integer
+          format: int64
+          maximum: 999999999
     CreditCard:
       type: object
       properties:
@@ -712,8 +718,9 @@ components:
         brokerName:
           $ref: '#/components/schemas/Enterprise'
         accountNumber:
-          type: string
-          maxLength: 50
+          type: integer
+          format: int64
+          maximum: 999999999999
         primaryContact:
           $ref: '#/components/schemas/Contact'
         alternateContact:
@@ -763,13 +770,13 @@ components:
           format: int64
         legalName:
           type: string
-          maxLength: 200
+          maxLength: 50
         commonName:
           type: string
-          maxLength: 100
+          maxLength: 50
         remitName:
           type: string
-          maxLength: 100
+          maxLength: 50
         owner:
           $ref: '#/components/schemas/Person'
         address:
@@ -832,10 +839,10 @@ components:
           maxLength: 10
         provider:
           type: string
-          maxLength: 10
+          maxLength: 50
         policyNumber:
           type: string
-          maxLength: 10
+          maxLength: 20
         start:
           type: string
           format: date

@@ -1113,92 +1113,92 @@ components:
         accountNumber:
           type: string
           maxLength: 10
-        federalIdNumber:
-          type: string
-          maxLength: 10
-        flag1099Required:
-          type: boolean
-        vendorType:
-          type: string
-          maxLength: 30
-          enum:
-            - CARR_US_AUTH
-            - CARR_CAN
-            - CARR_MEX
-            - CARR_COMM
-            - CARR_INTMOD
-            - CARR_LCL_CART
-            - CARR_AIR_FRGT
-            - CARR_OCEAN_FRGT
-            - OWNER_OPERATOR_US
-            - OWNER_OPERATOR_CANADIAN
-            - OWNER_OPERATOR_LOCAL
-            - CUSTOMS_BRKR
-            - FRGT_BRKR
-            - FRGT_FORWARDER
-            - VDR_BANK
-            - VDR_CONTRACT_LABOUR
-            - VDR_CRANE
-            - VDR_CRATING
-            - VDR_DESTUFFING
-            - VDR_INSURANCE
-            - VDR_EQUIPMENT
-            - VDR_FUEL
-            - VDR_FUEL_TAX
-            - VDR_GOVERNMENT_SERVICES
-            - VDR_MAINTENANCE
-            - VDR_PILOT_CAR
-            - VDR_PORT_FACILITY
-            - VDR_TIRE
-            - VDR_TOWING
-            - VDR_TRAILER_RENTALS
-            - VDR_TRUCK_RENTALS
-            - VDR_WAREHOUSING
-            - VDR_OTHER
-        equipmentTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/EquipmentType'
-        reviews:
-            $ref: '#/components/schemas/ReviewsRatingEnum'
-        fuelSurcharge:
-          type: number
-        contractOnFile:
-          type: boolean
-        docketNumber:
-          type: string
-          maxLength: 10
-        dotNumber:
-          type: string
-          maxLength: 10
-        wcbNumber:
-          type: string
-          maxLength: 10
-        usBondNumber:
-          type: string
-          maxLength: 10
-        scac:
-          type: string
-          maxLength: 10
-        hazmat:
-          type: boolean
-        smc3TarriffCode:
-          type: string
-          maxLength: 10
-        vendorApprovedFlag:
-          type: boolean
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
-        Locations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
-        liabilityInsuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
-        cargoInsuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
+#        federalIdNumber:
+#          type: string
+#          maxLength: 10
+#        flag1099Required:
+#          type: boolean
+#        vendorType:
+#          type: string
+#          maxLength: 30
+#          enum:
+#            - CARR_US_AUTH
+#            - CARR_CAN
+#            - CARR_MEX
+#            - CARR_COMM
+#            - CARR_INTMOD
+#            - CARR_LCL_CART
+#            - CARR_AIR_FRGT
+#            - CARR_OCEAN_FRGT
+#            - OWNER_OPERATOR_US
+#            - OWNER_OPERATOR_CANADIAN
+#            - OWNER_OPERATOR_LOCAL
+#            - CUSTOMS_BRKR
+#            - FRGT_BRKR
+#            - FRGT_FORWARDER
+#            - VDR_BANK
+#            - VDR_CONTRACT_LABOUR
+#            - VDR_CRANE
+#            - VDR_CRATING
+#            - VDR_DESTUFFING
+#            - VDR_INSURANCE
+#            - VDR_EQUIPMENT
+#            - VDR_FUEL
+#            - VDR_FUEL_TAX
+#            - VDR_GOVERNMENT_SERVICES
+#            - VDR_MAINTENANCE
+#            - VDR_PILOT_CAR
+#            - VDR_PORT_FACILITY
+#            - VDR_TIRE
+#            - VDR_TOWING
+#            - VDR_TRAILER_RENTALS
+#            - VDR_TRUCK_RENTALS
+#            - VDR_WAREHOUSING
+#            - VDR_OTHER
+#        equipmentTypes:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/EquipmentType'
+#        reviews:
+#            $ref: '#/components/schemas/ReviewsRatingEnum'
+#        fuelSurcharge:
+#          type: number
+#        contractOnFile:
+#          type: boolean
+#        docketNumber:
+#          type: string
+#          maxLength: 10
+#        dotNumber:
+#          type: string
+#          maxLength: 10
+#        wcbNumber:
+#          type: string
+#          maxLength: 10
+#        usBondNumber:
+#          type: string
+#          maxLength: 10
+#        scac:
+#          type: string
+#          maxLength: 10
+#        hazmat:
+#          type: boolean
+#        smc3TarriffCode:
+#          type: string
+#          maxLength: 10
+#        vendorApprovedFlag:
+#          type: boolean
+#        contacts:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/Contact'
+#        Locations:
+#          type: array
+#          items:
+#            $ref: '#/components/schemas/Location'
+#        liabilityInsuranceDetails:
+#          $ref: '#/components/schemas/InsuranceDetails'
+#        cargoInsuranceDetails:
+#          $ref: '#/components/schemas/InsuranceDetails'
     ReviewsRatingEnum:
       type: string
       maxLength: 10
