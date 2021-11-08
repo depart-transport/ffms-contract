@@ -474,6 +474,7 @@ components:
         hsCode:
           type: string
           maxLength: 10
+          pattern: '^\d{10}'
         length:
           type: integer
           format: int32
@@ -487,14 +488,17 @@ components:
           type: integer
           format: int32
         nmfc:
-          type: integer
-          format: int32
+          type: string
+          maxLength: 6
+          pattern: '^\d{6}'
         freightClass:
-          type: integer
-          format: int32
+          type: string
+          maxLength: 3
+          pattern: '^\d{3}'
         freightSubClass:
-          type: integer
-          format: int32
+          type: string
+          maxLength: 1
+          pattern: '^\d{1}'
         emergencyTel:
           type: string
           maxLength: 14
@@ -651,7 +655,8 @@ components:
           maxLength: 50
         usaTaxInfo:
           type: string
-          maxLength: 255
+          maxLength: 10
+          pattern: '^\d{2}-\d{7}'
     CreditCard:
       type: object
       properties:
@@ -712,7 +717,8 @@ components:
           $ref: '#/components/schemas/Enterprise'
         accountNumber:
           type: string
-          maxLength: 50
+          maxLength: 12
+          pattern: '^\d{12}'
         primaryContact:
           $ref: '#/components/schemas/Contact'
         alternateContact:
@@ -766,13 +772,13 @@ components:
           format: int64
         legalName:
           type: string
-          maxLength: 200
+          maxLength: 50
         commonName:
           type: string
-          maxLength: 100
+          maxLength: 50
         remitName:
           type: string
-          maxLength: 100
+          maxLength: 50
         owner:
           $ref: '#/components/schemas/Person'
         address:
@@ -835,10 +841,10 @@ components:
           maxLength: 10
         provider:
           type: string
-          maxLength: 10
+          maxLength: 50
         policyNumber:
           type: string
-          maxLength: 10
+          maxLength: 20
         start:
           type: string
           format: date
@@ -968,10 +974,6 @@ components:
         lastName:
           type: string
           maxLength: 100
-        address:
-          $ref: '#/components/schemas/Address'
-        commInfo:
-          $ref: '#/components/schemas/Communication'
     Personal:
       type: object
       properties:

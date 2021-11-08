@@ -965,10 +965,6 @@ components:
         lastName:
           type: string
           maxLength: 100
-        address:
-          $ref: '#/components/schemas/Address'
-        commInfo:
-          $ref: '#/components/schemas/Communication'
     Personal:
       type: object
       properties:
