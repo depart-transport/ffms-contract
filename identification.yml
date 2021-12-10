@@ -291,22 +291,25 @@ components:
           type: string
           maxLength: 255
         chargeMethod:
-          type: string
-          maxLength: 255
-          enum:
-            - CWT
-            - PU
-            - TIME
-            - FIX
-            - PFR
-            - SQ
+          $ref: '#/components/schemas/ChargeMethod'
         freeUpTo:
           type: number
         price:
           type: number
         maxPrice:
           type: number
+    ChargeMethod:
+      type: string
+      enum:
+        - CWT
+        - PU
+        - TIME
+        - FIX
+        - PFR
+        - SQ
+
     Address:
+      required: [add, city, postalZipCode, provinceState, country]
       type: object
       properties:
         addId:
@@ -327,6 +330,7 @@ components:
           maxLength: 3
           pattern: '^[A-Z]{3}$'
     BankAccount:
+      required: [branchName, institution, transit, account, address, comm, contact]
       type: object
       properties:
         bankAccountId:
@@ -350,6 +354,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Billing:
+      required: [currencyType, podRequirement, paymentType, isSameBillAdd, payableCreditCard]
       type: object
       properties:
         billingId:
@@ -385,28 +390,14 @@ components:
           type: string
           maxLength: 255
         creditVerificationType:
-          type: string
-          maxLength: 5
-          enum:
-            - TBC
-            - API
+          $ref: '#/components/schemas/CreditVerification'
         paymentType:
-          type: string
-          maxLength: 5
-          enum:
-            - CHQ
-            - EFT
-            - CC
+          $ref: '#/components/schemas/Payment'
         viewStatement:
           type: string
           maxLength: 255
         podRequirement:
-          type: string
-          maxLength: 5
-          enum:
-            - ORI
-            - POD
-            - NOP
+          $ref: '#/components/schemas/PodRequirement'
         creditApplication:
           $ref: '#/components/schemas/CreditApplication'
         checkedBy:
@@ -416,14 +407,32 @@ components:
           type: boolean
     CreditStatus:
       type: string
-      maxLength: 10
       enum:
         - APPD
         - PEND
         - REF
         - INACT
         - PROS
+    CreditVerification:
+      type: string
+      enum:
+        - TBC
+        - API
+    Payment:
+      type: string
+      enum:
+        - CHQ
+        - EFT
+        - CC
+    PodRequirement:
+      type: string
+      enum:
+        - ORI
+        - POD
+        - NOP
+
     Branch:
+      required: [branchName, enterprise]
       type: object
       properties:
         branchId:
@@ -448,6 +457,8 @@ components:
             $ref: '#/components/schemas/Branch'
         saleRep:
           $ref: '#/components/schemas/Enterprise'
+      required:
+        - enterprise
     City:
       type: object
       properties:
@@ -467,22 +478,9 @@ components:
           type: string
           maxLength: 255
         packaging:
-          type: string
-          maxLength: 5
-          enum:
-            - BOX
-            - LSE
-            - SRK
-            - WRP
+          $ref: '#/components/schemas/Packaging'
         shipmentType:
-          type: string
-          maxLength: 5
-          enum:
-            - LTR
-            - PCK
-            - PCL
-            - LTL
-            - FTL
+          $ref: '#/components/schemas/ShipmentType'
         hsCode:
           type: integer
           format: int64
@@ -526,11 +524,7 @@ components:
           type: string
           format: date
         freshUnit:
-          type: string
-          maxLength: 1
-          enum:
-            - F
-            - C
+          $ref: '#/components/schemas/TemperatureUnit'
         freshMin:
           type: integer
           format: int32
@@ -538,11 +532,7 @@ components:
           type: integer
           format: int32
         frozenUnit:
-          type: string
-          maxLength: 1
-          enum:
-            - F
-            - C
+          $ref: '#/components/schemas/TemperatureUnit'
         frozenMin:
           type: integer
           format: int32
@@ -550,11 +540,7 @@ components:
           type: integer
           format: int32
         heatUnit:
-          type: string
-          maxLength: 1
-          enum:
-            - F
-            - C
+          $ref: '#/components/schemas/TemperatureUnit'
         heatMin:
           type: integer
           format: int32
@@ -567,7 +553,29 @@ components:
           type: boolean
         freezeProtect:
           type: boolean
+    Packaging:
+      type: string
+      enum:
+        - BOX
+        - LSE
+        - SRK
+        - WRP
+    ShipmentType:
+      type: string
+      enum:
+        - LTR
+        - PCK
+        - PCL
+        - LTL
+        - FTL
+    TemperatureUnit:
+      type: string
+      enum:
+        - F
+        - C
+
     Communication:
+      required: [telephone]
       type: object
       properties:
         commId:
@@ -600,6 +608,7 @@ components:
           type: string
           maxLength: 255
     Contact:
+      required: [contact, contactComm]
       type: object
       properties:
         contactId:
@@ -618,11 +627,14 @@ components:
           type: string
           maxLength: 255
     CreditApplication:
+      required: [enterprise, enterpriseType, bankInfo ]
       type: object
       properties:
         creditApplicationId:
           type: integer
           format: int64
+        enterpriseType:
+          $ref: '#/components/schemas/EnterpriseTypeEnum'
         dateOfReq:
           type: string
           format: date
@@ -660,6 +672,7 @@ components:
           format: int64
           maximum: 999999999
     CreditCard:
+      required: [cardholder, creditCardNumber, expDate, cvc]
       type: object
       properties:
         ccId:
@@ -706,6 +719,7 @@ components:
           type: string
           maxLength: 255
     CustomBroker:
+      required: [country, brokerName, accountNumber, primaryContact, alternateContact]
       type: object
       properties:
         customBrokerId:
@@ -732,12 +746,7 @@ components:
           type: integer
           format: int64
         customerStatus:
-          type: string
-          enum:
-            - ACTIVE
-            - PROSPECT
-            - INACTIVE
-            - GUEST
+          $ref: '#/components/schemas/CustomerStatus'
         business:
           $ref: '#/components/schemas/Business'
         personal:
@@ -762,7 +771,15 @@ components:
             $ref: '#/components/schemas/CustomBroker'
         rating:
           $ref: '#/components/schemas/Rating'
+    CustomerStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - PROSPECT
+        - INACTIVE
+        - GUEST
     Enterprise:
+      required: [legalName, commInfo, address, commInfo]
       type: object
       properties:
         enterpriseId:
@@ -793,41 +810,43 @@ components:
           type: integer
           format: int64
         equipmentType:
-          type: string
-          enum:
-            - AIR_FREIGHT
-            - CONTAINER
-            - CRATING
-            - CROSS_DOCK
-            - DOUBLEDROP
-            - DRAYAGE
-            - DRY_VAN
-            - FLAT_DECK
-            - FLATBED
-            - INTERMODAL
-            - INTERMODAL_CONTAINER_CHASSIS
-            - LABOR_SERVICES
-            - LESS_THAN_TRUCK_LOAD
-            - LIFTGATE_MOFFET
-            - LOCAL_CARTAGE
-            - LOWBED
-            - OCEAN
-            - PORT_FACILITU
-            - POWER_ONLY
-            - RACK_N_TARP
-            - RAIL
-            - REEFER
-            - ROLL_TITE
-            - SPRINTER
-            - STEP_DECK
-            - STORAGE
-            - STRAIGHT_TRUCK_W_LIFTGATE
-            - STRAIGHT_TRUCKS
-            - SUPPLIES
-            - TRACTOR_SERVICE
-            - TRUCK_LOAD
-            - VAN
-            - WAREHOUSE
+          $ref: '#/components/schemas/Equipment'
+    Equipment:
+      type: string
+      enum:
+        - AIR_FREIGHT
+        - CONTAINER
+        - CRATING
+        - CROSS_DOCK
+        - DOUBLEDROP
+        - DRAYAGE
+        - DRY_VAN
+        - FLAT_DECK
+        - FLATBED
+        - INTERMODAL
+        - INTERMODAL_CONTAINER_CHASSIS
+        - LABOR_SERVICES
+        - LESS_THAN_TRUCK_LOAD
+        - LIFTGATE_MOFFET
+        - LOCAL_CARTAGE
+        - LOWBED
+        - OCEAN
+        - PORT_FACILITU
+        - POWER_ONLY
+        - RACK_N_TARP
+        - RAIL
+        - REEFER
+        - ROLL_TITE
+        - SPRINTER
+        - STEP_DECK
+        - STORAGE
+        - STRAIGHT_TRUCK_W_LIFTGATE
+        - STRAIGHT_TRUCKS
+        - SUPPLIES
+        - TRACTOR_SERVICE
+        - TRUCK_LOAD
+        - VAN
+        - WAREHOUSE
     InsuranceDetails:
       type: object
       properties:
@@ -850,6 +869,8 @@ components:
           type: string
           format: date
     Location:
+      required: [locationType, isPublicLocation, isApptRequired, isLumperRequired, locName, locComm, locAdd, locContact,
+                 availability, is53Ft,locAdd, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired]
       type: object
       properties:
         locationId:
@@ -861,8 +882,10 @@ components:
           type: boolean
         isApptRequired:
           type: boolean
-        apptWindow:
-          type: string
+        apptWindowBeg:
+          type: Time
+        apptWindowEnd:
+          type: Time
         apptNumber:
           type: string
         isLumperRequired:
@@ -933,7 +956,6 @@ components:
         * OTR_SHL:  Other - School
     TruckSizeEnum:
       type: string
-      maxLength: 5
       enum:
         - DCAB
         - FT30
@@ -978,18 +1000,8 @@ components:
         personalId:
           type: integer
           format: int64
-        personIdentity:
-          $ref: '#/components/schemas/Person'
-        address:
-          $ref: '#/components/schemas/Address'
-        commInfo:
-          $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
-        brokers:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomBroker'
     Rate:
       type: object
       properties:
@@ -997,12 +1009,7 @@ components:
           type: integer
           format: int64
         rateType:
-          type: string
-          maxLength: 5
-          enum:
-            - FX
-            - WT
-            - SK
+          $ref: '#/components/schemas/RateType'
         rateMeasure:
           type: string
           maxLength: 5
@@ -1012,6 +1019,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Vendor'
+    RateType:
+      type: string
+      enum:
+        - FX
+        - WT
+        - SK
+
     RateSchedule:
       type: object
       properties:
@@ -1113,6 +1127,12 @@ components:
         accountNumber:
           type: string
           maxLength: 10
+    EnterpriseTypeEnum:
+      type: string
+      enum:
+        - COR
+        - ASS
+        - OTH
 #        federalIdNumber:
 #          type: string
 #          maxLength: 10

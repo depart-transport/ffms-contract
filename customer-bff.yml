@@ -300,7 +300,6 @@ components:
           type: number
     ChargeMethodEnum:
       type: string
-      maxLength: 255
       enum:
         - CWT
         - PU
@@ -309,6 +308,7 @@ components:
         - PFR
         - SQ
     Address:
+      required: [add, city, postalZipCode, provinceState, country]
       type: object
       properties:
         addId:
@@ -329,6 +329,7 @@ components:
           maxLength: 3
           pattern: '^[A-Z]{3}$'
     BankAccount:
+      required: [branchName, institution, transit, account, address, comm, contact]
       type: object
       properties:
         bankAccountId:
@@ -352,6 +353,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Billing:
+      required: [currency, podRequired, payment, isSameBillAdd, payableCreditCard]
       type: object
       properties:
         billingId:
@@ -406,21 +408,18 @@ components:
         - USD
     PodRequirementEnum:
       type: string
-      maxLength: 5
       enum:
         - ORI
         - POD
         - NOP
     PaymentEnum:
       type: string
-      maxLength: 5
       enum:
         - CHQ
         - EFT
         - CC
     CreditStatus:
       type: string
-      maxLength: 10
       enum:
         - APPD
         - PEND
@@ -429,11 +428,11 @@ components:
         - PROS
     CreditVerificationEnum:
       type: string
-      maxLength: 5
       enum:
         - TBC
         - API
     Branch:
+      required: [branchName, enterprise]
       type: object
       properties:
         branchId:
@@ -445,6 +444,7 @@ components:
         enterprise:
           $ref: '#/components/schemas/Enterprise'
     Business:
+      required: [enterprise]
       type: object
       properties:
         businessId:
@@ -473,7 +473,6 @@ components:
           $ref: '#/components/schemas/ShipmentTypeEnum'
         hsCode:
           type: string
-          maxLength: 10
           pattern: '^\d{10}'
         length:
           type: integer
@@ -489,15 +488,12 @@ components:
           format: int32
         nmfc:
           type: string
-          maxLength: 6
           pattern: '^\d{6}'
         freightClass:
           type: string
-          maxLength: 3
           pattern: '^\d{3}'
         freightSubClass:
           type: string
-          maxLength: 1
           pattern: '^\d{1}'
         emergencyTel:
           type: string
@@ -544,7 +540,6 @@ components:
           type: boolean
     PackagingEnum:
       type: string
-      maxLength: 5
       enum:
         - BOX
         - LSE
@@ -552,7 +547,6 @@ components:
         - WRP
     ShipmentTypeEnum:
       type: string
-      maxLength: 5
       enum:
         - LTR
         - PCK
@@ -561,11 +555,11 @@ components:
         - FTL
     TemperatureEnum:
       type: string
-      maxLength: 1
       enum:
         - F
         - C
     Communication:
+      required: [telephone]
       type: object
       properties:
         commId:
@@ -598,6 +592,7 @@ components:
           type: string
           maxLength: 255
     Contact:
+      required: [contact, contactComm]
       type: object
       properties:
         contactId:
@@ -616,11 +611,14 @@ components:
           type: string
           maxLength: 255
     CreditApplication:
+      required: [enterprise, enterpriseType, bankInfo ]
       type: object
       properties:
         creditApplicationId:
           type: integer
           format: int64
+        enterpriseType:
+          $ref: '#/components/schemas/EnterpriseTypeEnum'
         dateOfReq:
           type: string
           format: date
@@ -655,9 +653,16 @@ components:
           maxLength: 50
         usaTaxInfo:
           type: string
-          maxLength: 10
           pattern: '^\d{2}-\d{7}'
+    EnterpriseTypeEnum:
+      type: string
+      maxLength: 5
+      enum:
+        - COR
+        - ASS
+        - OTH
     CreditCard:
+      required: [cardholder, creditCardNumber, expDate, cvc]
       type: object
       properties:
         ccId:
@@ -679,6 +684,7 @@ components:
           maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
+      required: [supplierName, contactName, address, telephone, email]
       type: object
       properties:
         creditReferenceId:
@@ -704,6 +710,7 @@ components:
           type: string
           maxLength: 255
     CustomBroker:
+      required: [country, brokerName, accountNumber, primaryContact, alternateContact]
       type: object
       properties:
         customBrokerId:
@@ -717,7 +724,6 @@ components:
           $ref: '#/components/schemas/Enterprise'
         accountNumber:
           type: string
-          maxLength: 12
           pattern: '^\d{12}'
         primaryContact:
           $ref: '#/components/schemas/Contact'
@@ -765,6 +771,7 @@ components:
         - INACTIVE
         - GUEST
     Enterprise:
+      required: [legalName, commInfo, address, commInfo]
       type: object
       properties:
         enterpriseId:
@@ -852,6 +859,8 @@ components:
           type: string
           format: date
     Location:
+      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, locName, locComm, locAdd, locContact,
+                  availability, is53Ft,locAdd, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired ]
       type: object
       properties:
         locationId:
@@ -863,7 +872,9 @@ components:
           type: boolean
         isApptRequired:
           type: boolean
-        apptWindow:
+        apptWindowBeg:
+          type: string
+        apptWindowEnd:
           type: string
         apptNumber:
           type: string
@@ -935,7 +946,6 @@ components:
         * OTR_SHL:  Other - School
     TruckSizeEnum:
       type: string
-      maxLength: 5
       enum:
         - DCAB
         - FT30
@@ -945,6 +955,7 @@ components:
         - FT22
         - FT20
     Margin:
+      required: [lowerBound, upperBound, price]
       type: object
       properties:
         marginId:
@@ -957,6 +968,7 @@ components:
         price:
           type: number
     Person:
+      required: [firstName, lastName]
       type: object
       properties:
         personId:
@@ -975,24 +987,16 @@ components:
           type: string
           maxLength: 100
     Personal:
+      required: [billing]
       type: object
       properties:
         personalId:
           type: integer
           format: int64
-        personIdentity:
-          $ref: '#/components/schemas/Person'
-        address:
-          $ref: '#/components/schemas/Address'
-        commInfo:
-          $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
-        brokers:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomBroker'
     Rate:
+      required: [rateType, rateMeasure, price, vendors]
       type: object
       properties:
         rateId:
@@ -1011,12 +1015,56 @@ components:
             $ref: '#/components/schemas/Vendor'
     RateTypeEnum:
       type: string
-      maxLength: 5
       enum:
         - FX
         - WT
         - SK
+    FixedRateUnitEnum:
+      type: string
+      enum:
+        - PAL
+        - FTL
+        - HRS
+    WeightRateUnitEnum:
+      type: string
+      enum:
+        - LTL
+        - W5C
+        - W1K
+        - W2K
+        - W5K
+        - W10K
+        - W20K
+        - W30K
+    SkidRateUnitEnum:
+      type: string
+      enum:
+        - S1
+        - S2
+        - S3
+        - S4
+        - S5
+        - S6
+        - S7
+        - S8
+        - S9
+        - S10
+        - S11
+        - S12
+        - S13
+        - S14
+        - S15
+        - S16
+        - S17
+        - S18
+        - S19
+        - S20
+        - S21
+        - S22
+        - S23
+        - S24
     RateSchedule:
+      required: [origine, destination]
       type: object
       properties:
         rateScheduleId:
@@ -1069,37 +1117,37 @@ components:
           type: integer
           format: int64
         monOp:
-          type: Time
+          type: string
         monCl:
-          type: Time
+          type: string
         tuOp:
-          type: Time
+          type: string
         tuCl:
-          type: Time
+          type: string
         wedOp:
-          type: Time
+          type: string
         wedCl:
-          type: Time
+          type: string
         thOp:
-          type: Time
+          type: string
         thCl:
-          type: Time
+          type: string
         friOp:
-          type: Time
+          type: string
         friCl:
-          type: Time
+          type: string
         satOp:
-          type: Time
+          type: string
         satCl:
-          type: Time
+          type: string
         sunOp:
-          type: Time
+          type: string
         sunCl:
-          type: Time
+          type: string
         lunchOp:
-          type: Time
+          type: string
         lunchCl:
-          type: Time
+          type: string
         openLunch:
           type: boolean
     Vendor:
@@ -1113,95 +1161,94 @@ components:
         accountNumber:
           type: string
           maxLength: 10
-#        federalIdNumber:
-#          type: string
-#          maxLength: 10
-#        flag1099Required:
-#          type: boolean
-#        vendorType:
-#          type: string
-#          maxLength: 30
-#          enum:
-#            - CARR_US_AUTH
-#            - CARR_CAN
-#            - CARR_MEX
-#            - CARR_COMM
-#            - CARR_INTMOD
-#            - CARR_LCL_CART
-#            - CARR_AIR_FRGT
-#            - CARR_OCEAN_FRGT
-#            - OWNER_OPERATOR_US
-#            - OWNER_OPERATOR_CANADIAN
-#            - OWNER_OPERATOR_LOCAL
-#            - CUSTOMS_BRKR
-#            - FRGT_BRKR
-#            - FRGT_FORWARDER
-#            - VDR_BANK
-#            - VDR_CONTRACT_LABOUR
-#            - VDR_CRANE
-#            - VDR_CRATING
-#            - VDR_DESTUFFING
-#            - VDR_INSURANCE
-#            - VDR_EQUIPMENT
-#            - VDR_FUEL
-#            - VDR_FUEL_TAX
-#            - VDR_GOVERNMENT_SERVICES
-#            - VDR_MAINTENANCE
-#            - VDR_PILOT_CAR
-#            - VDR_PORT_FACILITY
-#            - VDR_TIRE
-#            - VDR_TOWING
-#            - VDR_TRAILER_RENTALS
-#            - VDR_TRUCK_RENTALS
-#            - VDR_WAREHOUSING
-#            - VDR_OTHER
-#        equipmentTypes:
-#          type: array
-#          items:
-#            $ref: '#/components/schemas/EquipmentType'
-#        reviews:
-#            $ref: '#/components/schemas/ReviewsRatingEnum'
-#        fuelSurcharge:
-#          type: number
-#        contractOnFile:
-#          type: boolean
-#        docketNumber:
-#          type: string
-#          maxLength: 10
-#        dotNumber:
-#          type: string
-#          maxLength: 10
-#        wcbNumber:
-#          type: string
-#          maxLength: 10
-#        usBondNumber:
-#          type: string
-#          maxLength: 10
-#        scac:
-#          type: string
-#          maxLength: 10
-#        hazmat:
-#          type: boolean
-#        smc3TarriffCode:
-#          type: string
-#          maxLength: 10
-#        vendorApprovedFlag:
-#          type: boolean
-#        contacts:
-#          type: array
-#          items:
-#            $ref: '#/components/schemas/Contact'
-#        Locations:
-#          type: array
-#          items:
-#            $ref: '#/components/schemas/Location'
-#        liabilityInsuranceDetails:
-#          $ref: '#/components/schemas/InsuranceDetails'
-#        cargoInsuranceDetails:
-#          $ref: '#/components/schemas/InsuranceDetails'
+    #        federalIdNumber:
+    #          type: string
+    #          maxLength: 10
+    #        flag1099Required:
+    #          type: boolean
+    #        vendorType:
+    #          type: string
+    #          maxLength: 30
+    #          enum:
+    #            - CARR_US_AUTH
+    #            - CARR_CAN
+    #            - CARR_MEX
+    #            - CARR_COMM
+    #            - CARR_INTMOD
+    #            - CARR_LCL_CART
+    #            - CARR_AIR_FRGT
+    #            - CARR_OCEAN_FRGT
+    #            - OWNER_OPERATOR_US
+    #            - OWNER_OPERATOR_CANADIAN
+    #            - OWNER_OPERATOR_LOCAL
+    #            - CUSTOMS_BRKR
+    #            - FRGT_BRKR
+    #            - FRGT_FORWARDER
+    #            - VDR_BANK
+    #            - VDR_CONTRACT_LABOUR
+    #            - VDR_CRANE
+    #            - VDR_CRATING
+    #            - VDR_DESTUFFING
+    #            - VDR_INSURANCE
+    #            - VDR_EQUIPMENT
+    #            - VDR_FUEL
+    #            - VDR_FUEL_TAX
+    #            - VDR_GOVERNMENT_SERVICES
+    #            - VDR_MAINTENANCE
+    #            - VDR_PILOT_CAR
+    #            - VDR_PORT_FACILITY
+    #            - VDR_TIRE
+    #            - VDR_TOWING
+    #            - VDR_TRAILER_RENTALS
+    #            - VDR_TRUCK_RENTALS
+    #            - VDR_WAREHOUSING
+    #            - VDR_OTHER
+    #        equipmentTypes:
+    #          type: array
+    #          items:
+    #            $ref: '#/components/schemas/EquipmentType'
+    #        reviews:
+    #            $ref: '#/components/schemas/ReviewsRatingEnum'
+    #        fuelSurcharge:
+    #          type: number
+    #        contractOnFile:
+    #          type: boolean
+    #        docketNumber:
+    #          type: string
+    #          maxLength: 10
+    #        dotNumber:
+    #          type: string
+    #          maxLength: 10
+    #        wcbNumber:
+    #          type: string
+    #          maxLength: 10
+    #        usBondNumber:
+    #          type: string
+    #          maxLength: 10
+    #        scac:
+    #          type: string
+    #          maxLength: 10
+    #        hazmat:
+    #          type: boolean
+    #        smc3TarriffCode:
+    #          type: string
+    #          maxLength: 10
+    #        vendorApprovedFlag:
+    #          type: boolean
+    #        contacts:
+    #          type: array
+    #          items:
+    #            $ref: '#/components/schemas/Contact'
+    #        Locations:
+    #          type: array
+    #          items:
+    #            $ref: '#/components/schemas/Location'
+    #        liabilityInsuranceDetails:
+    #          $ref: '#/components/schemas/InsuranceDetails'
+    #        cargoInsuranceDetails:
+    #          $ref: '#/components/schemas/InsuranceDetails'
     ReviewsRatingEnum:
       type: string
-      maxLength: 10
       enum:
         - UNRATED
         - PREFERRED
@@ -1213,6 +1260,7 @@ components:
         - BLANK
         - PROBATIONNARY
     City:
+      required: [city]
       type: object
       properties:
         cityId:
