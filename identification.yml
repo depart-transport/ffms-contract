@@ -444,6 +444,7 @@ components:
         enterprise:
           $ref: '#/components/schemas/Enterprise'
     Business:
+      required: [enterprise]
       type: object
       properties:
         businessId:
@@ -457,9 +458,8 @@ components:
             $ref: '#/components/schemas/Branch'
         saleRep:
           $ref: '#/components/schemas/Enterprise'
-      required:
-        - enterprise
     City:
+      required: [city]
       type: object
       properties:
         cityId:
@@ -694,6 +694,7 @@ components:
           maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
+      required: [supplierName, contactName, address, telephone, email]
       type: object
       properties:
         creditReferenceId:
@@ -965,6 +966,7 @@ components:
         - FT22
         - FT20
     Margin:
+      required: [lowerBound, upperBound, price, minMargin]
       type: object
       properties:
         marginId:
@@ -974,9 +976,12 @@ components:
           type: number
         upperBound:
           type: number
+        minMargin:
+          type: number
         price:
           type: number
     Person:
+      required: [firstName, lastName]
       type: object
       properties:
         personId:
@@ -995,6 +1000,7 @@ components:
           type: string
           maxLength: 100
     Personal:
+      required: [billing]
       type: object
       properties:
         personalId:
@@ -1003,6 +1009,7 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
+      required: [rateType, rateMeasure, price, vendors]
       type: object
       properties:
         rateId:
@@ -1027,6 +1034,7 @@ components:
         - SK
 
     RateSchedule:
+      required: [origine, destination]
       type: object
       properties:
         rateScheduleId:
