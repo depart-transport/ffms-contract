@@ -197,6 +197,388 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
+  /api/v1/autotransport/customer-bff/vendors:
+    get:
+      tags:
+        - vendor-handler
+      operationId: getVendors
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vendor'
+    put:
+      tags:
+        - vendor-handler
+      operationId: saveVendor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Vendor'
+        required: true
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+    post:
+      tags:
+        - vendor-handler
+      operationId: createVendor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vendor'
+        required: true
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+  /api/v1/autotransport/customer-bff/vendors/{id}:
+    get:
+      tags:
+        - vendor-handler
+      operationId: getVendor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vendor'
+  /api/v1/customer-bff/coordinates:
+    post:
+      tags:
+        - coordinate-handler
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coordinate'
+        required: true
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coordinate'
+    put:
+      tags:
+        - coordinate-handler
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Coordinate'
+        required: true
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coordinate'
+  /api/v1/customer-bff/coordinates/{id}:
+    get:
+      tags:
+        - coordinate-handler
+      operationId: getCoordinate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coordinate'
+    delete:
+      tags:
+        - coordinate-handler
+      operationId: deleteCoordinate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "404":
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "403":
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "500":
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "401":
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "400":
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Coordinate'
+
 components:
   schemas:
     ResponseError:
@@ -288,17 +670,16 @@ components:
           type: integer
           format: int64
         chargeName:
-          type: string
-          maxLength: 255
+          $ref: '#/components/schemas/ChargeType'
         chargeMethod:
-          $ref: '#/components/schemas/ChargeMethodEnum'
+          $ref: '#/components/schemas/ChargeUnit'
         freeUpTo:
           type: number
         price:
           type: number
         maxPrice:
           type: number
-    ChargeMethodEnum:
+    ChargeUnit:
       type: string
       enum:
         - CWT
@@ -307,8 +688,23 @@ components:
         - FIX
         - PFR
         - SQ
+    ChargeType:
+      type: string
+      enum:
+        - FL
+        - LFT
+        - INS
+        - ASS
+        - RES
+        - CNS
+        - ACC
+        - HZM
+        - HT
+        - APD
+        - RSH
+        - APP
     Address:
-      required: [add, city, postalZipCode, provinceState, country]
+      required: [ add, city, postalZipCode, provinceState, country ]
       type: object
       properties:
         addId:
@@ -326,10 +722,8 @@ components:
           type: string
         country:
           type: string
-          maxLength: 3
-          pattern: '^[A-Z]{3}$'
     BankAccount:
-      required: [branchName, institution, transit, account, address, comm, contact]
+      required: [ branchName, institution, transit, account, address, comm, contact ]
       type: object
       properties:
         bankAccountId:
@@ -351,18 +745,16 @@ components:
         comm:
           $ref: '#/components/schemas/Communication'
         contact:
-          $ref: '#/components/schemas/Contact'
+          $ref: '#/components/schemas/Person'
     Billing:
-      required: [currency, podRequired, payment, isSameBillAdd, payableCreditCard]
+      required: [ currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
       type: object
       properties:
         billingId:
           type: integer
           format: int64
         currency:
-          $ref: '#/components/schemas/CurrencyEnum'
-        podRequired:
-          type: boolean
+          $ref: '#/components/schemas/Currency'
         isSameBillAdd:
           type: boolean
         creditCard:
@@ -384,14 +776,14 @@ components:
           type: string
           maxLength: 255
         creditVerification:
-          $ref: '#/components/schemas/CreditVerificationEnum'
-        payment:
-          $ref: '#/components/schemas/PaymentEnum'
+          $ref: '#/components/schemas/CreditVerification'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
         viewStatement:
           type: string
           maxLength: 255
         podRequirement:
-          $ref: '#/components/schemas/PodRequirementEnum'
+          $ref: '#/components/schemas/PodRequirement'
         creditApplication:
           $ref: '#/components/schemas/CreditApplication'
         checkedBy:
@@ -401,18 +793,18 @@ components:
           type: boolean
         payableInvoice:
           type: boolean
-    CurrencyEnum:
+    Currency:
       type: string
       enum:
         - CAD
         - USD
-    PodRequirementEnum:
+    PodRequirement:
       type: string
       enum:
         - ORI
         - POD
         - NOP
-    PaymentEnum:
+    PaymentType:
       type: string
       enum:
         - CHQ
@@ -426,13 +818,13 @@ components:
         - REF
         - INACT
         - PROS
-    CreditVerificationEnum:
+    CreditVerification:
       type: string
       enum:
         - TBC
         - API
     Branch:
-      required: [branchName, enterprise]
+      required: [ branchName, enterprise ]
       type: object
       properties:
         branchId:
@@ -444,7 +836,7 @@ components:
         enterprise:
           $ref: '#/components/schemas/Enterprise'
     Business:
-      required: [enterprise]
+      required: [ enterprise, isSameBilling ]
       type: object
       properties:
         businessId:
@@ -458,7 +850,10 @@ components:
             $ref: '#/components/schemas/Branch'
         saleRep:
           $ref: '#/components/schemas/Enterprise'
+        isSameBilling:
+          type: boolean
     Commodity:
+      required: [ hazMat, docOnly, freezeProtect ]
       type: object
       properties:
         commodityId:
@@ -468,9 +863,9 @@ components:
           type: string
           maxLength: 255
         packaging:
-          $ref: '#/components/schemas/PackagingEnum'
+          $ref: '#/components/schemas/Packaging'
         shipmentType:
-          $ref: '#/components/schemas/ShipmentTypeEnum'
+          $ref: '#/components/schemas/ShipmentCategory'
         hsCode:
           type: string
           pattern: '^\d{10}'
@@ -498,7 +893,7 @@ components:
         emergencyTel:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -509,7 +904,7 @@ components:
           type: string
           format: date
         freshUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          $ref: '#/components/schemas/Temperature'
         freshMin:
           type: integer
           format: int32
@@ -517,7 +912,7 @@ components:
           type: integer
           format: int32
         frozenUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          $ref: '#/components/schemas/Temperature'
         frozenMin:
           type: integer
           format: int32
@@ -525,7 +920,7 @@ components:
           type: integer
           format: int32
         heatUnit:
-          $ref: '#/components/schemas/TemperatureEnum'
+          $ref: '#/components/schemas/Temperature'
         heatMin:
           type: integer
           format: int32
@@ -538,14 +933,14 @@ components:
           type: boolean
         freezeProtect:
           type: boolean
-    PackagingEnum:
+    Packaging:
       type: string
       enum:
         - BOX
         - LSE
         - SRK
         - WRP
-    ShipmentTypeEnum:
+    ShipmentCategory:
       type: string
       enum:
         - LTR
@@ -553,13 +948,13 @@ components:
         - PCL
         - LTL
         - FTL
-    TemperatureEnum:
+    Temperature:
       type: string
       enum:
         - F
         - C
     Communication:
-      required: [telephone]
+      required: [ telephone ]
       type: object
       properties:
         commId:
@@ -568,7 +963,7 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
@@ -576,15 +971,15 @@ components:
         cell:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         tollFree:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -592,7 +987,7 @@ components:
           type: string
           maxLength: 255
     Contact:
-      required: [contact, contactComm]
+      required: [ contact, contactComm ]
       type: object
       properties:
         contactId:
@@ -605,23 +1000,74 @@ components:
         contactAdd:
           $ref: '#/components/schemas/Address'
         functionTitle:
-          type: string
-          maxLength: 255
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
         username:
           type: string
           maxLength: 255
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        isUser:
+          type: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    Role:
+      type: string
+      enum:
+        - Cognito_customer_admin_role
+        - Cognito_customer_superUserAuth_Role
+        - Cognito_customer_readUnauth_Role
+        - Cognito_customer_readAuth_Role
+        - internal_accouting_user
+        - internal_admin
+        - internal_superUser
+        - internal_support_user
+        - internal_user
+        - sysadmin
+        - Cognito_vendor_superUserAuth_Role
+        - Cognito_vendor_readUnauth_Role
+        - Cognito_vendor_readAuth_Role
+    FunctionTitle:
+      type: string
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+    Notification:
+      type: string
+      enum:
+        - ORDER_BOOKED
+        - PICKED_UP
+        - IN_TRANSIT
+        - CUSTOMS_RELEASED
+        - OUT_FOR_DELIVERY
+        - DELIVRED
+        - RECEIVE_INVOICE
+        - RECEIVE_STATEMENT
+        - SHIPMENT_TRACKING
+        - BOOKING
+        - AFTER_HOUR_TRACKING
+        - BID
+        - POD_REQUEST
+        - INVOICE
+        - STATEMENT
+        - OSD
+        - CLAIMS
     CreditApplication:
-      required: [enterprise, enterpriseType, bankInfo ]
+      required: [ enterprise, enterpriseType ]
       type: object
       properties:
         creditApplicationId:
           type: integer
           format: int64
         enterpriseType:
-          $ref: '#/components/schemas/EnterpriseTypeEnum'
+          $ref: '#/components/schemas/EnterpriseType'
         dateOfReq:
           type: string
           format: date
+          pattern: '^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$'
         enterprise:
           $ref: '#/components/schemas/Enterprise'
         pres:
@@ -654,15 +1100,8 @@ components:
         usaTaxInfo:
           type: string
           pattern: '^\d{2}-\d{7}'
-    EnterpriseTypeEnum:
-      type: string
-      maxLength: 5
-      enum:
-        - COR
-        - ASS
-        - OTH
     CreditCard:
-      required: [cardholder, creditCardNumber, expDate, cvc]
+      required: [ cardholder, creditCardNumber, expDate, cvc ]
       type: object
       properties:
         ccId:
@@ -674,17 +1113,17 @@ components:
         creditCardNumber:
           type: string
           maxLength: 19
-          pattern: '^\d{4} \d{4} \d{4} \d{4}$'
+          pattern: '^\d{16}$'
         expDate:
           type: string
           maxLength: 5
-          pattern: '^\d{2}\/\d{2}$'
+          pattern: '^\d{4}$'
         cvc:
           type: string
           maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
-      required: [supplierName, contactName, address, telephone, email]
+      required: [ supplierName, contactName, address, telephone, email, partnerNumYr ]
       type: object
       properties:
         creditReferenceId:
@@ -701,16 +1140,18 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^\(\d{3}\) \d{3}-\d{4}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
+        partnerNumYr:
+          type: number
     CustomBroker:
-      required: [country, brokerName, accountNumber, primaryContact, alternateContact]
+      required: [ country, brokerName, accountNumber, primaryContact, alternateContact ]
       type: object
       properties:
         customBrokerId:
@@ -721,7 +1162,7 @@ components:
           maxLength: 3
           pattern: '^[A-Z]{3}$'
         brokerName:
-          $ref: '#/components/schemas/Enterprise'
+          type: string
         accountNumber:
           type: string
           pattern: '^\d{12}'
@@ -730,13 +1171,14 @@ components:
         alternateContact:
           $ref: '#/components/schemas/Contact'
     Customer:
+      required: [ isBusiness ]
       type: object
       properties:
         customerId:
           type: integer
           format: int64
         customerStatus:
-          $ref: '#/components/schemas/BusinessStatusEnum'
+          $ref: '#/components/schemas/BusinessStatus'
         isBusiness:
           type: boolean
         business:
@@ -762,16 +1204,17 @@ components:
           items:
             $ref: '#/components/schemas/CustomBroker'
         rating:
-          $ref: '#/components/schemas/PreferredRating'
-    BusinessStatusEnum:
+          $ref: '#/components/schemas/Rating'
+    BusinessStatus:
       type: string
       enum:
         - ACTIVE
         - PROSPECT
         - INACTIVE
         - GUEST
+        - ONBOARDING
     Enterprise:
-      required: [legalName, commInfo, address, commInfo]
+      required: [ legalName, commInfo, address, businessType ]
       type: object
       properties:
         enterpriseId:
@@ -794,58 +1237,35 @@ components:
           $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
-    EquipmentType:
-      type: object
-      maxLength: 30
-      properties:
-        id:
-          type: integer
-          format: int64
-        equipmentType:
-          type: string
-          enum:
-            - AIR_FREIGHT
-            - CONTAINER
-            - CRATING
-            - CROSS_DOCK
-            - DOUBLEDROP
-            - DRAYAGE
-            - DRY_VAN
-            - FLAT_DECK
-            - FLATBED
-            - INTERMODAL
-            - INTERMODAL_CONTAINER_CHASSIS
-            - LABOR_SERVICES
-            - LESS_THAN_TRUCK_LOAD
-            - LIFTGATE_MOFFET
-            - LOCAL_CARTAGE
-            - LOWBED
-            - OCEAN
-            - PORT_FACILITU
-            - POWER_ONLY
-            - RACK_N_TARP
-            - RAIL
-            - REEFER
-            - ROLL_TITE
-            - SPRINTER
-            - STEP_DECK
-            - STORAGE
-            - STRAIGHT_TRUCK_W_LIFTGATE
-            - STRAIGHT_TRUCKS
-            - SUPPLIES
-            - TRACTOR_SERVICE
-            - TRUCK_LOAD
-            - VAN
-            - WAREHOUSE
+        businessType:
+          $ref: '#/components/schemas/BusinessType'
+    BusinessType:
+      type: string
+      enum:
+        - C_SHC
+        - C_WLS
+        - C_RTL
+        - C_TRS
+        - C_OTH
+        - V_CAR
+        - V_MCO
+        - V_LPR
+        - V_WHS
+        - V_FFD
+        - V_INM
     InsuranceDetails:
+      required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
       properties:
         id:
           type: integer
           format: int64
-        coverage:
-          type: string
-          maxLength: 10
+        currency:
+          $ref: '#/components/schemas/Currency'
+        liabilityCoverage:
+          type: number
+        cargoCoverage:
+          type: number
         provider:
           type: string
           maxLength: 50
@@ -855,19 +1275,24 @@ components:
         start:
           type: string
           format: date
+          pattern: '^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$'
         expiry:
           type: string
           format: date
+          pattern: '^([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$'
+        contact:
+          $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, locName, locComm, locAdd, locContact,
-                  availability, is53Ft,locAdd, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired ]
+      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
+                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
+                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
       type: object
       properties:
         locationId:
           type: integer
           format: int64
         locationType:
-          $ref: '#/components/schemas/LocationTypeEnum'
+          $ref: '#/components/schemas/LocationType'
         isPublicLocation:
           type: boolean
         isApptRequired:
@@ -877,12 +1302,11 @@ components:
         apptWindowEnd:
           type: string
         apptNumber:
-          type: string
+          type: boolean
         isLumperRequired:
           type: boolean
-        locName:
-          type: string
-          maxLength: 255
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
         locComm:
           $ref: '#/components/schemas/Communication'
         locAdd:
@@ -892,7 +1316,7 @@ components:
         availability:
           $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
-          $ref: '#/components/schemas/TruckSizeEnum'
+          $ref: '#/components/schemas/TruckSize'
         isDock:
           type: boolean
         isTailgate:
@@ -923,7 +1347,7 @@ components:
           type: boolean
         sleepSectionDesc:
           type: string
-    LocationTypeEnum:
+    LocationType:
       type: string
       enum:
         - BUS
@@ -944,18 +1368,11 @@ components:
         * OTR_OB: Other - Office Building
         * OTR_HTL:  Other - Hotel
         * OTR_SHL:  Other - School
-    TruckSizeEnum:
+    TruckSize:
       type: string
-      enum:
-        - DCAB
-        - FT30
-        - FT28
-        - FT26
-        - FT24
-        - FT22
-        - FT20
+      enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     Margin:
-      required: [lowerBound, upperBound, price]
+      required: [ lowerBound, upperBound, price ]
       type: object
       properties:
         marginId:
@@ -970,7 +1387,7 @@ components:
         price:
           type: number
     Person:
-      required: [firstName, lastName]
+      required: [ firstName, lastName ]
       type: object
       properties:
         personId:
@@ -989,7 +1406,6 @@ components:
           type: string
           maxLength: 100
     Personal:
-      required: [billing]
       type: object
       properties:
         personalId:
@@ -998,14 +1414,14 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
-      required: [rateType, rateMeasure, price, vendors]
+      required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
         rateId:
           type: integer
           format: int64
         rateType:
-          $ref: '#/components/schemas/RateTypeEnum'
+          $ref: '#/components/schemas/RateType'
         rateMeasure:
           type: string
           maxLength: 5
@@ -1014,20 +1430,20 @@ components:
         vendors:
           type: array
           items:
-            $ref: '#/components/schemas/Vendor'
-    RateTypeEnum:
+            $ref: '#/components/schemas/Enterprise'
+    RateType:
       type: string
       enum:
         - FX
         - WT
         - SK
-    FixedRateUnitEnum:
+    FixedRateUnit:
       type: string
       enum:
         - PAL
         - FTL
         - HRS
-    WeightRateUnitEnum:
+    WeightRateUnit:
       type: string
       enum:
         - LTL
@@ -1038,7 +1454,7 @@ components:
         - W10K
         - W20K
         - W30K
-    SkidRateUnitEnum:
+    SkidRateUnit:
       type: string
       enum:
         - S1
@@ -1066,16 +1482,16 @@ components:
         - S23
         - S24
     RateSchedule:
-      required: [origine, destination]
+      required: [ origin, destination ]
       type: object
       properties:
         rateScheduleId:
           type: integer
           format: int64
-        origine:
-          $ref: '#/components/schemas/City'
+        origin:
+          $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: '#/components/schemas/City'
+          $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
@@ -1088,7 +1504,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
-    PreferredRating:
+    Rating:
       type: object
       properties:
         ratingId:
@@ -1098,21 +1514,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Margin'
-        minMargin:
-          type: number
         additionalFees:
           type: array
           items:
             $ref: '#/components/schemas/AccessoryCharge'
-        inboundCity:
+        inbound:
           type: array
           items:
-            $ref: '#/components/schemas/CitiesRateSchedules'
-        outboundCity:
+            $ref: '#/components/schemas/ZonesRateSchedules'
+        outbound:
           type: array
           items:
-            $ref: '#/components/schemas/CitiesRateSchedules'
+            $ref: '#/components/schemas/ZonesRateSchedules'
     TimeTable:
+      required: [ openLunch ]
       type: object
       properties:
         timeTableId:
@@ -1152,104 +1567,295 @@ components:
           type: string
         openLunch:
           type: boolean
+    EnterpriseType:
+      type: string
+      enum:
+        - COR
+        - ASS
+        - OTH
+    DeliveryService:
+      type: object
+      properties:
+        deliveryServiceId:
+          type: integer
+          format: int64
+        coverageName:
+          type: string
+        zonesCovered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        dedicatedTo:
+          $ref: '#/components/schemas/Enterprise'
+        inbound:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZonesRateSchedules'
+        outbound:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZonesRateSchedules'
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
+    DoorType:
+      type: string
+      enum: [ B, R ]
+    Equipment:
+      required: [ isDcab, isLogistic, isDockLevel, isReefer ]
+      type: object
+      properties:
+        equipmentId:
+          type: integer
+          format: int64
+        equipmentType:
+          $ref: '#/components/schemas/EquipmentType'
+        isDcab:
+          type: boolean
+        boxType:
+          $ref: '#/components/schemas/BoxType'
+        length:
+          type: number
+        width:
+          type: number
+        clearance:
+          type: number
+        cargoMassCapacity:
+          type: number
+        isLogistic:
+          type: boolean
+        isDockLevel:
+          type: boolean
+        doorType:
+          $ref: '#/components/schemas/DoorType'
+        liftgateType:
+          $ref: '#/components/schemas/Liftgate'
+        isReefer:
+          type: boolean
+        hazmatService:
+          type: array
+          items:
+            $ref: '#/components/schemas/HazMat'
+    EquipmentSize:
+      type: string
+      enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
+    EquipmentType:
+      type: string
+      enum: [ CBOX, FBED ]
+    HazMat:
+      type: object
+      properties:
+        hazmatId:
+          type: integer
+          format: int64
+        hazmatClass:
+          type: string
+        hazmatSubClass:
+          type: string
+        un:
+          type: string
+        packageGroup:
+          type: string
+    Liftgate:
+      type: string
+      enum: [ NONE, STND, PLFM, HDTY ]
+    ProvincesStatesCovered:
+      type: object
+      properties:
+        zoneServedId:
+          type: integer
+          format: int64
+        inboundProvinceState:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProvinceState'
+        outboundProvinceState:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProvinceState'
+    ProvinceState:
+      type: string
+      enum: [ NL_CA, PE_CA, NS_CA, NB_CA, QC_CA, ON_CA, MB_CA, SK_CA, BC_CA, YT_CA, NT_CA, NU_CA, AL_USA, AK_USA,
+              AZ_USA, AR_USA, CA_USA, CO_USA, CT_USA, DE_USA, FL_USA, GA_USA, HI_USA, ID_USA, IL_USA, IN_USA, IA_USA,
+              KS_USA, KY_USA, LA_USA, ME_USA, MD_USA, MA_USA, MI_USA, MN_USA, MS_USA, MO_USA, MT_USA, NE_USA, NV_USA,
+              NH_USA, NJ_USA, NM_USA, NY_USA, NC_USA, ND_USA, OH_USA, OK_USA, OR_USA, PA_USA, RI_USA, SC_USA, SD_USA,
+              TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
+    TransportService:
+      type: string
+      enum: [ SLTL, ELTL, GLTL, EXDE, SFTL, TFTL, INTM ]
     Vendor:
+      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
       properties:
         vendorId:
           type: integer
           format: int64
-        enterprise:
+        vendorStatus:
+          $ref: '#/components/schemas/BusinessStatus'
+        thirdParty:
           $ref: '#/components/schemas/Enterprise'
-        accountNumber:
+        headOffice:
+          $ref: '#/components/schemas/VendorBranch'
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        branches:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorBranch'
+        vendorInfos:
+          $ref: '#/components/schemas/VendorInfos'
+        authority:
+          $ref: '#/components/schemas/Authority'
+        flag1099Required:
+          type: boolean
+        federalIdNumber:
+          type: string
+        contractOnFile:
+          type: boolean
+        isSameReceivable:
+          type: boolean
+        isSameInsurance:
+          type: boolean
+    Authority:
+      required: [ mc, scac, usdot ]
+      type: object
+      properties:
+        mc:
+          type: string
+          pattern: '^\d{8}$'
+        scac:
+          type: string
+          maxLength: 4
+          minLength: 4
+        usdot:
+          type: string
+          pattern: '^[0-9]{1,12}$'
+        cadBondNumber:
+          type: string
+        usBondNumber:
+          type: string
+        ctpat:
+          type: string
+          pattern: '^\d{10}$'
+        fastApproved:
+          type: boolean
+        hazmatNumber:
+          type: string
+          pattern: '^\d{1,8}$'
+        reviewRating:
+          type: number
+        wcbNumber:
           type: string
           maxLength: 10
-    #        federalIdNumber:
-    #          type: string
-    #          maxLength: 10
-    #        flag1099Required:
-    #          type: boolean
-    #        vendorType:
-    #          type: string
-    #          maxLength: 30
-    #          enum:
-    #            - CARR_US_AUTH
-    #            - CARR_CAN
-    #            - CARR_MEX
-    #            - CARR_COMM
-    #            - CARR_INTMOD
-    #            - CARR_LCL_CART
-    #            - CARR_AIR_FRGT
-    #            - CARR_OCEAN_FRGT
-    #            - OWNER_OPERATOR_US
-    #            - OWNER_OPERATOR_CANADIAN
-    #            - OWNER_OPERATOR_LOCAL
-    #            - CUSTOMS_BRKR
-    #            - FRGT_BRKR
-    #            - FRGT_FORWARDER
-    #            - VDR_BANK
-    #            - VDR_CONTRACT_LABOUR
-    #            - VDR_CRANE
-    #            - VDR_CRATING
-    #            - VDR_DESTUFFING
-    #            - VDR_INSURANCE
-    #            - VDR_EQUIPMENT
-    #            - VDR_FUEL
-    #            - VDR_FUEL_TAX
-    #            - VDR_GOVERNMENT_SERVICES
-    #            - VDR_MAINTENANCE
-    #            - VDR_PILOT_CAR
-    #            - VDR_PORT_FACILITY
-    #            - VDR_TIRE
-    #            - VDR_TOWING
-    #            - VDR_TRAILER_RENTALS
-    #            - VDR_TRUCK_RENTALS
-    #            - VDR_WAREHOUSING
-    #            - VDR_OTHER
-    #        equipmentTypes:
-    #          type: array
-    #          items:
-    #            $ref: '#/components/schemas/EquipmentType'
-    #        reviews:
-    #            $ref: '#/components/schemas/ReviewsRatingEnum'
-    #        fuelSurcharge:
-    #          type: number
-    #        contractOnFile:
-    #          type: boolean
-    #        docketNumber:
-    #          type: string
-    #          maxLength: 10
-    #        dotNumber:
-    #          type: string
-    #          maxLength: 10
-    #        wcbNumber:
-    #          type: string
-    #          maxLength: 10
-    #        usBondNumber:
-    #          type: string
-    #          maxLength: 10
-    #        scac:
-    #          type: string
-    #          maxLength: 10
-    #        hazmat:
-    #          type: boolean
-    #        smc3TarriffCode:
-    #          type: string
-    #          maxLength: 10
-    #        vendorApprovedFlag:
-    #          type: boolean
-    #        contacts:
-    #          type: array
-    #          items:
-    #            $ref: '#/components/schemas/Contact'
-    #        Locations:
-    #          type: array
-    #          items:
-    #            $ref: '#/components/schemas/Location'
-    #        liabilityInsuranceDetails:
-    #          $ref: '#/components/schemas/InsuranceDetails'
-    #        cargoInsuranceDetails:
-    #          $ref: '#/components/schemas/InsuranceDetails'
-    ReviewsRatingEnum:
+        smc3TarriffCode:
+          type: string
+    VendorInfos:
+      required: [ isSatelliteTracker, isTrackerOnAllTruck ]
+      type: object
+      properties:
+        isSatelliteTracker:
+          type: boolean
+        isTrackerOnAllTruck:
+          type: boolean
+        trackerProvider:
+          type: string
+    VendorBranch:
+      required: [ branchName, enterprise ]
+      type: object
+      properties:
+        vendorBranchId:
+          type: integer
+          format: int64
+        branchName:
+          type: string
+        enterprise:
+          $ref: '#/components/schemas/Enterprise'
+        bidOrders:
+          type: array
+          items:
+            $ref: '#/components/schemas/BidOrderCenter'
+        insuranceDetails:
+          $ref: '#/components/schemas/InsuranceDetails'
+        brokers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomBroker'
+        receivable:
+          $ref: '#/components/schemas/Receivable'
+    BidOrderCenter:
+      type: object
+      properties:
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        bidOrderCenterName:
+          type: string
+        bidOrderContacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        deliveryServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryService'
+        dedicatedServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryService'
+    Receivable:
+      required: [ currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
+      type: object
+      properties:
+        receivableId:
+          type: integer
+          format: int64
+        accountNumber:
+          type: string
+        currency:
+          $ref: '#/components/schemas/Currency'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        termOfPayment:
+          type: integer
+          format: int32
+        isQuickPayProgram:
+          type: boolean
+        factoringCoName:
+          type: string
+        careOf:
+          type: string
+        mailingAddress:
+          $ref: '#/components/schemas/Address'
+        bankingInfo:
+          $ref: '#/components/schemas/BankAccount'
+        tradeReference:
+          $ref: '#/components/schemas/CreditApplication'
+        receivableApprovedBy:
+          type: string
+          maxLength: 255
+        receivableStatus:
+          $ref: '#/components/schemas/CreditStatus'
+
+    ReviewsRating:
       type: string
       enum:
         - UNRATED
@@ -1261,22 +1867,45 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
-    City:
-      required: [city]
+    Coordinate:
+      required: [ coordinateName, longitude, latitude, radius ]
       type: object
       properties:
-        cityId:
+        coordinateId:
           type: integer
           format: int64
-        city:
+        coordinateName:
           type: string
           maxLength: 85
-    CitiesRateSchedules:
+        location:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+        radius:
+          type: number
+        radiusUnit:
+          $ref: '#/components/schemas/RadiusUnit'
+        directions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Direction'
+    Direction:
+      type: string
+      enum: [ ORG, DST ]
+    RadiusUnit:
+      type: string
+      enum: [ KM, MI ]
+    ZonesRateSchedules:
       type: object
       properties:
-        city:
-          $ref: '#/components/schemas/City'
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
         rateSchedule:
           type: array
           items:
             $ref: '#/components/schemas/RateSchedule'
+    BoxType:
+      type: string
+      enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
