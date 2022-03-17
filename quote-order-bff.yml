@@ -184,6 +184,99 @@ components:
           type: string
         locationType:
           $ref: '#/components/schemas/LocationType'
+        additionnalServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChargeType'
+    Order:
+      type: object
+      properties:
+        quoteId:
+          type: integer
+          format: int64
+        shipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderShipment'
+    OrderShipment:
+      type: object
+      properties:
+        quoteShipmentId:
+          type: integer
+          format: int64
+        shipmentId:
+          type: integer
+        shipper:
+          $ref: '#/components/schemas/OrderAddress'
+        consignee:
+          $ref: '#/components/schemas/OrderAddress'
+        shipmentDetails:
+          $ref: '#/components/schemas/ShipmentDetails'
+        isInsured:
+          type: boolean
+        insurance:
+          $ref: '#/components/schemas/Insurance'
+    OrderAddress:
+      required: [ Country, postalZipCode, locationType, phone, extension, email, date ]
+      type: object
+      properties:
+        address:
+          $ref: '#/components/schemas/Address'
+        dateRange:
+          type: string
+        locationType:
+          $ref: '#/components/schemas/LocationType'
+        phone:
+          type: string
+          pattern: "^\d{10}$"
+        extension:
+          type: string
+          pattern: "^\d{0,7}$"
+        email:
+          type: string
+          maxLength: 255
+        date:
+          type: string
+        time:
+          type: string
+        additionnalServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChargeType'
+    ChargeType:
+      type: string
+      enum:
+        - FL
+        - LFT
+        - INS
+        - ASS
+        - RES
+        - CNS
+        - ACC
+        - HZM
+        - HT
+        - APD
+        - RSH
+        - APP
+    Address:
+      required: [ add, city, postalZipCode, provinceState, country ]
+      type: object
+      properties:
+        addId:
+          type: integer
+          format: int64
+        add:
+          type: string
+        add2:
+          type: string
+        city:
+          type: string
+        postalZipCode:
+          type: string
+        provinceState:
+          type: string
+        country:
+          type: string
     ShipmentDetails:
       required: [ hazMat, docOnly, freezeProtect ]
       type: object
