@@ -7,6 +7,16 @@ servers:
     description: Generated server url
 paths:
   /api/v1/autotransport/quote-order-bff/rates:
+    post:
+      tags:
+        - quote-handler
+      operationId: submitQuotes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type:
+  /api/v1/autotransport/quote-order-bff/rates/{id}:
     get:
       tags:
         - quote-handler
@@ -140,6 +150,18 @@ components:
         quoteId:
           type: integer
           format: int64
+        shipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteShipment'
+    QuoteShipment:
+      type: object
+      properties:
+        quoteShipmentId:
+          type: integer
+          format: int64
+        shipmentId:
+          type: integer
         shipper:
           $ref: '#/components/schemas/QuoteAddress'
         consignee:
@@ -151,7 +173,7 @@ components:
         insurance:
           $ref: '#/components/schemas/Insurance'
     QuoteAddress:
-      required: [Country, postalZipCode, locationType]
+      required: [ Country, postalZipCode, locationType ]
       type: object
       properties:
         country:
@@ -175,47 +197,12 @@ components:
           $ref: '#/components/schemas/ShipmentCategory'
         packaging:
           $ref: '#/components/schemas/Packaging'
+        packageCaracteristic:
+          type: array
+          items:
+            $ref: '#/components/schemas/PackageCaracteristic'
         unitCount:
           type: number
-        weight:
-          type: number
-        totalWeight:
-          type: number
-        length:
-          type: integer
-          format: int32
-        width:
-          type: integer
-          format: int32
-        minHeight:
-          type: integer
-          format: int32
-        maxHeight:
-          type: integer
-          format: int32
-        isHazMat:
-          type: boolean
-        hazMat:
-          $ref: '#/components/schemas/HazMat'
-        emergencyTel:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        emergencyContact:
-          type: string
-          maxLength: 50
-        hsCode:
-          type: string
-          pattern: '^\d{10}'
-        nmfc:
-          type: string
-          pattern: '^\d{6}'
-        freightClass:
-          type: string
-          pattern: '^\d{3}'
-        freightSubClass:
-          type: string
-          pattern: '^\d{1}'
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -230,7 +217,45 @@ components:
           format: int32
         docOnly:
           type: boolean
-
+    PackageCaracteristic:
+      type: object
+      properties:
+        customPackages:
+          type: string
+        length:
+          type: integer
+          format: int32
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
+        weight:
+          type: number
+        totalWeight:
+          type: number
+        hsCode:
+          type: string
+          pattern: '^\d{10}'
+        nmfc:
+          type: string
+          pattern: '^\d{6}'
+        freightClass:
+          type: string
+          pattern: '^\d{3}'
+        freightSubClass:
+          type: string
+          pattern: '^\d{1}'
+        hazMat:
+          $ref: '#/components/schemas/HazMat'
+        emergencyTel:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        emergencyContact:
+          type: string
+          maxLength: 50
     Temperature:
       type: string
       enum:
