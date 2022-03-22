@@ -546,7 +546,7 @@ components:
         emergencyTel:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -617,23 +617,23 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         extension:
           type: string
           maxLength: 7
-          pattern: '^\d{0,7}$'
+          pattern: '^[0-9]{0,7}$'
         cell:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         tollFree:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         email:
           type: string
           maxLength: 255
@@ -688,7 +688,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM]
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
     Notification:
       type: string
       enum:
@@ -767,15 +767,15 @@ components:
         creditCardNumber:
           type: string
           maxLength: 16
-          pattern: '^\d{16}$'
+          pattern: '^[0-9]{16}$'
         expDate:
           type: string
           maxLength: 4
-          pattern: '^\d{4}$'
+          pattern: '^[0-9]{4}$'
         cvc:
           type: string
           maxLength: 3
-          pattern: '^\d{3}$'
+          pattern: '^[0-9]{3}$'
     CreditReference:
       required: [ supplierName, contactName, address, telephone, email, partnerNumYr ]
       type: object
@@ -794,11 +794,11 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         email:
           type: string
           maxLength: 255
@@ -1329,7 +1329,7 @@ components:
           type: boolean
         mc:
           type: string
-          pattern: '^\d{8}$'
+          pattern: '^[0-9]{8}$'
         scac:
           type: string
           maxLength: 4
@@ -1343,12 +1343,12 @@ components:
           type: string
         ctpat:
           type: string
-          pattern: '^\d{10}$'
+          pattern: '^[0-9]{10}$'
         fastApproved:
           type: boolean
         hazmatNumber:
           type: string
-          pattern: '^\d{1,8}$'
+          pattern: '^[0-9]{1,8}$'
         reviewRating:
           type: number
         wcbNumber:
