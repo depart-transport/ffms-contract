@@ -1213,6 +1213,7 @@ components:
         - INACTIVE
         - GUEST
         - ONBOARDING
+        - PENDING
     Enterprise:
       required: [ legalName, commInfo, address, businessType ]
       type: object
