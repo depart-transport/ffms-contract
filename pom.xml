@@ -120,8 +120,8 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.identificationapi.api</apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.identificationapi</modelPackage>
+                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.api</apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi</modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
                                 <dateLibrary>java8</dateLibrary>

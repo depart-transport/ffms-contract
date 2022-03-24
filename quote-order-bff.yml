@@ -10,7 +10,7 @@ paths:
     get:
       tags:
         - quote-handler
-      operationId: getQuote
+      operationId: getQuotes
       responses:
         "404":
           description: Not Found
@@ -102,7 +102,7 @@ paths:
     put:
       tags:
         - quote-handler
-      operationId: createQuote
+      operationId: updateQuote
       requestBody:
         content:
           application/json:
@@ -153,6 +153,14 @@ paths:
       tags:
         - quote-handler
       operationId: getQuote
+      parameters:
+        - name: quoteId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+
       responses:
         "404":
           description: Not Found
@@ -194,7 +202,15 @@ paths:
     get:
       tags:
         - quote-handler
-      operationId: getQuotes
+      operationId: getQuoteRates
+      parameters:
+        - name: quoteId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+
       responses:
         "404":
           description: Not Found
@@ -238,7 +254,20 @@ paths:
     get:
       tags:
         - quote-handler
-      operationId: getShipmentRates
+      operationId: getQuoteShipmentRates
+      parameters:
+        - name: quoteId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shipmentId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "404":
           description: Not Found
@@ -281,8 +310,8 @@ paths:
   /api/v1/autotransport/quote-order-bff/orders:
     get:
       tags:
-        - quote-handler
-      operationId: createQuote
+        - order-handler
+      operationId: getOrders
       responses:
         "403":
           description: Forbidden
@@ -318,8 +347,8 @@ paths:
                   $ref: '#/components/schemas/Order'
     post:
       tags:
-        - quote-handler
-      operationId: createQuote
+        - order-handler
+      operationId: createOrder
       requestBody:
         content:
           application/json:
@@ -359,8 +388,8 @@ paths:
                 $ref: '#/components/schemas/Order'
     put:
       tags:
-        - quote-handler
-      operationId: createQuote
+        - order-handler
+      operationId: updateOrder
       requestBody:
         content:
           application/json:
@@ -401,8 +430,15 @@ paths:
   /api/v1/autotransport/quote-order-bff/orders/{orderId}/rates:
     get:
       tags:
-        - quote-handler
-      operationId: getQuotes
+        - order-handler
+      operationId: getOrdersRates
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         "404":
           description: Not Found
@@ -445,8 +481,22 @@ paths:
   /api/v1/autotransport/quote-order-bff/orders/{orderId}/rates/{shipmentId}:
     get:
       tags:
-        - quote-handler
-      operationId: getShipmentRates
+        - order-handler
+      operationId: getOrderShipmentRates
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shipmentId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+
       responses:
         "404":
           description: Not Found
