@@ -747,7 +747,7 @@ components:
         contact:
           $ref: '#/components/schemas/Person'
     Billing:
-      required: [ currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
+      required: [ creditStatus, currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
       type: object
       properties:
         billingId:
@@ -835,6 +835,8 @@ components:
           maxLength: 100
         enterprise:
           $ref: '#/components/schemas/Enterprise'
+        billing:
+          $ref: '#/components/schemas/Billing'
     Business:
       required: [ enterprise, isSameBilling ]
       type: object
@@ -842,8 +844,8 @@ components:
         businessId:
           type: integer
           format: int64
-        enterprise:
-          $ref: '#/components/schemas/Enterprise'
+        headOffice:
+          $ref: '#/components/schemas/Branch'
         branches:
           type: array
           items:
@@ -853,7 +855,7 @@ components:
         isSameBilling:
           type: boolean
     Commodity:
-      required: [ hazMat, docOnly, freezeProtect ]
+      required: [ isHazMat, docOnly, freezeProtect, tempControl ]
       type: object
       properties:
         commodityId:
@@ -868,32 +870,29 @@ components:
           $ref: '#/components/schemas/ShipmentCategory'
         hsCode:
           type: string
-          pattern: '^[0-9]{10}'
+          pattern: '^\d{10}'
         length:
           type: integer
           format: int32
         width:
           type: integer
           format: int32
-        minHeight:
-          type: integer
-          format: int32
-        maxHeight:
+        height:
           type: integer
           format: int32
         nmfc:
           type: string
-          pattern: '^[0-9]{6}'
+          pattern: '^\d{6}'
         freightClass:
           type: string
-          pattern: '^[0-9]{3}'
+          pattern: '^\d{3}'
         freightSubClass:
           type: string
-          pattern: '^[0-9]{1}'
+          pattern: '^\d{1}'
         emergencyTel:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -903,34 +902,22 @@ components:
         protectionEnd:
           type: string
           format: date
-        freshUnit:
+        tempControl:
+          type: boolean
+        tempUnit:
           $ref: '#/components/schemas/Temperature'
-        freshMin:
+        tempMin:
           type: integer
           format: int32
-        freshMax:
-          type: integer
-          format: int32
-        frozenUnit:
-          $ref: '#/components/schemas/Temperature'
-        frozenMin:
-          type: integer
-          format: int32
-        frozenMax:
-          type: integer
-          format: int32
-        heatUnit:
-          $ref: '#/components/schemas/Temperature'
-        heatMin:
-          type: integer
-          format: int32
-        heatMax:
+        tempMax:
           type: integer
           format: int32
         docOnly:
           type: boolean
-        hazMat:
+        isHazMat:
           type: boolean
+        hazMat:
+          $ref: '#/components/schemas/HazMat'
         freezeProtect:
           type: boolean
     Packaging:
@@ -963,23 +950,23 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
-          pattern: '^[0-9]{0,7}$'
+          pattern: '^\d{0,7}$'
         cell:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         tollFree:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -1099,7 +1086,7 @@ components:
           maxLength: 50
         usaTaxInfo:
           type: string
-          pattern: '^[0-9]{2}-[0-9]{7}'
+          pattern: '^\d{2}-\d{7}'
     CreditCard:
       required: [ cardholder, creditCardNumber, expDate, cvc ]
       type: object
@@ -1113,17 +1100,17 @@ components:
         creditCardNumber:
           type: string
           maxLength: 19
-          pattern: '^[0-9]{16}$'
+          pattern: '^\d{16}$'
         expDate:
           type: string
           maxLength: 5
-          pattern: '^[0-9]{4}$'
+          pattern: '^\d{4}$'
         cvc:
           type: string
           maxLength: 3
-          pattern: '^[0-9]{3}$'
+          pattern: '^\d{3}$'
     CreditReference:
-      required: [ supplierName, contactName, address, telephone, email, partnerNumYr ]
+      required: [ supplierName, contactName, address, telephone, email ]
       type: object
       properties:
         creditReferenceId:
@@ -1140,11 +1127,11 @@ components:
         telephone:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 14
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -1165,13 +1152,13 @@ components:
           type: string
         accountNumber:
           type: string
-          pattern: '^[0-9]{12}'
+          pattern: '^\d{12}'
         primaryContact:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
     Customer:
-      required: [ isBusiness ]
+      required: [ customerStatus, isBusiness ]
       type: object
       properties:
         customerId:
@@ -1236,8 +1223,6 @@ components:
           $ref: '#/components/schemas/Address'
         commInfo:
           $ref: '#/components/schemas/Communication'
-        billing:
-          $ref: '#/components/schemas/Billing'
         businessType:
           $ref: '#/components/schemas/BusinessType'
     BusinessType:
@@ -1730,7 +1715,7 @@ components:
       properties:
         mc:
           type: string
-          pattern: '^[0-9]{8}$'
+          pattern: '^\d{8}$'
         scac:
           type: string
           maxLength: 4
@@ -1744,12 +1729,12 @@ components:
           type: string
         ctpat:
           type: string
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fastApproved:
           type: boolean
         hazmatNumber:
           type: string
-          pattern: '^[0-9]{1,8}$'
+          pattern: '^\d{1,8}$'
         reviewRating:
           type: number
         wcbNumber:
@@ -1823,7 +1808,7 @@ components:
           items:
             $ref: '#/components/schemas/DeliveryService'
     Receivable:
-      required: [ currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
+      required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
       properties:
         receivableId:
