@@ -454,6 +454,8 @@ components:
           maxLength: 100
         enterprise:
           $ref: '#/components/schemas/Enterprise'
+        billing:
+          $ref: '#/components/schemas/Billing'
     Business:
       required: [ enterprise, isSameBilling ]
       type: object
@@ -461,8 +463,8 @@ components:
         businessId:
           type: integer
           format: int64
-        enterprise:
-          $ref: '#/components/schemas/Enterprise'
+        headOffice:
+          $ref: '#/components/schemas/Branch'
         branches:
           type: array
           items:
@@ -517,17 +519,14 @@ components:
         hsCode:
           type: integer
           format: int64
-          minimum: 999999999999
+          maximum: 999999999999
         length:
           type: integer
           format: int32
         width:
           type: integer
           format: int32
-        minHeight:
-          type: integer
-          format: int32
-        maxHeight:
+        height:
           type: integer
           format: int32
         nmfc:
@@ -546,7 +545,7 @@ components:
         emergencyTel:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -556,34 +555,22 @@ components:
         protectionEnd:
           type: string
           format: date
-        freshUnit:
+        tempControl:
+          type: boolean
+        tempUnit:
           $ref: '#/components/schemas/Temperature'
-        freshMin:
+        tempMin:
           type: integer
           format: int32
-        freshMax:
-          type: integer
-          format: int32
-        frozenUnit:
-          $ref: '#/components/schemas/Temperature'
-        frozenMin:
-          type: integer
-          format: int32
-        frozenMax:
-          type: integer
-          format: int32
-        heatUnit:
-          $ref: '#/components/schemas/Temperature'
-        heatMin:
-          type: integer
-          format: int32
-        heatMax:
+        tempMax:
           type: integer
           format: int32
         docOnly:
           type: boolean
-        hazMat:
+        isHazMat:
           type: boolean
+        hazMat:
+          $ref: '#/components/schemas/HazMat'
         freezeProtect:
           type: boolean
     Packaging:
@@ -617,23 +604,23 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
-          pattern: '^[0-9]{0,7}$'
+          pattern: '^\d{0,7}$'
         cell:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         tollFree:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -767,17 +754,17 @@ components:
         creditCardNumber:
           type: string
           maxLength: 16
-          pattern: '^[0-9]{16}$'
+          pattern: '^\d{16}$'
         expDate:
           type: string
           maxLength: 4
-          pattern: '^[0-9]{4}$'
+          pattern: '^\d{4}$'
         cvc:
           type: string
           maxLength: 3
-          pattern: '^[0-9]{3}$'
+          pattern: '^\d{3}$'
     CreditReference:
-      required: [ supplierName, contactName, address, telephone, email, partnerNumYr ]
+      required: [ supplierName, contactName, address, telephone, email ]
       type: object
       properties:
         creditReferenceId:
@@ -794,11 +781,11 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -865,6 +852,7 @@ components:
         - INACTIVE
         - GUEST
         - ONBOARDING
+        - PENDING
     Enterprise:
       required: [ legalName, commInfo, address, businessType ]
       type: object
@@ -887,8 +875,6 @@ components:
           $ref: '#/components/schemas/Address'
         commInfo:
           $ref: '#/components/schemas/Communication'
-        billing:
-          $ref: '#/components/schemas/Billing'
         businessType:
           $ref: '#/components/schemas/BusinessType'
     BusinessType:
@@ -1329,7 +1315,7 @@ components:
           type: boolean
         mc:
           type: string
-          pattern: '^[0-9]{8}$'
+          pattern: '^\d{8}$'
         scac:
           type: string
           maxLength: 4
@@ -1343,12 +1329,12 @@ components:
           type: string
         ctpat:
           type: string
-          pattern: '^[0-9]{10}$'
+          pattern: '^\d{10}$'
         fastApproved:
           type: boolean
         hazmatNumber:
           type: string
-          pattern: '^[0-9]{1,8}$'
+          pattern: '^\d{1,8}$'
         reviewRating:
           type: number
         wcbNumber:
