@@ -388,7 +388,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
-  /api/v1/customer-bff/coordinates:
+  /api/v1/identification-bff/coordinates:
     post:
       tags:
         - coordinate-handler
@@ -481,7 +481,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Coordinate'
-  /api/v1/customer-bff/coordinates/{id}:
+  /api/v1/identification-bff/coordinates/{id}:
     get:
       tags:
         - coordinate-handler
