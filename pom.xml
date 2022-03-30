@@ -78,12 +78,12 @@
                 <version>${version.openapi.generator}</version>
                 <executions>
                     <execution>
-                        <id>generate-customer-bff</id>
+                        <id>generate-identification-bff</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/customer-bff.yml</inputSpec>
+                            <inputSpec>${project.basedir}/identification-bff.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
@@ -104,12 +104,12 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>generate-identification</id>
+                        <id>generate-data-access-layer</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/identification.yml</inputSpec>
+                            <inputSpec>${project.basedir}/data-access-layer.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
