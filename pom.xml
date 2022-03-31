@@ -104,7 +104,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>generate-data-access-layer</id>
+                        <id>generate-dal-identification</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
