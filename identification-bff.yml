@@ -864,13 +864,40 @@ components:
         commodityName:
           type: string
           maxLength: 255
-        packaging:
-          $ref: '#/components/schemas/Packaging'
+        numberPieces:
+          type: number
         shipmentType:
-          $ref: '#/components/schemas/ShipmentCategory'
-        hsCode:
+          $ref: "#/components/schemas/ShipmentCategory"
+        packaging:
+          $ref: "#/components/schemas/Packaging"
+        packageCaracteristic:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackageCaracteristic"
+        unitCount:
+          type: number
+        isFreezeProtect:
+          type: boolean
+        isTempControl:
+          type: boolean
+        tempUnit:
+          $ref: "#/components/schemas/Temperature"
+        tempMin:
+          type: integer
+          format: int32
+        tempMax:
+          type: integer
+          format: int32
+        docOnly:
+          type: boolean
+    PackageCaracteristic:
+      type: object
+      properties:
+        packageCaracteristicId:
+          type: integer
+          format: int64
+        customPackages:
           type: string
-          pattern: '^\d{10}'
         length:
           type: integer
           format: int32
@@ -880,61 +907,51 @@ components:
         height:
           type: integer
           format: int32
+        weight:
+          type: number
+        hsCode:
+          type: string
+          pattern: "^[0-9]{10}"
         nmfc:
           type: string
-          pattern: '^\d{6}'
+          pattern: "^[0-9]{6}"
         freightClass:
           type: string
-          pattern: '^\d{3}'
+          pattern: "^[0-9]{3}"
         freightSubClass:
           type: string
-          pattern: '^\d{1}'
+          pattern: "^[0-9]{1}"
+        hazMat:
+          $ref: "#/components/schemas/HazMat"
         emergencyTel:
           type: string
-          maxLength: 14
-          pattern: '^\d{10}$'
+          maxLength: 10
+          pattern: "^[0-9]{10}$"
         emergencyContact:
           type: string
           maxLength: 50
-        protectionStart:
-          type: string
-          format: date
-        protectionEnd:
-          type: string
-          format: date
-        tempControl:
-          type: boolean
-        tempUnit:
-          $ref: '#/components/schemas/Temperature'
-        tempMin:
-          type: integer
-          format: int32
-        tempMax:
-          type: integer
-          format: int32
-        docOnly:
-          type: boolean
+        numberPieces:
+          type: number
         isHazMat:
-          type: boolean
-        hazMat:
-          $ref: '#/components/schemas/HazMat'
-        freezeProtect:
           type: boolean
     Packaging:
       type: string
       enum:
-        - BOX
-        - LSE
-        - SRK
-        - WRP
+        - BOX #Boxes
+        - BAG #Bags
+        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:
-        - LTR
-        - PCK
-        - PCL
-        - LTL
-        - FTL
+        - LTR #letter
+        - PCK #pack
+        - PCL #parcel
+        - SKD #Palet / skid
+        - CRT #Crate
+        - BDL #Bundle
+        - RLL #Roll
+        - FSD #Full truck palet
+        - FFL #Full truck floor
     Temperature:
       type: string
       enum:
