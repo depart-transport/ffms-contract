@@ -509,35 +509,35 @@ components:
         commodityId:
           type: integer
           format: int64
-          commodityName:
-            type: string
-            maxLength: 255
-          numberPieces:
-            type: number
-          shipmentType:
-            $ref: "#/components/schemas/ShipmentCategory"
-          packaging:
-            $ref: "#/components/schemas/Packaging"
-          packageCaracteristic:
-            type: array
-            items:
-              $ref: "#/components/schemas/PackageCaracteristic"
-          unitCount:
-            type: number
-          isFreezeProtect:
-            type: boolean
-          isTempControl:
-            type: boolean
-          tempUnit:
-            $ref: "#/components/schemas/Temperature"
-          tempMin:
-            type: integer
-            format: int32
-          tempMax:
-            type: integer
-            format: int32
-          docOnly:
-            type: boolean
+        commodityName:
+          type: string
+          maxLength: 255
+        numberPieces:
+          type: number
+        shipmentType:
+          $ref: "#/components/schemas/ShipmentCategory"
+        packaging:
+          $ref: "#/components/schemas/Packaging"
+        packageCaracteristic:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackageCaracteristic"
+        unitCount:
+          type: number
+        isFreezeProtect:
+          type: boolean
+        isTempControl:
+          type: boolean
+        tempUnit:
+          $ref: "#/components/schemas/Temperature"
+        tempMin:
+          type: integer
+          format: int32
+        tempMax:
+          type: integer
+          format: int32
+        docOnly:
+          type: boolean
     PackageCaracteristic:
       type: object
       properties:
