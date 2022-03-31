@@ -522,8 +522,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/PackageCaracteristic"
-        unitCount:
-          type: number
         isFreezeProtect:
           type: boolean
         isTempControl:
