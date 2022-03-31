@@ -512,14 +512,38 @@ components:
         commodityName:
           type: string
           maxLength: 255
-        packaging:
-          $ref: '#/components/schemas/Packaging'
+        numberPieces:
+          type: number
         shipmentType:
-          $ref: '#/components/schemas/ShipmentCategory'
-        hsCode:
+          $ref: "#/components/schemas/ShipmentCategory"
+        packaging:
+          $ref: "#/components/schemas/Packaging"
+        packageCaracteristic:
+          type: array
+          items:
+            $ref: "#/components/schemas/PackageCaracteristic"
+        isFreezeProtect:
+          type: boolean
+        isTempControl:
+          type: boolean
+        tempUnit:
+          $ref: "#/components/schemas/Temperature"
+        tempMin:
+          type: integer
+          format: int32
+        tempMax:
+          type: integer
+          format: int32
+        docOnly:
+          type: boolean
+    PackageCaracteristic:
+      type: object
+      properties:
+        packageCaracteristicId:
           type: integer
           format: int64
-          maximum: 999999999999
+        customPackages:
+          type: string
         length:
           type: integer
           format: int32
@@ -529,71 +553,56 @@ components:
         height:
           type: integer
           format: int32
+        weight:
+          type: number
+        hsCode:
+          type: string
+          pattern: "^[0-9]{0,10}"
         nmfc:
-          type: integer
-          format: int32
-          maximum: 999999
+          type: string
+          pattern: "^[0-9]{0,6}"
         freightClass:
-          type: integer
-          format: int32
-          maximum: 999
+          type: string
+          pattern: "^[0-9]{0,3}"
         freightSubClass:
-          type: integer
-          format: int32
-          minimum: 0
-          maximum: 9
+          type: string
+          pattern: "^[0-9]{0,1}"
+        hazMat:
+          $ref: "#/components/schemas/HazMat"
         emergencyTel:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          pattern: "^[0-9]{10}$"
         emergencyContact:
           type: string
           maxLength: 50
-        protectionStart:
-          type: string
-          format: date
-        protectionEnd:
-          type: string
-          format: date
-        tempControl:
-          type: boolean
-        tempUnit:
-          $ref: '#/components/schemas/Temperature'
-        tempMin:
-          type: integer
-          format: int32
-        tempMax:
-          type: integer
-          format: int32
-        docOnly:
-          type: boolean
+        numberPieces:
+          type: number
         isHazMat:
-          type: boolean
-        hazMat:
-          $ref: '#/components/schemas/HazMat'
-        freezeProtect:
           type: boolean
     Packaging:
       type: string
       enum:
-        - BOX
-        - LSE
-        - SRK
-        - WRP
+        - BOX #Boxes
+        - BAG #Bags
+        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:
-        - LTR
-        - PCK
-        - PCL
-        - LTL
-        - FTL
+        - LTR #letter
+        - PCK #pack
+        - PCL #parcel
+        - SKD #Palet / skid
+        - CRT #Crate
+        - BDL #Bundle
+        - RLL #Roll
+        - FSD #Full truck palet
+        - FFL #Full truck floor
     Temperature:
       type: string
       enum:
         - F
         - C
-
     Communication:
       required: [ telephone ]
       type: object
