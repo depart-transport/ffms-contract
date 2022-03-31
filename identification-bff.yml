@@ -1138,7 +1138,7 @@ components:
         partnerNumYr:
           type: number
     CustomBroker:
-      required: [ country, brokerName, accountNumber, primaryContact, alternateContact ]
+      required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
       properties:
         customBrokerId:
