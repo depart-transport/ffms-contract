@@ -109,7 +109,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/data-access-layer.yml</inputSpec>
+                            <inputSpec>${project.basedir}/dal-identification.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
@@ -120,8 +120,38 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.api</apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi</modelPackage>
+                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.identification.api
+                                </apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi.identification
+                                </modelPackage>
+                                <reactive>false</reactive>
+                                <useTags>true</useTags>
+                                <dateLibrary>java8</dateLibrary>
+                                <interfaceOnly>true</interfaceOnly>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-dal-transaction</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/dal-transaction.yml</inputSpec>
+                            <typeMappings>
+                                <typeMapping>Time=java.time.LocalTime</typeMapping>
+                            </typeMappings>
+                            <generatorName>spring</generatorName>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
+                            <configOptions>
+                                <sourceFolder>src/main/java</sourceFolder>
+                                <library>spring-boot</library>
+                                <delegatePattern>true</delegatePattern>
+                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.transaction.api
+                                </apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi.transaction
+                                </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
                                 <dateLibrary>java8</dateLibrary>
