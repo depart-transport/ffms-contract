@@ -1631,6 +1631,18 @@ components:
         bidOrderCenterId:
           type: integer
           format: int64
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
+        tripRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripRate'
+    TripRate:
+      type: object
+      properties:
+        tripRateId:
+          type: integer
+          format: int64
         pickupDateBeg:
           type: string
           format: date
@@ -1644,7 +1656,7 @@ components:
           type: string
           format: date
         transitDay:
-          type: number
+          type: integer
         baseCharge:
           type: number
         surcharges:
@@ -1668,9 +1680,8 @@ components:
         customerId:
           type: integer
           format: int64
-        quoteId:
+        quoteNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as Q-XXXXXXXXXXX
           type: integer
-          format: int64
         quoteRates:
           type: array
           items:
@@ -1681,11 +1692,10 @@ components:
         quoteRateId:
           type: integer
           format: int64
-        quoteRatesId:
+        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
-          format: int64
-        shipmentId: # shipment identifier printed on the screen
-          type: integer
+        shipmentDetails:
+          $ref: "#/components/schemas/ShipmentDetails"
         shipmentRates:
           type: array
           items:
@@ -1696,12 +1706,11 @@ components:
         orderRatesId:
           type: integer
           format: int64
-        orderId:
-          type: integer
-          format: int64
         customerId:
           type: integer
           format: int64
+        orderNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
+          type: integer
         orderRates:
           type: array
           items:
@@ -1712,11 +1721,10 @@ components:
         orderRateId:
           type: integer
           format: int64
-        orderRatesId:
+        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
-          format: int64
-        shipmentId: # shipment identifier printed on the screen
-          type: integer
+        shipmentDetails:
+          $ref: "#/components/schemas/ShipmentDetails"
         shipmentRates:
           type: array
           items:
