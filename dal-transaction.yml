@@ -302,8 +302,8 @@ paths:
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
-        - customer-quote-handler
-      operationId: getQuotes
+        - customer-quotes-handler
+      operationId: getCustomerQuotes
       parameters:
         - name: customerId
           in: path
@@ -354,7 +354,7 @@ paths:
     get:
       tags:
         - customer-quote-handler
-      operationId: getQuote
+      operationId: getCustomerQuote
       parameters:
         - name: customerId
           in: path
@@ -408,8 +408,8 @@ paths:
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}/rates:
     get:
       tags:
-        - customer-quote-handler
-      operationId: getQuoteRates
+        - customer-quote-rates-handler
+      operationId: getCustomerQuoteRates
       parameters:
         - name: customerId
           in: path
@@ -466,7 +466,7 @@ paths:
     get:
       tags:
         - customer-quoteShipmentRate-handler
-      operationId: getQuoteShipmentRates
+      operationId: getCustomerQuoteShipmentRates
       parameters:
         - name: customerId
           in: path
@@ -807,7 +807,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrders
+      operationId: getCustomerOrders
       parameters:
         - name: customerId
           in: path
@@ -852,7 +852,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrder
+      operationId: getCustomerOrder
       parameters:
         - name: customerId
           in: path
@@ -907,7 +907,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrdersRates
+      operationId: getCustomerOrdersRates
       parameters:
         - name: customerId
           in: path
@@ -964,7 +964,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrderShipmentRates
+      operationId: getCustomerOrderShipmentRates
       parameters:
         - name: customerId
           in: path
@@ -1027,7 +1027,7 @@ paths:
     get:
       tags:
         - rate-handler
-      operationId: getQuoteRates
+      operationId: getRates
       responses:
         "404":
           description: Not Found
@@ -1173,7 +1173,7 @@ paths:
     get:
       tags:
         - vendor-rates-handler
-      operationId: getQuotes
+      operationId: getVendorQuotes
       parameters:
         - name: vendorId
           in: path
