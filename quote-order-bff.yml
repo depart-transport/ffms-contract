@@ -96,9 +96,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Quote"
+                $ref: "#/components/schemas/Quote"
     put:
       tags:
         - quote-handler
@@ -145,9 +143,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Quote"
+                $ref: "#/components/schemas/Quote"
   /api/v1/autotransport/quote-order-bff/quotes/{quoteId}:
     get:
       tags:
@@ -304,22 +300,14 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{id}:
+                $ref: "#/components/schemas/ShipmentRate"
+  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
-        - customer-quote-handler
-      operationId: getQuotes
+        - customer-quotes-handler
+      operationId: getCustomerQuotes
       parameters:
         - name: customerId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: quoteId
           in: path
           required: true
           schema:
@@ -367,7 +355,7 @@ paths:
     post:
       tags:
         - customer-quote-handler
-      operationId: createQuote
+      operationId: createCustomerQuote
       parameters:
         - name: customerId
           in: path
@@ -429,7 +417,7 @@ paths:
     put:
       tags:
         - customer-quote-handler
-      operationId: updateQuote
+      operationId: updateCustomerQuote
       parameters:
         - name: customerId
           in: path
@@ -492,7 +480,7 @@ paths:
     get:
       tags:
         - customer-quote-handler
-      operationId: getQuote
+      operationId: getCustomerQuote
       parameters:
         - name: customerId
           in: path
@@ -547,7 +535,7 @@ paths:
     get:
       tags:
         - quote-handler
-      operationId: getQuoteRates
+      operationId: getCustomerQuoteRates
       parameters:
         - name: customerId
           in: path
@@ -604,7 +592,7 @@ paths:
     get:
       tags:
         - customer-quote-handler
-      operationId: getQuoteShipmentRates
+      operationId: getCustomerQuoteShipmentRates
       parameters:
         - name: customerId
           in: path
@@ -947,7 +935,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrders
+      operationId: getCustomerOrders
       parameters:
         - name: customerId
           in: path
@@ -991,7 +979,7 @@ paths:
     post:
       tags:
         - customer-order-handler
-      operationId: createOrder
+      operationId: createCustomerOrder
       parameters:
         - name: customerId
           in: path
@@ -1039,7 +1027,7 @@ paths:
     put:
       tags:
         - customer-order-handler
-      operationId: updateOrder
+      operationId: updateCustomerOrder
       parameters:
         - name: customerId
           in: path
@@ -1089,7 +1077,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrder
+      operationId: getCustomerOrder
       parameters:
         - name: customerId
           in: path
@@ -1144,7 +1132,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrdersRates
+      operationId: getCustomerOrdersRates
       parameters:
         - name: customerId
           in: path
@@ -1201,7 +1189,7 @@ paths:
     get:
       tags:
         - customer-order-handler
-      operationId: getOrderShipmentRates
+      operationId: getCustomerOrderShipmentRates
       parameters:
         - name: customerId
           in: path
