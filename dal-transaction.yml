@@ -408,7 +408,7 @@ paths:
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}/rates:
     get:
       tags:
-        - quote-handler
+        - customer-quote-handler
       operationId: getQuoteRates
       parameters:
         - name: customerId
@@ -465,7 +465,7 @@ paths:
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}/rates/{shipmentId}:
     get:
       tags:
-        - customer-quote-handler
+        - customer-quoteShipmentRate-handler
       operationId: getQuoteShipmentRates
       parameters:
         - name: customerId
