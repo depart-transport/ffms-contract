@@ -1665,6 +1665,9 @@ components:
         quoteRatesId:
           type: integer
           format: int64
+        customerId:
+          type: integer
+          format: int64
         quoteId:
           type: integer
           format: int64
@@ -1695,6 +1698,9 @@ components:
           type: integer
           format: int64
         orderId:
+          type: integer
+          format: int64
+        customerId:
           type: integer
           format: int64
         orderRates:
