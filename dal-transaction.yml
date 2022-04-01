@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/quote-order-bff/quotes:
+  /api/v1/autotransport/transaction/quotes:
     get:
       tags:
         - quote-handler
@@ -144,7 +144,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/quote-order-bff/quotes/{quoteId}:
+  /api/v1/autotransport/transaction/quotes/{quoteId}:
     get:
       tags:
         - quote-handler
@@ -193,7 +193,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/quote-order-bff/quotes/{quoteId}/rates:
+  /api/v1/autotransport/transaction/quotes/{quoteId}/rates:
     get:
       tags:
         - quote-handler
@@ -244,7 +244,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/quotes/{quoteId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/quotes/{quoteId}/rates/{shipmentId}:
     get:
       tags:
         - quote-handler
@@ -299,7 +299,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}:
     get:
       tags:
         - customer-quotes-handler
@@ -350,7 +350,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}:
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}:
     get:
       tags:
         - customer-quote-handler
@@ -405,7 +405,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}/rates:
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}/rates:
     get:
       tags:
         - customer-quote-rates-handler
@@ -462,7 +462,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quoteId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}/rates/{shipmentId}:
     get:
       tags:
         - customer-quoteShipmentRate-handler
@@ -525,7 +525,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/orders:
+  /api/v1/autotransport/transaction/orders:
     get:
       tags:
         - order-handler
@@ -645,7 +645,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/quote-order-bff/orders/{orderId}:
+  /api/v1/autotransport/transaction/orders/{orderId}:
     get:
       tags:
         - order-handler
@@ -694,7 +694,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/quote-order-bff/orders/{orderId}/rates:
+  /api/v1/autotransport/transaction/orders/{orderId}/rates:
     get:
       tags:
         - order-handler
@@ -745,7 +745,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/orders/{orderId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/orders/{orderId}/rates/{shipmentId}:
     get:
       tags:
         - order-handler
@@ -803,7 +803,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}:
+  /api/v1/autotransport/transaction/orders/customer/{customerId}:
     get:
       tags:
         - customer-order-handler
@@ -848,7 +848,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{orderId}:
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}:
     get:
       tags:
         - customer-order-handler
@@ -903,7 +903,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{orderId}/rates:
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}/rates:
     get:
       tags:
         - customer-order-handler
@@ -960,7 +960,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{orderId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}/rates/{shipmentId}:
     get:
       tags:
         - customer-order-handler
@@ -1023,7 +1023,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/rates/:
+  /api/v1/autotransport/transaction/rates/:
     get:
       tags:
         - rate-handler
@@ -1169,7 +1169,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/rates/vendor/{vendorId}/:
+  /api/v1/autotransport/transaction/rates/vendor/{vendorId}/:
     get:
       tags:
         - vendor-rates-handler
@@ -1492,7 +1492,7 @@ components:
           type: integer
           format: int64
         numberPieces:
-          type: number
+          type: integer
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packaging:
