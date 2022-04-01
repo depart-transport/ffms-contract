@@ -1686,7 +1686,6 @@ components:
           format: int64
         shipmentId: # shipment identifier printed on the screen
           type: integer
-          format: int64
         shipmentRates:
           type: array
           items:
@@ -1713,12 +1712,11 @@ components:
         orderRateId:
           type: integer
           format: int64
-        orderRatesId: # shipment identifier printed on the screen
+        orderRatesId:
           type: integer
           format: int64
-        shipmentId:
+        shipmentId: # shipment identifier printed on the screen
           type: integer
-          format: int64
         shipmentRates:
           type: array
           items:
