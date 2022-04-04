@@ -1359,7 +1359,7 @@ components:
         coordinate:
           $ref: "#/components/schemas/Coordinate"
     Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
+      required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
       properties:
         coordinateId:
@@ -1485,7 +1485,7 @@ components:
         country:
           type: string
     ShipmentDetails:
-      required: [ hazMat, docOnly, freezeProtect ]
+      required: [ numberPieces, shipmentType, packaging, isFreezeProtect, isTempControl, docOnly ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1493,6 +1493,7 @@ components:
           format: int64
         numberPieces:
           type: integer
+          format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packaging:
@@ -1516,6 +1517,7 @@ components:
         docOnly:
           type: boolean
     PackageCaracteristic:
+      required: [ customPackages, length, width, height, weight, hsCode, freightClass, freightSubClass, isHazMat, numberPieces ]
       type: object
       properties:
         packageCaracteristicId:
@@ -1536,16 +1538,16 @@ components:
           type: number
         hsCode:
           type: string
-          pattern: "^[0-9]{10}"
+          pattern: "^[0-9]{0,10}"
         nmfc:
           type: string
-          pattern: "^[0-9]{6}"
+          pattern: "^[0-9]{0,6}"
         freightClass:
           type: string
-          pattern: "^[0-9]{3}"
+          pattern: "^[0-9]{0,3}"
         freightSubClass:
           type: string
-          pattern: "^[0-9]{1}"
+          pattern: "^[0-9]{0,1}"
         hazMat:
           $ref: "#/components/schemas/HazMat"
         emergencyTel:
@@ -1676,6 +1678,9 @@ components:
       type: object
       properties:
         quoteRatesId:
+          type: integer
+          format: int64
+        quoteId:
           type: integer
           format: int64
         customerId:
