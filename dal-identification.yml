@@ -513,7 +513,8 @@ components:
           type: string
           maxLength: 255
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packaging:
@@ -577,7 +578,8 @@ components:
           type: string
           maxLength: 50
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         isHazMat:
           type: boolean
     Packaging:
