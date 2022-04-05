@@ -1513,7 +1513,7 @@ components:
         country:
           type: string
     ShipmentDetails:
-      required: [ hazMat, docOnly, freezeProtect ]
+      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect , isTempControl , docOnly ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1544,6 +1544,7 @@ components:
         docOnly:
           type: boolean
     PackageCaracteristic:
+      required: [ customPackages, length, width, height, weight, hsCode, freightClass, freightSubClass, numberPieces, isHazMat ]
       type: object
       properties:
         packageCaracteristicId:
