@@ -1208,6 +1208,9 @@ components:
             $ref: '#/components/schemas/CustomBroker'
         rating:
           $ref: '#/components/schemas/Rating'
+        lastUpdated:
+          type: string
+          format: date-time
     BusinessStatus:
       type: string
       enum:
@@ -1723,6 +1726,9 @@ components:
           type: boolean
         isSameInsurance:
           type: boolean
+        lastUpdated:
+          type: string
+          format: date-time
     Authority:
       required: [ mc, scac, usdot ]
       type: object
