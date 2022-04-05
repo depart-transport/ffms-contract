@@ -1504,6 +1504,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
+        minMargin:
+          type: number
     Rating:
       type: object
       properties:

@@ -1071,6 +1071,8 @@ components:
           maxLength: 5
         price:
           type: number
+        minMargin:
+          type: number
         vendors:
           type: array
           items:
