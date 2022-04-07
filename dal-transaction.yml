@@ -1351,8 +1351,10 @@ components:
           type: string
         fromDate:
           type: string
+          format: date
         toDate:
           type: string
+          format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
         additionnalServices:
