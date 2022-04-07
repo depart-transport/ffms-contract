@@ -1376,8 +1376,12 @@ components:
           type: string
         postalZipCode:
           type: string
-        dateRange:
+        fromDate:
           type: string
+          format: date
+        toDate:
+          type: string
+          format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
         additionnalServices:
@@ -1457,8 +1461,12 @@ components:
           format: int64
         address:
           $ref: "#/components/schemas/Address"
-        dateRange:
+        fromDate:
           type: string
+          format: date
+        toDate:
+          type: string
+          format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
         phone:
