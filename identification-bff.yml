@@ -855,7 +855,7 @@ components:
         isSameBilling:
           type: boolean
     Commodity:
-      required: [ isHazMat, docOnly, freezeProtect, tempControl ]
+      required: [ isHazMat, docOnly, isFreezeProtect, isTempControl ]
       type: object
       properties:
         commodityId:
@@ -865,7 +865,8 @@ components:
           type: string
           maxLength: 255
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packaging:
@@ -874,8 +875,6 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/PackageCaracteristic"
-        unitCount:
-          type: number
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -931,7 +930,8 @@ components:
           type: string
           maxLength: 50
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         isHazMat:
           type: boolean
     Packaging:
@@ -1507,6 +1507,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
+        minMargin:
+          type: number
     Rating:
       type: object
       properties:
