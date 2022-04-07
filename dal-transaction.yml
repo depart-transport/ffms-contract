@@ -1320,6 +1320,7 @@ components:
           items:
             $ref: "#/components/schemas/QuoteShipment"
     QuoteShipment:
+      required: [isInsured]
       type: object
       properties:
         quoteShipmentId:
@@ -1338,7 +1339,7 @@ components:
         insurance:
           $ref: "#/components/schemas/Insurance"
     QuoteAddress:
-      required: [ Country, postalZipCode, locationType ]
+      required: [ Country, postalZipCode, locationType, fromDate, toDate]
       type: object
       properties:
         quoteAddressId:
@@ -1348,7 +1349,9 @@ components:
           type: string
         postalZipCode:
           type: string
-        dateRange:
+        fromDate:
+          type: string
+        toDate:
           type: string
         locationType:
           $ref: "#/components/schemas/LocationType"
@@ -1402,6 +1405,7 @@ components:
           items:
             $ref: "#/components/schemas/OrderShipment"
     OrderShipment:
+      required: [ isInsured ]
       type: object
       properties:
         quoteShipmentId:
