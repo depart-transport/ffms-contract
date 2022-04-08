@@ -49,7 +49,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Quote"
+                  $ref: "#/components/schemas/Quotes"
     post:
       tags:
         - quote-handler
@@ -58,7 +58,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Quote"
+              $ref: "#/components/schemas/Quotes"
         required: true
       responses:
         "404":
@@ -96,7 +96,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Quote"
+                $ref: "#/components/schemas/Quotes"
     put:
       tags:
         - quote-handler
@@ -105,7 +105,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Quote"
+              $ref: "#/components/schemas/Quotes"
         required: true
       responses:
         "404":
@@ -143,14 +143,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/transaction/quotes/{quoteId}:
+                $ref: "#/components/schemas/Quotes"
+  /api/v1/autotransport/transaction/quotes/{quotesId}:
     get:
       tags:
         - quote-handler
       operationId: getQuote
       parameters:
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
@@ -192,14 +192,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/transaction/quotes/{quoteId}/rates:
+                $ref: "#/components/schemas/Quotes"
+  /api/v1/autotransport/transaction/quotes/{quotesId}/rates:
     get:
       tags:
         - quote-handler
       operationId: getQuoteRates
       parameters:
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
@@ -241,22 +241,20 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/transaction/quotes/{quoteId}/rates/{shipmentId}:
+                $ref: "#/components/schemas/QuoteRates"
+  /api/v1/autotransport/transaction/quotes/{quotesId}/rates/{quoteRateId}:
     get:
       tags:
         - quote-handler
       operationId: getQuoteShipmentRates
       parameters:
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
             type: integer
             format: int64
-        - name: shipmentId
+        - name: quoteRateId
           in: path
           required: true
           schema:
@@ -298,7 +296,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/QuoteRate"
   /api/v1/autotransport/transaction/quotes/customer/{customerId}:
     get:
       tags:
@@ -349,8 +347,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}:
+                  $ref: "#/components/schemas/Quotes"
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quotesId}:
     get:
       tags:
         - customer-quote-handler
@@ -362,7 +360,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
@@ -404,8 +402,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Quote"
-  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}/rates:
+                $ref: "#/components/schemas/Quotes"
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quotesId}/rates:
     get:
       tags:
         - customer-quote-rates-handler
@@ -417,7 +415,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
@@ -462,7 +460,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quoteId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quotesId}/rates/{shipmentId}:
     get:
       tags:
         - customer-quoteShipmentRate-handler
@@ -474,7 +472,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: quoteId
+        - name: quotesId
           in: path
           required: true
           schema:
@@ -1306,10 +1304,10 @@ components:
             type: string
         url:
           type: string
-    Quote:
+    Quotes:
       type: object
       properties:
-        quoteId:
+        quotesId:
           type: integer
           format: int64
         customerId:
@@ -1320,7 +1318,7 @@ components:
           items:
             $ref: "#/components/schemas/QuoteShipment"
     QuoteShipment:
-      required: [isInsured]
+      required: [ isInsured ]
       type: object
       properties:
         quoteShipmentId:
@@ -1339,7 +1337,7 @@ components:
         insurance:
           $ref: "#/components/schemas/Insurance"
     QuoteAddress:
-      required: [ Country, postalZipCode, locationType, fromDate, toDate]
+      required: [ Country, postalZipCode, locationType, fromDate, toDate ]
       type: object
       properties:
         quoteAddressId:
@@ -1686,7 +1684,7 @@ components:
         quoteRatesId:
           type: integer
           format: int64
-        quoteId:
+        quotesId:
           type: integer
           format: int64
         customerId:
