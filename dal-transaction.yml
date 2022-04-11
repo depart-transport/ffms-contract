@@ -560,7 +560,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Order"
+                  $ref: "#/components/schemas/Orders"
     post:
       tags:
         - order-handler
@@ -569,7 +569,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Order"
+              $ref: "#/components/schemas/Orders"
         required: true
       responses:
         "403":
@@ -601,7 +601,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
+                $ref: "#/components/schemas/Orders"
     put:
       tags:
         - order-handler
@@ -610,7 +610,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Order"
+              $ref: "#/components/schemas/Orders"
         required: true
       responses:
         "403":
@@ -642,14 +642,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/transaction/orders/{orderId}:
+                $ref: "#/components/schemas/Orders"
+  /api/v1/autotransport/transaction/orders/{ordersId}:
     get:
       tags:
         - order-handler
       operationId: getOrder
       parameters:
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -691,14 +691,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/transaction/orders/{orderId}/rates:
+                $ref: "#/components/schemas/Orders"
+  /api/v1/autotransport/transaction/orders/{ordersId}/rates:
     get:
       tags:
         - order-handler
       operationId: getOrdersRates
       parameters:
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -743,13 +743,13 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/transaction/orders/{orderId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/orders/{ordersId}/rates/{shipmentId}:
     get:
       tags:
         - order-handler
       operationId: getOrderShipmentRates
       parameters:
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -845,8 +845,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}:
+                  $ref: "#/components/schemas/Orders"
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{ordersId}:
     get:
       tags:
         - customer-order-handler
@@ -858,7 +858,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -900,8 +900,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Order"
-  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}/rates:
+                $ref: "#/components/schemas/Orders"
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{ordersId}/rates:
     get:
       tags:
         - customer-order-handler
@@ -913,7 +913,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -958,7 +958,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{orderId}/rates/{shipmentId}:
+  /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{ordersId}/rates/{shipmentId}:
     get:
       tags:
         - customer-order-handler
@@ -970,7 +970,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: orderId
+        - name: ordersId
           in: path
           required: true
           schema:
@@ -1391,10 +1391,10 @@ components:
     RadiusUnit:
       type: string
       enum: [ KM, MI ]
-    Order:
+    Orders:
       type: object
       properties:
-        orderId:
+        ordersId:
           type: integer
           format: int64
         customerId:
