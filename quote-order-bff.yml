@@ -243,10 +243,8 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/quotes/{quotesId}/rates/{shipmentId}:
+                $ref: "#/components/schemas/ShipmentRate"
+  /api/v1/autotransport/quote-order-bff/quotes/{quotesId}/rates/{quoteRateId}:
     get:
       tags:
         - quote-handler
@@ -258,7 +256,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: shipmentId
+        - name: quoteRateId
           in: path
           required: true
           schema:
@@ -300,7 +298,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/QuoteRate"
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
@@ -585,9 +583,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/ShipmentRate"
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quotesId}/rates/{shipmentId}:
     get:
       tags:
@@ -648,11 +644,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-
-
+                $ref: "#/components/schemas/QuoteRate"
   /api/v1/autotransport/quote-order-bff/orders:
     get:
       tags:
@@ -870,10 +862,8 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/orders/{ordersId}/rates/{shipmentId}:
+                $ref: "#/components/schemas/ShipmentRate"
+  /api/v1/autotransport/quote-order-bff/orders/{ordersId}/rates/{orderRateId}:
     get:
       tags:
         - order-handler
@@ -928,9 +918,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/ShipmentRate"
   /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}:
     get:
       tags:
@@ -1392,7 +1380,7 @@ components:
         coordinate:
           $ref: "#/components/schemas/Coordinate"
     Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
+      required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
       properties:
         coordinateId:
@@ -1438,7 +1426,7 @@ components:
       required: [ isInsured ]
       type: object
       properties:
-        quoteShipmentId:
+        orderShipmentId:
           type: integer
           format: int64
         shipmentId:
@@ -1455,7 +1443,7 @@ components:
           $ref: "#/components/schemas/Insurance"
     OrderAddress:
       required:
-        [ Country, postalZipCode, locationType, phone, extension, email, date ]
+        [ address, fromDate, toDate, locationType, phone, email, date ]
       type: object
       properties:
         orderAddressId:
@@ -1463,8 +1451,12 @@ components:
           format: int64
         address:
           $ref: "#/components/schemas/Address"
-        dateRange:
+        fromDate:
           type: string
+          format: date
+        toDate:
+          type: string
+          format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
         phone:
@@ -1484,6 +1476,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ChargeType"
+        coordinate:
+          $ref: "#/components/schemas/Coordinate"
     ChargeType:
       type: string
       enum:
@@ -1526,7 +1520,8 @@ components:
           type: integer
           format: int64
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packaging:
@@ -1571,16 +1566,16 @@ components:
           type: number
         hsCode:
           type: string
-          pattern: "^[0-9]{10}"
+          pattern: "^[0-9]{0,10}"
         nmfc:
           type: string
-          pattern: "^[0-9]{6}"
+          pattern: "^[0-9]{0,6}"
         freightClass:
           type: string
-          pattern: "^[0-9]{3}"
+          pattern: "^[0-9]{0,3}"
         freightSubClass:
           type: string
-          pattern: "^[0-9]{1}"
+          pattern: "^[0-9]{0,1}"
         hazMat:
           $ref: "#/components/schemas/HazMat"
         emergencyTel:
@@ -1591,7 +1586,8 @@ components:
           type: string
           maxLength: 50
         numberPieces:
-          type: number
+          type: integer
+          format: int32
         isHazMat:
           type: boolean
     Temperature:
@@ -1660,24 +1656,66 @@ components:
         shipmentRateId:
           type: integer
           format: int64
-        vendors:
+        vendorId:
+          type: integer
+          format: int64
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
+        tripRates:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/TripRate'
+    TripRate:
+      type: object
+      properties:
+        tripRateId:
+          type: integer
+          format: int64
+        pickupDateBeg:
+          type: string
+          format: date
+        pickupDateEnd:
+          type: string
+          format: date
+        arrivalDateBeg:
+          type: string
+          format: date
+        arrivalDateEnd:
+          type: string
+          format: date
         transitDay:
-          type: number
+          type: integer
         baseCharge:
           type: number
         surcharges:
           type: number
         price:
           type: number
+        createdTimestamp:
+          type: string
+          format: date-time
+        updateTimestamp:
+          type: string
+          format: date-time
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
     QuoteRates:
       type: object
       properties:
         quoteRatesId:
           type: integer
           format: int64
+        quotesId:
+          type: integer
+          format: int64
+        customerId:
+          type: integer
+          format: int64
+        quoteNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as Q-XXXXXXXXXXX
+          type: integer
         quoteRates:
           type: array
           items:
@@ -1688,9 +1726,10 @@ components:
         quoteRateId:
           type: integer
           format: int64
-        shipmentId:
+        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
-          format: int64
+        shipmentDetails:
+          $ref: "#/components/schemas/ShipmentDetails"
         shipmentRates:
           type: array
           items:
@@ -1701,6 +1740,14 @@ components:
         orderRatesId:
           type: integer
           format: int64
+        ordersId:
+          type: integer
+          format: int64
+        customerId:
+          type: integer
+          format: int64
+        orderNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
+          type: integer
         orderRates:
           type: array
           items:
@@ -1711,10 +1758,19 @@ components:
         orderRateId:
           type: integer
           format: int64
-        shipmentId:
+        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
-          format: int64
+        shipmentDetails:
+          $ref: "#/components/schemas/ShipmentDetails"
         shipmentRates:
           type: array
           items:
             $ref: "#/components/schemas/ShipmentRate"
+    RateStatus:
+      type: string
+      enum:
+        - REQUESTED
+        - ACCEPTED
+        - REJECTED
+        - BIDDED
+        - EXPIRED

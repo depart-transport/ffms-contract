@@ -457,9 +457,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/ShipmentRate"
   /api/v1/autotransport/transaction/quotes/customer/{customerId}/quote/{quotesId}/rates/{shipmentId}:
     get:
       tags:
@@ -520,9 +518,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/QuoteRate"
   /api/v1/autotransport/transaction/orders:
     get:
       tags:
@@ -740,10 +736,8 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/transaction/orders/{ordersId}/rates/{shipmentId}:
+                $ref: "#/components/schemas/ShipmentRate"
+  /api/v1/autotransport/transaction/orders/{ordersId}/rates/{orderRateId}:
     get:
       tags:
         - order-handler
@@ -755,7 +749,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: shipmentId
+        - name: orderRateId
           in: path
           required: true
           schema:
@@ -798,9 +792,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/ShipmentRate"
   /api/v1/autotransport/transaction/orders/customer/{customerId}:
     get:
       tags:
@@ -955,9 +947,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/ShipmentRate"
   /api/v1/autotransport/transaction/orders/customer/{customerId}/order/{ordersId}/rates/{shipmentId}:
     get:
       tags:
@@ -1018,9 +1008,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
+                $ref: "#/components/schemas/OrderRate"
   /api/v1/autotransport/transaction/rates/:
     get:
       tags:
@@ -1408,7 +1396,7 @@ components:
       required: [ isInsured ]
       type: object
       properties:
-        quoteShipmentId:
+        orderShipmentId:
           type: integer
           format: int64
         shipmentId:
@@ -1425,7 +1413,7 @@ components:
           $ref: "#/components/schemas/Insurance"
     OrderAddress:
       required:
-        [ Country, postalZipCode, locationType, phone, extension, email, date ]
+        [ address, fromDate, toDate, locationType, phone, email, date ]
       type: object
       properties:
         orderAddressId:
@@ -1433,8 +1421,12 @@ components:
           format: int64
         address:
           $ref: "#/components/schemas/Address"
-        dateRange:
+        fromDate:
           type: string
+          format: date
+        toDate:
+          type: string
+          format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
         phone:
@@ -1454,6 +1446,8 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ChargeType"
+        coordinate:
+          $ref: "#/components/schemas/Coordinate"
     ChargeType:
       type: string
       enum:
@@ -1489,7 +1483,7 @@ components:
         country:
           type: string
     ShipmentDetails:
-      required: [ numberPieces, shipmentType, packaging, isFreezeProtect, isTempControl, docOnly ]
+      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1716,6 +1710,9 @@ components:
         orderRatesId:
           type: integer
           format: int64
+        ordersId:
+          type: integer
+          format: int64
         customerId:
           type: integer
           format: int64
@@ -1742,6 +1739,7 @@ components:
     RateStatus:
       type: string
       enum:
+        - REQUESTED
         - ACCEPTED
         - REJECTED
         - BIDDED
