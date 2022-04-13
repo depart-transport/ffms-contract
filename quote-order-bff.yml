@@ -875,7 +875,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: shipmentId
+        - name: orderRateId
           in: path
           required: true
           schema:
