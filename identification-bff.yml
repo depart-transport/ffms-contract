@@ -1791,10 +1791,6 @@ components:
             $ref: '#/components/schemas/BidOrderCenter'
         insuranceDetails:
           $ref: '#/components/schemas/InsuranceDetails'
-        brokers:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomBroker'
         receivable:
           $ref: '#/components/schemas/Receivable'
     BidOrderCenter:
