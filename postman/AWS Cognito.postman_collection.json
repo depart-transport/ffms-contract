@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "6e71f83b-fa03-48dd-a877-29a762e9e30e",
+		"name": "AWS Cognito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Get Id Token OK\", function () {",
+							"    // assert that the status code is 200",
+							"    pm.response.to.be.ok; // info, success, redirection, clientError,  serverError, are other variants",
+							"    // assert that the response has a valid JSON body",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json; // this assertion also checks if a body  exists, so the above check is not needed",
+							"    pm.response.to.have.jsonBody(\"id_token\");",
+							"    var getTokenResponse = JSON.parse(responseBody);",
+							"    pm.environment.set(\"id_token\", getTokenResponse.id_token);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer NXE5dTZmbTVtc3J2YWl2dDk5cHJ0N3Y4YnQ6MW5wNmdlMzY3Zm03MmYxdWs2MXJla2M0Z2hxcmVvaG00Z2E4Zm5qdWNkYTcxYjk5djI5YQ==",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "1j6mrhvn4sapncm8tjbiggr074",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://www.google.com",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "c4f26bb0-f2e4-4809-a7ca-b0021dbb782a",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "12nuv6bvsesjeg30vq8j5o20ls2sev7id7mipslggdaj9kbtenhq",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ffms-dev.auth.us-east-2.amazoncognito.com/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"ffms-dev",
+						"auth",
+						"us-east-2",
+						"amazoncognito",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorizer",
+						"value": "eyJraWQiOiJvVUc1TExiNXZDR2VDa0hCd1lKblNZTzBaYWp5UWFwbEtEbWdmNDArVWpvPSIsImFsZyI6IlJTMjU2In0.eyJvcmlnaW5fanRpIjoiZjM2NjZmNTAtYjdkZC00ZTZkLWJkM2UtNDBiMTEzODE4N2FhIiwic3ViIjoiYTVkZTk5MGMtMGZkNS00YWNiLWFiYjctNzYxN2IxMjdhYTU2IiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJjdXN0b21lcl9zY29wZVwvY3VzdG9tZXJfd3JpdGUiLCJhdXRoX3RpbWUiOjE2MzQ1ODIyNTIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTIuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0yXzFndER4M2x3VCIsImV4cCI6MTYzNDU4NTg1MiwiaWF0IjoxNjM0NTgyMjUyLCJ2ZXJzaW9uIjoyLCJqdGkiOiI3NGUyY2ZhNi1jNmY4LTRkM2YtODJhYy0zNmUzZDA3OGI2NjQiLCJjbGllbnRfaWQiOiIxb2g3cmtjcTY2b21wcTdqNmV0b2tuNjlidiIsInVzZXJuYW1lIjoiYTVkZTk5MGMtMGZkNS00YWNiLWFiYjctNzYxN2IxMjdhYTU2In0.lotMyho3l5pGsVdcPRP1sGBoy9Rci3eeh7x36AyWfvW91-ObgKTsRFdg4zzumyv54C9w2q2fd-n54OXkx7XZ4AGNwSKjCn2o5bpfg-ZSuTBybWr1-uxp2byltusXLUr22LdrVbyswQvSk1hybQmqsFREMG5stuMjLioxlUvePEihjCbwW5jatBI4HiyxpD5q6DtXE21usRiBrHTGw0F93AFN29a6I364JYrAUMUDL8pb3SrzwaiKakdHoWuQ05z6MYUypXeBTbBmfLnzRIgk8GVcNmf__XOjwaWyqUngfmBVnQrczfE94p_r0TLNS7nSXTiHQYwShN1esLAomDA5GA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://yu3tl9iz4g.execute-api.us-east-2.amazonaws.com/dev/customer",
+					"protocol": "https",
+					"host": [
+						"yu3tl9iz4g",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJraWQiOiJsWjExRWk5VERITXZCOGhRRFJlbldRSndBRHN3YWprblwvRjNxbmM5Sk1FMD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0ODgwOWU1My03Y2FmLTQzNzQtOTY4OC1kMDc2NGMyZTJiM2EiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl85VGd6U0RJVjIiLCJ2ZXJzaW9uIjoyLCJjbGllbnRfaWQiOiI1cTl1NmZtNW1zcnZhaXZ0OTlwcnQ3djhidCIsIm9yaWdpbl9qdGkiOiI3OTNiOTZkMy1kMTY1LTQyMjctYWMyZi00NjNkOTVjOWNkZmMiLCJldmVudF9pZCI6IjU4MDVjYjg1LTI1MWQtNGQzOC1iZTE2LTUwODRhNmMyZGY2OSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoib3BlbmlkIGVtYWlsIiwiYXV0aF90aW1lIjoxNjM0NTI3ODEyLCJleHAiOjE2MzQ1MzE0MTIsImlhdCI6MTYzNDUyNzgxMiwianRpIjoiNTE2YWQyODUtMjQyOS00MGFhLTllYmMtODMyZWM0ZTIxMTEwIiwidXNlcm5hbWUiOiJ2ZW5kb3IxIn0.EQcVpH0fxrer-StrJIoni6cMhcvA-twzvaIFEzP7My7GDyY7mOAiqjpJjTw0feEOkRjSTknzCLZyQiLnCxUdwqyaSNHbUFEaGoXb-6uX7FKfiOXTEZGFNfcspZ5lx4emA--sGmfr8FgDHnh70rS6uB02OZl_2OX-HW4Jxl-QEJR-Hqeyq_e0SU1BcPG3430gVeVeWZrodyKJMjFIGcnw9pcxYd9fI1jeaBu44SBIpE74JuvaG6P-bvmUMB6wqaL8_BYyNyAq0g3qVr8H2JbfxJ2bwtHk99Ym8VmI2V27KBAL1TlYcZtd-LIUE6mUO_mKT9zMdJhqS9YBE8c5YcK6oA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://yu3tl9iz4g.execute-api.us-east-2.amazonaws.com/dev/vendor",
+					"protocol": "https",
+					"host": [
+						"yu3tl9iz4g",
+						"execute-api",
+						"us-east-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"vendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-amz-json-1.1",
+						"type": "text"
+					},
+					{
+						"key": "X-Amz-Target",
+						"value": "AWSCognitoIdentityProviderService.InitiateAuth",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"AuthParameters\" : {\n      \"USERNAME\" : \"thi-van.luong@logimethods.com\",\n      \"PASSWORD\" : \"Test123!\"\n   },\n   \"AuthFlow\" : \"USER_PASSWORD_AUTH\",\n   \"ClientId\" : \"1oh7rkcq66ompq7j6etokn69bv\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://departapps.auth.us-east-2.amazoncognito.com",
+					"protocol": "https",
+					"host": [
+						"departapps",
+						"auth",
+						"us-east-2",
+						"amazoncognito",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication page",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "customer/customer.read profile openid",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://ffms-dev.auth.us-east-2.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "https://ffms-dev.auth.us-east-2.amazoncognito.com/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://www.google.com",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "{{DepartClientAppSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "{{DepartClientAppId}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "AccessToken",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
