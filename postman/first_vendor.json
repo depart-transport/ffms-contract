@@ -1,0 +1,4095 @@
+{
+  "vendorId": 1,
+  "vendorStatus": "ONBOARDING",
+  "thirdParty": null,
+  "headOffice": {
+    "vendorBranchId": 1,
+    "branchName": "",
+    "enterprise": {
+      "enterpriseId": 2,
+      "legalName": "First",
+      "commonName": "Vendor",
+      "remitName": null,
+      "owner": null,
+      "address": {
+        "addId": 2,
+        "add": "1243, Boulevard Robert-Bourassa",
+        "add2": null,
+        "city": "Montréal",
+        "postalZipCode": "H3B 3A8",
+        "provinceState": "Québec",
+        "country": "Canada"
+      },
+      "commInfo": {
+        "commId": 3,
+        "telephone": "5140000000",
+        "extension": null,
+        "cell": null,
+        "tollFree": null,
+        "fax": null,
+        "email": "first.vendor@vendor.com",
+        "website": null
+      },
+      "businessType": "V_MCO"
+    },
+    "bidOrders": [
+      {
+        "bidOrderCenterId": null,
+        "bidOrderCenterName": "bid 1",
+        "bidOrderContacts": [
+          {
+            "contact": {
+              "firstName": "First",
+              "lastName": "Vendor",
+              "personId": 2
+            },
+            "contactComm": {
+              "telephone": "5140000000",
+              "commId": 4,
+              "cell": null,
+              "email": "first.vendor@vendor.com",
+              "extension": null,
+              "tollFree": null
+            },
+            "functionTitle": ["OWNR", "CENT"],
+            "contactId": 2,
+            "username": "first.vendor@vendor.com",
+            "isUser": true,
+            "roles": ["Cognito_vendor_superUserAuth_Role"],
+            "notifications": [
+              "SHIPMENT_TRACKING",
+              "BOOKING",
+              "AFTER_HOUR_TRACKING",
+              "BID",
+              "POD_REQUEST",
+              "INVOICE",
+              "STATEMENT",
+              "OSD",
+              "CLAIMS"
+            ]
+          }
+        ],
+        "transportServices": ["SLTL", "ELTL"],
+        "equipments": [],
+        "accessoryCharges": [],
+        "dedicatedServices": [
+          {
+            "deliveryServiceId": null,
+            "coverageName": "rate 1",
+            "zonesCovered": [
+              {
+                "coordinateName": "Montreal",
+                "latitude": 45.5016889,
+                "longitude": -73.567256,
+                "radius": 20,
+                "coordinateId": 31,
+                "location": "Montreal, QC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["ORG"]
+              },
+              {
+                "coordinateName": "Saskatoon",
+                "latitude": 52.157902,
+                "longitude": -106.6701577,
+                "radius": 30,
+                "coordinateId": 32,
+                "location": "Saskatoon, SK, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Regina",
+                "latitude": 50.4452112,
+                "longitude": -104.6188944,
+                "radius": 30,
+                "coordinateId": 33,
+                "location": "Regina, SK, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Victorville",
+                "latitude": 46.0556724,
+                "longitude": -71.95895589999999,
+                "radius": 20,
+                "coordinateId": 34,
+                "location": "Victoriaville, QC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Saint-Jérôme",
+                "latitude": 45.775357,
+                "longitude": -74.004948,
+                "radius": 20,
+                "coordinateId": 35,
+                "location": "Saint-Jérôme, QC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Sorel-Tracy",
+                "latitude": 46.042825,
+                "longitude": -73.112302,
+                "radius": 20,
+                "coordinateId": 36,
+                "location": "Sorel-Tracy, QC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Sherbrooke",
+                "latitude": 45.4041718,
+                "longitude": -71.8929107,
+                "radius": 20,
+                "coordinateId": 37,
+                "location": "Sherbrooke, QC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Orillia",
+                "latitude": 44.6082465,
+                "longitude": -79.4196783,
+                "radius": 30,
+                "coordinateId": 38,
+                "location": "Orillia, ON, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Milton",
+                "latitude": 43.5182991,
+                "longitude": -79.8774042,
+                "radius": 30,
+                "coordinateId": 39,
+                "location": "Milton, ON, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Hamilton",
+                "latitude": 43.2557206,
+                "longitude": -79.8711024,
+                "radius": 30,
+                "coordinateId": 40,
+                "location": "Hamilton, ON, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Ajax",
+                "latitude": 43.8508553,
+                "longitude": -79.0203732,
+                "radius": 20,
+                "coordinateId": 41,
+                "location": "Ajax, ON, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Sidney",
+                "latitude": 48.6502411,
+                "longitude": -123.399005,
+                "radius": 30,
+                "coordinateId": 42,
+                "location": "Sidney, BC, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Halifax",
+                "latitude": 44.64876350000001,
+                "longitude": -63.5752387,
+                "radius": 30,
+                "coordinateId": 43,
+                "location": "Halifax, NS, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Canso",
+                "latitude": 45.3362846,
+                "longitude": -60.9944422,
+                "radius": 30,
+                "coordinateId": 44,
+                "location": "Canso, NS, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Tracy",
+                "latitude": 45.6768431,
+                "longitude": -66.6829181,
+                "radius": 40,
+                "coordinateId": 45,
+                "location": "Tracy, NB, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              },
+              {
+                "coordinateName": "Gambo",
+                "latitude": 48.7850799,
+                "longitude": -54.2133023,
+                "radius": 49,
+                "coordinateId": 46,
+                "location": "Gambo, NL, Canada",
+                "radiusUnit": "MI",
+                "directions": ["DST"]
+              }
+            ],
+            "outbound": [
+              {
+                "coordinate": {
+                  "coordinateName": "Montreal",
+                  "latitude": 45.5016889,
+                  "longitude": -73.567256,
+                  "radius": 20,
+                  "coordinateId": 31,
+                  "location": "Montreal, QC, Canada",
+                  "radiusUnit": "MI",
+                  "directions": ["ORG"]
+                },
+                "rateSchedule": [
+                  {
+                    "destination": {
+                      "coordinateName": "Saskatoon",
+                      "latitude": 52.157902,
+                      "longitude": -106.6701577,
+                      "radius": 30,
+                      "coordinateId": 32,
+                      "location": "Saskatoon, SK, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Regina",
+                      "latitude": 50.4452112,
+                      "longitude": -104.6188944,
+                      "radius": 30,
+                      "coordinateId": 33,
+                      "location": "Regina, SK, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Victorville",
+                      "latitude": 46.0556724,
+                      "longitude": -71.95895589999999,
+                      "radius": 20,
+                      "coordinateId": 34,
+                      "location": "Victoriaville, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Saint-Jérôme",
+                      "latitude": 45.775357,
+                      "longitude": -74.004948,
+                      "radius": 20,
+                      "coordinateId": 35,
+                      "location": "Saint-Jérôme, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Sorel-Tracy",
+                      "latitude": 46.042825,
+                      "longitude": -73.112302,
+                      "radius": 20,
+                      "coordinateId": 36,
+                      "location": "Sorel-Tracy, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Sherbrooke",
+                      "latitude": 45.4041718,
+                      "longitude": -71.8929107,
+                      "radius": 20,
+                      "coordinateId": 37,
+                      "location": "Sherbrooke, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Orillia",
+                      "latitude": 44.6082465,
+                      "longitude": -79.4196783,
+                      "radius": 30,
+                      "coordinateId": 38,
+                      "location": "Orillia, ON, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Milton",
+                      "latitude": 43.5182991,
+                      "longitude": -79.8774042,
+                      "radius": 30,
+                      "coordinateId": 39,
+                      "location": "Milton, ON, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Hamilton",
+                      "latitude": 43.2557206,
+                      "longitude": -79.8711024,
+                      "radius": 30,
+                      "coordinateId": 40,
+                      "location": "Hamilton, ON, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Ajax",
+                      "latitude": 43.8508553,
+                      "longitude": -79.0203732,
+                      "radius": 20,
+                      "coordinateId": 41,
+                      "location": "Ajax, ON, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Sidney",
+                      "latitude": 48.6502411,
+                      "longitude": -123.399005,
+                      "radius": 30,
+                      "coordinateId": 42,
+                      "location": "Sidney, BC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Halifax",
+                      "latitude": 44.64876350000001,
+                      "longitude": -63.5752387,
+                      "radius": 30,
+                      "coordinateId": 43,
+                      "location": "Halifax, NS, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Canso",
+                      "latitude": 45.3362846,
+                      "longitude": -60.9944422,
+                      "radius": 30,
+                      "coordinateId": 44,
+                      "location": "Canso, NS, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Tracy",
+                      "latitude": 45.6768431,
+                      "longitude": -66.6829181,
+                      "radius": 40,
+                      "coordinateId": 45,
+                      "location": "Tracy, NB, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  },
+                  {
+                    "destination": {
+                      "coordinateName": "Gambo",
+                      "latitude": 48.7850799,
+                      "longitude": -54.2133023,
+                      "radius": 49,
+                      "coordinateId": 46,
+                      "location": "Gambo, NL, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["DST"]
+                    },
+                    "origin": {
+                      "coordinateName": "Montreal",
+                      "latitude": 45.5016889,
+                      "longitude": -73.567256,
+                      "radius": 20,
+                      "coordinateId": 31,
+                      "location": "Montreal, QC, Canada",
+                      "radiusUnit": "MI",
+                      "directions": ["ORG"]
+                    },
+                    "rateScheduleId": "",
+                    "fixedRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "PAL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "FTL",
+                        "rateType": "FX",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "HRS",
+                        "rateType": "FX",
+                        "rateId": null
+                      }
+                    ],
+                    "weightRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "LTL",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5C",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W1K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W2K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W5K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W10K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W20K",
+                        "rateType": "WT",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "W30K",
+                        "rateType": "WT",
+                        "rateId": null
+                      }
+                    ],
+                    "skidRates": [
+                      {
+                        "price": 0,
+                        "rateMeasure": "S1",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S2",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S3",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S4",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S5",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S6",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S7",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S8",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S9",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S10",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S11",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S12",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S13",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S14",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S15",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S16",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S17",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S18",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S19",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S20",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S21",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S22",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S23",
+                        "rateType": "SK",
+                        "rateId": null
+                      },
+                      {
+                        "price": 0,
+                        "rateMeasure": "S24",
+                        "rateType": "SK",
+                        "rateId": null
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "inbound": [],
+            "equipments": [],
+            "transportServices": []
+          }
+        ],
+        "deliveryServices": []
+      }
+    ],
+    "insuranceDetails": {
+      "id": 1,
+      "currency": "CAD",
+      "liabilityCoverage": 12,
+      "cargoCoverage": 12,
+      "provider": "test",
+      "policyNumber": "test",
+      "start": "2022-01-01",
+      "expiry": "2022-12-12",
+      "contact": {
+        "contactId": 3,
+        "contact": {
+          "personId": 3,
+          "firstName": "fake name",
+          "initial": null,
+          "middleName": null,
+          "lastName": "fake last name"
+        },
+        "contactComm": {
+          "commId": 5,
+          "telephone": "5555555555",
+          "extension": null,
+          "cell": null,
+          "tollFree": null,
+          "fax": null,
+          "email": "tes@gmail.com",
+          "website": null
+        },
+        "contactAdd": null,
+        "functionTitle": null,
+        "username": null,
+        "notifications": null,
+        "isUser": null,
+        "roles": null
+      }
+    },
+    "receivable": {
+      "receivableId": 1,
+      "accountNumber": null,
+      "currency": "CAD",
+      "paymentType": "CHQ",
+      "termOfPayment": 60,
+      "isQuickPayProgram": false,
+      "factoringCoName": null,
+      "careOf": null,
+      "mailingAddress": null,
+      "bankingInfo": {
+        "bankAccountId": 1,
+        "branchName": "branch 1",
+        "institution": "12",
+        "transit": "232",
+        "account": "287342844869",
+        "address": {
+          "addId": 4,
+          "add": "123, Slater Street",
+          "add2": null,
+          "city": "Ottawa",
+          "postalZipCode": "K1P 5G4",
+          "provinceState": "Ontario",
+          "country": "Canada"
+        },
+        "comm": {
+          "commId": 6,
+          "telephone": "1212121212",
+          "extension": null,
+          "cell": null,
+          "tollFree": null,
+          "fax": null,
+          "email": null,
+          "website": null
+        },
+        "contact": {
+          "personId": 4,
+          "firstName": "test",
+          "initial": null,
+          "middleName": null,
+          "lastName": "contact"
+        }
+      },
+      "tradeReference": {
+        "creditApplicationId": 1,
+        "enterpriseType": "COR",
+        "dateOfReq": "2022-01-01",
+        "enterprise": {
+          "enterpriseId": 2,
+          "legalName": "First",
+          "commonName": "Vendor",
+          "remitName": null,
+          "owner": null,
+          "address": {
+            "addId": 2,
+            "add": "1243, Boulevard Robert-Bourassa",
+            "add2": null,
+            "city": "Montréal",
+            "postalZipCode": "H3B 3A8",
+            "provinceState": "Québec",
+            "country": "Canada"
+          },
+          "commInfo": {
+            "commId": 3,
+            "telephone": "5140000000",
+            "extension": null,
+            "cell": null,
+            "tollFree": null,
+            "fax": null,
+            "email": "first.vendor@vendor.com",
+            "website": null
+          },
+          "businessType": "V_MCO"
+        },
+        "pres": {
+          "personId": 6,
+          "firstName": "Patty",
+          "initial": null,
+          "middleName": null,
+          "lastName": "O’Furniture"
+        },
+        "vp": {
+          "personId": 8,
+          "firstName": "Paddy",
+          "initial": null,
+          "middleName": null,
+          "lastName": "etst"
+        },
+        "secretaryTreasurer": {
+          "personId": 7,
+          "firstName": "Olive",
+          "initial": null,
+          "middleName": null,
+          "lastName": "Yew"
+        },
+        "accountant": {
+          "personId": 5,
+          "firstName": "Aida",
+          "initial": null,
+          "middleName": null,
+          "lastName": "Bugg"
+        },
+        "numOfEmployee": 12,
+        "bankInfo": null,
+        "references": [
+          {
+            "creditReferenceId": 1,
+            "supplierName": "1",
+            "contactName": "contact",
+            "address": "test",
+            "telephone": "2343434233",
+            "fax": "2343434233",
+            "email": "test@gmail.com",
+            "partnerNumYr": 12
+          },
+          {
+            "creditReferenceId": 2,
+            "supplierName": "2",
+            "contactName": "contact",
+            "address": "adress2",
+            "telephone": "2343434233",
+            "fax": "2343434233",
+            "email": "test@gmail.com",
+            "partnerNumYr": 12
+          },
+          {
+            "creditReferenceId": 3,
+            "supplierName": "3",
+            "contactName": "contact",
+            "address": "test",
+            "telephone": "2343434233",
+            "fax": "2343434233",
+            "email": "test@gmail.com",
+            "partnerNumYr": 12
+          }
+        ],
+        "monthlyExpenses": null,
+        "requestedLimit": null,
+        "gstNumber": "12",
+        "pstNumber": "12",
+        "usaTaxInfo": "66-6666666"
+      },
+      "receivableApprovedBy": null,
+      "receivableStatus": "PEND"
+    }
+  },
+  "contacts": [
+    {
+      "contactId": 2,
+      "contact": {
+        "personId": 2,
+        "firstName": "First",
+        "initial": null,
+        "middleName": null,
+        "lastName": "Vendor"
+      },
+      "contactComm": {
+        "commId": 4,
+        "telephone": "5140000000",
+        "extension": null,
+        "cell": null,
+        "tollFree": null,
+        "fax": null,
+        "email": "first.vendor@vendor.com",
+        "website": null
+      },
+      "contactAdd": null,
+      "functionTitle": ["OWNR", "CENT"],
+      "username": "first.vendor@vendor.com",
+      "notifications": [
+        "SHIPMENT_TRACKING",
+        "BOOKING",
+        "AFTER_HOUR_TRACKING",
+        "BID",
+        "POD_REQUEST",
+        "INVOICE",
+        "STATEMENT",
+        "OSD",
+        "CLAIMS"
+      ],
+      "isUser": true,
+      "roles": ["Cognito_vendor_superUserAuth_Role"]
+    }
+  ],
+  "branches": [],
+  "vendorInfos": {
+    "isSatelliteTracker": false,
+    "isTrackerOnAllTruck": false,
+    "trackerProvider": null
+  },
+  "authority": {
+    "mc": "12345678",
+    "scac": "1234",
+    "usdot": "12",
+    "cadBondNumber": null,
+    "usBondNumber": null,
+    "ctpat": null,
+    "fastApproved": null,
+    "hazmatNumber": null,
+    "reviewRating": null,
+    "wcbNumber": null,
+    "smc3TarriffCode": null
+  },
+  "flag1099Required": false,
+  "federalIdNumber": null,
+  "contractOnFile": false,
+  "isSameReceivable": false,
+  "isSameInsurance": false,
+  "lastUpdated": "2022-04-17T14:35:33.255Z"
+}
