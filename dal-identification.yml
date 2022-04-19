@@ -1639,6 +1639,9 @@ components:
         bidOrderCenterId:
           type: integer
           format: int64
+        vendorId:
+          type: integer
+          format: int64
         bidOrderCenterName:
           type: string
         bidOrderContacts:
@@ -1700,4 +1703,3 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
-
