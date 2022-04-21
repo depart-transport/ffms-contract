@@ -1632,6 +1632,9 @@ components:
         bidOrderCenterId:
           type: integer
           format: int64
+        price:
+          description: Price of the rate - all triprate price combine
+          type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
