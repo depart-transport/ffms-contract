@@ -895,7 +895,10 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
-        customPackages:
+        numberPck:
+          type: integer
+          format: int64
+        description:
           type: string
         length:
           type: integer
@@ -917,7 +920,7 @@ components:
         freightClass:
           type: string
           pattern: "^[0-9]{3}"
-        freightSubClass:
+        sub:
           type: string
           pattern: "^[0-9]{1}"
         hazMat:
