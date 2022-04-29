@@ -1494,8 +1494,6 @@ components:
           format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
-        packaging:
-          $ref: "#/components/schemas/Packaging"
         packageCaracteristic:
           type: array
           items:
