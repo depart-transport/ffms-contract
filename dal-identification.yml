@@ -1391,6 +1391,7 @@ components:
         receivable:
           $ref: '#/components/schemas/Receivable'
     BidOrderCenter:
+      required: [ isSatelliteTracker, isTrackerOnAllTruck ]   
       type: object
       properties:
         bidOrderCenterId:
@@ -1398,6 +1399,14 @@ components:
           format: int64
         bidOrderCenterName:
           type: string
+        isSatelliteTracker:
+          type: boolean
+        isTrackerOnAllTruck:
+          type: boolean
+        trackerProvider:
+          type: string
+        cubeRules:
+           $ref: '#/components/schemas/CubeRules'
         bidOrderContacts:
           type: array
           items:
@@ -1422,6 +1431,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeliveryService'
+    CubeRules:
+      type: object
+      properties:
+        thresholdHeight:
+          type: integer
+          format: int64
+        thresholdLength:
+          type: integer
+          format: int64
+        thresholdWidth:
+          type: integer
+          format: int64
+        ceilingCube:
+          type: integer
+          format: int64
+        wallCube:
+          type: integer
+          format: int64
     Receivable:
       type: object
       properties:

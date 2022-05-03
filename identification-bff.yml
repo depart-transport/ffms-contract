@@ -1714,8 +1714,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorBranch'
-        vendorInfos:
-          $ref: '#/components/schemas/VendorInfos'
         authority:
           $ref: '#/components/schemas/Authority'
         flag1099Required:
@@ -1764,16 +1762,6 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-    VendorInfos:
-      required: [ isSatelliteTracker, isTrackerOnAllTruck ]
-      type: object
-      properties:
-        isSatelliteTracker:
-          type: boolean
-        isTrackerOnAllTruck:
-          type: boolean
-        trackerProvider:
-          type: string
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object
@@ -1794,6 +1782,7 @@ components:
         receivable:
           $ref: '#/components/schemas/Receivable'
     BidOrderCenter:
+      required: [ isSatelliteTracker, isTrackerOnAllTruck ]    
       type: object
       properties:
         bidOrderCenterId:
@@ -1801,6 +1790,14 @@ components:
           format: int64
         bidOrderCenterName:
           type: string
+        isSatelliteTracker:
+          type: boolean
+        isTrackerOnAllTruck:
+          type: boolean
+        trackerProvider:
+          type: string
+        cubeRules:
+           $ref: '#/components/schemas/CubeRules'
         bidOrderContacts:
           type: array
           items:
@@ -1824,7 +1821,25 @@ components:
         dedicatedServices:
           type: array
           items:
-            $ref: '#/components/schemas/DeliveryService'
+            $ref: '#/components/schemas/DeliveryService'  
+    CubeRules:
+      type: object
+      properties:
+        thresholdHeight:
+          type: integer
+          format: int64
+        thresholdLength:
+          type: integer
+          format: int64
+        thresholdWidth:
+          type: integer
+          format: int64
+        ceilingCube:
+          type: integer
+          format: int64
+        wallCube:
+          type: integer
+          format: int64
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
