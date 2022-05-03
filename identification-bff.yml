@@ -950,6 +950,7 @@ components:
         - CRT #Crate
         - BDL #Bundle
         - RLL #Roll
+        - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
     Temperature:
@@ -1692,7 +1693,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ SLTL, ELTL, GLTL, EXDE, SFTL, TFTL, INTM ]
+      enum: [ LTL, FTL ]
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object

@@ -1013,7 +1013,7 @@ paths:
     get:
       tags:
         - rate-handler
-      operationId: getRates
+      operationId: getrates
       responses:
         "404":
           description: Not Found
@@ -1312,8 +1312,12 @@ components:
         quoteShipmentId:
           type: integer
           format: int64
-        shipmentId:
+        salesNumber:
+          description: number that is display in the invoice.
           type: integer
+        customerId:
+          type: integer
+          format: int64
         shipper:
           $ref: "#/components/schemas/QuoteAddress"
         consignee:
@@ -1399,8 +1403,12 @@ components:
         orderShipmentId:
           type: integer
           format: int64
-        shipmentId:
+        salesNumber:
+          description: the number that is display on the ticket to identify the sales
           type: integer
+        customerId:
+          type: integer
+          format: int64
         shipper:
           $ref: "#/components/schemas/OrderAddress"
         consignee:
@@ -1592,6 +1600,7 @@ components:
         - CRT #Crate
         - BDL #Bundle
         - RLL #Roll
+        - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
     HazMat:
@@ -1626,12 +1635,6 @@ components:
         shipmentRateId:
           type: integer
           format: int64
-        vendorId:
-          type: integer
-          format: int64
-        bidOrderCenterId:
-          type: integer
-          format: int64
         price:
           description: Price of the rate - all triprate price combine
           type: number
@@ -1645,6 +1648,12 @@ components:
       type: object
       properties:
         tripRateId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        bidOrderCenterId:
           type: integer
           format: int64
         pickupDateBeg:
@@ -1662,15 +1671,20 @@ components:
         transitDay:
           type: integer
         baseCharge:
+          description: price of the base charge for a specific vendor/trip
           type: number
         surcharges:
+          description: price of the surcharge for a specific vendor/trip
           type: number
         price:
+          description: total price for a specific vendor/trip
           type: number
         createdTimestamp:
+          description: timestamp of the creation of the trip
           type: string
           format: date-time
         updateTimestamp:
+          description: timestamp of the last update of the trip
           type: string
           format: date-time
         rateStatus:
@@ -1687,8 +1701,6 @@ components:
         customerId:
           type: integer
           format: int64
-        quoteNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as Q-XXXXXXXXXXX
-          type: integer
         quoteRates:
           type: array
           items:
@@ -1699,7 +1711,11 @@ components:
         quoteRateId:
           type: integer
           format: int64
-        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
+        quoteShipmentId:
+          type: integer
+          format: int64
+        salesNumber:
+          description: Order identifier printed on the screen XXXXXXXXXXX so will be printed as Q-XXXXXXXXXXX
           type: integer
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
@@ -1719,7 +1735,8 @@ components:
         customerId:
           type: integer
           format: int64
-        orderNumber: # Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
+        salesNumber:
+          description: Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
           type: integer
         orderRates:
           type: array
@@ -1731,7 +1748,11 @@ components:
         orderRateId:
           type: integer
           format: int64
-        shipmentNumber: # shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
+        orderShipmentId:
+          type: integer
+          format: int64
+        shipmentNumber:
+          description: shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
@@ -1742,8 +1763,9 @@ components:
     RateStatus:
       type: string
       enum:
-        - REQUESTED
-        - ACCEPTED
-        - REJECTED
-        - BIDDED
-        - EXPIRED
+        - REQUESTED # Rate requested to the vendor
+        - REJECTED # Customer rejected the rate
+        - BIDDED # Vendor bidded on the rate
+        - READY # All vendors rate are bidded and price ready to display.
+        - EXPIRED # Rate is expired.
+        - ACCEPTED # Rate accepted by customer
