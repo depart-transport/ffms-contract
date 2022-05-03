@@ -1358,12 +1358,6 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-        isSatelliteTracker:
-          type: boolean
-        isTrackerOnAllTruck:
-          type: boolean
-        trackerProvider:
-          type: string
         isSameReceivable:
           type: boolean
         isSameInsurance:
@@ -1397,6 +1391,12 @@ components:
           type: integer
           format: int64
         bidOrderCenterName:
+          type: string
+        isSatelliteTracker:
+          type: boolean
+        isTrackerOnAllTruck:
+          type: boolean
+        trackerProvider:
           type: string
         cubeRules:
            $ref: '#/components/schemas/CubeRules'
