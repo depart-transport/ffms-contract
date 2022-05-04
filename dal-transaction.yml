@@ -1494,8 +1494,6 @@ components:
           format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
-        packaging:
-          $ref: "#/components/schemas/Packaging"
         packageCaracteristic:
           type: array
           items:
@@ -1515,13 +1513,16 @@ components:
         docOnly:
           type: boolean
     PackageCaracteristic:
-      required: [ customPackages, length, width, height, weight, hsCode, freightClass, freightSubClass, isHazMat, numberPieces ]
+      required: [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, isHazMat, numberPieces ]
       type: object
       properties:
         packageCaracteristicId:
           type: integer
           format: int64
-        customPackages:
+        numberPkg:
+          type: integer
+          format: int64
+        description:
           type: string
         length:
           type: integer
@@ -1543,7 +1544,7 @@ components:
         freightClass:
           type: string
           pattern: "^[0-9]{0,3}"
-        freightSubClass:
+        sub:
           type: string
           pattern: "^[0-9]{0,1}"
         hazMat:
@@ -1576,12 +1577,6 @@ components:
         - OTR_OB
         - OTR_HTL
         - OTR_SHL
-    Packaging:
-      type: string
-      enum:
-        - BOX #Boxes
-        - BAG #Bags
-        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:

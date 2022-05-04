@@ -517,8 +517,6 @@ components:
           format: int32
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
-        packaging:
-          $ref: "#/components/schemas/Packaging"
         packageCaracteristic:
           type: array
           items:
@@ -543,7 +541,10 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
-        customPackages:
+        numberPkg:
+          type: integer
+          format: int64
+        description:
           type: string
         length:
           type: integer
@@ -565,7 +566,7 @@ components:
         freightClass:
           type: string
           pattern: "^[0-9]{0,3}"
-        freightSubClass:
+        sub:
           type: string
           pattern: "^[0-9]{0,1}"
         hazMat:
@@ -582,12 +583,6 @@ components:
           format: int32
         isHazMat:
           type: boolean
-    Packaging:
-      type: string
-      enum:
-        - BOX #Boxes
-        - BAG #Bags
-        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:
