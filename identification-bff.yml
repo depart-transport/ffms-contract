@@ -910,16 +910,16 @@ components:
           type: number
         hsCode:
           type: string
-          pattern: "^[0-9]{10}"
+          pattern: "^[0-9]{0,10}"
         nmfc:
           type: string
-          pattern: "^[0-9]{6}"
+          pattern: "^[0-9]{0,6}"
         freightClass:
           type: string
-          pattern: "^[0-9]{3}"
+          pattern: "^[0-9]{0,3}"
         freightSubClass:
           type: string
-          pattern: "^[0-9]{1}"
+          pattern: "^[0-9]{0,1}"
         hazMat:
           $ref: "#/components/schemas/HazMat"
         emergencyTel:
@@ -967,7 +967,7 @@ components:
           format: int64
         telephone:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         extension:
           type: string
@@ -975,15 +975,15 @@ components:
           pattern: '^\d{0,7}$'
         cell:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         tollFree:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         fax:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         email:
           type: string
@@ -1116,11 +1116,11 @@ components:
           maxLength: 100
         creditCardNumber:
           type: string
-          maxLength: 19
+          maxLength: 16
           pattern: '^\d{16}$'
         expDate:
           type: string
-          maxLength: 5
+          maxLength: 4
           pattern: '^\d{4}$'
         cvc:
           type: string
@@ -1143,11 +1143,11 @@ components:
           maxLength: 255
         telephone:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         fax:
           type: string
-          maxLength: 14
+          maxLength: 10
           pattern: '^\d{10}$'
         email:
           type: string
@@ -1376,7 +1376,7 @@ components:
       type: string
       enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     Margin:
-      required: [ lowerBound, upperBound, price ]
+      required: [ lowerBound, upperBound, price, minMargin ]
       type: object
       properties:
         marginId:
@@ -1430,6 +1430,8 @@ components:
           type: string
           maxLength: 5
         price:
+          type: number
+        minMargin:
           type: number
         vendors:
           type: array
@@ -1859,19 +1861,6 @@ components:
           maxLength: 255
         receivableStatus:
           $ref: '#/components/schemas/CreditStatus'
-
-    ReviewsRating:
-      type: string
-      enum:
-        - UNRATED
-        - PREFERRED
-        - EXCELLENT
-        - GOOD
-        - POOR
-        - NOT_RECOMMENDED
-        - DO_NOT_USE
-        - BLANK
-        - PROBATIONNARY
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius ]
       type: object
@@ -1902,6 +1891,9 @@ components:
     RadiusUnit:
       type: string
       enum: [ KM, MI ]
+    BoxType:
+      type: string
+      enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
     ZonesRateSchedules:
       type: object
       properties:
@@ -1911,6 +1903,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RateSchedule'
-    BoxType:
+    ReviewsRating:
       type: string
-      enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
+      enum:
+        - UNRATED
+        - PREFERRED
+        - EXCELLENT
+        - GOOD
+        - POOR
+        - NOT_RECOMMENDED
+        - DO_NOT_USE
+        - BLANK
+        - PROBATIONNARY
