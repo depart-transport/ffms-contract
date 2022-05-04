@@ -659,6 +659,18 @@ components:
       enum:
         - CAD
         - USD
+    PodRequirement:
+      type: string
+      enum:
+        - ORI
+        - POD
+        - NOP
+    PaymentType:
+      type: string
+      enum:
+        - CHQ
+        - EFT
+        - CC
     CreditStatus:
       type: string
       enum:
@@ -672,18 +684,6 @@ components:
       enum:
         - TBC
         - API
-    PaymentType:
-      type: string
-      enum:
-        - CHQ
-        - EFT
-        - CC
-    PodRequirement:
-      type: string
-      enum:
-        - ORI
-        - POD
-        - NOP
 
     Branch:
       required: [ branchName, enterprise ]
@@ -716,36 +716,6 @@ components:
           $ref: '#/components/schemas/Enterprise'
         isSameBilling:
           type: boolean
-    Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
-      type: object
-      properties:
-        coordinateId:
-          type: integer
-          format: int64
-        coordinateName:
-          type: string
-          maxLength: 85
-        location:
-          type: string
-        longitude:
-          type: number
-        latitude:
-          type: number
-        radius:
-          type: number
-        radiusUnit:
-          $ref: '#/components/schemas/RadiusUnit'
-        directions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Direction'
-    Direction:
-      type: string
-      enum: [ ORG, DST ]
-    RadiusUnit:
-      type: string
-      enum: [ KM, MI ]
     Commodity:
       type: object
       properties:
@@ -1063,6 +1033,7 @@ components:
         alternateContact:
           $ref: '#/components/schemas/Contact'
     Customer:
+      required: [ customerStatus, isBusiness ]
       type: object
       properties:
         customerId:
@@ -1173,7 +1144,8 @@ components:
           $ref: '#/components/schemas/Contact'
     Location:
       required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
-                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired ]
+                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
+                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
       type: object
       properties:
         locationId:
@@ -1642,8 +1614,16 @@ components:
           type: boolean
         trackerProvider:
           type: string
-        cubeRules:
-           $ref: '#/components/schemas/CubeRules'
+        thresholdHeight:
+          type: number
+        thresholdLength:
+          type: number
+        thresholdWidth:
+          type: number
+        ceilingCube:
+          type: number
+        wallCube:
+          type: number
         bidOrderContacts:
           type: array
           items:
@@ -1668,24 +1648,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeliveryService'
-    CubeRules:
-      type: object
-      properties:
-        thresholdHeight:
-          type: integer
-          format: int64
-        thresholdLength:
-          type: integer
-          format: int64
-        thresholdWidth:
-          type: integer
-          format: int64
-        ceilingCube:
-          type: integer
-          format: int64
-        wallCube:
-          type: integer
-          format: int64
     Receivable:
       type: object
       properties:
@@ -1718,6 +1680,36 @@ components:
           maxLength: 255
         receivableStatus:
           $ref: '#/components/schemas/CreditStatus'
+    Coordinate:
+      required: [ coordinateName, longitude, latitude, radius ]
+      type: object
+      properties:
+        coordinateId:
+          type: integer
+          format: int64
+        coordinateName:
+          type: string
+          maxLength: 85
+        location:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+        radius:
+          type: number
+        radiusUnit:
+          $ref: '#/components/schemas/RadiusUnit'
+        directions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Direction'
+    Direction:
+      type: string
+      enum: [ ORG, DST ]
+    RadiusUnit:
+      type: string
+      enum: [ KM, MI ]
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]

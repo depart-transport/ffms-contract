@@ -1031,6 +1031,12 @@ paths:
               $ref: "#/components/schemas/Orders"
         required: true
       responses:
+        "404":
+          description: Not Found
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/ResponseError"
         "403":
           description: Forbidden
           content:

@@ -1500,6 +1500,10 @@ components:
         numberPieces:
           type: integer
           format: int32
+        totalVolume:
+          type: number
+        totalChargeableWeight:
+          type: number
         shipmentType:
           $ref: "#/components/schemas/ShipmentCategory"
         packageCaracteristic:
@@ -1529,7 +1533,6 @@ components:
           format: int64
         numberPkg:
           type: integer
-          format: int64
         description:
           type: string
         length:
@@ -1633,6 +1636,12 @@ components:
         price:
           description: Price of the rate - all triprate price combine
           type: number
+        baseCharge:
+          description: price of the base charge - all triprate base charge combine
+          type: number
+        surcharges:
+          description: price of the surcharge - all triprate surcharge combine
+          type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
@@ -1730,9 +1739,6 @@ components:
         customerId:
           type: integer
           format: int64
-        salesNumber:
-          description: Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
-          type: integer
         orderRates:
           type: array
           items:
@@ -1746,7 +1752,7 @@ components:
         orderShipmentId:
           type: integer
           format: int64
-        shipmentNumber:
+        salesNumber:
           description: shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
           type: integer
         shipmentDetails:
