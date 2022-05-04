@@ -1692,7 +1692,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ SLTL, ELTL, GLTL, EXDE, SFTL, TFTL, INTM ]
+      enum: [ LTL, FTL ]
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
@@ -1714,8 +1714,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorBranch'
-        vendorInfos:
-          $ref: '#/components/schemas/VendorInfos'
         authority:
           $ref: '#/components/schemas/Authority'
         flag1099Required:
@@ -1764,7 +1762,7 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-    VendorInfos:
+    TrackerInfos:
       required: [ isSatelliteTracker, isTrackerOnAllTruck ]
       type: object
       properties:
@@ -1801,6 +1799,10 @@ components:
           format: int64
         bidOrderCenterName:
           type: string
+        trackerInfos:
+          $ref: '#/components/schemas/TrackerInfos'
+        cubeRules:
+           $ref: '#/components/schemas/CubeRules'
         bidOrderContacts:
           type: array
           items:
@@ -1825,6 +1827,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeliveryService'
+    CubeRules:
+      type: object
+      properties:
+        thresholdHeight:
+          type: integer
+          format: int64
+        thresholdLength:
+          type: integer
+          format: int64
+        thresholdWidth:
+          type: integer
+          format: int64
+        ceilingCube:
+          type: integer
+          format: int64
+        wallCube:
+          type: integer
+          format: int64
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
