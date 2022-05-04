@@ -893,7 +893,7 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
-        numberPck:
+        numberPkg:
           type: integer
           format: int64
         description:
@@ -935,12 +935,6 @@ components:
           format: int32
         isHazMat:
           type: boolean
-    Packaging:
-      type: string
-      enum:
-        - BOX #Boxes
-        - BAG #Bags
-        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:

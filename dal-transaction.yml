@@ -1513,13 +1513,13 @@ components:
         docOnly:
           type: boolean
     PackageCaracteristic:
-      required: [ numberPck, description, length, width, height, weight, hsCode, freightClass, sub, isHazMat, numberPieces ]
+      required: [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, isHazMat, numberPieces ]
       type: object
       properties:
         packageCaracteristicId:
           type: integer
           format: int64
-        numberPck:
+        numberPkg:
           type: integer
           format: int64
         description:
@@ -1577,12 +1577,6 @@ components:
         - OTR_OB
         - OTR_HTL
         - OTR_SHL
-    Packaging:
-      type: string
-      enum:
-        - BOX #Boxes
-        - BAG #Bags
-        - BAL #Bales
     ShipmentCategory:
       type: string
       enum:
