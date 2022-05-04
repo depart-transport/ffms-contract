@@ -1571,12 +1571,6 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-        isSatelliteTracker:
-          type: boolean
-        isTrackerOnAllTruck:
-          type: boolean
-        trackerProvider:
-          type: string
         isSameReceivable:
           type: boolean
         isSameInsurance:
@@ -1614,6 +1608,22 @@ components:
           format: int64
         bidOrderCenterName:
           type: string
+        isSatelliteTracker:
+          type: boolean
+        isTrackerOnAllTruck:
+          type: boolean
+        trackerProvider:
+          type: string
+        thresholdHeight:
+          type: number
+        thresholdLength:
+          type: number
+        thresholdWidth:
+          type: number
+        ceilingCube:
+          type: number
+        wallCube:
+          type: number
         bidOrderContacts:
           type: array
           items:
