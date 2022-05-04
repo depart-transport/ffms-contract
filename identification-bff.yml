@@ -945,6 +945,7 @@ components:
         - CRT #Crate
         - BDL #Bundle
         - RLL #Roll
+        - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
     Temperature:
