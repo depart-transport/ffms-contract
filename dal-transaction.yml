@@ -1437,6 +1437,10 @@ components:
           format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
+        contactFirstName:
+          type: string
+        contactLastName:
+          type: string
         phone:
           type: string
           pattern: "^[0-9]{10}$"
@@ -1448,7 +1452,9 @@ components:
           maxLength: 255
         date:
           type: string
-        time:
+        readyTime:
+          type: string
+        closeTime:
           type: string
         additionnalServices:
           type: array
@@ -1471,6 +1477,75 @@ components:
         - APD
         - RSH
         - APP
+    Contact:
+      required: [ contact, contactComm ]
+      type: object
+      properties:
+        contactId:
+          type: integer
+          format: int64
+        contact:
+          $ref: '#/components/schemas/Person'
+        contactComm:
+          $ref: '#/components/schemas/Communication'
+        contactAdd:
+          $ref: '#/components/schemas/Address'
+        functionTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
+        username:
+          type: string
+          maxLength: 255
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        isUser:
+          type: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    Role:
+      type: string
+      enum:
+        - Cognito_customer_admin_role
+        - Cognito_customer_superUserAuth_Role
+        - Cognito_customer_readUnauth_Role
+        - Cognito_customer_readAuth_Role
+        - internal_accouting_user
+        - internal_admin
+        - internal_superUser
+        - internal_support_user
+        - internal_user
+        - sysadmin
+        - Cognito_vendor_superUserAuth_Role
+        - Cognito_vendor_readUnauth_Role
+        - Cognito_vendor_readAuth_Role
+    FunctionTitle:
+      type: string
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+    Notification:
+      type: string
+      enum:
+        - ORDER_BOOKED
+        - PICKED_UP
+        - IN_TRANSIT
+        - CUSTOMS_RELEASED
+        - OUT_FOR_DELIVERY
+        - DELIVRED
+        - RECEIVE_INVOICE
+        - RECEIVE_STATEMENT
+        - SHIPMENT_TRACKING
+        - BOOKING
+        - AFTER_HOUR_TRACKING
+        - BID
+        - POD_REQUEST
+        - INVOICE
+        - STATEMENT
+        - OSD
+        - CLAIMS
     Address:
       required: [ add, city, postalZipCode, provinceState, country ]
       type: object

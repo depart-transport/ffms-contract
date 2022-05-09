@@ -1467,6 +1467,10 @@ components:
           format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
+        contactFirstName:
+          type: string
+        contactLastName:
+          type: string
         phone:
           type: string
           pattern: "^[0-9]{10}$"
@@ -1478,7 +1482,9 @@ components:
           maxLength: 255
         date:
           type: string
-        time:
+        readyTime:
+          type: string
+        closeTime:
           type: string
         additionnalServices:
           type: array
