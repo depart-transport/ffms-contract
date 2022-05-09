@@ -756,7 +756,6 @@ components:
           format: int64
         numberPkg:
           type: integer
-          format: int64
         description:
           type: string
         length:
