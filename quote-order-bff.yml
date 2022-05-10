@@ -1495,9 +1495,6 @@ components:
       required: [ telephone, email ]
       type: object
       properties:
-        commId:
-          type: integer
-          format: int64
         telephone:
           type: string
           maxLength: 10
@@ -1506,38 +1503,14 @@ components:
           type: string
           maxLength: 7
           pattern: '^\d{0,7}$'
-        cell:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        tollFree:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        fax:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
         email:
-          type: string
-          maxLength: 255
-        website:
           type: string
           maxLength: 255
     Person:
       required: [ firstName, lastName ]
       type: object
       properties:
-        personId:
-          type: integer
-          format: int64
         firstName:
-          type: string
-          maxLength: 100
-        initial:
-          type: string
-          maxLength: 5
-        middleName:
           type: string
           maxLength: 100
         lastName:
