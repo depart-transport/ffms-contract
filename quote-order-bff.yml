@@ -1357,10 +1357,6 @@ components:
           $ref: "#/components/schemas/QuoteAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
-        additionnalServices:
-          type: array
-          items:
-            $ref: "#/components/schemas/ChargeType"
         deliveryInstruction:
           type: string
         isInsured:
@@ -1451,10 +1447,6 @@ components:
           $ref: "#/components/schemas/OrderAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
-        additionnalServices:
-          type: array
-          items:
-            $ref: "#/components/schemas/ChargeType"
         deliveryInstruction:
           type: string
         isInsured:
@@ -1463,7 +1455,7 @@ components:
           $ref: "#/components/schemas/Insurance"
     OrderAddress:
       required:
-        [ address, fromDate, toDate, locationType, phone, email, date ]
+        [ address, fromDate, toDate, locationType, contact, date ]
       type: object
       properties:
         orderAddressId:
