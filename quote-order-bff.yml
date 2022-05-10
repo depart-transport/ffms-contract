@@ -1467,19 +1467,8 @@ components:
           format: date
         locationType:
           $ref: "#/components/schemas/LocationType"
-        contactFirstName:
-          type: string
-        contactLastName:
-          type: string
-        phone:
-          type: string
-          pattern: "^[0-9]{10}$"
-        extension:
-          type: string
-          pattern: "^[0-9]{0,7}$"
-        email:
-          type: string
-          maxLength: 255
+        contact:
+          $ref: "#/components/schemas/Contact"
         date:
           type: string
         readyTime:
@@ -1492,6 +1481,68 @@ components:
             $ref: "#/components/schemas/ChargeType"
         coordinate:
           $ref: "#/components/schemas/Coordinate"
+    Contact:
+      required: [ contact, contactComm ]
+      type: object
+      properties:
+        contact:
+          $ref: '#/components/schemas/Person'
+        contactComm:
+          $ref: '#/components/schemas/Communication'
+        contactAdd:
+          $ref: '#/components/schemas/Address'
+    Communication:
+      required: [ telephone, email ]
+      type: object
+      properties:
+        commId:
+          type: integer
+          format: int64
+        telephone:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        extension:
+          type: string
+          maxLength: 7
+          pattern: '^\d{0,7}$'
+        cell:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        tollFree:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        fax:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        email:
+          type: string
+          maxLength: 255
+        website:
+          type: string
+          maxLength: 255
+    Person:
+      required: [ firstName, lastName ]
+      type: object
+      properties:
+        personId:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+          maxLength: 100
+        initial:
+          type: string
+          maxLength: 5
+        middleName:
+          type: string
+          maxLength: 100
+        lastName:
+          type: string
+          maxLength: 100
     ChargeType:
       type: string
       enum:
