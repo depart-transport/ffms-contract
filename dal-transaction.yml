@@ -1324,6 +1324,12 @@ components:
           $ref: "#/components/schemas/QuoteAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
+        additionnalServices:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChargeType"
+        deliveryInstruction:
+          type: string
         isInsured:
           type: boolean
         insurance:
@@ -1415,6 +1421,12 @@ components:
           $ref: "#/components/schemas/OrderAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
+        additionnalServices:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChargeType"
+        deliveryInstruction:
+          type: string
         isInsured:
           type: boolean
         insurance:
