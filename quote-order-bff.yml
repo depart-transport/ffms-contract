@@ -1357,8 +1357,6 @@ components:
           $ref: "#/components/schemas/QuoteAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
-        deliveryInstruction:
-          type: string
         isInsured:
           type: boolean
         insurance:
@@ -1447,8 +1445,6 @@ components:
           $ref: "#/components/schemas/OrderAddress"
         shipmentDetails:
           $ref: "#/components/schemas/ShipmentDetails"
-        deliveryInstruction:
-          type: string
         isInsured:
           type: boolean
         insurance:
