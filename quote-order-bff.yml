@@ -1450,7 +1450,8 @@ components:
         insurance:
           $ref: '#/components/schemas/Insurance'
     OrderAddress:
-      required: [address, fromDate, toDate, locationType, phone, email, date]
+      required:
+        [ address, fromDate, toDate, locationType, contact, date ]
       type: object
       properties:
         orderAddressId:
@@ -1465,26 +1466,56 @@ components:
           type: string
           format: date
         locationType:
-          $ref: '#/components/schemas/LocationType'
-        phone:
-          type: string
-          pattern: '^[0-9]{10}$'
-        extension:
-          type: string
-          pattern: '^[0-9]{0,7}$'
-        email:
-          type: string
-          maxLength: 255
+          $ref: "#/components/schemas/LocationType"
+        contact:
+          $ref: "#/components/schemas/Contact"
         date:
           type: string
-        time:
+        readyTime:
+          type: string
+        closeTime:
           type: string
         additionnalServices:
           type: array
           items:
             $ref: '#/components/schemas/ChargeType'
         coordinate:
-          $ref: '#/components/schemas/Coordinate'
+          $ref: "#/components/schemas/Coordinate"
+    Contact:
+      required: [ contact, contactComm ]
+      type: object
+      properties:
+        contact:
+          $ref: '#/components/schemas/Person'
+        contactComm:
+          $ref: '#/components/schemas/Communication'
+        contactAdd:
+          $ref: '#/components/schemas/Address'
+    Communication:
+      required: [ telephone, email ]
+      type: object
+      properties:
+        telephone:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        extension:
+          type: string
+          maxLength: 7
+          pattern: '^\d{0,7}$'
+        email:
+          type: string
+          maxLength: 255
+    Person:
+      required: [ firstName, lastName ]
+      type: object
+      properties:
+        firstName:
+          type: string
+          maxLength: 100
+        lastName:
+          type: string
+          maxLength: 100
     ChargeType:
       type: string
       enum:
