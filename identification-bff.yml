@@ -578,9 +578,67 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Coordinate'
-
+  /api/v1/identification-bff/weightrates/:
+    get:
+      tags:
+        - rate-handler
+      operationId: getWeightRates
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RatesSchedulesRates'
+  /api/v1/identification-bff/fixedrates/:
+    get:
+      tags:
+        - rate-handler
+      operationId: getFixedtRates
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RatesSchedulesRates'
+  /api/v1/identification-bff/skidrates/:
+    get:
+      tags:
+        - rate-handler
+      operationId: getSkidRates
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RatesSchedulesRates'
 components:
   schemas:
+    RatesSchedulesRates:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        vendorName:
+          type: string
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        bidOrderCenterName:
+          type: string
+        rateSchedule: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Rate'
     ResponseError:
       type: object
       properties:
