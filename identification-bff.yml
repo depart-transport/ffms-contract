@@ -1443,13 +1443,10 @@ components:
           type: number
         minMargin:
           type: number
-        bidOrderCenterId:
-          type: integer
-          format: int64
-        vendors:
+        BidOrderCenters:
           type: array
           items:
-            $ref: '#/components/schemas/Vendor'
+            $ref: '#/components/schemas/BidOrderCenter'
     RateType:
       type: string
       enum:
@@ -1811,6 +1808,9 @@ components:
       type: object
       properties:
         bidOrderCenterId:
+          type: integer
+          format: int64
+        vendorId:
           type: integer
           format: int64
         bidOrderCenterName:
