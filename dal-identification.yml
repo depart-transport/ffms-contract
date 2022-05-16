@@ -1304,7 +1304,7 @@ components:
           type: number
         minMargin:
           type: number
-        BidOrderCenters:
+        bidOrderCenters:
           type: array
           items:
             $ref: '#/components/schemas/BidOrderCenter'
