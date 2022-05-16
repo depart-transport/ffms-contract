@@ -1459,18 +1459,33 @@ components:
     ChargeType:
       type: string
       enum:
-        - FL
-        - LFT
-        - INS
-        - ASS
-        - RES
-        - CNS
-        - ACC
-        - HZM
-        - HT
-        - APD
-        - RSH
         - APP
+        - LFT
+        - INSD
+        - DRS
+        - WGV
+        - ACC
+        - RES
+        - JOB
+        - TRDS
+        - INSE
+        - INSS
+        - APPF
+        - LFTF
+        - INSF
+        - RESD
+        - FLS
+        - WTIM
+        - MP
+        - MD
+        - AHP
+        - AHD
+        - TONU
+        - HZMT
+        - TMPC
+        - ISW
+        - BISP
+        - STRG
     Address:
       required: [ add, city, postalZipCode, provinceState, country ]
       type: object
