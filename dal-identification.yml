@@ -1613,6 +1613,12 @@ components:
           type: boolean
         trackerProvider:
           type: string
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
         thresholdHeight:
           type: number
         thresholdLength:

@@ -1564,17 +1564,16 @@ components:
         numberPkg:
           type: integer
           format: int64
+        isStackable:
+          type: boolean
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
@@ -1584,7 +1583,7 @@ components:
           type: string
           pattern: "^[0-9]{0,6}"
         freightClass:
-          type: string
+          type: number
           pattern: "^[0-9]{0,3}"
         sub:
           type: string
