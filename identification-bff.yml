@@ -591,7 +591,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RatesSchedulesRates'
+                  $ref: '#/components/schemas/VendorRates'
   /api/v1/identification-bff/fixedrates/:
     get:
       tags:
@@ -605,7 +605,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RatesSchedulesRates'
+                  $ref: '#/components/schemas/VendorRates'
   /api/v1/identification-bff/skidrates/:
     get:
       tags:
@@ -619,26 +619,9 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RatesSchedulesRates'
+                  $ref: '#/components/schemas/VendorRates'
 components:
   schemas:
-    RatesSchedulesRates:
-      type: object
-      properties:
-        vendorId:
-          type: integer
-          format: int64
-        vendorName:
-          type: string
-        bidOrderCenterId:
-          type: integer
-          format: int64
-        bidOrderCenterName:
-          type: string
-        rateSchedule: 
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
     ResponseError:
       type: object
       properties:
@@ -1485,6 +1468,24 @@ components:
           format: int64
         billing:
           $ref: '#/components/schemas/Billing'
+    VendorRates:
+      type: object
+      properties:
+        vendorDef:
+          $ref: '#/components/schemas/VendorDef'
+        rates: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Rate'
+    VendorsRate:
+      type: object
+      properties:
+        rate:
+          $ref: '#/components/schemas/Rate'
+        vendorsDef:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
     Rate:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
@@ -1501,10 +1502,19 @@ components:
           type: number
         minMargin:
           type: number
-        bidOrderCenters:
-          type: array
-          items:
-            $ref: '#/components/schemas/BidOrderCenter'
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+            type: integer
+            format: int64
+        vendorName:
+            type: string
+        bidOrderCenterId:
+            type: integer
+            format: int64
+        bidOrderCenterName:
+            type: string
     RateType:
       type: string
       enum:
