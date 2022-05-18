@@ -1573,9 +1573,13 @@ components:
           type: integer
           format: int64
         origin:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
