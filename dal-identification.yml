@@ -197,7 +197,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/identification/bidordercenter:
+  /api/v1/autotransport/identification/bidordercenters:
     get:
       tags:
         - bidOrderCenter-controller
@@ -241,7 +241,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/BidOrderCenter'
-  /api/v1/autotransport/identification/bidordercenter/{id}:
+  /api/v1/autotransport/identification/bidordercenters/{id}:
     get:
       tags:
         - bidOrderCenter-controller
@@ -699,7 +699,6 @@ components:
       enum:
         - TBC
         - API
-
     Branch:
       required: [ branchName, enterprise ]
       type: object
@@ -1314,7 +1313,6 @@ components:
         - FX
         - WT
         - SK
-
     RateSchedule:
       required: [ origin, destination ]
       type: object
