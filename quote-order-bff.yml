@@ -1445,13 +1445,18 @@ components:
           $ref: '#/components/schemas/OrderAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
+        shipmentRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
         isInsured:
           type: boolean
         insurance:
           $ref: '#/components/schemas/Insurance'
+        customBroker:
+          $ref: '#/components/schemas/CustomBroker'
     OrderAddress:
-      required:
-        [ address, fromDate, toDate, locationType, contact, date ]
+      required: [address, fromDate, toDate, locationType, contact, date]
       type: object
       properties:
         orderAddressId:
@@ -1466,9 +1471,9 @@ components:
           type: string
           format: date
         locationType:
-          $ref: "#/components/schemas/LocationType"
+          $ref: '#/components/schemas/LocationType'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         date:
           type: string
         readyTime:
@@ -1480,9 +1485,9 @@ components:
           items:
             $ref: '#/components/schemas/ChargeType'
         coordinate:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
     Contact:
-      required: [ contact, contactComm ]
+      required: [contact, contactComm]
       type: object
       properties:
         contact:
@@ -1492,7 +1497,7 @@ components:
         contactAdd:
           $ref: '#/components/schemas/Address'
     Communication:
-      required: [ telephone, email ]
+      required: [telephone, email]
       type: object
       properties:
         telephone:
@@ -1507,7 +1512,7 @@ components:
           type: string
           maxLength: 255
     Person:
-      required: [ firstName, lastName ]
+      required: [firstName, lastName]
       type: object
       properties:
         firstName:
@@ -1730,6 +1735,12 @@ components:
         shipmentRateId:
           type: integer
           format: int64
+        baseCharge:
+          description: price of the base charge for a specific vendor/trip
+          type: number
+        surcharges:
+          description: price of the surcharge for a specific vendor/trip
+          type: number
         price:
           description: Price of the rate - all triprate price combine
           type: number
@@ -1748,6 +1759,10 @@ components:
         vendorId:
           type: integer
           format: int64
+        vendorName:
+          type: string
+        bidOrderCenterName:
+          type: string
         bidOrderCenterId:
           type: integer
           format: int64
@@ -1869,6 +1884,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        insurance:
+          $ref: '#/components/schemas/Insurance'
+        customBroker:
+          $ref: '#/components/schemas/CustomBroker'
     RateStatus:
       type: string
       enum:
@@ -1878,3 +1897,23 @@ components:
         - READY # All vendors rate are bidded and price ready to display.
         - EXPIRED # Rate is expired.
         - ACCEPTED # Rate accepted by customer
+    CustomBroker:
+      required: [country, brokerName, accountNumber, primaryContact]
+      type: object
+      properties:
+        customBrokerId:
+          type: integer
+          format: int64
+        country:
+          type: string
+          maxLength: 3
+          pattern: '^[A-Z]{3}$'
+        brokerName:
+          type: string
+        accountNumber:
+          type: string
+          pattern: '^\d{12}'
+        primaryContact:
+          $ref: '#/components/schemas/Contact'
+        alternateContact:
+          $ref: '#/components/schemas/Contact'
