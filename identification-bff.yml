@@ -1651,6 +1651,7 @@ components:
           type: number
         minMargin:
           type: number
+
     VendorDef:
       type: object
       properties:
@@ -1732,15 +1733,15 @@ components:
         fixedRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         weightRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         skidRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         minMargin:
           type: number
     Rating:
