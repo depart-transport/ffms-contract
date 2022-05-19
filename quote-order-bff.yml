@@ -965,6 +965,7 @@ components:
           $ref: "#/components/schemas/Contact"
         date:
           type: string
+          format: date
         readyTime:
           type: string
         closeTime:
@@ -1235,20 +1236,6 @@ components:
           type: string
         bidOrderCenterName:
           type: string
-        pickupDateBeg:
-          type: string
-          format: date
-        pickupDateEnd:
-          type: string
-          format: date
-        arrivalDateBeg:
-          type: string
-          format: date
-        arrivalDateEnd:
-          type: string
-          format: date
-        transitDay:
-          type: integer
         baseCharge:
           description: price of the base charge for a specific vendor/trip
           type: number
