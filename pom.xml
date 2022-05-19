@@ -83,7 +83,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/identification-bff.yml</inputSpec>
+                            <inputSpec>${project.basedir}/contracts/identification-bff.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
@@ -109,7 +109,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/dal-identification.yml</inputSpec>
+                            <inputSpec>${project.basedir}/contracts/dal-identification.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
@@ -137,7 +137,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/dal-transaction.yml</inputSpec>
+                            <inputSpec>${project.basedir}/contracts/dal-transaction.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
@@ -165,7 +165,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/quote-order-bff.yml</inputSpec>
+                            <inputSpec>${project.basedir}/contracts/quote-order-bff.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
                             </typeMappings>
