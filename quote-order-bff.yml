@@ -12,44 +12,44 @@ paths:
         - quote-handler
       operationId: getQuotes
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - quote-handler
@@ -58,45 +58,45 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - quote-handler
@@ -105,45 +105,45 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/quotes/{saleId}:
     get:
       tags:
@@ -158,42 +158,42 @@ paths:
             format: int64
 
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
@@ -207,44 +207,44 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - customer-quote-handler
@@ -266,47 +266,47 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
     put:
       tags:
         - customer-quote-handler
@@ -328,47 +328,47 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{saleId}:
     get:
       tags:
@@ -388,80 +388,80 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders:
     get:
       tags:
         - order-handler
       operationId: getOrders
       responses:
-        "403":
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - order-handler
@@ -470,39 +470,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "403":
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - order-handler
@@ -511,39 +511,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "403":
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders/{saleId}:
     get:
       tags:
@@ -557,42 +557,42 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}:
     get:
       tags:
@@ -606,38 +606,38 @@ paths:
             type: integer
             format: int64
       responses:
-        "403":
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Sale"
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - customer-order-handler
@@ -653,39 +653,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "403":
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - customer-order-handler
@@ -702,45 +702,45 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Sale"
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
     get:
       tags:
@@ -760,42 +760,42 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Sale"
+                $ref: '#/components/schemas/Sale'
 
 ##############################
 components:
@@ -891,7 +891,7 @@ components:
           format: int64
         saleType:
           type: string
-          pattern: "^[O|Q]$"
+          pattern: '^[O|Q]$'
         customerId:
           type: integer
           format: int64
@@ -899,21 +899,21 @@ components:
           description: the number that is display on the ticket to identify the sales
           type: integer
         shipper:
-          $ref: "#/components/schemas/SaleAddress"
+          $ref: '#/components/schemas/SaleAddress'
         consignee:
-          $ref: "#/components/schemas/SaleAddress"
+          $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
-          $ref: "#/components/schemas/ShipmentDetails"
+          $ref: '#/components/schemas/ShipmentDetails'
         isInsured:
           type: boolean
         insurance:
-          $ref: "#/components/schemas/Insurance"
+          $ref: '#/components/schemas/Insurance'
         customBroker:
-          $ref: "#/components/schemas/CustomBroker"
+          $ref: '#/components/schemas/CustomBroker'
         shipmentRates:
           type: array
           items:
-            $ref: "#/components/schemas/ShipmentRate"
+            $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -933,11 +933,11 @@ components:
         radius:
           type: number
         radiusUnit:
-          $ref: "#/components/schemas/RadiusUnit"
+          $ref: '#/components/schemas/RadiusUnit'
         directions:
           type: array
           items:
-            $ref: "#/components/schemas/Direction"
+            $ref: '#/components/schemas/Direction'
     Direction:
       type: string
       enum: [ ORG, DST ]
@@ -952,7 +952,7 @@ components:
           type: integer
           format: int64
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         fromDate:
           type: string
           format: date
@@ -960,9 +960,9 @@ components:
           type: string
           format: date
         locationType:
-          $ref: "#/components/schemas/LocationType"
+          $ref: '#/components/schemas/LocationType'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         date:
           type: string
           format: date
@@ -973,19 +973,19 @@ components:
         additionnalServices:
           type: array
           items:
-            $ref: "#/components/schemas/ChargeType"
+            $ref: '#/components/schemas/ChargeType'
         coordinate:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
     Contact:
       required: [ contact, contactComm ]
       type: object
       properties:
         contact:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         contactComm:
-          $ref: "#/components/schemas/Communication"
+          $ref: '#/components/schemas/Communication'
         contactAdd:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
     Communication:
       required: [ telephone, email ]
       type: object
@@ -993,11 +993,11 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
-          pattern: "^\d{0,7}$"
+          pattern: '^\d{0,7}$'
         email:
           type: string
           maxLength: 255
@@ -1076,17 +1076,17 @@ components:
         totalChargeableWeight:
           type: number
         shipmentType:
-          $ref: "#/components/schemas/ShipmentCategory"
+          $ref: '#/components/schemas/ShipmentCategory'
         packageCaracteristic:
           type: array
           items:
-            $ref: "#/components/schemas/PackageCaracteristic"
+            $ref: '#/components/schemas/PackageCaracteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
           type: boolean
         tempUnit:
-          $ref: "#/components/schemas/Temperature"
+          $ref: '#/components/schemas/Temperature'
         tempMin:
           type: integer
           format: int32
@@ -1120,22 +1120,22 @@ components:
           type: number
         hsCode:
           type: string
-          pattern: "^[0-9]{0,10}"
+          pattern: '^[0-9]{0,10}'
         nmfc:
           type: string
-          pattern: "^[0-9]{0,6}"
+          pattern: '^[0-9]{0,6}'
         freightClass:
           type: string
-          pattern: "^[0-9]{0,3}"
+          pattern: '^[0-9]{0,3}'
         sub:
           type: string
-          pattern: "^[0-9]{0,1}"
+          pattern: '^[0-9]{0,1}'
         hazMat:
-          $ref: "#/components/schemas/HazMat"
+          $ref: '#/components/schemas/HazMat'
         emergencyTel:
           type: string
           maxLength: 10
-          pattern: "^[0-9]{10}$"
+          pattern: '^[0-9]{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -1215,11 +1215,11 @@ components:
           description: price of the surcharge - all triprate surcharge combine
           type: number
         rateStatus:
-          $ref: "#/components/schemas/RateStatus"
+          $ref: '#/components/schemas/RateStatus'
         tripRates:
           type: array
           items:
-            $ref: "#/components/schemas/TripRate"
+            $ref: '#/components/schemas/TripRate'
     TripRate:
       type: object
       properties:
@@ -1254,13 +1254,13 @@ components:
           type: string
           format: date-time
         rateStatus:
-          $ref: "#/components/schemas/RateStatus"
+          $ref: '#/components/schemas/RateStatus'
         shipper:
-          $ref: "#/components/schemas/SaleAddress"
+          $ref: '#/components/schemas/SaleAddress'
         consignee:
-          $ref: "#/components/schemas/SaleAddress"
+          $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
-          $ref: "#/components/schemas/ShipmentDetails"
+          $ref: '#/components/schemas/ShipmentDetails'
     RateStatus:
       type: string
       enum:
@@ -1280,13 +1280,13 @@ components:
         country:
           type: string
           maxLength: 3
-          pattern: "^[A-Z]{3}$"
+          pattern: '^[A-Z]{3}$'
         brokerName:
           type: string
         accountNumber:
           type: string
-          pattern: "^\d{12}"
+          pattern: '^\d{12}'
         primaryContact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         alternateContact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'

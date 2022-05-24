@@ -12,44 +12,44 @@ paths:
         - customer-controller
       operationId: getCustomers
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Customer"
+                  $ref: '#/components/schemas/Customer'
     put:
       tags:
         - customer-controller
@@ -60,47 +60,47 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Customer"
+                $ref: '#/components/schemas/Customer'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Customer"
+                  $ref: '#/components/schemas/Customer'
     post:
       tags:
         - customer-controller
@@ -109,45 +109,45 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Customer"
+              $ref: '#/components/schemas/Customer'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Customer"
+                $ref: '#/components/schemas/Customer'
   /api/v1/autotransport/identification/customers/{id}:
     get:
       tags:
@@ -161,86 +161,86 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Customer"
+                $ref: '#/components/schemas/Customer'
   /api/v1/autotransport/identification/bidordercenters:
     get:
       tags:
         - bidOrderCenter-controller
       operationId: getBidOrderCenters
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/BidOrderCenter"
+                  $ref: '#/components/schemas/BidOrderCenter'
   /api/v1/autotransport/identification/bidordercenters/{id}:
     get:
       tags:
@@ -254,42 +254,42 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BidOrderCenter"
+                $ref: '#/components/schemas/BidOrderCenter'
     put:
       tags:
         - bidOrderCenter-controller
@@ -307,89 +307,89 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/BidOrderCenter"
+                $ref: '#/components/schemas/BidOrderCenter'
         required: true
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BidOrderCenter"
+                $ref: '#/components/schemas/BidOrderCenter'
   /api/v1/autotransport/identification/rateschedule:
     get:
       tags:
         - rateSchedule-controller
       operationId: getRateSchedules
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/RateSchedule"
+                  $ref: '#/components/schemas/RateSchedule'
   /api/v1/autotransport/identification/rateschedule/{customerId}:
     get:
       tags:
@@ -403,42 +403,42 @@ paths:
             type: integer
             format: int64
       responses:
-        "404":
+        '404':
           description: Not Found
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "403":
+                $ref: '#/components/schemas/ResponseError'
+        '403':
           description: Forbidden
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "500":
+                $ref: '#/components/schemas/ResponseError'
+        '500':
           description: Internal Server Error
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "401":
+                $ref: '#/components/schemas/ResponseError'
+        '401':
           description: Unauthorized
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "400":
+                $ref: '#/components/schemas/ResponseError'
+        '400':
           description: Bad Request
           content:
-            "*/*":
+            '*/*':
               schema:
-                $ref: "#/components/schemas/ResponseError"
-        "200":
+                $ref: '#/components/schemas/ResponseError'
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RateSchedule"
+                $ref: '#/components/schemas/RateSchedule'
 
 components:
   schemas:
@@ -531,9 +531,9 @@ components:
           type: integer
           format: int64
         chargeName:
-          $ref: "#/components/schemas/ChargeType"
+          $ref: '#/components/schemas/ChargeType'
         chargeMethod:
-          $ref: "#/components/schemas/ChargeUnit"
+          $ref: '#/components/schemas/ChargeUnit'
         freeUpTo:
           type: number
         price:
@@ -617,11 +617,11 @@ components:
           type: string
           maxLength: 17
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         comm:
-          $ref: "#/components/schemas/Communication"
+          $ref: '#/components/schemas/Communication'
         contact:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
     Billing:
       required: [ currencyType, podRequirement, paymentType, isSameBillAdd, payableCreditCard ]
       type: object
@@ -630,17 +630,17 @@ components:
           type: integer
           format: int64
         currency:
-          $ref: "#/components/schemas/Currency"
+          $ref: '#/components/schemas/Currency'
         isSameBillAdd:
           type: boolean
         payableCreditCard:
           type: boolean
         creditCard:
-          $ref: "#/components/schemas/CreditCard"
+          $ref: '#/components/schemas/CreditCard'
         billingAddress:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         bankAccount:
-          $ref: "#/components/schemas/BankAccount"
+          $ref: '#/components/schemas/BankAccount'
         creditLimit:
           type: number
         balance:
@@ -649,21 +649,21 @@ components:
           type: integer
           format: int32
         creditStatus:
-          $ref: "#/components/schemas/CreditStatus"
+          $ref: '#/components/schemas/CreditStatus'
         creditApprovedBy:
           type: string
           maxLength: 255
         creditVerification:
-          $ref: "#/components/schemas/CreditVerification"
+          $ref: '#/components/schemas/CreditVerification'
         paymentType:
-          $ref: "#/components/schemas/PaymentType"
+          $ref: '#/components/schemas/PaymentType'
         viewStatement:
           type: string
           maxLength: 255
         podRequirement:
-          $ref: "#/components/schemas/PodRequirement"
+          $ref: '#/components/schemas/PodRequirement'
         creditApplication:
-          $ref: "#/components/schemas/CreditApplication"
+          $ref: '#/components/schemas/CreditApplication'
         checkedBy:
           type: string
           maxLength: 255
@@ -710,9 +710,9 @@ components:
           type: string
           maxLength: 100
         enterprise:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         billing:
-          $ref: "#/components/schemas/Billing"
+          $ref: '#/components/schemas/Billing'
     Business:
       required: [ enterprise, isSameBilling ]
       type: object
@@ -721,13 +721,13 @@ components:
           type: integer
           format: int64
         headOffice:
-          $ref: "#/components/schemas/Branch"
+          $ref: '#/components/schemas/Branch'
         branches:
           type: array
           items:
-            $ref: "#/components/schemas/Branch"
+            $ref: '#/components/schemas/Branch'
         saleRep:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         isSameBilling:
           type: boolean
     Commodity:
@@ -743,17 +743,17 @@ components:
           type: integer
           format: int32
         shipmentType:
-          $ref: "#/components/schemas/ShipmentCategory"
+          $ref: '#/components/schemas/ShipmentCategory'
         packageCaracteristic:
           type: array
           items:
-            $ref: "#/components/schemas/PackageCaracteristic"
+            $ref: '#/components/schemas/PackageCaracteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
           type: boolean
         tempUnit:
-          $ref: "#/components/schemas/Temperature"
+          $ref: '#/components/schemas/Temperature'
         tempMin:
           type: integer
           format: int32
@@ -786,22 +786,22 @@ components:
           type: number
         hsCode:
           type: string
-          pattern: "^[0-9]{0,10}"
+          pattern: '^[0-9]{0,10}'
         nmfc:
           type: string
-          pattern: "^[0-9]{0,6}"
+          pattern: '^[0-9]{0,6}'
         freightClass:
           type: string
-          pattern: "^[0-9]{0,3}"
+          pattern: '^[0-9]{0,3}'
         sub:
           type: string
-          pattern: "^[0-9]{0,1}"
+          pattern: '^[0-9]{0,1}'
         hazMat:
-          $ref: "#/components/schemas/HazMat"
+          $ref: '#/components/schemas/HazMat'
         emergencyTel:
           type: string
           maxLength: 10
-          pattern: "^[0-9]{10}$"
+          pattern: '^[0-9]{10}$'
         emergencyContact:
           type: string
           maxLength: 50
@@ -838,23 +838,23 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
-          pattern: "^\d{0,7}$"
+          pattern: '^\d{0,7}$'
         cell:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         tollFree:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -869,28 +869,28 @@ components:
           type: integer
           format: int64
         contact:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         contactComm:
-          $ref: "#/components/schemas/Communication"
+          $ref: '#/components/schemas/Communication'
         contactAdd:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         functionTitle:
           type: array
           items:
-            $ref: "#/components/schemas/FunctionTitle"
+            $ref: '#/components/schemas/FunctionTitle'
         username:
           type: string
           maxLength: 255
         notifications:
           type: array
           items:
-            $ref: "#/components/schemas/Notification"
+            $ref: '#/components/schemas/Notification'
         isUser:
           type: boolean
         roles:
           type: array
           items:
-            $ref: "#/components/schemas/Role"
+            $ref: '#/components/schemas/Role'
     Role:
       type: string
       enum:
@@ -938,29 +938,29 @@ components:
           type: integer
           format: int64
         enterpriseType:
-          $ref: "#/components/schemas/EnterpriseType"
+          $ref: '#/components/schemas/EnterpriseType'
         dateOfReq:
           type: string
           format: date
         enterprise:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         pres:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         vp:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         secretaryTreasurer:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         accountant:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         numOfEmployee:
           type: integer
           format: int32
         bankInfo:
-          $ref: "#/components/schemas/BankAccount"
+          $ref: '#/components/schemas/BankAccount'
         references:
           type: array
           items:
-            $ref: "#/components/schemas/CreditReference"
+            $ref: '#/components/schemas/CreditReference'
         monthlyExpenses:
           type: number
         requestedLimit:
@@ -988,15 +988,15 @@ components:
         creditCardNumber:
           type: string
           maxLength: 16
-          pattern: "^\d{16}$"
+          pattern: '^\d{16}$'
         expDate:
           type: string
           maxLength: 4
-          pattern: "^\d{4}$"
+          pattern: '^\d{4}$'
         cvc:
           type: string
           maxLength: 3
-          pattern: "^\d{3}$"
+          pattern: '^\d{3}$'
     CreditReference:
       required: [ supplierName, contactName, address, telephone, email ]
       type: object
@@ -1015,11 +1015,11 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
@@ -1035,7 +1035,7 @@ components:
         country:
           type: string
           maxLength: 3
-          pattern: "^[A-Z]{3}$"
+          pattern: '^[A-Z]{3}$'
         brokerName:
           type: string
         accountNumber:
@@ -1043,9 +1043,9 @@ components:
           format: int64
           maximum: 999999999999
         primaryContact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         alternateContact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
     Customer:
       required: [ customerStatus, isBusiness ]
       type: object
@@ -1054,31 +1054,31 @@ components:
           type: integer
           format: int64
         customerStatus:
-          $ref: "#/components/schemas/BusinessStatus"
+          $ref: '#/components/schemas/BusinessStatus'
         business:
-          $ref: "#/components/schemas/Business"
+          $ref: '#/components/schemas/Business'
         personal:
-          $ref: "#/components/schemas/Personal"
+          $ref: '#/components/schemas/Personal'
         thirdParty:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         locations:
           type: array
           items:
-            $ref: "#/components/schemas/Location"
+            $ref: '#/components/schemas/Location'
         commodities:
           type: array
           items:
-            $ref: "#/components/schemas/Commodity"
+            $ref: '#/components/schemas/Commodity'
         contacts:
           type: array
           items:
-            $ref: "#/components/schemas/Contact"
+            $ref: '#/components/schemas/Contact'
         brokers:
           type: array
           items:
-            $ref: "#/components/schemas/CustomBroker"
+            $ref: '#/components/schemas/CustomBroker'
         rating:
-          $ref: "#/components/schemas/Rating"
+          $ref: '#/components/schemas/Rating'
         lastUpdated:
           type: string
           format: date-time
@@ -1108,13 +1108,13 @@ components:
           type: string
           maxLength: 50
         owner:
-          $ref: "#/components/schemas/Person"
+          $ref: '#/components/schemas/Person'
         address:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         commInfo:
-          $ref: "#/components/schemas/Communication"
+          $ref: '#/components/schemas/Communication'
         businessType:
-          $ref: "#/components/schemas/BusinessType"
+          $ref: '#/components/schemas/BusinessType'
     BusinessType:
       type: string
       enum:
@@ -1137,7 +1137,7 @@ components:
           type: integer
           format: int64
         currency:
-          $ref: "#/components/schemas/Currency"
+          $ref: '#/components/schemas/Currency'
         liabilityCoverage:
           type: number
         cargoCoverage:
@@ -1155,7 +1155,7 @@ components:
           type: string
           format: date
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
     Location:
       required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
                   availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
@@ -1166,7 +1166,7 @@ components:
           type: integer
           format: int64
         locationType:
-          $ref: "#/components/schemas/LocationType"
+          $ref: '#/components/schemas/LocationType'
         isPublicLocation:
           type: boolean
         isApptRequired:
@@ -1180,17 +1180,17 @@ components:
         isLumperRequired:
           type: boolean
         coordinate:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
         locComm:
-          $ref: "#/components/schemas/Communication"
+          $ref: '#/components/schemas/Communication'
         locAdd:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         locContact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         availability:
-          $ref: "#/components/schemas/TimeTable"
+          $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
-          $ref: "#/components/schemas/TruckSize"
+          $ref: '#/components/schemas/TruckSize'
         isDock:
           type: boolean
         isTailgate:
@@ -1286,7 +1286,7 @@ components:
           type: integer
           format: int64
         billing:
-          $ref: "#/components/schemas/Billing"
+          $ref: '#/components/schemas/Billing'
     Rate:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
@@ -1295,7 +1295,7 @@ components:
           type: integer
           format: int64
         rateType:
-          $ref: "#/components/schemas/RateType"
+          $ref: '#/components/schemas/RateType'
         rateMeasure:
           type: string
           maxLength: 5
@@ -1306,7 +1306,7 @@ components:
         vendors:
           type: array
           items:
-            $ref: "#/components/schemas/Enterprise"
+            $ref: '#/components/schemas/Enterprise'
     RateType:
       type: string
       enum:
@@ -1321,21 +1321,21 @@ components:
           type: integer
           format: int64
         origin:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
-            $ref: "#/components/schemas/Rate"
+            $ref: '#/components/schemas/Rate'
         weightRates:
           type: array
           items:
-            $ref: "#/components/schemas/Rate"
+            $ref: '#/components/schemas/Rate'
         skidRates:
           type: array
           items:
-            $ref: "#/components/schemas/Rate"
+            $ref: '#/components/schemas/Rate'
         minMargin:
           type: number
     Rating:
@@ -1347,23 +1347,23 @@ components:
         margins:
           type: array
           items:
-            $ref: "#/components/schemas/Margin"
+            $ref: '#/components/schemas/Margin'
         additionalFees:
           type: array
           items:
-            $ref: "#/components/schemas/AccessoryCharge"
+            $ref: '#/components/schemas/AccessoryCharge'
         rateSchedules:
           type: array
           items:
-            $ref: "#/components/schemas/RateSchedule"
+            $ref: '#/components/schemas/RateSchedule'
         inbound:
           type: array
           items:
-            $ref: "#/components/schemas/Coordinate"
+            $ref: '#/components/schemas/Coordinate'
         outbound:
           type: array
           items:
-            $ref: "#/components/schemas/Coordinate"
+            $ref: '#/components/schemas/Coordinate'
     TimeTable:
       type: object
       properties:
@@ -1421,29 +1421,29 @@ components:
         zonesCovered:
           type: array
           items:
-            $ref: "#/components/schemas/Coordinate"
+            $ref: '#/components/schemas/Coordinate'
         equipments:
           type: array
           items:
-            $ref: "#/components/schemas/Equipment"
+            $ref: '#/components/schemas/Equipment'
         dedicatedTo:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         rateSchedules:
           type: array
           items:
-            $ref: "#/components/schemas/RateSchedule"
+            $ref: '#/components/schemas/RateSchedule'
         inbound:
           type: array
           items:
-            $ref: "#/components/schemas/Coordinate"
+            $ref: '#/components/schemas/Coordinate'
         outbound:
           type: array
           items:
-            $ref: "#/components/schemas/Coordinate"
+            $ref: '#/components/schemas/Coordinate'
         transportServices:
           type: array
           items:
-            $ref: "#/components/schemas/TransportService"
+            $ref: '#/components/schemas/TransportService'
     DoorType:
       type: string
       enum: [ B, R ]
@@ -1454,11 +1454,11 @@ components:
           type: integer
           format: int64
         equipmentType:
-          $ref: "#/components/schemas/EquipmentType"
+          $ref: '#/components/schemas/EquipmentType'
         isDcab:
           type: boolean
         boxType:
-          $ref: "#/components/schemas/BoxType"
+          $ref: '#/components/schemas/BoxType'
         length:
           type: number
         width:
@@ -1472,15 +1472,15 @@ components:
         isDockLevel:
           type: boolean
         doorType:
-          $ref: "#/components/schemas/DoorType"
+          $ref: '#/components/schemas/DoorType'
         liftgateType:
-          $ref: "#/components/schemas/Liftgate"
+          $ref: '#/components/schemas/Liftgate'
         isReefer:
           type: boolean
         hazmatService:
           type: array
           items:
-            $ref: "#/components/schemas/HazMat"
+            $ref: '#/components/schemas/HazMat'
     EquipmentSize:
       type: string
       enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
@@ -1513,11 +1513,11 @@ components:
         inboundProvinceState:
           type: array
           items:
-            $ref: "#/components/schemas/ProvinceState"
+            $ref: '#/components/schemas/ProvinceState'
         outboundProvinceState:
           type: array
           items:
-            $ref: "#/components/schemas/ProvinceState"
+            $ref: '#/components/schemas/ProvinceState'
     ProvinceState:
       type: string
       enum: [ NL_CA, PE_CA, NS_CA, NB_CA, QC_CA, ON_CA, MB_CA, SK_CA, BC_CA, YT_CA, NT_CA, NU_CA, AL_USA, AK_USA,
@@ -1536,19 +1536,19 @@ components:
           type: integer
           format: int64
         vendorStatus:
-          $ref: "#/components/schemas/BusinessStatus"
+          $ref: '#/components/schemas/BusinessStatus'
         thirdParty:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         headOffice:
-          $ref: "#/components/schemas/VendorBranch"
+          $ref: '#/components/schemas/VendorBranch'
         contacts:
           type: array
           items:
-            $ref: "#/components/schemas/Contact"
+            $ref: '#/components/schemas/Contact'
         branches:
           type: array
           items:
-            $ref: "#/components/schemas/VendorBranch"
+            $ref: '#/components/schemas/VendorBranch'
         flag1099Required:
           type: boolean
         federalIdNumber:
@@ -1557,26 +1557,26 @@ components:
           type: boolean
         mc:
           type: string
-          pattern: "^\d{8}$"
+          pattern: '^\d{8}$'
         scac:
           type: string
           maxLength: 4
           minLength: 4
         usdot:
           type: string
-          pattern: "^[0-9]{1,12}$"
+          pattern: '^[0-9]{1,12}$'
         cadBondNumber:
           type: string
         usBondNumber:
           type: string
         ctpat:
           type: string
-          pattern: "^\d{10}$"
+          pattern: '^\d{10}$'
         fastApproved:
           type: boolean
         hazmatNumber:
           type: string
-          pattern: "^\d{1,8}$"
+          pattern: '^\d{1,8}$'
         reviewRating:
           type: number
         wcbNumber:
@@ -1601,15 +1601,15 @@ components:
         branchName:
           type: string
         enterprise:
-          $ref: "#/components/schemas/Enterprise"
+          $ref: '#/components/schemas/Enterprise'
         bidOrders:
           type: array
           items:
-            $ref: "#/components/schemas/BidOrderCenter"
+            $ref: '#/components/schemas/BidOrderCenter'
         insuranceDetails:
-          $ref: "#/components/schemas/InsuranceDetails"
+          $ref: '#/components/schemas/InsuranceDetails'
         receivable:
-          $ref: "#/components/schemas/Receivable"
+          $ref: '#/components/schemas/Receivable'
     BidOrderCenter:
       type: object
       properties:
@@ -1640,27 +1640,27 @@ components:
         bidOrderContacts:
           type: array
           items:
-            $ref: "#/components/schemas/Contact"
+            $ref: '#/components/schemas/Contact'
         transportServices:
           type: array
           items:
-            $ref: "#/components/schemas/TransportService"
+            $ref: '#/components/schemas/TransportService'
         accessoryCharges:
           type: array
           items:
-            $ref: "#/components/schemas/AccessoryCharge"
+            $ref: '#/components/schemas/AccessoryCharge'
         equipments:
           type: array
           items:
-            $ref: "#/components/schemas/Equipment"
+            $ref: '#/components/schemas/Equipment'
         deliveryServices:
           type: array
           items:
-            $ref: "#/components/schemas/DeliveryService"
+            $ref: '#/components/schemas/DeliveryService'
         dedicatedServices:
           type: array
           items:
-            $ref: "#/components/schemas/DeliveryService"
+            $ref: '#/components/schemas/DeliveryService'
     Receivable:
       type: object
       properties:
@@ -1670,9 +1670,9 @@ components:
         accountNumber:
           type: string
         currency:
-          $ref: "#/components/schemas/Currency"
+          $ref: '#/components/schemas/Currency'
         paymentType:
-          $ref: "#/components/schemas/PaymentType"
+          $ref: '#/components/schemas/PaymentType'
         termOfPayment:
           type: integer
           format: int32
@@ -1683,16 +1683,16 @@ components:
         careOf:
           type: string
         mailingAddress:
-          $ref: "#/components/schemas/Address"
+          $ref: '#/components/schemas/Address'
         bankingInfo:
-          $ref: "#/components/schemas/BankAccount"
+          $ref: '#/components/schemas/BankAccount'
         tradeReference:
-          $ref: "#/components/schemas/CreditApplication"
+          $ref: '#/components/schemas/CreditApplication'
         receivableApprovedBy:
           type: string
           maxLength: 255
         receivableStatus:
-          $ref: "#/components/schemas/CreditStatus"
+          $ref: '#/components/schemas/CreditStatus'
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius ]
       type: object
@@ -1712,11 +1712,11 @@ components:
         radius:
           type: number
         radiusUnit:
-          $ref: "#/components/schemas/RadiusUnit"
+          $ref: '#/components/schemas/RadiusUnit'
         directions:
           type: array
           items:
-            $ref: "#/components/schemas/Direction"
+            $ref: '#/components/schemas/Direction'
     Direction:
       type: string
       enum: [ ORG, DST ]
