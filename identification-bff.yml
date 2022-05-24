@@ -1622,7 +1622,7 @@ components:
       properties:
         vendorDef:
           $ref: '#/components/schemas/VendorDef'
-        rates: 
+        rates:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
@@ -1656,15 +1656,15 @@ components:
       type: object
       properties:
         vendorId:
-            type: integer
-            format: int64
+          type: integer
+          format: int64
         vendorName:
-            type: string
+          type: string
         bidOrderCenterId:
-            type: integer
-            format: int64
+          type: integer
+          format: int64
         bidOrderCenterName:
-            type: string
+          type: string
     RateType:
       type: string
       enum:
@@ -1723,13 +1723,9 @@ components:
           type: integer
           format: int64
         origin:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/Coordinate'
         destination:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
