@@ -727,48 +727,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
-  /api/v1/identification-bff/weightrates/:
-    get:
-      tags:
-        - rate-handler
-      operationId: getWeightRates
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VendorRates'
-  /api/v1/identification-bff/fixedrates/:
-    get:
-      tags:
-        - rate-handler
-      operationId: getFixedtRates
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VendorRates'
-  /api/v1/identification-bff/skidrates/:
-    get:
-      tags:
-        - rate-handler
-      operationId: getSkidRates
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VendorRates'
 components:
   schemas:
     ResponseError:
@@ -1617,15 +1575,6 @@ components:
           format: int64
         billing:
           $ref: '#/components/schemas/Billing'
-    VendorRates:
-      type: object
-      properties:
-        vendorDef:
-          $ref: '#/components/schemas/VendorDef'
-        rates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
     VendorsRate:
       type: object
       properties:
@@ -1651,7 +1600,6 @@ components:
           type: number
         minMargin:
           type: number
-
     VendorDef:
       type: object
       properties:
