@@ -980,16 +980,78 @@ components:
       required: [ contact, contactComm ]
       type: object
       properties:
+        contactId:
+          type: integer
+          format: int64
         contact:
           $ref: '#/components/schemas/Person'
         contactComm:
           $ref: '#/components/schemas/Communication'
         contactAdd:
           $ref: '#/components/schemas/Address'
+        functionTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
+        username:
+          type: string
+          maxLength: 255
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        isUser:
+          type: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    FunctionTitle:
+      type: string
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+    Notification:
+      type: string
+      enum:
+        - ORDER_BOOKED
+        - PICKED_UP
+        - IN_TRANSIT
+        - CUSTOMS_RELEASED
+        - OUT_FOR_DELIVERY
+        - DELIVRED
+        - RECEIVE_INVOICE
+        - RECEIVE_STATEMENT
+        - SHIPMENT_TRACKING
+        - BOOKING
+        - AFTER_HOUR_TRACKING
+        - BID
+        - POD_REQUEST
+        - INVOICE
+        - STATEMENT
+        - OSD
+        - CLAIMS
+    Role:
+      type: string
+      enum:
+        - Cognito_customer_admin_role
+        - Cognito_customer_superUserAuth_Role
+        - Cognito_customer_readUnauth_Role
+        - Cognito_customer_readAuth_Role
+        - internal_accouting_user
+        - internal_admin
+        - internal_superUser
+        - internal_support_user
+        - internal_user
+        - sysadmin
+        - Cognito_vendor_superUserAuth_Role
+        - Cognito_vendor_readUnauth_Role
+        - Cognito_vendor_readAuth_Role
     Communication:
-      required: [ telephone, email ]
+      required: [ telephone ]
       type: object
       properties:
+        commId:
+          type: integer
+          format: int64
         telephone:
           type: string
           maxLength: 10
@@ -998,14 +1060,38 @@ components:
           type: string
           maxLength: 7
           pattern: '^\d{0,7}$'
+        cell:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        tollFree:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        fax:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
         email:
+          type: string
+          maxLength: 255
+        website:
           type: string
           maxLength: 255
     Person:
       required: [ firstName, lastName ]
       type: object
       properties:
+        personId:
+          type: integer
+          format: int64
         firstName:
+          type: string
+          maxLength: 100
+        initial:
+          type: string
+          maxLength: 5
+        middleName:
           type: string
           maxLength: 100
         lastName:
