@@ -1287,6 +1287,15 @@ components:
           format: int64
         billing:
           $ref: '#/components/schemas/Billing'
+    VendorsRate:
+      type: object
+      properties:
+        rate:
+          $ref: '#/components/schemas/Rate'
+        vendorsDef:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
     Rate:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
@@ -1307,6 +1316,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Enterprise'
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        bidOrderCenterId:
+          type: integer
+          format: int64
     RateType:
       type: string
       enum:
@@ -1327,15 +1345,15 @@ components:
         fixedRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         weightRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         skidRates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/VendorsRate'
         minMargin:
           type: number
     Rating:
