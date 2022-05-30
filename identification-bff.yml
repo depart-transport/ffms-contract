@@ -728,7 +728,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
   /api/v1/identification-bff/vendorsList:
-      get:
+    get:
       tags:
         - vendor-handler
       operationId: getVendorsList
