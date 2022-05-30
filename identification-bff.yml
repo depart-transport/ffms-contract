@@ -727,7 +727,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
-
+  /api/v1/identification-bff/vendorsList:
+      get:
+      tags:
+        - vendor-handler
+      operationId: getVendorsList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorDef'
 components:
   schemas:
     ResponseError:
@@ -811,6 +824,19 @@ components:
           items:
             type: string
         url:
+          type: string
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        vendorName:
+          type: string
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        bidOrderCenterName:
           type: string
     AccessoryCharge:
       type: object
