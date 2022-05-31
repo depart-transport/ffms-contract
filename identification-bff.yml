@@ -774,7 +774,7 @@ paths:
     put:
       tags:
         - vendor-handler
-      operationId: getVendorsList
+      operationId: saveVendorsList
       requestBody:
         content:
           application/json:
