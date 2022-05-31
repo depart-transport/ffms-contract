@@ -796,6 +796,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
+  /api/v1/quote-order-bff/rateschedules?rateType=[rateType]:
+    get:
+      tags:
+        - rate-handler
+      operationId: getWeightRates
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorRateScedules'
 
 ##############################
 components:
@@ -1347,6 +1391,50 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
+    VendorRateScedules:
+      type: object
+      properties:
+        vendorDef:
+          $ref: '#/components/schemas/VendorDef'
+        rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tariff'
+    Tariff:
+      required: [ rateType, rateMeasure, price, vendors ]
+      type: object
+      properties:
+        tariffId:
+          type: integer
+          format: int64
+        rateType:
+          $ref: '#/components/schemas/RateType'
+        rateMeasure:
+          type: string
+          maxLength: 5
+        price:
+          type: number
+        minMargin:
+          type: number
+    RateType:
+      type: string
+      enum:
+        - FX
+        - WT
+        - SK
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        vendorName:
+          type: string
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        bidOrderCenterName:
+          type: string
     RateStatus:
       type: string
       enum:
