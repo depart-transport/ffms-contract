@@ -839,7 +839,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/VendorRateScedules'
+                  $ref: '#/components/schemas/VendorRateSchedules'
 
 ##############################
 components:
@@ -1391,7 +1391,7 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
-    VendorRateScedules:
+    VendorRateSchedules:
       type: object
       properties:
         vendorDef:
