@@ -1391,6 +1391,8 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
+        customBroker:
+          $ref: '#/components/schemas/CustomBroker'
     VendorRateSchedules:
       type: object
       properties:
