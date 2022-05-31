@@ -1288,10 +1288,19 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
+      type: object
+      properties:
+        tariffs:
+          $ref: '#/components/schemas/Tariff'
+        vendorsDef:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
+    Tariff:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
-        rateId:
+        tariffId:
           type: integer
           format: int64
         rateType:
@@ -1303,10 +1312,15 @@ components:
           type: number
         minMargin:
           type: number
-        vendors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Enterprise'
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        bidOrderCenterId:
+          type: integer
+          format: int64
     RateType:
       type: string
       enum:
@@ -1321,9 +1335,13 @@ components:
           type: integer
           format: int64
         origin:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:

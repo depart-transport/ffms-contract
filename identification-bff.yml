@@ -733,6 +733,87 @@ paths:
         - vendor-handler
       operationId: getVendorsList
       responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorDef'
+    put:
+      tags:
+        - vendor-handler
+      operationId: getVendorsList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/VendorDef'
+        required: true
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
         '200':
           description: OK
           content:
@@ -824,19 +905,6 @@ components:
           items:
             type: string
         url:
-          type: string
-    VendorDef:
-      type: object
-      properties:
-        vendorId:
-          type: integer
-          format: int64
-        vendorName:
-          type: string
-        bidOrderCenterId:
-          type: integer
-          format: int64
-        bidOrderCenterName:
           type: string
     AccessoryCharge:
       type: object
@@ -1603,10 +1671,19 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
+      type: object
+      properties:
+        tariff:
+          $ref: '#/components/schemas/Tariff'
+        vendorsDef:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
+    Tariff:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
-        rateId:
+        tariffId:
           type: integer
           format: int64
         rateType:
@@ -1618,10 +1695,19 @@ components:
           type: number
         minMargin:
           type: number
-        vendors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Enterprise'
+    VendorDef:
+      type: object
+      properties:
+        vendorId:
+          type: integer
+          format: int64
+        vendorName:
+          type: string
+        bidOrderCenterId:
+          type: integer
+          format: int64
+        bidOrderCenterName:
+          type: string
     RateType:
       type: string
       enum:
@@ -1680,9 +1766,13 @@ components:
           type: integer
           format: int64
         origin:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
