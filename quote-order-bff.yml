@@ -989,7 +989,7 @@ components:
       type: string
       enum: [ KM, MI ]
     SaleAddress:
-      required: [ address, fromDate, toDate, locationType, contact, date ]
+      required: [ address, fromDate, toDate, locationType ]
       type: object
       properties:
         saleAddressId:
