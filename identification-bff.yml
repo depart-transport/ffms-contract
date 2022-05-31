@@ -1575,20 +1575,20 @@ components:
           format: int64
         billing:
           $ref: '#/components/schemas/Billing'
-    VendorsRate:
+    Rate:
       type: object
       properties:
-        rate:
-          $ref: '#/components/schemas/Rate'
+        tariff:
+          $ref: '#/components/schemas/Tariff'
         vendorsDef:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
-    Rate:
+    Tariff:
       required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
-        rateId:
+        tariffId:
           type: integer
           format: int64
         rateType:
@@ -1671,21 +1671,25 @@ components:
           type: integer
           format: int64
         origin:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         destination:
-          $ref: '#/components/schemas/Coordinate'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
-            $ref: '#/components/schemas/VendorsRate'
+            $ref: '#/components/schemas/Rate'
         weightRates:
           type: array
           items:
-            $ref: '#/components/schemas/VendorsRate'
+            $ref: '#/components/schemas/Rate'
         skidRates:
           type: array
           items:
-            $ref: '#/components/schemas/VendorsRate'
+            $ref: '#/components/schemas/Rate'
         minMargin:
           type: number
     Rating:
