@@ -771,57 +771,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorDef'
-    put:
-      tags:
-        - vendor-handler
-      operationId: saveVendorsList
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/VendorDef'
-        required: true
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VendorDef'
 components:
   schemas:
     ResponseError:
@@ -1465,6 +1414,12 @@ components:
         lastUpdated:
           type: string
           format: date-time
+        vendorsTypeList:
+          type: string
+        vendorsList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
     BusinessStatus:
       type: string
       enum:
