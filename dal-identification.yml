@@ -1290,7 +1290,7 @@ components:
     Rate:
       type: object
       properties:
-        tariffs:
+        tariff:
           $ref: '#/components/schemas/Tariff'
         vendorsDef:
           type: array
