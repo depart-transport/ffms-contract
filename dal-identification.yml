@@ -1191,6 +1191,15 @@ components:
           $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
           $ref: '#/components/schemas/TruckSize'
+        length:
+          type: integer
+          format: int32
+        width:
+          type: integer
+          format: int32
+        height:
+          type: integer
+          format: int32
         isDock:
           type: boolean
         isTailgate:
@@ -1203,16 +1212,10 @@ components:
           type: boolean
         isInside:
           type: boolean
-        insideThresholdClear:
-          type: string
-        insideElevatorClear:
-          type: string
+        threshold: 
+          $ref: '#/components/schemas/Threshold'
         isDriverAssist:
           type: boolean
-        insideStairsClear:
-          type: string
-        insideFreightElevatorClear:
-          type: string
         isForkLiftAvail:
           type: boolean
         isPaletteJackAvail:
@@ -1245,6 +1248,19 @@ components:
     TruckSize:
       type: string
       enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
+    Threshold:  
+      type: string,
+      enum: 
+      - IN_THRSH_CL
+      - IN_ELV_CL
+      - IN_STRS_CL
+      - IN_FELV_CL
+      description: >
+        Threshold Enum signification:
+        * IN_THRSH_CL: insideThresholdClear
+        * IN_ELV_CL: insideElevatorClear
+        * IN_STRS_CL: insideStairsClear
+        * IN_FELV_CL: insideFreightElevatorClear
     Margin:
       required: [ lowerBound, upperBound, price, minMargin ]
       type: object
