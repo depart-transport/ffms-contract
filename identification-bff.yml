@@ -1030,6 +1030,8 @@ components:
         numberPieces:
           type: integer
           format: int32
+        isStackable:
+          type: boolean
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
         packageCaracteristic:

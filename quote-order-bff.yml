@@ -1215,7 +1215,7 @@ components:
           type: boolean
         isTempControl:
           type: boolean
-        isStorable:
+        isStackable:
           type: boolean
         tempUnit:
           $ref: '#/components/schemas/Temperature'
