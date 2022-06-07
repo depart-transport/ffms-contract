@@ -1358,6 +1358,12 @@ components:
         ratingId:
           type: integer
           format: int64
+        dateExp:
+          type: string
+          format: date
+        dateStart:
+          type: string
+          format: date
         margins:
           type: array
           items:
