@@ -49,7 +49,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Quotes'
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - quote-handler
@@ -58,7 +58,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Quotes'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '404':
@@ -96,7 +96,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Quotes'
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - quote-handler
@@ -105,7 +105,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Quotes'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '404':
@@ -143,14 +143,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Quotes'
-  /api/v1/autotransport/quote-order-bff/quotes/{quotesId}:
+                $ref: '#/components/schemas/Sale'
+  /api/v1/autotransport/quote-order-bff/quotes/{saleId}:
     get:
       tags:
         - quote-handler
       operationId: getQuote
       parameters:
-        - name: quotesId
+        - name: saleId
           in: path
           required: true
           schema:
@@ -193,112 +193,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Quotes'
-  /api/v1/autotransport/quote-order-bff/quotes/{quotesId}/rates:
-    get:
-      tags:
-        - quote-handler
-      operationId: getQuoteRates
-      parameters:
-        - name: quotesId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ShipmentRate'
-  /api/v1/autotransport/quote-order-bff/quotes/{quotesId}/rates/{quoteRateId}:
-    get:
-      tags:
-        - quote-handler
-      operationId: getQuoteShipmentRates
-      parameters:
-        - name: quotesId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: quoteRateId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QuoteRate'
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
@@ -349,7 +244,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Quotes'
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - customer-quote-handler
@@ -371,7 +266,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Quotes'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '404':
@@ -411,7 +306,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Quotes'
+                  $ref: '#/components/schemas/Sale'
     put:
       tags:
         - customer-quote-handler
@@ -433,7 +328,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Quotes'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '404':
@@ -473,8 +368,8 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Quotes'
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quotesId}:
+                  $ref: '#/components/schemas/Sale'
+  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{saleId}:
     get:
       tags:
         - customer-quote-handler
@@ -486,7 +381,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: quotesId
+        - name: saleId
           in: path
           required: true
           schema:
@@ -528,123 +423,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Quotes'
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quotesId}/rates:
-    get:
-      tags:
-        - quote-handler
-      operationId: getCustomerQuoteRates
-      parameters:
-        - name: customerId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: quotesId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ShipmentRate'
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{quotesId}/rates/{shipmentId}:
-    get:
-      tags:
-        - customer-quote-handler
-      operationId: getCustomerQuoteShipmentRates
-      parameters:
-        - name: customerId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: quotesId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: shipmentId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QuoteRate'
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders:
     get:
       tags:
@@ -682,7 +461,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Orders'
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - order-handler
@@ -691,7 +470,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Orders'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '403':
@@ -723,7 +502,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - order-handler
@@ -732,7 +511,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Orders'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '403':
@@ -764,14 +543,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
-  /api/v1/autotransport/quote-order-bff/orders/{ordersId}:
+                $ref: '#/components/schemas/Sale'
+  /api/v1/autotransport/quote-order-bff/orders/{saleId}:
     get:
       tags:
         - order-handler
       operationId: getOrder
       parameters:
-        - name: ordersId
+        - name: saleId
           in: path
           required: true
           schema:
@@ -813,112 +592,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
-  /api/v1/autotransport/quote-order-bff/orders/{ordersId}/rates:
-    get:
-      tags:
-        - order-handler
-      operationId: getOrdersRates
-      parameters:
-        - name: ordersId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ShipmentRate'
-  /api/v1/autotransport/quote-order-bff/orders/{ordersId}/rates/{orderRateId}:
-    get:
-      tags:
-        - order-handler
-      operationId: getOrderShipmentRates
-      parameters:
-        - name: ordersId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: orderRateId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ShipmentRate'
+                $ref: '#/components/schemas/Sale'
   /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}:
     get:
       tags:
@@ -963,7 +637,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Orders'
+                  $ref: '#/components/schemas/Sale'
     post:
       tags:
         - customer-order-handler
@@ -979,7 +653,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Orders'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '403':
@@ -1011,7 +685,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
+                $ref: '#/components/schemas/Sale'
     put:
       tags:
         - customer-order-handler
@@ -1028,7 +702,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Orders'
+              $ref: '#/components/schemas/Sale'
         required: true
       responses:
         '404':
@@ -1066,8 +740,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{ordersId}:
+                $ref: '#/components/schemas/Sale'
+  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
     get:
       tags:
         - customer-order-handler
@@ -1079,7 +753,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: ordersId
+        - name: saleId
           in: path
           required: true
           schema:
@@ -1121,25 +795,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{ordersId}/rates:
+                $ref: '#/components/schemas/Sale'
+  /api/v1/quote-order-bff/rateschedules?rateType=[rateType]:
     get:
       tags:
-        - customer-order-handler
-      operationId: getCustomerOrdersRates
-      parameters:
-        - name: customerId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: ordersId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
+        - rate-handler
+      operationId: getWeightRates
       responses:
         '404':
           description: Not Found
@@ -1147,14 +808,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
+        '500':
+          description: Internal Server Error
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
+        '403':
+          description: Forbidden
           content:
             '*/*':
               schema:
@@ -1171,113 +832,6 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ShipmentRate'
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{ordersId}/rates/{shipmentId}:
-    get:
-      tags:
-        - customer-order-handler
-      operationId: getCustomerOrderShipmentRates
-      parameters:
-        - name: customerId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: ordersId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-        - name: shipmentId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/ShipmentRate"
-  /api/v1/autotransport/quote-order-bff/bidordercenters:
-    get:
-      tags:
-        - bidOrderCenter-controller
-      operationId: getBidOrderCenters
-      responses:
-        "404":
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "403":
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "500":
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "401":
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "400":
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
         "200":
           description: OK
           content:
@@ -1285,112 +839,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BidOrderCenter'
-  /api/v1/autotransport/quote-order-bff/bidordercenters/{id}:
-    get:
-      tags:
-        - bidOrderCenter-controller
-      operationId: getBidOrderCenter
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        "404":
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "403":
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "500":
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "401":
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "400":
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BidOrderCenter'
-    put:
-      tags:
-        - bidOrderCenter-controller
-      operationId: putBidOrderCenter
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/BidOrderCenter'
-        required: true
-      responses:
-        "404":
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "403":
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "500":
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "401":
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "400":
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BidOrderCenter'
+                  $ref: '#/components/schemas/VendorRateSchedules'
 
 ##############################
 components:
@@ -1477,66 +926,40 @@ components:
             type: string
         url:
           type: string
-    Quotes:
+    Sale:
+      required: [ isInsured ]
       type: object
       properties:
-        quotesId:
+        saleId:
           type: integer
           format: int64
+        saleType:
+          type: string
+          pattern: '^[O|Q]$'
         customerId:
-          type: integer
-          format: int64
-        shipments:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteShipment'
-    QuoteShipment:
-      required: [isInsured]
-      type: object
-      properties:
-        quoteShipmentId:
           type: integer
           format: int64
         salesNumber:
           description: the number that is display on the ticket to identify the sales
           type: integer
         shipper:
-          $ref: '#/components/schemas/QuoteAddress'
+          $ref: '#/components/schemas/SaleAddress'
         consignee:
-          $ref: '#/components/schemas/QuoteAddress'
+          $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
         isInsured:
           type: boolean
         insurance:
           $ref: '#/components/schemas/Insurance'
-    QuoteAddress:
-      required: [Country, postalZipCode, locationType, fromDate, toDate]
-      type: object
-      properties:
-        quoteAddressId:
-          type: integer
-          format: int64
-        country:
-          type: string
-        postalZipCode:
-          type: string
-        fromDate:
-          type: string
-          format: date
-        toDate:
-          type: string
-          format: date
-        locationType:
-          $ref: '#/components/schemas/LocationType'
-        additionnalServices:
+        customBroker:
+          $ref: '#/components/schemas/CustomBroker'
+        shipmentRates:
           type: array
           items:
-            $ref: '#/components/schemas/ChargeType'
-        coordinate:
-          $ref: '#/components/schemas/Coordinate'
+            $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
-      required: [coordinateName, longitude, latitude, radius, directions]
+      required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
       properties:
         coordinateId:
@@ -1561,49 +984,15 @@ components:
             $ref: '#/components/schemas/Direction'
     Direction:
       type: string
-      enum: [ORG, DST]
+      enum: [ ORG, DST ]
     RadiusUnit:
       type: string
-      enum: [KM, MI]
-    Orders:
+      enum: [ KM, MI ]
+    SaleAddress:
+      required: [ address, fromDate, toDate, locationType ]
       type: object
       properties:
-        ordersId:
-          type: integer
-          format: int64
-        customerId:
-          type: integer
-          format: int64
-        shipments:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderShipment'
-    OrderShipment:
-      required: [isInsured]
-      type: object
-      properties:
-        orderShipmentId:
-          type: integer
-          format: int64
-        salesNumber:
-          description: the number that is display on the ticket to identify the sales
-          type: integer
-        shipper:
-          $ref: '#/components/schemas/OrderAddress'
-        consignee:
-          $ref: '#/components/schemas/OrderAddress'
-        shipmentDetails:
-          $ref: '#/components/schemas/ShipmentDetails'
-        isInsured:
-          type: boolean
-        insurance:
-          $ref: '#/components/schemas/Insurance'
-    OrderAddress:
-      required:
-        [ address, fromDate, toDate, locationType, contact, date ]
-      type: object
-      properties:
-        orderAddressId:
+        saleAddressId:
           type: integer
           format: int64
         address:
@@ -1615,11 +1004,12 @@ components:
           type: string
           format: date
         locationType:
-          $ref: "#/components/schemas/LocationType"
+          $ref: '#/components/schemas/LocationType'
         contact:
-          $ref: "#/components/schemas/Contact"
+          $ref: '#/components/schemas/Contact'
         date:
           type: string
+          format: date
         readyTime:
           type: string
         closeTime:
@@ -1629,21 +1019,83 @@ components:
           items:
             $ref: '#/components/schemas/ChargeType'
         coordinate:
-          $ref: "#/components/schemas/Coordinate"
+          $ref: '#/components/schemas/Coordinate'
     Contact:
       required: [ contact, contactComm ]
       type: object
       properties:
+        contactId:
+          type: integer
+          format: int64
         contact:
           $ref: '#/components/schemas/Person'
         contactComm:
           $ref: '#/components/schemas/Communication'
         contactAdd:
           $ref: '#/components/schemas/Address'
+        functionTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
+        username:
+          type: string
+          maxLength: 255
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        isUser:
+          type: boolean
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    FunctionTitle:
+      type: string
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+    Notification:
+      type: string
+      enum:
+        - ORDER_BOOKED
+        - PICKED_UP
+        - IN_TRANSIT
+        - CUSTOMS_RELEASED
+        - OUT_FOR_DELIVERY
+        - DELIVRED
+        - RECEIVE_INVOICE
+        - RECEIVE_STATEMENT
+        - SHIPMENT_TRACKING
+        - BOOKING
+        - AFTER_HOUR_TRACKING
+        - BID
+        - POD_REQUEST
+        - INVOICE
+        - STATEMENT
+        - OSD
+        - CLAIMS
+    Role:
+      type: string
+      enum:
+        - Cognito_customer_admin_role
+        - Cognito_customer_superUserAuth_Role
+        - Cognito_customer_readUnauth_Role
+        - Cognito_customer_readAuth_Role
+        - internal_accouting_user
+        - internal_admin
+        - internal_superUser
+        - internal_support_user
+        - internal_user
+        - sysadmin
+        - Cognito_vendor_superUserAuth_Role
+        - Cognito_vendor_readUnauth_Role
+        - Cognito_vendor_readAuth_Role
     Communication:
-      required: [ telephone, email ]
+      required: [ telephone ]
       type: object
       properties:
+        commId:
+          type: integer
+          format: int64
         telephone:
           type: string
           maxLength: 10
@@ -1652,14 +1104,38 @@ components:
           type: string
           maxLength: 7
           pattern: '^\d{0,7}$'
+        cell:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        tollFree:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        fax:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
         email:
+          type: string
+          maxLength: 255
+        website:
           type: string
           maxLength: 255
     Person:
       required: [ firstName, lastName ]
       type: object
       properties:
+        personId:
+          type: integer
+          format: int64
         firstName:
+          type: string
+          maxLength: 100
+        initial:
+          type: string
+          maxLength: 5
+        middleName:
           type: string
           maxLength: 100
         lastName:
@@ -1696,7 +1172,7 @@ components:
         - BISP
         - STRG
     Address:
-      required: [add, city, postalZipCode, provinceState, country]
+      required: [ add, city, postalZipCode, provinceState, country ]
       type: object
       properties:
         addId:
@@ -1716,14 +1192,7 @@ components:
           type: string
     ShipmentDetails:
       required:
-        [
-          numberPieces,
-          shipmentType,
-          packageCaracteristic,
-          isFreezeProtect,
-          isTempControl,
-          docOnly,
-        ]
+        [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1758,19 +1227,7 @@ components:
           type: boolean
     PackageCaracteristic:
       required:
-        [
-          numberPkg,
-          description,
-          length,
-          width,
-          height,
-          weight,
-          hsCode,
-          freightClass,
-          nmfc,
-          numberPieces,
-          isHazMat,
-        ]
+        [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, numberPieces, isHazMat ]
       type: object
       properties:
         packageCaracteristicId:
@@ -1778,7 +1235,6 @@ components:
           format: int64
         numberPkg:
           type: integer
-          format: int64
         description:
           type: string
         length:
@@ -1882,6 +1338,12 @@ components:
         price:
           description: Price of the rate - all triprate price combine
           type: number
+        baseCharge:
+          description: price of the base charge - all triprate base charge combine
+          type: number
+        surcharges:
+          description: price of the surcharge - all triprate surcharge combine
+          type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
@@ -1900,20 +1362,10 @@ components:
         bidOrderCenterId:
           type: integer
           format: int64
-        pickupDateBeg:
+        vendorName:
           type: string
-          format: date
-        pickupDateEnd:
+        bidOrderCenterName:
           type: string
-          format: date
-        arrivalDateBeg:
-          type: string
-          format: date
-        arrivalDateEnd:
-          type: string
-          format: date
-        transitDay:
-          type: integer
         baseCharge:
           description: price of the base charge for a specific vendor/trip
           type: number
@@ -1934,90 +1386,57 @@ components:
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
-          $ref: '#/components/schemas/QuoteAddress:'
+          $ref: '#/components/schemas/SaleAddress'
         consignee:
-          $ref: '#/components/schemas/QuoteAddress:'
+          $ref: '#/components/schemas/SaleAddress'
         shipmentDetails:
           $ref: '#/components/schemas/ShipmentDetails'
-    QuoteRates:
+        customBroker:
+          $ref: '#/components/schemas/CustomBroker'
+    VendorRateSchedules:
       type: object
       properties:
-        quoteRatesId:
-          type: integer
-          format: int64
-        quotesId:
-          type: integer
-          format: int64
-        customerId:
-          type: integer
-          format: int64
-        quoteRates:
+        vendorDef:
+          $ref: '#/components/schemas/VendorDef'
+        rates:
           type: array
           items:
-            $ref: '#/components/schemas/QuoteRate'
-    QuoteRate:
+            $ref: '#/components/schemas/Tariff'
+    Tariff:
+      required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
-        quoteRateId:
+        tariffId:
           type: integer
           format: int64
-        quoteShipmentId:
-          type: integer
-          format: int64
-        salesNumber:
-          description: Order identifier printed on the screen XXXXXXXXXXX so will be printed as Q-XXXXXXXXXXX
-          type: integer
-        shipper:
-          $ref: '#/components/schemas/QuoteAddress'
-        consignee:
-          $ref: '#/components/schemas/QuoteAddress'
-        shipmentDetails:
-          $ref: '#/components/schemas/ShipmentDetails'
-        shipmentRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentRate'
-    OrderRates:
+        rateType:
+          $ref: '#/components/schemas/RateType'
+        rateMeasure:
+          type: string
+          maxLength: 5
+        price:
+          type: number
+        minMargin:
+          type: number
+    RateType:
+      type: string
+      enum:
+        - FX
+        - WT
+        - SK
+    VendorDef:
       type: object
       properties:
-        orderRatesId:
+        vendorId:
           type: integer
           format: int64
-        ordersId:
+        vendorName:
+          type: string
+        bidOrderCenterId:
           type: integer
           format: int64
-        customerId:
-          type: integer
-          format: int64
-        salesNumber:
-          description: Order identifier printed on the screen XXXXXXXXXXX so will be printed as O-XXXXXXXXXXX
-          type: integer
-        orderRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderRate'
-    OrderRate:
-      type: object
-      properties:
-        orderRateId:
-          type: integer
-          format: int64
-        orderShipmentId:
-          type: integer
-          format: int64
-        shipmentNumber:
-          description: shipment identifier printed on the screen XX so will get order number to make S-XXXXXXXXXXX-XX
-          type: integer
-        shipper:
-          $ref: '#/components/schemas/OrderAddress'
-        consignee:
-          $ref: '#/components/schemas/OrderAddress'
-        shipmentDetails:
-          $ref: '#/components/schemas/ShipmentDetails'
-        shipmentRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentRate'
+        bidOrderCenterName:
+          type: string
     RateStatus:
       type: string
       enum:
@@ -2027,14 +1446,23 @@ components:
         - READY # All vendors rate are bidded and price ready to display.
         - EXPIRED # Rate is expired.
         - ACCEPTED # Rate accepted by customer
-    BidOrderCenter:
+    CustomBroker:
+      required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
       properties:
-        bidOrderCenterId:
+        customBrokerId:
           type: integer
           format: int64
-        vendorId:
-          type: integer
-          format: int64
-        bidOrderCenterName:
+        country:
           type: string
+          maxLength: 3
+          pattern: '^[A-Z]{3}$'
+        brokerName:
+          type: string
+        accountNumber:
+          type: string
+          pattern: '^\d{12}'
+        primaryContact:
+          $ref: '#/components/schemas/Contact'
+        alternateContact:
+          $ref: '#/components/schemas/Contact'
