@@ -485,7 +485,7 @@ components:
         - BISP
         - STRG
     ShipmentDetails:
-      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly ]
+      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStorable ]
       type: object
       properties:
         shipmentDetailsId:
@@ -507,6 +507,8 @@ components:
         isFreezeProtect:
           type: boolean
         isTempControl:
+          type: boolean
+        isStorable:
           type: boolean
         tempUnit:
           $ref: '#/components/schemas/Temperature'

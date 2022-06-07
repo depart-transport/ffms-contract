@@ -1192,7 +1192,7 @@ components:
           type: string
     ShipmentDetails:
       required:
-        [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly ]
+        [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStorable ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1214,6 +1214,8 @@ components:
         isFreezeProtect:
           type: boolean
         isTempControl:
+          type: boolean
+        isStorable:
           type: boolean
         tempUnit:
           $ref: '#/components/schemas/Temperature'
