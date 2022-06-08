@@ -1786,6 +1786,12 @@ components:
           format: int64
         coverageName:
           type: string
+        startDate:
+          type: string
+          format: date
+        expDate:
+          type: string
+          format: date
         zonesCovered:
           type: array
           items:
