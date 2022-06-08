@@ -485,7 +485,7 @@ components:
         - BISP
         - STRG
     ShipmentDetails:
-      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStorable ]
+      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
       type: object
       properties:
         shipmentDetailsId:
