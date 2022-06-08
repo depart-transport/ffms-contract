@@ -1030,6 +1030,8 @@ components:
         numberPieces:
           type: integer
           format: int32
+        isStackable:
+          type: boolean
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
         packageCaracteristic:
@@ -1479,6 +1481,12 @@ components:
           $ref: '#/components/schemas/TimeTable'
         maxTruckSize:
           $ref: '#/components/schemas/TruckSize'
+        clearLength:
+          type: number
+        clearWidth:
+          type: number
+        clearHeight:
+          type: number
         isDock:
           type: boolean
         isTailgate:
@@ -1491,16 +1499,10 @@ components:
           type: boolean
         isInside:
           type: boolean
-        insideThresholdClear:
-          type: string
-        insideElevatorClear:
-          type: string
+        insideClearance:
+          $ref: '#/components/schemas/InsideClearance'
         isDriverAssist:
           type: boolean
-        insideStairsClear:
-          type: string
-        insideFreightElevatorClear:
-          type: string
         isForkLiftAvail:
           type: boolean
         isPaletteJackAvail:
@@ -1533,6 +1535,19 @@ components:
     TruckSize:
       type: string
       enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
+    InsideClearance:
+      type: string
+      enum:
+        - THOLD
+        - ELEV
+        - STRS
+        - FRTELEV
+      description: >
+        InsideClearance Enum signification:
+        * THOLD: Inside Threshold Clearance
+        * ELEV: Inside Elevator Clearance
+        * STRS: Inside Stairs Clearance 
+        * FRTELEV: Inside Freight Elevator Clearance
     Margin:
       required: [ lowerBound, upperBound, price ]
       type: object
