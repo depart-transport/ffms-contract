@@ -727,6 +727,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
+  /api/v1/identification-bff/vendorsList:
+    get:
+      tags:
+        - vendor-handler
+      operationId: getVendorsList
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorDef'
 components:
   schemas:
     ResponseError:
@@ -1369,6 +1413,12 @@ components:
         lastUpdated:
           type: string
           format: date-time
+        vendorsType:
+          $ref: '#/components/schemas/VendorsType'
+        vendors:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
     BusinessStatus:
       type: string
       enum:
@@ -2109,6 +2159,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+    VendorsType:
+      type: string
+      enum:
+        - BLACK
+        - WHITE
     Direction:
       type: string
       enum: [ ORG, DST ]
