@@ -1721,13 +1721,9 @@ components:
           type: integer
           format: int64
         origin:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/Coordinate'
         destination:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/Coordinate'
         fixedRates:
           type: array
           items:
