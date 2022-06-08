@@ -5,6 +5,7 @@ info:
 servers:
   - url: http://localhost:8080
     description: Generated server url
+#TODO add vendors and other missing endpoints
 paths:
   /api/v1/autotransport/identification/customers:
     get:
@@ -540,6 +541,11 @@ components:
           type: number
         maxPrice:
           type: number
+    VendorsType:
+      type: string
+      enum:
+        - BLACK
+        - WHITE
     ChargeUnit:
       type: string
       enum:
@@ -1053,6 +1059,13 @@ components:
         customerId:
           type: integer
           format: int64
+        vendorsType:
+          $ref: '#/components/schemas/VendorsType'
+        vendors:
+          type: array
+          items:
+            type: integer
+            format: int64
         customerStatus:
           $ref: '#/components/schemas/BusinessStatus'
         business:

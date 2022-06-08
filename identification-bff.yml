@@ -1414,9 +1414,9 @@ components:
         lastUpdated:
           type: string
           format: date-time
-        vendorsTypeList:
-          type: string
-        vendorsList:
+        vendorsType:
+          $ref: '#/components/schemas/VendorsType'
+        vendors:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
@@ -2133,6 +2133,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+    VendorsType:
+      type: string
+      enum:
+        - BLACK
+        - WHITE
     Direction:
       type: string
       enum: [ ORG, DST ]
