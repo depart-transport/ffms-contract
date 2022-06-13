@@ -685,7 +685,7 @@ components:
           $ref: '#/components/schemas/BookingRequirements'
     BookingRequirements:
       type: object
-      proprities:
+      properties:
         referenceTracking:
           type: string
         truck:
