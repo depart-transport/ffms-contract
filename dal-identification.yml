@@ -2609,18 +2609,14 @@ components:
           format: int64
         numberPkg:
           type: integer
-          format: int64
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
@@ -3500,6 +3496,12 @@ components:
           type: boolean
         trackerProvider:
           type: string
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
         thresholdHeight:
           type: number
         thresholdLength:

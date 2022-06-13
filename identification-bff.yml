@@ -1064,14 +1064,11 @@ components:
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
@@ -2042,6 +2039,12 @@ components:
         ceilingCube:
           type: number
         wallCube:
+          type: number
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
           type: number
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
