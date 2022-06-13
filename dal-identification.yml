@@ -2123,7 +2123,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Business'
-  /api/v1/autotransport/identification/vendorbranchs:
+  /api/v1/autotransport/identification/vendorbranches:
     put:
       tags:
         - vendorBranch-controller
@@ -2222,7 +2222,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VendorBranch'
-  /api/v1/autotransport/identification/vendorbranchs/{id}:
+  /api/v1/autotransport/identification/vendorbranches/{id}:
     get:
       tags:
         - vendorBranch-controller
