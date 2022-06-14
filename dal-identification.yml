@@ -2372,7 +2372,7 @@ components:
           type: number
         maxPrice:
           type: number
-    VendorsType:
+    BlockType:
       type: string
       enum:
         - BLACK
@@ -2888,9 +2888,9 @@ components:
         customerId:
           type: integer
           format: int64
-        vendorsType:
-          $ref: '#/components/schemas/VendorsType'
-        vendors:
+        blockType:
+          $ref: '#/components/schemas/BlockType'
+        vendorBlockList:
           type: array
           items:
             type: integer

@@ -1369,9 +1369,9 @@ components:
         lastUpdated:
           type: string
           format: date-time
-        vendorsType:
-          $ref: '#/components/schemas/VendorsType'
-        vendors:
+        blockType:
+          $ref: '#/components/schemas/BlockType'
+        vendorBlockList:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
@@ -2115,7 +2115,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-    VendorsType:
+    BlockType:
       type: string
       enum:
         - BLACK
