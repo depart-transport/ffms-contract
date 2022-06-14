@@ -714,5 +714,6 @@ components:
         - EXPIRED # Rate is expired.
         - ACCEPTED # Rate accepted by customer
         - BOOKED # Rate booked
+        - PICKED_UP # Rate picked up
 
 
