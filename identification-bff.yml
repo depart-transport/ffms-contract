@@ -1372,6 +1372,12 @@ components:
         lastUpdated:
           type: string
           format: date-time
+        blockType:
+          $ref: '#/components/schemas/BlockType'
+        vendorBlockList:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorDef'
     BusinessStatus:
       type: string
       enum:
@@ -2106,6 +2112,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+    BlockType:
+      type: string
+      enum:
+        - BLACK
+        - WHITE
     Direction:
       type: string
       enum: [ ORG, DST ]

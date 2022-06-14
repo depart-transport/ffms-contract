@@ -2371,6 +2371,11 @@ components:
           type: number
         maxPrice:
           type: number
+    BlockType:
+      type: string
+      enum:
+        - BLACK
+        - WHITE
     ChargeUnit:
       type: string
       enum:
@@ -2886,6 +2891,13 @@ components:
         customerId:
           type: integer
           format: int64
+        blockType:
+          $ref: '#/components/schemas/BlockType'
+        vendorBlockList:
+          type: array
+          items:
+            type: integer
+            format: int64
         customerStatus:
           $ref: '#/components/schemas/BusinessStatus'
         business:
