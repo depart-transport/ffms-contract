@@ -1709,6 +1709,12 @@ components:
         ratingId:
           type: integer
           format: int64
+        dateExp:
+          type: string
+          format: date
+        dateStart:
+          type: string
+          format: date
         margins:
           type: array
           items:
@@ -1780,6 +1786,12 @@ components:
           format: int64
         coverageName:
           type: string
+        startDate:
+          type: string
+          format: date
+        expDate:
+          type: string
+          format: date
         zonesCovered:
           type: array
           items:
