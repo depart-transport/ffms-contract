@@ -1394,6 +1394,29 @@ components:
           $ref: '#/components/schemas/ShipmentDetails'
         customBroker:
           $ref: '#/components/schemas/CustomBroker'
+        bookingRequirements:
+          $ref: '#/components/schemas/BookingRequirements'
+    BookingRequirements:
+      type: object
+      properties:
+        referenceTracking:
+          type: string
+        truck:
+          type: string
+        trailer:
+          type: string
+        driverCellPhone:
+          type: string
+          maxLength: 10
+          pattern: '^\d{10}$'
+        linkForSatelliteTracker:
+          type: string
+        bordeCrossing:
+           type: string
+        papsNumber:
+          type: number
+        borderETA:
+          type: string
     VendorRateSchedules:
       type: object
       properties:
@@ -1447,6 +1470,8 @@ components:
         - READY # All vendors rate are bidded and price ready to display.
         - EXPIRED # Rate is expired.
         - ACCEPTED # Rate accepted by customer
+        - BOOKED # Rate booked
+        - PICKED_UP # Rate picked up
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object

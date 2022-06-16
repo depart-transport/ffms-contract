@@ -388,6 +388,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
+  /api/v1/identification-bff/vendors/name:
+    get:
+      tags:
+        - vendorDef-handler
+      operationId: getVendorDefs
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VendorDef'
   /api/v1/identification-bff/coordinates:
     post:
       tags:
@@ -727,50 +771,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
-  /api/v1/identification-bff/vendorsList:
-    get:
-      tags:
-        - vendor-handler
-      operationId: getVendorsList
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VendorDef'
 components:
   schemas:
     ResponseError:
@@ -1413,9 +1413,9 @@ components:
         lastUpdated:
           type: string
           format: date-time
-        vendorsType:
-          $ref: '#/components/schemas/VendorsType'
-        vendors:
+        blockType:
+          $ref: '#/components/schemas/BlockType'
+        vendorBlockList:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
@@ -2096,12 +2096,6 @@ components:
           type: number
         wallCube:
           type: number
-        skidLength:
-          type: number
-        skidWidth:
-          type: number
-        skidHeight:
-          type: number
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
@@ -2159,7 +2153,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-    VendorsType:
+    BlockType:
       type: string
       enum:
         - BLACK
