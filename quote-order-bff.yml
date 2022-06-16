@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/quote-order-bff/quotes:
+  /api/v1/quote-order-bff/quotes:
     get:
       tags:
         - quote-handler
@@ -144,7 +144,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/quotes/{saleId}:
+  /api/v1/quote-order-bff/quotes/{saleId}:
     get:
       tags:
         - quote-handler
@@ -194,7 +194,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}:
+  /api/v1/quote-order-bff/quotes/customer/{customerId}:
     get:
       tags:
         - customer-quotes-handler
@@ -369,7 +369,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/quotes/customer/{customerId}/quote/{saleId}:
+  /api/v1/quote-order-bff/quotes/customer/{customerId}/quote/{saleId}:
     get:
       tags:
         - customer-quote-handler
@@ -424,7 +424,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/orders:
+  /api/v1/quote-order-bff/orders:
     get:
       tags:
         - order-handler
@@ -544,7 +544,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/orders/{saleId}:
+  /api/v1/quote-order-bff/orders/{saleId}:
     get:
       tags:
         - order-handler
@@ -593,7 +593,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}:
+  /api/v1/quote-order-bff/orders/customer/{customerId}:
     get:
       tags:
         - customer-order-handler
@@ -741,7 +741,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
+  /api/v1/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
     get:
       tags:
         - customer-order-handler
