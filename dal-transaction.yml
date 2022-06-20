@@ -717,5 +717,6 @@ components:
         - ACCEPTED # Rate accepted by customer
         - BOOKED # Rate booked
         - PICKED_UP # Rate picked up
+        - DELIVERED # Rate delivered
 
 
