@@ -683,6 +683,8 @@ components:
           $ref: '#/components/schemas/ShipmentDetails'
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
+        file:
+          type: File
     BookingRequirements:
       type: object
       properties:

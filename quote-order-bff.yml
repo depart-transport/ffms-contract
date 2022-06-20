@@ -1397,6 +1397,8 @@ components:
           $ref: '#/components/schemas/CustomBroker'
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
+        file:
+          type: File
     BookingRequirements:
       type: object
       properties:
