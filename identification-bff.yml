@@ -2097,6 +2097,12 @@ components:
           type: number
         wallCube:
           type: number
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
