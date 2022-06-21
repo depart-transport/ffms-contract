@@ -148,6 +148,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
+  /api/v1/autotransport/identification/customers/size/{number}:
+    get:
+      tags:
+        - customer-controller
+      operationId: getCustomers
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: number
   /api/v1/autotransport/identification/customers/{id}:
     get:
       tags:
@@ -581,6 +623,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
+  /api/v1/autotransport/identification/vendors/size/{number}:
+    get:
+      tags:
+        - vendor-controller
+      operationId: getVendors
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: number
   /api/v1/autotransport/identification/vendors/{id}:
     get:
       tags:
