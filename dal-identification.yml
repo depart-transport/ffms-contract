@@ -7,7 +7,7 @@ servers:
     description: Generated server url
 #TODO add vendors and other missing endpoints
 paths:
-  /api/v1/autotransport/identification/customers:
+  /api/v1/autotransport/identification/customers?page=[page]&size=[size]:
     get:
       tags:
         - customer-controller
@@ -440,7 +440,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RateSchedule'
-  /api/v1/autotransport/identification/vendors:
+  /api/v1/autotransport/identification/vendors?page=[page]&size=[size]:
     get:
       tags:
         - vendor-controller
