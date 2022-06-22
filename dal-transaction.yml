@@ -193,7 +193,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]:
     get:
       tags:
         - customer-sales-handler
