@@ -360,7 +360,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendor'/api/v1/autotransport/identification-bff/vendors/{id}:
+                $ref: '#/components/schemas/Vendor'
+  /api/v1/autotransport/identification-bff/vendors/{id}:
     get:
       tags:
         - vendor-handler
