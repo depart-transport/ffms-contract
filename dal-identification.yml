@@ -11,6 +11,17 @@ paths:
       tags:
         - customer-controller
       operationId: getCustomers
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -49,7 +60,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: '#/components/schemas/CustomerList'
     put:
       tags:
         - customer-controller
@@ -148,48 +159,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/identification/customers/size/{number}:
-    get:
-      tags:
-        - customer-controller
-      operationId: getCustomers
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: number
   /api/v1/autotransport/identification/customers/{id}:
     get:
       tags:
@@ -486,6 +455,17 @@ paths:
       tags:
         - vendor-controller
       operationId: getVendors
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -524,7 +504,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Vendor'
+                  $ref: '#/components/schemas/VendorList'
     put:
       tags:
         - vendor-controller
@@ -623,48 +603,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
-  /api/v1/autotransport/identification/vendors/size/{number}:
-    get:
-      tags:
-        - vendor-controller
-      operationId: getVendors
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: number
   /api/v1/autotransport/identification/vendors/{id}:
     get:
       tags:
@@ -2968,6 +2906,15 @@ components:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
+    CustomerList:
+      requited: [ count, customers ]
+      properties:
+        count:
+          type: integer
+        customers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
     Customer:
       required: [ customerStatus, isBusiness ]
       type: object
@@ -3496,6 +3443,15 @@ components:
     TransportService:
       type: string
       enum: [ LTL, FTL ]
+    VendorList:
+      requited: [ count, vendors ]
+      properties:
+        count:
+          type: integer
+        vendors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vendor'
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
