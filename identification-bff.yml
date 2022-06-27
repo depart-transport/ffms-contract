@@ -11,6 +11,17 @@ paths:
       tags:
         - customer-controller
       operationId: getCustomers
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -49,7 +60,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: '#/components/schemas/CustomerList'
     put:
       tags:
         - customer-controller
@@ -202,6 +213,17 @@ paths:
       tags:
         - vendor-handler
       operationId: getVendors
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -240,7 +262,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Vendor'
+                  $ref: '#/components/schemas/VendorList'
     put:
       tags:
         - vendor-handler
@@ -291,7 +313,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: '#/components/schemas/Vendor'
     post:
       tags:
         - vendor-handler
@@ -1379,6 +1401,16 @@ components:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
+    CustomerList:
+      required: [ count, customers ]
+      properties:
+        count:
+          type: integer
+          format: int64
+        customers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
     Customer:
       required: [ customerStatus, isBusiness ]
       type: object
@@ -1950,6 +1982,16 @@ components:
     TransportService:
       type: string
       enum: [ LTL, FTL ]
+    VendorList:
+      required: [ count, vendors ]
+      properties:
+        count:
+          type: integer
+          format: int64
+        vendors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vendor'
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
