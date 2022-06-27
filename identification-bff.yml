@@ -208,7 +208,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/identification-bff/vendors:
+  /api/v1/identification-bff/vendors:
     get:
       tags:
         - vendor-handler
@@ -361,7 +361,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
-  /api/v1/autotransport/identification-bff/vendors/{id}:
+  /api/v1/identification-bff/vendors/{id}:
     get:
       tags:
         - vendor-handler
