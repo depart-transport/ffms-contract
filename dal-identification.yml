@@ -7,11 +7,64 @@ servers:
     description: Generated server url
 #TODO add vendors and other missing endpoints
 paths:
+  /api/v1/autotransport/identification/customers/count:
+    get:
+      tags:
+        - customer-controller
+      operationId: getCustomersCount
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
   /api/v1/autotransport/identification/customers?page=[page]&size=[size]:
     get:
       tags:
         - customer-controller
       operationId: getCustomers
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -440,11 +493,76 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RateSchedule'
+  /api/v1/autotransport/identification/vendors/count:
+    get:
+      tags:
+        - vendor-controller
+      operationId: getVendorsCount
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
   /api/v1/autotransport/identification/vendors?page=[page]&size=[size]:
     get:
       tags:
         - vendor-controller
       operationId: getVendors
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
