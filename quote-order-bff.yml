@@ -24,6 +24,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -229,6 +261,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -463,6 +527,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '403':
           description: Forbidden
@@ -649,6 +745,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '403':
           description: Forbidden
