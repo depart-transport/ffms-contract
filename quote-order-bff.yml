@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/quote-order-bff/quotes:
+  /api/v1/autotransport/quote-order-bff/quotes?page=[page]&size=[size]:
     get:
       tags:
         - quote-handler
@@ -445,7 +445,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/quote-order-bff/orders:
+  /api/v1/autotransport/quote-order-bff/orders?page=[page]&size=[size]:
     get:
       tags:
         - order-handler
@@ -843,6 +843,12 @@ paths:
       tags:
         - rate-handler
       operationId: getWeightRates
+      parameters:
+        - in: query
+          name: rateType
+          required: true
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -1072,7 +1078,7 @@ components:
           items:
             $ref: '#/components/schemas/Sale'
     Sale:
-      required: [isInsured]
+      required: [ isInsured ]
       type: object
       properties:
         saleId:
@@ -1104,7 +1110,7 @@ components:
           items:
             $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
-      required: [coordinateName, longitude, latitude, radius, directions]
+      required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
       properties:
         coordinateId:
@@ -1129,12 +1135,12 @@ components:
             $ref: '#/components/schemas/Direction'
     Direction:
       type: string
-      enum: [ORG, DST]
+      enum: [ ORG, DST ]
     RadiusUnit:
       type: string
-      enum: [KM, MI]
+      enum: [ KM, MI ]
     SaleAddress:
-      required: [address, fromDate, toDate, locationType]
+      required: [ address, fromDate, toDate, locationType ]
       type: object
       properties:
         saleAddressId:
@@ -1166,7 +1172,7 @@ components:
         coordinate:
           $ref: '#/components/schemas/Coordinate'
     Contact:
-      required: [contact, contactComm]
+      required: [ contact, contactComm ]
       type: object
       properties:
         contactId:
@@ -1197,7 +1203,7 @@ components:
             $ref: '#/components/schemas/Role'
     FunctionTitle:
       type: string
-      enum: [OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM]
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
     Notification:
       type: string
       enum:
@@ -1235,7 +1241,7 @@ components:
         - Cognito_vendor_readUnauth_Role
         - Cognito_vendor_readAuth_Role
     Communication:
-      required: [telephone]
+      required: [ telephone ]
       type: object
       properties:
         commId:
@@ -1268,7 +1274,7 @@ components:
           type: string
           maxLength: 255
     Person:
-      required: [firstName, lastName]
+      required: [ firstName, lastName ]
       type: object
       properties:
         personId:
@@ -1317,7 +1323,7 @@ components:
         - BISP
         - STRG
     Address:
-      required: [add, city, postalZipCode, provinceState, country]
+      required: [ add, city, postalZipCode, provinceState, country ]
       type: object
       properties:
         addId:
@@ -1595,7 +1601,7 @@ components:
           items:
             $ref: '#/components/schemas/Tariff'
     Tariff:
-      required: [rateType, rateMeasure, price, vendors]
+      required: [ rateType, rateMeasure, price, vendors ]
       type: object
       properties:
         tariffId:
@@ -1642,7 +1648,7 @@ components:
         - PICKED_UP # Rate picked up
         - DELIVERED # Rate delivered
     CustomBroker:
-      required: [country, brokerName, accountNumber, primaryContact]
+      required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
       properties:
         customBrokerId:
