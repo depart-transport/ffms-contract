@@ -5,6 +5,7 @@ info:
 servers:
   - url: http://localhost:8080
     description: Generated server url
+#TODO add vendors and other missing endpoints
 paths:
   /api/v1/autotransport/identification/customers/count:
     get:
@@ -2240,7 +2241,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Business'
-  /api/v1/autotransport/identification/vendorbranches:
+  /api/v1/autotransport/identification/vendorbranchs:
     put:
       tags:
         - vendorBranch-controller
@@ -2339,7 +2340,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VendorBranch'
-  /api/v1/autotransport/identification/vendorbranches/{id}:
+  /api/v1/autotransport/identification/vendorbranchs/{id}:
     get:
       tags:
         - vendorBranch-controller
@@ -2726,18 +2727,14 @@ components:
           format: int64
         numberPkg:
           type: integer
-          format: int64
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
@@ -3629,6 +3626,12 @@ components:
           type: boolean
         trackerProvider:
           type: string
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
         thresholdHeight:
           type: number
         thresholdLength:
