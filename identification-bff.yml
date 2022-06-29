@@ -6,11 +6,22 @@ servers:
   - url: http://localhost:8080
     description: Generated server url
 paths:
-  /api/v1/autotransport/identification-bff/customers?page=[page]&size=[size]:
+  /api/v1/identification-bff/customers?page=[page]&size=[size]:
     get:
       tags:
         - customer-controller
       operationId: getCustomers
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -49,7 +60,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: '#/components/schemas/CustomerList'
     put:
       tags:
         - customer-controller
@@ -148,7 +159,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/identification-bff/customers/{id}:
+  /api/v1/identification-bff/customers/{id}:
     get:
       tags:
         - customer-controller
@@ -197,11 +208,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/autotransport/identification-bff/vendors?page=[page]&size=[size]:
+  /api/v1/identification-bff/vendors:
     get:
       tags:
         - vendor-handler
       operationId: getVendors
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
       responses:
         '404':
           description: Not Found
@@ -240,7 +262,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Vendor'
+                  $ref: '#/components/schemas/VendorList'
     put:
       tags:
         - vendor-handler
@@ -291,7 +313,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Customer'
+                  $ref: '#/components/schemas/Vendor'
     post:
       tags:
         - vendor-handler
@@ -339,7 +361,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Vendor'
-  /api/v1/autotransport/identification-bff/vendors/{id}:
+  /api/v1/identification-bff/vendors/{id}:
     get:
       tags:
         - vendor-handler
@@ -1109,14 +1131,11 @@ components:
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
@@ -1379,6 +1398,16 @@ components:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
+    CustomerList:
+      required: [ count, customers ]
+      properties:
+        count:
+          type: integer
+          format: int64
+        customers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
     Customer:
       required: [ customerStatus, isBusiness ]
       type: object
@@ -1950,6 +1979,16 @@ components:
     TransportService:
       type: string
       enum: [ LTL, FTL ]
+    VendorList:
+      required: [ count, vendors ]
+      properties:
+        count:
+          type: integer
+          format: int64
+        vendors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vendor'
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
@@ -2099,6 +2138,12 @@ components:
         ceilingCube:
           type: number
         wallCube:
+          type: number
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
           type: number
     Receivable:
       required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]

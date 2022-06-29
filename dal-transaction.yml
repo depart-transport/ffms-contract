@@ -291,7 +291,7 @@ paths:
     get:
       tags:
         - customer-sales-handler
-      operationId: getCustomerSales
+      operationId: getCustomerSalesCount
       parameters:
         - name: customerId
           in: path
@@ -814,19 +814,18 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
+        isStackable:
+          type: boolean
         numberPkg:
           type: integer
         description:
           type: string
         length:
-          type: integer
-          format: int32
+          type: number
         width:
-          type: integer
-          format: int32
+          type: number
         height:
-          type: integer
-          format: int32
+          type: number
         weight:
           type: number
         hsCode:
