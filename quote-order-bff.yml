@@ -1140,7 +1140,7 @@ components:
       type: string
       enum: [ KM, MI ]
     SaleAddress:
-      required: [ address, fromDate, toDate, locationType ]
+      required: [ address, fromDate, toDate, locationType, coordinate ]
       type: object
       properties:
         saleAddressId:
