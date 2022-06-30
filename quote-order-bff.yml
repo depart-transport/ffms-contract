@@ -888,11 +888,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorRateSchedules'
-  /api/v1/quote-order-bff/triprates:
+  /api/v1/quote-order-bff/triprates?site=[site]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
+      parameters:
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/TripRateSite'
       responses:
         '404':
           description: Not Found
@@ -1067,6 +1073,13 @@ components:
             type: string
         url:
           type: string
+    TripRateSite:
+      type: string
+      enum:
+        - tracking
+        - bidding
+        - confirmation
+        - acceptation
     SaleList:
       type: object
       properties:
