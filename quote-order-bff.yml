@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/quote-order-bff/quotes?page=[page]&size=[size]:
+  /api/v1/quote-order-bff/quotes?page=[page]&size=[size]:
     get:
       tags:
         - quote-handler
@@ -445,7 +445,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders?page=[page]&size=[size]:
+  /api/v1/quote-order-bff/orders?page=[page]&size=[size]&site=[site]:
     get:
       tags:
         - order-handler
@@ -463,6 +463,11 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: site
+          required: true
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '403':
           description: Forbidden
@@ -898,7 +903,7 @@ paths:
           name: site
           required: false
           schema:
-            $ref: '#/components/schemas/TripRateSite'
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -1073,13 +1078,14 @@ components:
             type: string
         url:
           type: string
-    TripRateSite:
+    SitePage:
       type: string
       enum:
         - tracking
         - bidding
         - confirmation
         - acceptation
+        - history
     SaleList:
       type: object
       properties:

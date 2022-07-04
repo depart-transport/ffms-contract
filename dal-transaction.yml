@@ -6,11 +6,24 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/transaction/sales/count:
+  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]&status=[status]:
     get:
       tags:
         - sale-handler
       operationId: getSalesCount
+      parameters:
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -49,11 +62,24 @@ paths:
               schema:
                 type: integer
                 format: int64
-  /api/v1/autotransport/transaction/sales?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
     get:
       tags:
         - sale-handler
       operationId: getSales
+      parameters:
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -236,7 +262,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]&status=[status]:
     get:
       tags:
         - customer-sales-handler
@@ -248,6 +274,18 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -287,7 +325,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]&status=[status]:
     get:
       tags:
         - customer-sales-handler
@@ -299,6 +337,18 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -392,14 +442,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates?status=[rateStatusList]:
+  /api/v1/autotransport/transaction/triprates?status=[status]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
       parameters:
         - in: query
-          name: rateStatusList
+          name: status
           required: false
           schema:
             type: array
