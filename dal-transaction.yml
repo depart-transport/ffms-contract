@@ -6,6 +6,49 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
+  /api/v1/autotransport/transaction/sales/count:
+    get:
+      tags:
+        - sale-handler
+      operationId: getSalesCount
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
   /api/v1/autotransport/transaction/sales?saleType=[saleType]:
     get:
       tags:
@@ -193,7 +236,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]:
     get:
       tags:
         - customer-sales-handler
@@ -244,6 +287,56 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Sale'
+  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]:
+    get:
+      tags:
+        - customer-sales-handler
+      operationId: getCustomerSalesCount
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
   /api/v1/autotransport/transaction/sales/customer/{customerId}/sale/{saleId}:
     get:
       tags:

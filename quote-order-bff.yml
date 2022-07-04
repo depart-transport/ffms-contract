@@ -6,11 +6,24 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/quote-order-bff/quotes:
+  /api/v1/autotransport/quote-order-bff/quotes?page=[page]&size=[size]:
     get:
       tags:
         - quote-handler
       operationId: getQuotes
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+            format: int64
       responses:
         '404':
           description: Not Found
@@ -47,9 +60,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Sale'
+                $ref: '#/components/schemas/SaleList'
     post:
       tags:
         - quote-handler
@@ -206,6 +217,18 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+            format: int64
       responses:
         '404':
           description: Not Found
@@ -242,9 +265,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Sale'
+                $ref: '#/components/schemas/SaleList'
     post:
       tags:
         - customer-quote-handler
@@ -424,11 +445,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders:
+  /api/v1/quote-order-bff/orders?page=[page]&size=[size]:
     get:
       tags:
         - order-handler
       operationId: getOrders
+      parameters:
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+            format: int64
       responses:
         '403':
           description: Forbidden
@@ -459,9 +493,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Sale'
+                $ref: '#/components/schemas/SaleList'
     post:
       tags:
         - order-handler
@@ -605,6 +637,18 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: integer
+            format: int64
       responses:
         '403':
           description: Forbidden
@@ -635,9 +679,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Sale'
+                $ref: '#/components/schemas/SaleList'
     post:
       tags:
         - customer-order-handler
@@ -801,6 +843,12 @@ paths:
       tags:
         - rate-handler
       operationId: getWeightRates
+      parameters:
+        - in: query
+          name: rateType
+          required: true
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -832,7 +880,7 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ResponseError'
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -840,11 +888,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorRateSchedules'
-  /api/v1/quote-order-bff/triprates:
+  /api/v1/quote-order-bff/triprates?site=[site]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
+      parameters:
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/TripRateSite'
       responses:
         '404':
           description: Not Found
@@ -1019,6 +1073,23 @@ components:
             type: string
         url:
           type: string
+    TripRateSite:
+      type: string
+      enum:
+        - tracking
+        - bidding
+        - confirmation
+        - acceptation
+    SaleList:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        sales:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sale'
     Sale:
       required: [ isInsured ]
       type: object
@@ -1082,7 +1153,7 @@ components:
       type: string
       enum: [ KM, MI ]
     SaleAddress:
-      required: [ address, fromDate, toDate, locationType ]
+      required: [ address, fromDate, toDate, locationType, coordinate ]
       type: object
       properties:
         saleAddressId:
@@ -1588,4 +1659,3 @@ components:
           $ref: '#/components/schemas/Contact'
         alternateContact:
           $ref: '#/components/schemas/Contact'
-
