@@ -392,11 +392,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates:
+  /api/v1/autotransport/transaction/triprates?status=[rateStatusList]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
+      parameters:
+        - in: query
+          name: rateStatusList
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
