@@ -6,11 +6,17 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/transaction/sales/count:
+  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]:
     get:
       tags:
         - sale-handler
       operationId: getSalesCount
+      parameters:
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -248,6 +254,11 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -299,6 +310,11 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
