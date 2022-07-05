@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/quote-order-bff/quotes?page=[page]&size=[size]:
+  /api/v1/quote-order-bff/quotes?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - quote-handler
@@ -24,6 +24,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -205,7 +237,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/quotes/customer/{customerId}:
+  /api/v1/quote-order-bff/quotes/customer/{customerId}?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-quotes-handler
@@ -229,6 +261,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -445,7 +509,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders?page=[page]&size=[size]&site=[site]:
+  /api/v1/quote-order-bff/orders?page=[page]&size=[size]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - order-handler
@@ -468,6 +532,38 @@ paths:
           required: true
           schema:
             $ref: '#/components/schemas/SitePage'
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '403':
           description: Forbidden
@@ -630,7 +726,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders/customer/{customerId}:
+  /api/v1/quote-order-bff/orders/customer/{customerId}?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-order-handler
@@ -654,6 +750,38 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: string
       responses:
         '403':
           description: Forbidden
@@ -788,7 +916,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
+  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
     get:
       tags:
         - customer-order-handler
