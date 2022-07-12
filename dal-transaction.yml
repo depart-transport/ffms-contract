@@ -9,7 +9,7 @@ paths:
   /api/v1/autotransport/transaction/sales/count?saleType=[saleType]&status=[status]:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSalesCount
       parameters:
         - in: query
@@ -65,7 +65,7 @@ paths:
   /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSales
       parameters:
         - in: query
@@ -121,7 +121,7 @@ paths:
                   $ref: '#/components/schemas/Sale'
     post:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: createSale
       requestBody:
         content:
@@ -168,7 +168,7 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: updateSale
       requestBody:
         content:
@@ -216,7 +216,7 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSale
       parameters:
         - name: saleId
@@ -390,7 +390,7 @@ paths:
   /api/v1/autotransport/transaction/sales/customer/{customerId}/sale/{saleId}:
     get:
       tags:
-        - customer-sale-handler
+        - customer-customer-handler
       operationId: getCustomerSale
       parameters:
         - name: customerId
@@ -765,7 +765,7 @@ components:
             $ref: '#/components/schemas/ShipmentRate'
     SaleAddress:
       required:
-        [ address, fromDate, toDate, locationType, phone, email, date ]
+        [ address, fromDate, toDate, locationType, phone, email ]
       type: object
       properties:
         saleAddressId:
@@ -974,13 +974,13 @@ components:
           type: integer
           format: int64
         price:
-          description: Price of the rate - all triprate price combine
+          description: Price of the rate - all vendor price combine
           type: number
         baseCharge:
-          description: price of the base charge - all triprate base charge combine
+          description: price of the base charge - all vendor base charge combine
           type: number
         surcharges:
-          description: price of the surcharge - all triprate surcharge combine
+          description: price of the surcharge - all vendor surcharge combine
           type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'

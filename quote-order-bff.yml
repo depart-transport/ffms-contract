@@ -1635,13 +1635,13 @@ components:
           type: integer
           format: int64
         price:
-          description: Price of the rate - all triprate price combine
+          description: Price of the rate - all vendor price combine
           type: number
         baseCharge:
-          description: price of the base charge - all triprate base charge combine
+          description: price of the base charge - all vendor base charge combine
           type: number
         surcharges:
-          description: price of the surcharge - all triprate surcharge combine
+          description: price of the surcharge - all vendor surcharge combine
           type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
