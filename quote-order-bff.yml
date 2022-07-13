@@ -1535,8 +1535,6 @@ components:
           format: int64
         numberPkg:
           type: integer
-        isStackable:
-          type: boolean
         description:
           type: string
         length:

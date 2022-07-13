@@ -872,8 +872,6 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
-        isStackable:
-          type: boolean
         numberPkg:
           type: integer
         description:
