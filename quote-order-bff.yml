@@ -6,20 +6,20 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/quote-order-bff/quotes?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/quotes?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - quote-handler
       operationId: getQuotes
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
@@ -35,13 +35,25 @@ paths:
           schema:
             type: string
         - in: query
-          name: pickupDate
+          name: pickupStartDate
           required: false
           schema:
             type: string
             format: date
         - in: query
-          name: deliveryDate
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
           required: false
           schema:
             type: string
@@ -56,6 +68,11 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -237,7 +254,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/quotes/customer/{customerId}?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/quotes/customer/{customerId}?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-quotes-handler
@@ -250,13 +267,13 @@ paths:
             type: integer
             format: int64
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
@@ -509,29 +526,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders?page=[page]&size=[size]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/orders?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - order-handler
       operationId: getOrders
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
             format: int64
-        - in: query
-          name: site
-          required: true
-          schema:
-            $ref: '#/components/schemas/SitePage'
         - in: query
           name: shipper
           required: false
@@ -543,13 +555,25 @@ paths:
           schema:
             type: string
         - in: query
-          name: pickupDate
+          name: pickupStartDate
           required: false
           schema:
             type: string
             format: date
         - in: query
-          name: deliveryDate
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
           required: false
           schema:
             type: string
@@ -564,6 +588,11 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '403':
           description: Forbidden
@@ -726,7 +755,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders/customer/{customerId}?page=[page]&size=[size]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/orders/customer/{customerId}?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-order-handler
@@ -739,13 +768,13 @@ paths:
             type: integer
             format: int64
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
