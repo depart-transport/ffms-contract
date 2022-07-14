@@ -6,15 +6,61 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]&status=[status]:
+  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-handler
       operationId: getSalesCount
       parameters:
         - in: query
-          name: saleType
-          required: true
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
           schema:
             type: string
         - in: query
@@ -262,21 +308,61 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]&status=[status]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-sales-handler
       operationId: getCustomerSales
       parameters:
-        - name: customerId
-          in: path
-          required: true
+        - in: query
+          name: pageNo
+          required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: saleType
-          required: true
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
           schema:
             type: string
         - in: query

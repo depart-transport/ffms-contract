@@ -67,7 +67,9 @@ paths:
           name: status
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
         - in: query
           name: site
           required: false
@@ -309,7 +311,9 @@ paths:
           name: status
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -587,7 +591,9 @@ paths:
           name: status
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
         - in: query
           name: site
           required: false
@@ -810,7 +816,9 @@ paths:
           name: status
           required: false
           schema:
-            type: string
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '403':
           description: Forbidden
