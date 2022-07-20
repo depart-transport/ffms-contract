@@ -1262,7 +1262,7 @@ components:
           items:
             $ref: '#/components/schemas/Sale'
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:

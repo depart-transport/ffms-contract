@@ -817,7 +817,7 @@ components:
         url:
           type: string
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:
