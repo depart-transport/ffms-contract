@@ -6,24 +6,75 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/quote-order-bff/quotes?page=[page]&size=[size]:
+  /api/v1/quote-order-bff/quotes?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - quote-handler
       operationId: getQuotes
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -205,7 +256,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/quotes/customer/{customerId}:
+  /api/v1/quote-order-bff/quotes/customer/{customerId}?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-quotes-handler
@@ -218,17 +269,51 @@ paths:
             type: integer
             format: int64
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -445,24 +530,75 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders?page=[page]&size=[size]:
+  /api/v1/quote-order-bff/orders?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - order-handler
       operationId: getOrders
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '403':
           description: Forbidden
@@ -625,7 +761,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders/customer/{customerId}:
+  /api/v1/quote-order-bff/orders/customer/{customerId}?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupDate=[pickupDate]&deliveryDate=[deliveryDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-order-handler
@@ -638,17 +774,51 @@ paths:
             type: integer
             format: int64
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
             format: int64
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
             format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '403':
           description: Forbidden
@@ -783,7 +953,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
+  /api/v1/autotransport/quote-order-bff/orders/customer/{customerId}/order/{saleId}:
     get:
       tags:
         - customer-order-handler
@@ -898,7 +1068,7 @@ paths:
           name: site
           required: false
           schema:
-            $ref: '#/components/schemas/TripRateSite'
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -1073,13 +1243,14 @@ components:
             type: string
         url:
           type: string
-    TripRateSite:
+    SitePage:
       type: string
       enum:
         - tracking
         - bidding
         - confirmation
         - acceptation
+        - history
     SaleList:
       type: object
       properties:
@@ -1091,7 +1262,7 @@ components:
           items:
             $ref: '#/components/schemas/Sale'
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:
@@ -1401,8 +1572,6 @@ components:
           format: int64
         numberPkg:
           type: integer
-        isStackable:
-          type: boolean
         description:
           type: string
         length:
@@ -1501,13 +1670,13 @@ components:
           type: integer
           format: int64
         price:
-          description: Price of the rate - all triprate price combine
+          description: Price of the rate - all vendor price combine
           type: number
         baseCharge:
-          description: price of the base charge - all triprate base charge combine
+          description: price of the base charge - all vendor base charge combine
           type: number
         surcharges:
-          description: price of the surcharge - all triprate surcharge combine
+          description: price of the surcharge - all vendor surcharge combine
           type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'

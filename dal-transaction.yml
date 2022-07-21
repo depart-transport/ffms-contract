@@ -6,10 +6,10 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales/count?saleType=[saleType]?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSalesCount
       parameters:
         - in: query
@@ -17,6 +17,64 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -55,11 +113,24 @@ paths:
               schema:
                 type: integer
                 format: int64
-  /api/v1/autotransport/transaction/sales?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSales
+      parameters:
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -101,7 +172,7 @@ paths:
                   $ref: '#/components/schemas/Sale'
     post:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: createSale
       requestBody:
         content:
@@ -148,7 +219,7 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: updateSale
       requestBody:
         content:
@@ -196,7 +267,7 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
-        - sale-handler
+        - customer-handler
       operationId: getSale
       parameters:
         - name: saleId
@@ -242,15 +313,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}?saleType=[saleType]?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-sales-handler
       operationId: getCustomerSales
       parameters:
-        - name: customerId
-          in: path
-          required: true
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
           schema:
             type: integer
             format: int64
@@ -259,6 +336,52 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -298,7 +421,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]&status=[status]:
     get:
       tags:
         - customer-sales-handler
@@ -315,6 +438,13 @@ paths:
           required: true
           schema:
             type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
       responses:
         '404':
           description: Not Found
@@ -356,7 +486,7 @@ paths:
   /api/v1/autotransport/transaction/sales/customer/{customerId}/sale/{saleId}:
     get:
       tags:
-        - customer-sale-handler
+        - customer-customer-handler
       operationId: getCustomerSale
       parameters:
         - name: customerId
@@ -408,14 +538,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates?status=[rateStatusList]:
+  /api/v1/autotransport/transaction/triprates?status=[status]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
       parameters:
         - in: query
-          name: rateStatusList
+          name: status
           required: false
           schema:
             type: array
@@ -697,7 +827,7 @@ components:
         url:
           type: string
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:
@@ -731,7 +861,7 @@ components:
             $ref: '#/components/schemas/ShipmentRate'
     SaleAddress:
       required:
-        [ address, fromDate, toDate, locationType, phone, email, date ]
+        [ address, fromDate, toDate, locationType, phone, email ]
       type: object
       properties:
         saleAddressId:
@@ -838,8 +968,6 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
-        isStackable:
-          type: boolean
         numberPkg:
           type: integer
         description:
@@ -940,13 +1068,13 @@ components:
           type: integer
           format: int64
         price:
-          description: Price of the rate - all triprate price combine
+          description: Price of the rate - all vendor price combine
           type: number
         baseCharge:
-          description: price of the base charge - all triprate base charge combine
+          description: price of the base charge - all vendor base charge combine
           type: number
         surcharges:
-          description: price of the surcharge - all triprate surcharge combine
+          description: price of the surcharge - all vendor surcharge combine
           type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
