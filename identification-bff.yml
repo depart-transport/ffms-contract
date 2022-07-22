@@ -1749,6 +1749,10 @@ components:
           type: number
         minMargin:
           type: number
+        minPrice:
+          type: number
+        maxWeightSkid:
+          type: number
     VendorDef:
       type: object
       properties:
