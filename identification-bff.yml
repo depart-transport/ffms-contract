@@ -934,7 +934,7 @@ components:
         - BISP
         - STRG
     Address:
-      required: [ add, city, postalZipCode, provinceState, country ]
+      required: [add, city, postalZipCode, provinceState, country]
       type: object
       properties:
         addId:
@@ -953,7 +953,8 @@ components:
         country:
           type: string
     BankAccount:
-      required: [ branchName, institution, transit, account, address, comm, contact ]
+      required:
+        [branchName, institution, transit, account, address, comm, contact]
       type: object
       properties:
         bankAccountId:
@@ -977,7 +978,15 @@ components:
         contact:
           $ref: '#/components/schemas/Person'
     Billing:
-      required: [ creditStatus, currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
+      required:
+        [
+          creditStatus,
+          currency,
+          podRequirement,
+          payment,
+          isSameBillAdd,
+          payableCreditCard,
+        ]
       type: object
       properties:
         billingId:
@@ -1054,7 +1063,7 @@ components:
         - TBC
         - API
     Branch:
-      required: [ branchName, enterprise ]
+      required: [branchName, enterprise]
       type: object
       properties:
         branchId:
@@ -1068,7 +1077,7 @@ components:
         billing:
           $ref: '#/components/schemas/Billing'
     Business:
-      required: [ enterprise, isSameBilling ]
+      required: [enterprise, isSameBilling]
       type: object
       properties:
         businessId:
@@ -1085,7 +1094,7 @@ components:
         isSameBilling:
           type: boolean
     Commodity:
-      required: [ isHazMat, docOnly, isFreezeProtect, isTempControl ]
+      required: [isHazMat, docOnly, isFreezeProtect, isTempControl]
       type: object
       properties:
         commodityId:
@@ -1183,7 +1192,7 @@ components:
         - F
         - C
     Communication:
-      required: [ telephone ]
+      required: [telephone]
       type: object
       properties:
         commId:
@@ -1216,7 +1225,7 @@ components:
           type: string
           maxLength: 255
     Contact:
-      required: [ contact, contactComm ]
+      required: [contact, contactComm]
       type: object
       properties:
         contactId:
@@ -1263,7 +1272,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+      enum: [OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM]
     Notification:
       type: string
       enum:
@@ -1285,7 +1294,7 @@ components:
         - OSD
         - CLAIMS
     CreditApplication:
-      required: [ enterprise, enterpriseType ]
+      required: [enterprise, enterpriseType]
       type: object
       properties:
         creditApplicationId:
@@ -1329,7 +1338,7 @@ components:
           type: string
           pattern: '^\d{2}-\d{7}'
     CreditCard:
-      required: [ cardholder, creditCardNumber, expDate, cvc ]
+      required: [cardholder, creditCardNumber, expDate, cvc]
       type: object
       properties:
         ccId:
@@ -1351,7 +1360,7 @@ components:
           maxLength: 3
           pattern: '^\d{3}$'
     CreditReference:
-      required: [ supplierName, contactName, address, telephone, email ]
+      required: [supplierName, contactName, address, telephone, email]
       type: object
       properties:
         creditReferenceId:
@@ -1379,7 +1388,7 @@ components:
         partnerNumYr:
           type: number
     CustomBroker:
-      required: [ country, brokerName, accountNumber, primaryContact ]
+      required: [country, brokerName, accountNumber, primaryContact]
       type: object
       properties:
         customBrokerId:
@@ -1399,7 +1408,7 @@ components:
         alternateContact:
           $ref: '#/components/schemas/Contact'
     CustomerList:
-      required: [ count, customers ]
+      required: [count, customers]
       properties:
         count:
           type: integer
@@ -1409,7 +1418,7 @@ components:
           items:
             $ref: '#/components/schemas/Customer'
     Customer:
-      required: [ customerStatus, isBusiness ]
+      required: [customerStatus, isBusiness]
       type: object
       properties:
         customerId:
@@ -1462,7 +1471,7 @@ components:
         - ONBOARDING
         - PENDING
     Enterprise:
-      required: [ legalName, commInfo, address, businessType ]
+      required: [legalName, commInfo, address, businessType]
       type: object
       properties:
         enterpriseId:
@@ -1500,7 +1509,17 @@ components:
         - V_FFD
         - V_INM
     InsuranceDetails:
-      required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
+      required:
+        [
+          currency,
+          liabilityCoverage,
+          cargoCoverage,
+          provider,
+          policyNumber,
+          start,
+          expiry,
+          contact,
+        ]
       type: object
       properties:
         id:
@@ -1527,9 +1546,29 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
-                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
-                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
+      required:
+        [
+          locationType,
+          isPublicLocation,
+          isApptRequired,
+          isLumperRequired,
+          coordinate,
+          locComm,
+          locAdd,
+          locContact,
+          availability,
+          is53Ft,
+          isForkLiftAvail,
+          isPaletteJackAvail,
+          isOnsiteSleepAvail,
+          isAddLaborRequired,
+          apptNumber,
+          isDock,
+          isTailgate,
+          isCurbside,
+          isInside,
+          isDriverAssist,
+        ]
       type: object
       properties:
         locationId:
@@ -1614,7 +1653,22 @@ components:
         * OTR_SHL:  Other - School
     TruckSize:
       type: string
-      enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
+      enum:
+        [
+          DCAB,
+          FT53,
+          FT52,
+          FT48,
+          FT40,
+          FT32,
+          FT30,
+          FT28,
+          FT26,
+          FT24,
+          FT22,
+          FT20,
+          SPTR,
+        ]
     InsideClearance:
       type: string
       enum:
@@ -1629,7 +1683,7 @@ components:
         * STRS: Inside Stairs Clearance 
         * FRTELEV: Inside Freight Elevator Clearance
     Margin:
-      required: [ lowerBound, upperBound, price ]
+      required: [lowerBound, upperBound, price]
       type: object
       properties:
         marginId:
@@ -1644,7 +1698,7 @@ components:
         price:
           type: number
     Person:
-      required: [ firstName, lastName ]
+      required: [firstName, lastName]
       type: object
       properties:
         personId:
@@ -1680,7 +1734,7 @@ components:
           items:
             $ref: '#/components/schemas/VendorDef'
     Tariff:
-      required: [ rateType, rateMeasure, price, vendors ]
+      required: [rateType, rateMeasure, price, vendors]
       type: object
       properties:
         tariffId:
@@ -1759,12 +1813,17 @@ components:
         - S23
         - S24
     RateSchedule:
-      required: [ origin, destination ]
+      required: [origin, destination]
       type: object
       properties:
         rateScheduleId:
           type: integer
           format: int64
+        numberTransitDays:
+          type: integer
+          format: int64
+        departureDays:
+          $ref: '#/components/schemas/week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -1812,7 +1871,7 @@ components:
           items:
             $ref: '#/components/schemas/ZonesRateSchedules'
     TimeTable:
-      required: [ openLunch ]
+      required: [openLunch]
       type: object
       properties:
         timeTableId:
@@ -1896,9 +1955,9 @@ components:
             $ref: '#/components/schemas/TransportService'
     DoorType:
       type: string
-      enum: [ B, R ]
+      enum: [B, R]
     Equipment:
-      required: [ isDcab, isLogistic, isDockLevel, isReefer ]
+      required: [isDcab, isLogistic, isDockLevel, isReefer]
       type: object
       properties:
         equipmentId:
@@ -1934,10 +1993,10 @@ components:
             $ref: '#/components/schemas/HazMat'
     EquipmentSize:
       type: string
-      enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
+      enum: [FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR]
     EquipmentType:
       type: string
-      enum: [ CBOX, FBED ]
+      enum: [CBOX, FBED]
     HazMat:
       type: object
       properties:
@@ -1954,7 +2013,7 @@ components:
           type: string
     Liftgate:
       type: string
-      enum: [ NONE, STND, PLFM, HDTY ]
+      enum: [NONE, STND, PLFM, HDTY]
     ProvincesStatesCovered:
       type: object
       properties:
@@ -1971,16 +2030,76 @@ components:
             $ref: '#/components/schemas/ProvinceState'
     ProvinceState:
       type: string
-      enum: [ NL_CA, PE_CA, NS_CA, NB_CA, QC_CA, ON_CA, MB_CA, SK_CA, BC_CA, YT_CA, NT_CA, NU_CA, AL_USA, AK_USA,
-              AZ_USA, AR_USA, CA_USA, CO_USA, CT_USA, DE_USA, FL_USA, GA_USA, HI_USA, ID_USA, IL_USA, IN_USA, IA_USA,
-              KS_USA, KY_USA, LA_USA, ME_USA, MD_USA, MA_USA, MI_USA, MN_USA, MS_USA, MO_USA, MT_USA, NE_USA, NV_USA,
-              NH_USA, NJ_USA, NM_USA, NY_USA, NC_USA, ND_USA, OH_USA, OK_USA, OR_USA, PA_USA, RI_USA, SC_USA, SD_USA,
-              TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
+      enum:
+        [
+          NL_CA,
+          PE_CA,
+          NS_CA,
+          NB_CA,
+          QC_CA,
+          ON_CA,
+          MB_CA,
+          SK_CA,
+          BC_CA,
+          YT_CA,
+          NT_CA,
+          NU_CA,
+          AL_USA,
+          AK_USA,
+          AZ_USA,
+          AR_USA,
+          CA_USA,
+          CO_USA,
+          CT_USA,
+          DE_USA,
+          FL_USA,
+          GA_USA,
+          HI_USA,
+          ID_USA,
+          IL_USA,
+          IN_USA,
+          IA_USA,
+          KS_USA,
+          KY_USA,
+          LA_USA,
+          ME_USA,
+          MD_USA,
+          MA_USA,
+          MI_USA,
+          MN_USA,
+          MS_USA,
+          MO_USA,
+          MT_USA,
+          NE_USA,
+          NV_USA,
+          NH_USA,
+          NJ_USA,
+          NM_USA,
+          NY_USA,
+          NC_USA,
+          ND_USA,
+          OH_USA,
+          OK_USA,
+          OR_USA,
+          PA_USA,
+          RI_USA,
+          SC_USA,
+          SD_USA,
+          TN_USA,
+          TX_USA,
+          UT_USA,
+          VT_USA,
+          VA_USA,
+          WA_USA,
+          WV_USA,
+          WI_USA,
+          WY_USA,
+        ]
     TransportService:
       type: string
-      enum: [ LTL, FTL ]
+      enum: [LTL, FTL]
     VendorList:
-      required: [ count, vendors ]
+      required: [count, vendors]
       properties:
         count:
           type: integer
@@ -1990,7 +2109,16 @@ components:
           items:
             $ref: '#/components/schemas/Vendor'
     Vendor:
-      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
+      required:
+        [
+          vendorStatus,
+          headOffice,
+          contacts,
+          flag1099Required,
+          contractOnFile,
+          isSameReceivable,
+          isSameInsurance,
+        ]
       type: object
       properties:
         vendorId:
@@ -2026,7 +2154,7 @@ components:
           type: string
           format: date-time
     Authority:
-      required: [ mc, scac, usdot ]
+      required: [mc, scac, usdot]
       type: object
       properties:
         mc:
@@ -2059,7 +2187,7 @@ components:
         smc3TarriffCode:
           type: string
     TrackerInfos:
-      required: [ isSatelliteTracker, isTrackerOnAllTruck ]
+      required: [isSatelliteTracker, isTrackerOnAllTruck]
       type: object
       properties:
         isSatelliteTracker:
@@ -2069,7 +2197,7 @@ components:
         trackerProvider:
           type: string
     VendorBranch:
-      required: [ branchName, enterprise ]
+      required: [branchName, enterprise]
       type: object
       properties:
         vendorBranchId:
@@ -2146,7 +2274,15 @@ components:
         skidHeight:
           type: number
     Receivable:
-      required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
+      required:
+        [
+          receivableStatus,
+          currency,
+          paymentType,
+          isQuickPayProgram,
+          termOfPayment,
+          tradeReference,
+        ]
       type: object
       properties:
         receivableId:
@@ -2179,7 +2315,7 @@ components:
         receivableStatus:
           $ref: '#/components/schemas/CreditStatus'
     Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
+      required: [coordinateName, longitude, latitude, radius]
       type: object
       properties:
         coordinateId:
@@ -2209,13 +2345,13 @@ components:
         - WHITE
     Direction:
       type: string
-      enum: [ ORG, DST ]
+      enum: [ORG, DST]
     RadiusUnit:
       type: string
-      enum: [ KM, MI ]
+      enum: [KM, MI]
     BoxType:
       type: string
-      enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
+      enum: [CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT]
     ZonesRateSchedules:
       type: object
       properties:
@@ -2237,3 +2373,20 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
+    week:
+      type: object
+      properties:
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sunday:
+          type: boolean
