@@ -1769,6 +1769,8 @@ components:
           $ref: '#/components/schemas/Coordinate'
         destination:
           $ref: '#/components/schemas/Coordinate'
+        rateType:
+          $ref: '#/components/schemas/RateType'
         fixedRates:
           type: array
           items:
