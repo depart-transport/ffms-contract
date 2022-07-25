@@ -1749,8 +1749,6 @@ components:
           type: number
         minMargin:
           type: number
-        minPrice:
-          type: number
         maxWeightSkid:
           type: number
     VendorDef:
@@ -1827,7 +1825,7 @@ components:
           type: integer
           format: int64
         departureDays:
-          $ref: '#/components/schemas/week'
+          $ref: '#/components/schemas/Week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -2377,7 +2375,7 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
-    week:
+    Week:
       type: object
       properties:
         monday:
