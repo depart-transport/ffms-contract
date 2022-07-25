@@ -332,6 +332,12 @@ paths:
             type: integer
             format: int64
         - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
           name: saleType
           required: true
           schema:
@@ -1073,6 +1079,9 @@ components:
         baseCharge:
           description: price of the base charge - all vendor base charge combine
           type: number
+        fuelCharges:
+          description: charges of fuel
+          type: number
         surcharges:
           description: price of the surcharge - all vendor surcharge combine
           type: number
@@ -1096,6 +1105,12 @@ components:
           format: int64
         baseCharge:
           description: price of the base charge for a specific vendor/trip
+          type: number
+        customBroker:
+          type: integer
+          format: int64
+        fuelCharges:
+          description: charges of fuel
           type: number
         surcharges:
           description: price of the surcharge for a specific vendor/trip

@@ -1675,6 +1675,9 @@ components:
         baseCharge:
           description: price of the base charge - all vendor base charge combine
           type: number
+        fuelCharges:
+          description: charges of fuel
+          type: number
         surcharges:
           description: price of the surcharge - all vendor surcharge combine
           type: number
@@ -1702,6 +1705,9 @@ components:
           type: string
         baseCharge:
           description: price of the base charge for a specific vendor/trip
+          type: number
+        fuelCharges:
+          description: charges of fuel
           type: number
         surcharges:
           description: price of the surcharge for a specific vendor/trip

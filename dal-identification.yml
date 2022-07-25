@@ -3311,15 +3311,9 @@ components:
           $ref: '#/components/schemas/Coordinate'
         destination:
           $ref: '#/components/schemas/Coordinate'
-        fixedRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
-        weightRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
-        skidRates:
+        rateType:
+          $ref: '#/components/schemas/RateType'
+        rates:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
