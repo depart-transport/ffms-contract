@@ -1844,6 +1844,8 @@ components:
           type: number
         maxWeightSkid:
           type: number
+        rateType:
+          $ref: '#/components/schemas/RateType'
     Rating:
       type: object
       properties:
