@@ -332,12 +332,6 @@ paths:
             type: integer
             format: int64
         - in: query
-          name: pageSize
-          required: false
-          schema:
-            type: integer
-            format: int64
-        - in: query
           name: saleType
           required: true
           schema:
