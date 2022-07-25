@@ -13,6 +13,11 @@ paths:
       operationId: getSalesCount
       parameters:
         - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
           name: pageNo
           required: false
           schema:
@@ -326,6 +331,11 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
         - in: query
           name: shipper
           required: false
@@ -817,7 +827,7 @@ components:
         url:
           type: string
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:
