@@ -1823,7 +1823,7 @@ components:
           type: integer
           format: int64
         departureDays:
-          $ref: '#/components/schemas/week'
+          $ref: '#/components/schemas/Week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -1841,6 +1841,8 @@ components:
           items:
             $ref: '#/components/schemas/Rate'
         minMargin:
+          type: number
+        maxWeightSkid:
           type: number
     Rating:
       type: object
@@ -2373,7 +2375,7 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
-    week:
+    Week:
       type: object
       properties:
         monday:
