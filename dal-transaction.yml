@@ -9,7 +9,7 @@ paths:
   /api/v1/autotransport/transaction/sales/count?saleType=[saleType]?pageNo=[pageNo]&pageSize=[pageSize]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
-        - customer-handler
+        - sale-handler
       operationId: getSalesCount
       parameters:
         - in: query
@@ -116,7 +116,7 @@ paths:
   /api/v1/autotransport/transaction/sales?saleType=[saleType]&&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
-        - customer-handler
+        - sale-handler
       operationId: getSales
       parameters:
         - in: query
@@ -211,7 +211,7 @@ paths:
                   $ref: '#/components/schemas/Sale'
     post:
       tags:
-        - customer-handler
+        - sale-handler
       operationId: createSale
       requestBody:
         content:
@@ -258,7 +258,7 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
-        - customer-handler
+        - sale-handler
       operationId: updateSale
       requestBody:
         content:
@@ -306,7 +306,7 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
-        - customer-handler
+        - sale-handler
       operationId: getSale
       parameters:
         - name: saleId
@@ -570,7 +570,7 @@ paths:
   /api/v1/autotransport/transaction/sales/customer/{customerId}/sale/{saleId}:
     get:
       tags:
-        - customer-customer-handler
+        - customer-sale-handler
       operationId: getCustomerSale
       parameters:
         - name: customerId
@@ -622,14 +622,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates?status=[status]:
+  /api/v1/autotransport/transaction/triprates?status=[rateStatusList]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
       parameters:
         - in: query
-          name: status
+          name: rateStatusList
           required: false
           schema:
             type: array
@@ -1052,6 +1052,8 @@ components:
         packageCaracteristicId:
           type: integer
           format: int64
+        isStackable:
+          type: boolean
         numberPkg:
           type: integer
         description:
@@ -1152,16 +1154,16 @@ components:
           type: integer
           format: int64
         price:
-          description: Price of the rate - all vendor price combine
+          description: Price of the rate - all triprate price combine
           type: number
         baseCharge:
-          description: price of the base charge - all vendor base charge combine
+          description: price of the base charge - all triprate base charge combine
           type: number
         fuelCharges:
           description: charges of fuel
           type: number
         surcharges:
-          description: price of the surcharge - all vendor surcharge combine
+          description: price of the surcharge - all triprate surcharge combine
           type: number
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
