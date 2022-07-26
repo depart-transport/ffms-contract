@@ -978,15 +978,7 @@ components:
         contact:
           $ref: '#/components/schemas/Person'
     Billing:
-      required:
-        [
-          creditStatus,
-          currency,
-          podRequirement,
-          payment,
-          isSameBillAdd,
-          payableCreditCard,
-        ]
+      required: [ creditStatus, currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
       type: object
       properties:
         billingId:
@@ -1509,17 +1501,7 @@ components:
         - V_FFD
         - V_INM
     InsuranceDetails:
-      required:
-        [
-          currency,
-          liabilityCoverage,
-          cargoCoverage,
-          provider,
-          policyNumber,
-          start,
-          expiry,
-          contact,
-        ]
+      required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
       properties:
         id:
@@ -1546,29 +1528,9 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required:
-        [
-          locationType,
-          isPublicLocation,
-          isApptRequired,
-          isLumperRequired,
-          coordinate,
-          locComm,
-          locAdd,
-          locContact,
-          availability,
-          is53Ft,
-          isForkLiftAvail,
-          isPaletteJackAvail,
-          isOnsiteSleepAvail,
-          isAddLaborRequired,
-          apptNumber,
-          isDock,
-          isTailgate,
-          isCurbside,
-          isInside,
-          isDriverAssist,
-        ]
+      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
+                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
+                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
       type: object
       properties:
         locationId:
@@ -1653,22 +1615,7 @@ components:
         * OTR_SHL:  Other - School
     TruckSize:
       type: string
-      enum:
-        [
-          DCAB,
-          FT53,
-          FT52,
-          FT48,
-          FT40,
-          FT32,
-          FT30,
-          FT28,
-          FT26,
-          FT24,
-          FT22,
-          FT20,
-          SPTR,
-        ]
+      enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     InsideClearance:
       type: string
       enum:
@@ -2034,71 +1981,11 @@ components:
             $ref: '#/components/schemas/ProvinceState'
     ProvinceState:
       type: string
-      enum:
-        [
-          NL_CA,
-          PE_CA,
-          NS_CA,
-          NB_CA,
-          QC_CA,
-          ON_CA,
-          MB_CA,
-          SK_CA,
-          BC_CA,
-          YT_CA,
-          NT_CA,
-          NU_CA,
-          AL_USA,
-          AK_USA,
-          AZ_USA,
-          AR_USA,
-          CA_USA,
-          CO_USA,
-          CT_USA,
-          DE_USA,
-          FL_USA,
-          GA_USA,
-          HI_USA,
-          ID_USA,
-          IL_USA,
-          IN_USA,
-          IA_USA,
-          KS_USA,
-          KY_USA,
-          LA_USA,
-          ME_USA,
-          MD_USA,
-          MA_USA,
-          MI_USA,
-          MN_USA,
-          MS_USA,
-          MO_USA,
-          MT_USA,
-          NE_USA,
-          NV_USA,
-          NH_USA,
-          NJ_USA,
-          NM_USA,
-          NY_USA,
-          NC_USA,
-          ND_USA,
-          OH_USA,
-          OK_USA,
-          OR_USA,
-          PA_USA,
-          RI_USA,
-          SC_USA,
-          SD_USA,
-          TN_USA,
-          TX_USA,
-          UT_USA,
-          VT_USA,
-          VA_USA,
-          WA_USA,
-          WV_USA,
-          WI_USA,
-          WY_USA,
-        ]
+      enum: [ NL_CA, PE_CA, NS_CA, NB_CA, QC_CA, ON_CA, MB_CA, SK_CA, BC_CA, YT_CA, NT_CA, NU_CA, AL_USA, AK_USA,
+              AZ_USA, AR_USA, CA_USA, CO_USA, CT_USA, DE_USA, FL_USA, GA_USA, HI_USA, ID_USA, IL_USA, IN_USA, IA_USA,
+              KS_USA, KY_USA, LA_USA, ME_USA, MD_USA, MA_USA, MI_USA, MN_USA, MS_USA, MO_USA, MT_USA, NE_USA, NV_USA,
+              NH_USA, NJ_USA, NM_USA, NY_USA, NC_USA, ND_USA, OH_USA, OK_USA, OR_USA, PA_USA, RI_USA, SC_USA, SD_USA,
+              TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
       enum: [ LTL, FTL ]
@@ -2113,16 +2000,7 @@ components:
           items:
             $ref: '#/components/schemas/Vendor'
     Vendor:
-      required:
-        [
-          vendorStatus,
-          headOffice,
-          contacts,
-          flag1099Required,
-          contractOnFile,
-          isSameReceivable,
-          isSameInsurance,
-        ]
+      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
       properties:
         vendorId:
@@ -2278,15 +2156,7 @@ components:
         skidHeight:
           type: number
     Receivable:
-      required:
-        [
-          receivableStatus,
-          currency,
-          paymentType,
-          isQuickPayProgram,
-          termOfPayment,
-          tradeReference,
-        ]
+      required: [ receivableStatus, currency, paymentType, isQuickPayProgram, termOfPayment, tradeReference ]
       type: object
       properties:
         receivableId:
