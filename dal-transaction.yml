@@ -13,6 +13,11 @@ paths:
       operationId: getSalesCount
       parameters:
         - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
+        - in: query
           name: pageNo
           required: false
           schema:
@@ -108,7 +113,7 @@ paths:
               schema:
                 type: integer
                 format: int64
-  /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
+  /api/v1/autotransport/transaction/sales?saleType=[saleType]&&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-handler
@@ -117,6 +122,45 @@ paths:
         - in: query
           name: saleType
           required: true
+          schema:
+            type: string
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
           schema:
             type: string
         - in: query
@@ -314,6 +358,17 @@ paths:
         - customer-sales-handler
       operationId: getCustomerSales
       parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: saleType
+          required: true
+          schema:
+            type: string
         - in: query
           name: pageNo
           required: false
@@ -411,7 +466,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]&status=[status]:
+  /api/v1/autotransport/transaction/sales/customer/{customerId}/count?saleType=[saleType]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - customer-sales-handler
@@ -426,6 +481,45 @@ paths:
         - in: query
           name: saleType
           required: true
+          schema:
+            type: string
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
           schema:
             type: string
         - in: query
@@ -817,7 +911,7 @@ components:
         url:
           type: string
     Sale:
-      required: [ isInsured ]
+      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
       properties:
         saleId:
