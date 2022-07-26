@@ -111,7 +111,7 @@ paths:
   /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
     get:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: getSales
       parameters:
         - in: query
@@ -214,7 +214,7 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: updateSale
       requestBody:
         content:
@@ -262,7 +262,7 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: getSale
       parameters:
         - name: saleId
