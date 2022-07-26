@@ -1736,8 +1736,6 @@ components:
           maxLength: 5
         price:
           type: number
-        minMargin:
-          type: number
     VendorDef:
       type: object
       properties:
