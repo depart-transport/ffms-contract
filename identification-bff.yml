@@ -793,7 +793,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BidOrderCenter'
-
+  /api/v1/identification-bff/locations/public:
+    get:
+      tags:
+        - location-handler
+      operationId: getPublicLocations
+      responses:
+        '404':
+          description: Not Found
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '401':
+          description: Unauthorized
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Location'
 components:
   schemas:
     ResponseError:
@@ -1769,6 +1812,8 @@ components:
           $ref: '#/components/schemas/Coordinate'
         destination:
           $ref: '#/components/schemas/Coordinate'
+        rateType:
+          $ref: '#/components/schemas/RateType'
         fixedRates:
           type: array
           items:
