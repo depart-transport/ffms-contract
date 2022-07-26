@@ -111,7 +111,7 @@ paths:
   /api/v1/autotransport/transaction/sales?saleType=[saleType]&status=[status]:
     get:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: getSales
       parameters:
         - in: query
@@ -214,7 +214,7 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: updateSale
       requestBody:
         content:
@@ -262,7 +262,7 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
-        - customer-handler
+        - sales-handler
       operationId: getSale
       parameters:
         - name: saleId
@@ -1063,6 +1063,9 @@ components:
         baseCharge:
           description: price of the base charge - all vendor base charge combine
           type: number
+        fuelCharges:
+          description: charges of fuel
+          type: number
         surcharges:
           description: price of the surcharge - all vendor surcharge combine
           type: number
@@ -1086,6 +1089,12 @@ components:
           format: int64
         baseCharge:
           description: price of the base charge for a specific vendor/trip
+          type: number
+        customBroker:
+          type: integer
+          format: int64
+        fuelCharges:
+          description: charges of fuel
           type: number
         surcharges:
           description: price of the surcharge for a specific vendor/trip
