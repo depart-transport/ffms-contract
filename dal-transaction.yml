@@ -116,7 +116,11 @@ paths:
   /api/v1/autotransport/transaction/sales?saleType=[saleType]&&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
+<<<<<<< HEAD
         - sale-handler
+=======
+        - sales-handler
+>>>>>>> 86a4e7d56fe27967f799a45e51f70fea48ea5ece
       operationId: getSales
       parameters:
         - in: query
@@ -258,7 +262,11 @@ paths:
                 $ref: '#/components/schemas/Sale'
     put:
       tags:
+<<<<<<< HEAD
         - sale-handler
+=======
+        - sales-handler
+>>>>>>> 86a4e7d56fe27967f799a45e51f70fea48ea5ece
       operationId: updateSale
       requestBody:
         content:
@@ -306,7 +314,11 @@ paths:
   /api/v1/autotransport/transaction/sales/{saleId}:
     get:
       tags:
+<<<<<<< HEAD
         - sale-handler
+=======
+        - sales-handler
+>>>>>>> 86a4e7d56fe27967f799a45e51f70fea48ea5ece
       operationId: getSale
       parameters:
         - name: saleId
