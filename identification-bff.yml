@@ -1808,6 +1808,11 @@ components:
         rateScheduleId:
           type: integer
           format: int64
+        numberTransitDays:
+          type: integer
+          format: int64
+        departureDays:
+          $ref: '#/components/schemas/Week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -1828,6 +1833,10 @@ components:
             $ref: '#/components/schemas/Rate'
         minMargin:
           type: number
+        maxWeightSkid:
+          type: number
+        rateType:
+          $ref: '#/components/schemas/RateType'
     Rating:
       type: object
       properties:
@@ -2282,3 +2291,20 @@ components:
         - DO_NOT_USE
         - BLANK
         - PROBATIONNARY
+    Week:
+      type: object
+      properties:
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sunday:
+          type: boolean
