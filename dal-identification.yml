@@ -3347,6 +3347,11 @@ components:
         rateScheduleId:
           type: integer
           format: int64
+        numberTransitDays:
+          type: integer
+          format: int64
+        departureDays:
+          $ref: '#/components/schemas/Week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -3765,3 +3770,21 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
+
+    Week:
+      type: object
+      properties:
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sunday:
+          type: boolean
