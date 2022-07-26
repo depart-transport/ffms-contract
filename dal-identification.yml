@@ -2980,11 +2980,10 @@ components:
           format: int64
         cardholder:
           type: string
-          maxLength: 100
         creditCardNumber:
           type: string
           maxLength: 16
-          pattern: '^\d{16}$'
+          pattern: '^[0-9\*]{16}$'
         expDate:
           type: string
           maxLength: 4
@@ -2992,7 +2991,7 @@ components:
         cvc:
           type: string
           maxLength: 3
-          pattern: '^\d{3}$'
+          pattern: '^[0-9\*]{3}$'
     CreditReference:
       required: [ supplierName, contactName, address, telephone, email ]
       type: object
