@@ -953,8 +953,7 @@ components:
         country:
           type: string
     BankAccount:
-      required:
-        [ branchName, institution, transit, account, address, comm, contact ]
+      required: [ branchName, institution, transit, account, address, comm, contact ]
       type: object
       properties:
         bankAccountId:
