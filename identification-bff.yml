@@ -22,6 +22,46 @@ paths:
           required: false
           schema:
             type: integer
+        - in: query
+          name: firstName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: lastName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: userName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: legalName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: commonName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: address
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: customBroker
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -224,6 +264,41 @@ paths:
           required: false
           schema:
             type: integer
+        - in: query
+          name: firstName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: lastName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: userName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: legalName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: commonName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: address
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
       responses:
         '404':
           description: Not Found
