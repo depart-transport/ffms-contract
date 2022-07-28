@@ -2290,6 +2290,9 @@ components:
     Week:
       type: object
       properties:
+        weekId:
+          type: integer
+          format: int64
         monday:
           type: boolean
         tuesday:
