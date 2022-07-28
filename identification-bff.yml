@@ -1546,7 +1546,7 @@ components:
       required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
       properties:
-        id:
+        insuranceDetailsId:
           type: integer
           format: int64
         currency:
