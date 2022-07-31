@@ -1251,5 +1251,8 @@ components:
         - BOOKED # Rate booked
         - PICKED_UP # Rate picked up
         - DELIVERED # Rate delivered
+        - IN_TRANSIT
+        - OUT_FOR_DELIVERY
+        - COMPLETED
 
 

@@ -1261,6 +1261,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Sale'
+    TripRateList:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        tripRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripRate'
     Sale:
       required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
@@ -1812,6 +1822,9 @@ components:
         - BOOKED # Rate booked
         - PICKED_UP # Rate picked up
         - DELIVERED # Rate delivered
+        - IN_TRANSIT
+        - OUT_FOR_DELIVERY
+        - COMPLETED
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
