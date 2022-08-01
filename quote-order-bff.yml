@@ -1163,9 +1163,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TripRate'
+                $ref: '#/components/schemas/TripRateList'
   /api/v1/quote-order-bff/triprates/vendor/{vendorId}/:
     get:
       tags:
