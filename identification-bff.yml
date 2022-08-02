@@ -93,7 +93,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomerList'         
+                type: array
+                items:
+                $ref: '#/components/schemas/CustomerList'
     put:
       tags:
         - customer-controller
@@ -323,7 +325,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VendorList'         
+                type: array
+                items:
+                $ref: '#/components/schemas/VendorList'
     put:
       tags:
         - vendor-handler
@@ -1607,7 +1611,7 @@ components:
       required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
       properties:
-        id:
+        insuranceDetailsId:
           type: integer
           format: int64
         currency:
@@ -2351,6 +2355,9 @@ components:
     Week:
       type: object
       properties:
+        weekId:
+          type: integer
+          format: int64
         monday:
           type: boolean
         tuesday:

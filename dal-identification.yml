@@ -7,11 +7,62 @@ servers:
     description: Generated server url
 #TODO add vendors and other missing endpoints
 paths:
-  /api/v1/autotransport/identification/customers/count:
+  /api/v1/autotransport/identification/customers/count?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]:
     get:
       tags:
         - customer-controller
-      operationId: getCustomersCount
+      operationId: getCustomers
+      parameters:
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+        - in: query
+          name: firstName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: lastName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: userName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: legalName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: commonName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: address
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: customBroker
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -590,7 +641,7 @@ paths:
   /api/v1/autotransport/identification/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&legalName=[legalName]&commonName=[commonName]&status=[status]&address=[address]:
     get:
       tags:
-        - vendor-handler
+        - vendor-controller
       operationId: getVendors
       parameters:
         - in: query
@@ -3211,7 +3262,7 @@ components:
       required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
       properties:
-        id:
+        insuranceDetailsId:
           type: integer
           format: int64
         currency:
@@ -3423,6 +3474,11 @@ components:
         rateScheduleId:
           type: integer
           format: int64
+        numberTransitDays:
+          type: integer
+          format: int64
+        departureDays:
+          $ref: '#/components/schemas/Week'
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -3841,3 +3897,24 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
+
+    Week:
+      type: object
+      properties:
+        weekId:
+          type: integer
+          format: int64
+        monday:
+          type: boolean
+        tuesday:
+          type: boolean
+        wednesday:
+          type: boolean
+        thursday:
+          type: boolean
+        friday:
+          type: boolean
+        saturday:
+          type: boolean
+        sunday:
+          type: boolean
