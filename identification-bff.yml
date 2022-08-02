@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8080
     description: Generated server url
 paths:
-  /api/v1/identification-bff/customers?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&legalName=[legalName]&commonName=[commonName]&status=[status]&address=[address]&customBroker=[customBroker]:
+  /api/v1/identification-bff/customers?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]&customBroker=[customBroker]:
     get:
       tags:
         - customer-controller
@@ -38,12 +38,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: legalName
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: commonName
+          name: businessName
           required: false
           schema:
             type: string
@@ -246,7 +241,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/identification-bff/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&legalName=[legalName]&commonName=[commonName]&status=[status]&address=[address]:
+  /api/v1/identification-bff/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]:
     get:
       tags:
         - vendor-handler
@@ -278,12 +273,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: legalName
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: commonName
+          name: businessName
           required: false
           schema:
             type: string
