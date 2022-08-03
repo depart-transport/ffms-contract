@@ -2819,7 +2819,7 @@ components:
         - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
-        - HOURLY
+        - HLY #Hourly
     Temperature:
       type: string
       enum:
