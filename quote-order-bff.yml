@@ -1008,17 +1008,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/rateschedules?rateType=[rateType]:
+  /api/v1/quote-order-bff/rateschedules/?rateType=[rateType]&originCoordinateId=[originCoordinateId]&destinationCoordinateId=[destinationCoordinateId]&chargeNames=[chargeNames]:
     get:
       tags:
         - rate-handler
       operationId: getWeightRates
       parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+          type: integer
+          format: int64
         - in: query
           name: rateType
           required: true
           schema:
             type: string
+        - name: originCoordinateId
+            in: path
+            required: true
+            schema:
+            type: integer
+            format: int64
+        - name: destinationCoordinateId
+            in: path
+            required: true
+            schema:
+            type: integer
+            format: int64
+        - in: query
+            name: chargeNames
+            required: true
+            schema:
+              type: string
       responses:
         '404':
           description: Not Found
