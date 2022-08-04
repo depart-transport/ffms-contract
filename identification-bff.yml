@@ -95,7 +95,7 @@ paths:
               schema:
                 type: array
                 items:
-                $ref: '#/components/schemas/CustomerList'
+                  $ref: '#/components/schemas/CustomerList'
     put:
       tags:
         - customer-controller
