@@ -39,12 +39,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: legalName
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: commonName
+          name: businessName
           required: false
           schema:
             type: string
@@ -100,7 +95,7 @@ paths:
             application/json:
               schema:
                 type: integer
-  /api/v1/autotransport/identification/customers?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&legalName=[legalName]&commonName=[commonName]&status=[status]&address=[address]&customBroker=[customBroker]:
+  /api/v1/autotransport/identification/customers?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]&customBroker=[customBroker]:
     get:
       tags:
         - customer-controller
@@ -132,12 +127,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: legalName
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: commonName
+          name: businessName
           required: false
           schema:
             type: string
@@ -638,7 +628,7 @@ paths:
               schema:
                 type: integer
                 format: int64
-  /api/v1/autotransport/identification/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&legalName=[legalName]&commonName=[commonName]&status=[status]&address=[address]:
+  /api/v1/autotransport/identification/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]:
     get:
       tags:
         - vendor-controller
@@ -670,12 +660,7 @@ paths:
           schema:
             type: string
         - in: query
-          name: legalName
-          required: false
-          schema:
-            type: string
-        - in: query
-          name: commonName
+          name: businessName
           required: false
           schema:
             type: string
