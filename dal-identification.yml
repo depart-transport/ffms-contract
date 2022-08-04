@@ -11,7 +11,7 @@ paths:
     get:
       tags:
         - customer-controller
-      operationId: getCustomers
+      operationId: getCustomersCount
       parameters:
         - in: query
           name: pageNo
