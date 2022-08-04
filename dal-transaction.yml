@@ -686,11 +686,6 @@ paths:
             type: array
             items:
               $ref: '#/components/schemas/RateStatus'
-        - in: query
-          name: site
-          required: false
-          schema:
-            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -902,11 +897,6 @@ paths:
             type: array
             items:
               $ref: '#/components/schemas/RateStatus'
-        - in: query
-          name: site
-          required: false
-          schema:
-            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
