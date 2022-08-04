@@ -622,19 +622,75 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates?status=[rateStatusList]:
+  /api/v1/autotransport/transaction/triprates?triprates?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
       parameters:
         - in: query
-          name: rateStatusList
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
           required: false
           schema:
             type: array
             items:
               $ref: '#/components/schemas/RateStatus'
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -776,7 +832,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TripRate'
-  /api/v1/autotransport/transaction/triprates/vendor/{vendorId}:
+  /api/v1/autotransport/transaction/triprates/vendor/{vendorId}?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -788,6 +844,69 @@ paths:
           schema:
             type: integer
             format: int64
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
+        - in: query
+          name: site
+          required: false
+          schema:
+            $ref: '#/components/schemas/SitePage'
       responses:
         '404':
           description: Not Found
@@ -1252,5 +1371,8 @@ components:
         - BOOKED # Rate booked
         - PICKED_UP # Rate picked up
         - DELIVERED # Rate delivered
+        - IN_TRANSIT
+        - OUT_FOR_DELIVERY
+        - COMPLETED
 
 
