@@ -2565,7 +2565,8 @@ components:
         - LFTF
         - INSF
         - RESD
-        - FLS
+        - LTLFS
+        - TLFS
         - WTIM
         - MP
         - MD
@@ -3363,6 +3364,8 @@ components:
           items:
             $ref: '#/components/schemas/Rate'
         minMargin:
+          type: number
+        maxWeightSkid:
           type: number
     Rating:
       type: object

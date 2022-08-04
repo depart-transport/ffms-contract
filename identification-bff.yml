@@ -964,7 +964,8 @@ components:
         - LFTF
         - INSF
         - RESD
-        - FLS
+        - LTLFS
+        - TLFS
         - WTIM
         - MP
         - MD
