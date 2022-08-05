@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/quote-order-bff/quotes?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/quotes?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - quote-handler
@@ -530,7 +530,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/orders?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/orders?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - order-handler
@@ -1008,17 +1008,42 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/rateschedules?rateType=[rateType]:
+  /api/v1/quote-order-bff/rateschedules/customer/{customerId}?rateType=[rateType]&originCoordinateId=[originCoordinateId]&destinationCoordinateId=[destinationCoordinateId]&chargeNames=[chargeNames]:
     get:
       tags:
         - rate-handler
       operationId: getWeightRates
       parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
         - in: query
           name: rateType
           required: true
           schema:
             type: string
+        - in: path
+          name: originCoordinateId
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: path
+          name: destinationCoordinateId
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: chargeNames
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ChargeType'
       responses:
         '404':
           description: Not Found
@@ -1058,12 +1083,70 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorRateSchedules'
-  /api/v1/quote-order-bff/triprates?site=[site]:
+  /api/v1/quote-order-bff/triprates?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
       operationId: getTripRates
       parameters:
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: shipper
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: consignee
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: pickupStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: pickupEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryStartDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: deliveryEndDate
+          required: false
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: saleRepresentative
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/RateStatus'
         - in: query
           name: site
           required: false
@@ -1105,9 +1188,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TripRate'
+                $ref: '#/components/schemas/TripRateList'
   /api/v1/quote-order-bff/triprates/vendor/{vendorId}/:
     get:
       tags:
@@ -1261,6 +1342,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Sale'
+    TripRateList:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        tripRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripRate'
     Sale:
       required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
       type: object
@@ -1638,6 +1729,7 @@ components:
         - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
+        - HLY #Hourly
     HazMat:
       type: object
       properties:
@@ -1813,6 +1905,9 @@ components:
         - BOOKED # Rate booked
         - PICKED_UP # Rate picked up
         - DELIVERED # Rate delivered
+        - IN_TRANSIT
+        - OUT_FOR_DELIVERY
+        - COMPLETED
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object

@@ -6,22 +6,57 @@ servers:
   - url: http://localhost:8080
     description: Generated server url
 paths:
-  /api/v1/identification-bff/customers?page=[page]&size=[size]:
+  /api/v1/identification-bff/customers?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]&customBroker=[customBroker]:
     get:
       tags:
         - customer-controller
       operationId: getCustomers
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
+        - in: query
+          name: firstName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: lastName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: userName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: businessName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: address
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: customBroker
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -208,22 +243,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Customer'
-  /api/v1/identification-bff/vendors:
+  /api/v1/identification-bff/vendors?pageNo=[pageNo]&pageSize=[pageSize]&firstName=[firstName]&lastName=[lastName]&userName=[userName]&businessName=[businessName]&status=[status]&address=[address]:
     get:
       tags:
         - vendor-handler
       operationId: getVendors
       parameters:
         - in: query
-          name: page
+          name: pageNo
           required: false
           schema:
             type: integer
         - in: query
-          name: size
+          name: pageSize
           required: false
           schema:
             type: integer
+        - in: query
+          name: firstName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: lastName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: userName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: businessName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: status
+          required: false
+          schema:
+            $ref: '#/components/schemas/BusinessStatus'
+        - in: query
+          name: address
+          required: false
+          schema:
+            type: string
       responses:
         '404':
           description: Not Found
@@ -1221,6 +1286,7 @@ components:
         - FLL #Floor loaded
         - FSD #Full truck palet
         - FFL #Full truck floor
+        - HLY #Hourly
     Temperature:
       type: string
       enum:
