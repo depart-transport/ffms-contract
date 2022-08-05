@@ -1008,7 +1008,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/quote-order-bff/rateschedules/?rateType=[rateType]&originCoordinateId=[originCoordinateId]&destinationCoordinateId=[destinationCoordinateId]&chargeNames=[chargeNames]:
+  /api/v1/quote-order-bff/rateschedules/customer/{customerId}?rateType=[rateType]&originCoordinateId=[originCoordinateId]&destinationCoordinateId=[destinationCoordinateId]&chargeNames=[chargeNames]:
     get:
       tags:
         - rate-handler
