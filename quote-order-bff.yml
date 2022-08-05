@@ -1018,30 +1018,32 @@ paths:
           in: path
           required: true
           schema:
-          type: integer
-          format: int64
+            type: integer
+            format: int64
         - in: query
           name: rateType
           required: true
           schema:
             type: string
-        - name: originCoordinateId
-            in: path
-            required: true
-            schema:
+        - in: path
+          name: originCoordinateId
+          required: true
+          schema:
             type: integer
             format: int64
-        - name: destinationCoordinateId
-            in: path
-            required: true
-            schema:
+        - in: path
+          name: destinationCoordinateId
+          required: true
+          schema:
             type: integer
             format: int64
         - in: query
-            name: chargeNames
-            required: true
-            schema:
-              type: string
+          name: chargeNames
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/ChargeType'
       responses:
         '404':
           description: Not Found
