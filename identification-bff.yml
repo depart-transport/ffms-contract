@@ -1646,6 +1646,8 @@ components:
           format: int64
         locationType:
           $ref: '#/components/schemas/LocationType'
+        companyName:
+          type: string
         isPublicLocation:
           type: boolean
         isApptRequired:
