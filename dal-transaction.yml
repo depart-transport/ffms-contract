@@ -1156,7 +1156,7 @@ components:
         docOnly:
           type: boolean
     PackageCaracteristic:
-      required: [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, isHazMat, numberPieces ]
+      required: [ numberPkg, description, length, width, height, weight, freightClass, nmfc, isHazMat, numberPieces ]
       type: object
       properties:
         packageCaracteristicId:

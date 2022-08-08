@@ -1656,7 +1656,7 @@ components:
           type: boolean
     PackageCaracteristic:
       required:
-        [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, numberPieces, isHazMat ]
+        [ numberPkg, description, length, width, height, weight, freightClass, nmfc, numberPieces, isHazMat ]
       type: object
       properties:
         packageCaracteristicId:
