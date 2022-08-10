@@ -3509,6 +3509,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+        cubeRules:
+          $ref: '#/components/schemas/CubeRules'
     TimeTable:
       type: object
       properties:

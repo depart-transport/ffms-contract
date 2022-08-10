@@ -1927,6 +1927,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZonesRateSchedules'
+        cubeRules:
+          $ref: '#/components/schemas/CubeRules'
     TimeTable:
       required: [ openLunch ]
       type: object
