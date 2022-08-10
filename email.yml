@@ -113,6 +113,7 @@ components:
         url:
           type: string
     Mail:
+      required: [ emailAddress, subject, body ]
       type: object
       properties:
         emailAddress:
