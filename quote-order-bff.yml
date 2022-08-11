@@ -1421,6 +1421,8 @@ components:
         saleAddressId:
           type: integer
           format: int64
+        companyName:
+          type: string
         address:
           $ref: '#/components/schemas/Address'
         fromDate:

@@ -1647,6 +1647,8 @@ components:
           format: int64
         locationType:
           $ref: '#/components/schemas/LocationType'
+        companyName:
+          type: string
         isPublicLocation:
           type: boolean
         isApptRequired:
@@ -1930,6 +1932,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZonesRateSchedules'
+        cubeRules:
+          $ref: '#/components/schemas/CubeRules'
     TimeTable:
       required: [ openLunch ]
       type: object
