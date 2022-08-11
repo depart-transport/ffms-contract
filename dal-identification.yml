@@ -3511,8 +3511,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
-        cubeRules:
-          $ref: '#/components/schemas/CubeRules'
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
+        thresholdHeight:
+          type: number
+        thresholdLength:
+          type: number
+        thresholdWidth:
+          type: number
+        ceilingCube:
+          type: number
+        wallCube:
+          type: number
     TimeTable:
       type: object
       properties:
