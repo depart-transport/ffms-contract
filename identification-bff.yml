@@ -1918,8 +1918,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Margin'
-        cubeRules:
-          $ref: '#/components/schemas/CubeRules'
         additionalFees:
           type: array
           items:
