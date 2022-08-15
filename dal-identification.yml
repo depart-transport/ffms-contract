@@ -3467,7 +3467,12 @@ components:
           type: integer
           format: int64
         departureDays:
-          $ref: '#/components/schemas/Week'
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        pickupWindow:
+          type: integer
+          format: int64
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -3904,24 +3909,3 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
-
-    Week:
-      type: object
-      properties:
-        weekId:
-          type: integer
-          format: int64
-        monday:
-          type: boolean
-        tuesday:
-          type: boolean
-        wednesday:
-          type: boolean
-        thursday:
-          type: boolean
-        friday:
-          type: boolean
-        saturday:
-          type: boolean
-        sunday:
-          type: boolean
