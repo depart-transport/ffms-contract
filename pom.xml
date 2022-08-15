@@ -112,7 +112,6 @@
                             <inputSpec>${project.basedir}/dal-identification.yml</inputSpec>
                             <typeMappings>
                                 <typeMapping>Time=java.time.LocalTime</typeMapping>
-                                <typeMapping>DayOfWeek=java.time.DayOfWeek</typeMapping>
                             </typeMappings>
                             <generatorName>spring</generatorName>
                             <generateApiTests>false</generateApiTests>

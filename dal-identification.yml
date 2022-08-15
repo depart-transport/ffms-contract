@@ -3487,6 +3487,9 @@ components:
           type: number
         maxWeightSkid:
           type: number
+    DayOfWeek:
+      type: string
+      enum: [ MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY ]
     Rating:
       type: object
       properties:
