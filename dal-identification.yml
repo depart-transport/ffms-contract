@@ -3479,6 +3479,8 @@ components:
             $ref: '#/components/schemas/Rate'
         minMargin:
           type: number
+        timezone:
+          type: string
     Rating:
       type: object
       properties:

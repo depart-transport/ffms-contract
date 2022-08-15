@@ -1408,6 +1408,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+        timezone:
+          type: string
     Direction:
       type: string
       enum: [ ORG, DST ]
