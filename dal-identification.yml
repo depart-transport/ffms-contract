@@ -3529,6 +3529,10 @@ components:
           type: number
         wallCube:
           type: number
+        zonesCovered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
     TimeTable:
       type: object
       properties:
