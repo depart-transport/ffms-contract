@@ -2326,6 +2326,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+        timezone:
+          type: string
     BlockType:
       type: string
       enum:
