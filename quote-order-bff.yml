@@ -1838,7 +1838,7 @@ components:
           $ref: '#/components/schemas/BookingRequirements'
         podFile:
           type: string
-          format: binary
+          format: byte
     BookingRequirements:
       type: object
       properties:
