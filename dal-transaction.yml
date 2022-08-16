@@ -1284,6 +1284,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripRate'
+        shipmentRateType:
+          $ref: '#/components/schemas/ShipmentRateType'
+    ShipmentRateType:
+      type: string
+      enum: [ CUST_RS, VEND_RS, VEND_BID ]
     TripRate:
       type: object
       properties:
@@ -1296,12 +1301,12 @@ components:
         bidOrderCenterId:
           type: integer
           format: int64
-        baseCharge:
-          description: price of the base charge for a specific vendor/trip
-          type: number
         customBroker:
           type: integer
           format: int64
+        baseCharge:
+          description: price of the base charge for a specific vendor/trip
+          type: number
         fuelCharges:
           description: charges of fuel
           type: number
@@ -1330,7 +1335,8 @@ components:
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
         file:
-          type: File
+          type: string
+          format: binary
     BookingRequirements:
       type: object
       properties:

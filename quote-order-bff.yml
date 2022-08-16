@@ -1384,6 +1384,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        bidRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1833,7 +1837,8 @@ components:
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
         file:
-          type: File
+          type: string
+          format: binary
     BookingRequirements:
       type: object
       properties:
