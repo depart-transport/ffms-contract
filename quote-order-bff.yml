@@ -1836,7 +1836,7 @@ components:
           $ref: '#/components/schemas/CustomBroker'
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
-        file:
+        podFile:
           type: string
           format: binary
     BookingRequirements:
