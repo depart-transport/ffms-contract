@@ -1935,6 +1935,10 @@ components:
             $ref: '#/components/schemas/ZonesRateSchedules'
         cubeRules:
           $ref: '#/components/schemas/CubeRules'
+        zonesCovered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
     TimeTable:
       required: [ openLunch ]
       type: object

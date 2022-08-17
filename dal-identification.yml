@@ -3538,6 +3538,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+        zonesCovered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
     TimeTable:
       type: object
       properties:
