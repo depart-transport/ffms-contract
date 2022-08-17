@@ -18,7 +18,7 @@
     <properties>
         <!-- automatically run annotation processors within the incremental compilation -->
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <openapi.version>1.5.2</openapi.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <version.jackson.databind.nullable>0.2.1</version.jackson.databind.nullable>
