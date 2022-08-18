@@ -2677,7 +2677,8 @@ components:
         - LFTF
         - INSF
         - RESD
-        - FLS
+        - LTLFS
+        - TLFS
         - WTIM
         - MP
         - MD
@@ -3466,7 +3467,12 @@ components:
           type: integer
           format: int64
         departureDays:
-          $ref: '#/components/schemas/Week'
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        pickupWindow:
+          type: integer
+          format: int64
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
@@ -3479,8 +3485,11 @@ components:
             $ref: '#/components/schemas/Rate'
         minMargin:
           type: number
-        timezone:
-          type: string
+        maxWeightSkid:
+          type: number
+    DayOfWeek:
+      type: string
+      enum: [ MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY ]
     Rating:
       type: object
       properties:
@@ -3497,22 +3506,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Margin'
-        additionalFees:
-          type: array
-          items:
-            $ref: '#/components/schemas/AccessoryCharge'
-        rateSchedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/RateSchedule'
-        inbound:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
-        outbound:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coordinate'
         skidLength:
           type: number
         skidWidth:
@@ -3529,6 +3522,22 @@ components:
           type: number
         wallCube:
           type: number
+        additionalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        rateSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateSchedule'
+        inbound:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
+        outbound:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coordinate'
         zonesCovered:
           type: array
           items:
@@ -3898,6 +3907,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
+        timezone:
+          type: string
     Direction:
       type: string
       enum: [ ORG, DST ]
@@ -3907,24 +3918,3 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
-
-    Week:
-      type: object
-      properties:
-        weekId:
-          type: integer
-          format: int64
-        monday:
-          type: boolean
-        tuesday:
-          type: boolean
-        wednesday:
-          type: boolean
-        thursday:
-          type: boolean
-        friday:
-          type: boolean
-        saturday:
-          type: boolean
-        sunday:
-          type: boolean

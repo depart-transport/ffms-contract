@@ -1384,6 +1384,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        bidRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1589,7 +1593,8 @@ components:
         - LFTF
         - INSF
         - RESD
-        - FLS
+        - LTLFS
+        - TLFS
         - WTIM
         - MP
         - MD
@@ -1659,7 +1664,7 @@ components:
           type: boolean
     PackageCaracteristic:
       required:
-        [ numberPkg, description, length, width, height, weight, hsCode, freightClass, nmfc, numberPieces, isHazMat ]
+        [ numberPkg, description, length, width, height, weight, freightClass, nmfc, numberPieces, isHazMat ]
       type: object
       properties:
         packageCaracteristicId:
@@ -1831,8 +1836,9 @@ components:
           $ref: '#/components/schemas/CustomBroker'
         bookingRequirements:
           $ref: '#/components/schemas/BookingRequirements'
-        file:
-          type: File
+        podFile:
+          type: string
+          format: byte
     BookingRequirements:
       type: object
       properties:

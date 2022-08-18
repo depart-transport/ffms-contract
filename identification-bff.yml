@@ -1029,7 +1029,8 @@ components:
         - LFTF
         - INSF
         - RESD
-        - FLS
+        - LTLFS
+        - TLFS
         - WTIM
         - MP
         - MD
@@ -1879,6 +1880,9 @@ components:
           format: int64
         departureDays:
           $ref: '#/components/schemas/Week'
+        pickupWindow:
+          type: integer
+          format: int64
         origin:
           $ref: '#/components/schemas/Coordinate'
         destination:
