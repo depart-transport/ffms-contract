@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repositories -->
     </parent>
     <groupId>com.depart.transport.autodepart</groupId>
     <artifactId>contract</artifactId>
@@ -120,9 +120,9 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.identification.api
+                                <apiPackage>com.depart.transport.autodepart.identitydalapi.identification.api
                                 </apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi.identification
+                                <modelPackage>com.depart.transport.autodepart.identitydalapi.identification
                                 </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
@@ -148,9 +148,9 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.dataaccesslayerapi.transaction.api
+                                <apiPackage>com.depart.transport.autodepart.identitydalapi.transaction.api
                                 </apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.dataaccesslayerapi.transaction
+                                <modelPackage>com.depart.transport.autodepart.identitydalapi.transaction
                                 </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
