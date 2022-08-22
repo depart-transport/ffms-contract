@@ -2331,7 +2331,8 @@ components:
           items:
             $ref: '#/components/schemas/Direction'
         utcOffsetMinutes:
-          type: number
+          type: integer
+          format: int64
     BlockType:
       type: string
       enum:
