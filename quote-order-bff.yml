@@ -1412,8 +1412,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-        timezone:
-          type: string
+        utcOffsetMinutes:
+          type: number
     Direction:
       type: string
       enum: [ ORG, DST ]
