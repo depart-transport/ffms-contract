@@ -2354,8 +2354,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-        timezone:
-          type: string
+        utcOffsetMinutes:
+          type: integer
+          format: int64
     BlockType:
       type: string
       enum:
