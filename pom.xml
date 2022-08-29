@@ -148,9 +148,9 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.identitydalapi.transaction.api
+                                <apiPackage>com.depart.transport.autodepart.transactiondalapi.transaction.api
                                 </apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.identitydalapi.transaction
+                                <modelPackage>com.depart.transport.autodepart.transactiondalapi.transaction
                                 </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
