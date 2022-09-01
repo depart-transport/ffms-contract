@@ -15,7 +15,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Mail'
+              type: array
+              items:
+                $ref: '#/components/schemas/PickupReminderMail'
         required: true
       responses:
         '500':
@@ -112,13 +114,33 @@ components:
             type: string
         url:
           type: string
-    Mail:
-      required: [ emailAddress, subject, body ]
+    PickupReminderMail:
+      required: [ emailAddress, subject, pickupBody ]
       type: object
       properties:
         emailAddress:
-          type: string
+          type: array
+          items:
+            type: string
         subject:
           type: string
-        body:
+        pickupBody:
+          $ref: '#/components/schemas/PickupBody'
+    PickupBody:
+      type: object
+      properties:
+        thirdParty:
+          type: string
+        pickupRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/PickupRow'
+    PickupRow:
+      type: object
+      properties:
+        clientName:
+          type: string
+        deadline:
+          type: string
+        address:
           type: string
