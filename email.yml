@@ -6,7 +6,7 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
-  /api/v1/autotransport/emailservice/reminderMails:
+  /api/v1/autotransport/emailservice/remindermails:
     post:
       tags:
         - MailHandler
@@ -17,7 +17,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/reminderMail'
+                $ref: '#/components/schemas/ReminderMail'
         required: true
       responses:
         '500':
@@ -136,7 +136,7 @@ components:
             type: string
         url:
           type: string
-    reminderMail:
+    ReminderMail:
       required: [ emailAddress, subject, reminderBody ]
       type: object
       properties:
