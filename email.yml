@@ -6,6 +6,28 @@ servers:
   - url: http://localhost:8082
     description: Generated server url
 paths:
+  /api/v1/autotransport/emailservice/reminderMails:
+    post:
+      tags:
+        - MailHandler
+      operationId: sendReminderMail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/reminderMail'
+        required: true
+      responses:
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ResponseError'
+        '201':
+          description: OK
   /api/v1/autotransport/emailservice/mails:
     post:
       tags:
@@ -17,7 +39,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/PickupReminderMail'
+                $ref: '#/components/schemas/Mail'
         required: true
       responses:
         '500':
@@ -114,8 +136,8 @@ components:
             type: string
         url:
           type: string
-    PickupReminderMail:
-      required: [ emailAddress, subject, pickupBody ]
+    reminderMail:
+      required: [ emailAddress, subject, reminderBody ]
       type: object
       properties:
         emailAddress:
@@ -124,18 +146,20 @@ components:
             type: string
         subject:
           type: string
-        pickupBody:
-          $ref: '#/components/schemas/PickupBody'
-    PickupBody:
+        template:
+          type: string
+        reminderBody:
+          $ref: '#/components/schemas/ReminderBody'
+    ReminderBody:
       type: object
       properties:
         thirdParty:
           type: string
-        pickupRows:
+        reminderRows:
           type: array
           items:
-            $ref: '#/components/schemas/PickupRow'
-    PickupRow:
+            $ref: '#/components/schemas/ReminderRow'
+    ReminderRow:
       type: object
       properties:
         clientName:
@@ -143,4 +167,16 @@ components:
         deadline:
           type: string
         address:
+          type: string
+    Mail:
+      required: [ emailAddress, subject, body ]
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        subject:
+          type: string
+        template:
+          type: string
+        body:
           type: string

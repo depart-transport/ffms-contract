@@ -1361,17 +1361,17 @@ components:
     RateStatus:
       type: string
       enum:
-        - REQUESTED # Rate requested to the vendor
-        - REJECTED # Customer rejected the rate
-        - BIDDED # Vendor bidded on the rate
-        - READY # All vendors rate are bidded and price ready to display.
-        - EXPIRED # Rate is expired.
-        - ACCEPTED # Rate accepted by customer
-        - BOOKED # Rate booked
-        - PICKED_UP # Rate picked up
-        - DELIVERED # Rate delivered
-        - IN_TRANSIT
-        - OUT_FOR_DELIVERY
-        - COMPLETED
+        - REQUESTED # A bid or an availability is requested to the vendor
+        - REJECTED # Vendor trip is rejected by customer
+        - BIDDED # Vendor summited a price for the trip (bidding process)
+        - READY # Package is ready to pick up
+        - EXPIRED # Vendor time expired for bidding process
+        - ACCEPTED # Vendor trip is accepted by customer
+        - BOOKED # The trip is booked with the vendor
+        - PICKED_UP # The package is picked up from source address
+        - DELIVERED # The package is delivered
+        - IN_TRANSIT # On route to destination
+        - OUT_FOR_DELIVERY # The package is out for delivery
+        - COMPLETED # The package is delivered, invoice paid and received payment from customer
 
 
