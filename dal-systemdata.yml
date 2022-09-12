@@ -59,11 +59,24 @@ paths:
             application/json:
               schema:
                 type: number
-  /api/v1/autotransport/systemdata/chargedefinitions:
+  /api/v1/autotransport/systemdata/chargedefinitions?pageNo=[pageNo]&pageSize=[pageSize]:
     get:
       tags:
         - charge-definition-controller
       operationId: getChargeDefinitions
+      parameters:
+        - in: query
+          name: pageNo
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
       responses:
         '404':
           description: Not Found
