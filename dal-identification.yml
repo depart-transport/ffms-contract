@@ -3175,8 +3175,9 @@ components:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
-        thirdParty:
-          $ref: '#/components/schemas/Enterprise'
+        wholesalerId:
+          type: integer
+          format: int64
         locations:
           type: array
           items:
@@ -3721,8 +3722,9 @@ components:
           format: int64
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
-        thirdParty:
-          $ref: '#/components/schemas/Enterprise'
+        wholesalerId:
+          type: integer
+          format: int64
         headOffice:
           $ref: '#/components/schemas/VendorBranch'
         contacts:
