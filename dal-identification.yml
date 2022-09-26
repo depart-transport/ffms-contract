@@ -3925,4 +3925,4 @@ components:
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
     TransporterType:
       type: string
-      enum: [ STANDARD_LTL, DIRECT_LTL, EXPEDITED_LTL ]
+      enum: [ STD, DIR, EXP ]
