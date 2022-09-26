@@ -2417,3 +2417,4 @@ components:
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]
+
