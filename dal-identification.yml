@@ -3729,6 +3729,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+        transporterType:
+          $ref: '#/components/schemas/TransporterType'
         branches:
           type: array
           items:
@@ -3919,3 +3921,6 @@ components:
     BoxType:
       type: string
       enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
+    TransporterType:
+      type: string
+      enum: [ STANDARD_LTL, DIRECT_LTL, EXPEDITED_LTL ]
