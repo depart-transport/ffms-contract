@@ -185,6 +185,20 @@ components:
       properties:
         clientName:
           type: string
+        referenceTracking:
+          type: string
+        tripRateId:
+          type: string
+        numberPieces:
+          type: string
+        totalVolume:
+          type: string
+        packageType:
+          type: string
+        packageCharacteristics:
+          type: array
+          items:
+            type: string
         deadline:
           type: string
         address:
@@ -199,7 +213,7 @@ components:
             type: string
         subject:
           type: string
-        template:
+        thirdParty:
           type: string
         body:
           type: string
