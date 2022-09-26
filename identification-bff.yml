@@ -2416,4 +2416,4 @@ components:
           type: boolean
     TransporterType:
       type: string
-      enum: [ STANDARD_LTL, DIRECT_LTL, EXPEDITED_LTL ]
+      enum: [ STD, DIR, EXP ]
