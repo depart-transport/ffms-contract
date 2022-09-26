@@ -213,7 +213,7 @@ components:
             type: string
         subject:
           type: string
-        thirdParty:
+        wholesaler:
           type: string
         body:
           type: string
