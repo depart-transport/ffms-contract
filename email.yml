@@ -198,10 +198,21 @@ components:
         packageCharacteristics:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/PackageCharacteristics'
         deadline:
           type: string
         address:
+          type: string
+    PackageCharacteristics:
+      type: object
+      properties:
+        length:
+          type: string
+        width:
+          type: string
+        height:
+          type: string
+        weight:
           type: string
     Mail:
       required: [ emailAddress, subject, body, emailType, emailObjectType, emailObjectId ]
