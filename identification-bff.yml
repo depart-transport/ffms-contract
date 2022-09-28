@@ -2158,6 +2158,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+        transporterType:
+          $ref: '#/components/schemas/TransporterType'
         branches:
           type: array
           items:
@@ -2412,3 +2414,7 @@ components:
           type: boolean
         sunday:
           type: boolean
+    TransporterType:
+      type: string
+      enum: [ STD, DIR, EXP ]
+
