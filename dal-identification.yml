@@ -3606,6 +3606,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+        zoneLocation:
+          type: object
+          additionalProperties: 
+            $ref: '#/components/schemas/Location'
         equipments:
           type: array
           items:
@@ -3628,6 +3632,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransportService'
+    Zone:
+      type: object
+      properties:
+        zoneId:
+          type: integer
+          format: int64
+        coordinate:
+            $ref: '#/components/schemas/Coordinate'
+        location:
+            $ref: '#/components/schemas/Location'
     DoorType:
       type: string
       enum: [ B, R ]
