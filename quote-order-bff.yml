@@ -1083,7 +1083,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorRateSchedules'
-  /api/v1/quote-order-bff/triprates?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/triprates?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -1097,6 +1097,12 @@ paths:
             format: int64
         - in: query
           name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: vendorId
           required: false
           schema:
             type: integer
@@ -1189,7 +1195,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TripRateList'
-  /api/v1/quote-order-bff/triprates/bidordercenter/{bidOrderCenterId}?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/triprates/bidordercenter/{bidOrderCenterId}?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -1214,6 +1220,12 @@ paths:
             type: integer
             format: int64
         - in: query
+          name: vendorId
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
           name: shipper
           required: false
           schema:
@@ -1301,56 +1313,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TripRateList'
-  /api/v1/quote-order-bff/triprates/vendor/{vendorId}/:
-    get:
-      tags:
-        - tripRate-controller
-      operationId: getVendorTripRates
-      parameters:
-        - name: vendorId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '404':
-          description: Not Found
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '403':
-          description: Forbidden
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '500':
-          description: Internal Server Error
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '401':
-          description: Unauthorized
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '400':
-          description: Bad Request
-          content:
-            '*/*':
-              schema:
-                $ref: '#/components/schemas/ResponseError'
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TripRate'
-
 ##############################
 components:
   schemas:
