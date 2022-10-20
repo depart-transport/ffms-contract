@@ -3448,9 +3448,13 @@ components:
         vendorId:
           type: integer
           format: int64
+        vendorName:
+          type: string
         bidOrderCenterId:
           type: integer
           format: int64
+        bidOrderCenterName:
+          type: string
     RateType:
       type: string
       enum:
