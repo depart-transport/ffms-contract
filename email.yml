@@ -174,7 +174,7 @@ components:
     ReminderBody:
       type: object
       properties:
-        thirdParty:
+        wholesaler:
           type: string
         reminderRows:
           type: array
@@ -224,7 +224,7 @@ components:
             type: string
         subject:
           type: string
-        thirdParty:
+        wholesaler:
           type: string
         body:
           type: string
