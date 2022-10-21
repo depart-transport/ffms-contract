@@ -1083,7 +1083,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/VendorRateSchedules'
-  /api/v1/quote-order-bff/triprates?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/triprates?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -1097,12 +1097,6 @@ paths:
             format: int64
         - in: query
           name: pageSize
-          required: false
-          schema:
-            type: integer
-            format: int64
-        - in: query
-          name: vendorId
           required: false
           schema:
             type: integer
@@ -1195,7 +1189,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TripRateList'
-  /api/v1/quote-order-bff/triprates/bidordercenter/{bidOrderCenterId}?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/quote-order-bff/triprates/bidordercenter/{bidOrderCenterId}?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -1215,12 +1209,6 @@ paths:
             format: int64
         - in: query
           name: pageSize
-          required: false
-          schema:
-            type: integer
-            format: int64
-        - in: query
-          name: vendorId
           required: false
           schema:
             type: integer
