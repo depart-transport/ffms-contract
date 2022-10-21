@@ -1853,6 +1853,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripRate'
+        shipmentRateType:
+          $ref: '#/components/schemas/ShipmentRateType'
+    ShipmentRateType:
+      type: string
+      enum: [ CUST_RS, VEND_RS, VEND_BID ]
     TripRate:
       type: object
       properties:
