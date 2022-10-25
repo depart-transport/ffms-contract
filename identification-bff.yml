@@ -2028,6 +2028,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+        zonesLocations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Zone'
         equipments:
           type: array
           items:
@@ -2046,6 +2050,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransportService'
+    Zone:
+      type: object
+      properties:
+        zoneId:
+          type: integer
+          format: int64
+        coordinateId:
+          type: integer
+          format: int64
+        location:
+          $ref: '#/components/schemas/Location'
     DoorType:
       type: string
       enum: [ B, R ]
