@@ -3175,8 +3175,9 @@ components:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
-        thirdParty:
-          $ref: '#/components/schemas/Enterprise'
+        wholesalerId:
+          type: integer
+          format: int64
         locations:
           type: array
           items:
@@ -3447,9 +3448,13 @@ components:
         vendorId:
           type: integer
           format: int64
+        vendorName:
+          type: string
         bidOrderCenterId:
           type: integer
           format: int64
+        bidOrderCenterName:
+          type: string
     RateType:
       type: string
       enum:
@@ -3736,8 +3741,9 @@ components:
           format: int64
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
-        thirdParty:
-          $ref: '#/components/schemas/Enterprise'
+        wholesalerId:
+          type: integer
+          format: int64
         headOffice:
           $ref: '#/components/schemas/VendorBranch'
         contacts:
