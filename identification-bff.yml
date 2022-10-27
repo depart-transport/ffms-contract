@@ -2028,10 +2028,6 @@ components:
         zonesCovered:
           type: array
           items:
-            $ref: '#/components/schemas/Coordinate'
-        zonesLocations:
-          type: array
-          items:
             $ref: '#/components/schemas/Zone'
         equipments:
           type: array
@@ -2057,9 +2053,8 @@ components:
         zoneId:
           type: integer
           format: int64
-        coordinateId:
-          type: integer
-          format: int64
+        coordinate:
+          $ref: '#/components/schemas/Coordinate'
         location:
           $ref: '#/components/schemas/Location'
     DoorType:
