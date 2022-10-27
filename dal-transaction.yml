@@ -622,7 +622,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Sale'
-  /api/v1/autotransport/transaction/triprates?triprates?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/autotransport/transaction/triprates?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&bidOrderCenterId=[bidOrderCenterId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
@@ -636,6 +636,18 @@ paths:
             format: int64
         - in: query
           name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: vendorId
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: bidOrderCenterId
           required: false
           schema:
             type: integer
@@ -827,18 +839,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/TripRate'
-  /api/v1/autotransport/transaction/triprates/vendor/{vendorId}?pageNo=[pageNo]&pageSize=[pageSize]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
+  /api/v1/autotransport/transaction/triprates/count?pageNo=[pageNo]&pageSize=[pageSize]&vendorId=[vendorId]&bidOrderCenterId=[bidOrderCenterId]&site=[site]&shipper=[shipper]&consignee=[consignee]&pickupStartDate=[pickupStartDate]&pickupEndDate=[pickupEndDate]&deliveryStartDate=[deliveryStartDate]&deliveryEndDate=[deliveryEndDate]&saleRepresentative=[saleRepresentative]&status=[status]:
     get:
       tags:
         - tripRate-controller
-      operationId: getVendorTripRates
+      operationId: countTripRates
       parameters:
-        - name: vendorId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
         - in: query
           name: pageNo
           required: false
@@ -847,6 +853,18 @@ paths:
             format: int64
         - in: query
           name: pageSize
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: vendorId
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - in: query
+          name: bidOrderCenterId
           required: false
           schema:
             type: integer
@@ -933,7 +951,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TripRate'
+                type: array
+                items:
+                  $ref: '#/components/schemas/TripRate'
 ##############################
 components:
   schemas:

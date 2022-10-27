@@ -158,7 +158,7 @@ components:
         url:
           type: string
     ReminderMail:
-      required: [ emailAddress, subject, reminderBody ]
+      required: [ emailAddress, subject, reminderBody, bidOrderCenterId ]
       type: object
       properties:
         emailAddress:
@@ -171,6 +171,8 @@ components:
           type: string
         reminderBody:
           $ref: '#/components/schemas/ReminderBody'
+        bidOrderCenterId:
+          type: string
     ReminderBody:
       type: object
       properties:
