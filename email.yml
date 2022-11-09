@@ -167,8 +167,6 @@ components:
             type: string
         subject:
           type: string
-        template:
-          type: string
         reminderBody:
           $ref: '#/components/schemas/ReminderBody'
         bidOrderCenterId:
@@ -185,11 +183,11 @@ components:
     ReminderRow:
       type: object
       properties:
-        clientName:
+        saleNumber:
           type: string
-        referenceTracking:
+        index:
           type: string
-        tripRateId:
+        carrierRefNumber:
           type: string
         numberPieces:
           type: string
@@ -202,6 +200,8 @@ components:
           items:
             $ref: '#/components/schemas/PackageCharacteristics'
         deadline:
+          type: string
+        companyName:
           type: string
         address:
           type: string
