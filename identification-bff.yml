@@ -2368,9 +2368,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-        utcOffsetMinutes:
-          type: integer
-          format: int64
+        timeZoneId:
+          type: string
     BlockType:
       type: string
       enum:
