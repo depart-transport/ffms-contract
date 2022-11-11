@@ -1348,10 +1348,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
-        bidRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentRate'
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1376,9 +1372,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Direction'
-        utcOffsetMinutes:
-          type: integer
-          format: int64
+        timeZoneId:
+          type: string
     Direction:
       type: string
       enum: [ ORG, DST ]
@@ -1406,9 +1401,6 @@ components:
           $ref: '#/components/schemas/LocationType'
         contact:
           $ref: '#/components/schemas/Contact'
-        date:
-          type: string
-          format: date
         readyTime:
           type: string
         closeTime:
@@ -1747,6 +1739,20 @@ components:
         surcharges:
           description: price of the surcharge - all vendor surcharge combine
           type: number
+        saleNumber:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        shipmentReferenceNumber:
+          type: string
+        pickupDate:
+          type: string
+          format: date
+        departureDate:
+          type: string
+          format: date
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
@@ -1794,6 +1800,20 @@ components:
           description: timestamp of the last update of the trip
           type: string
           format: date-time
+        saleNumber:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        carrierRefNumber:
+          type: string
+        pickupDate:
+          type: string
+          format: date
+        departureDate:
+          type: string
+          format: date
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
