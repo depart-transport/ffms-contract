@@ -1287,7 +1287,7 @@ components:
         salesNumber:
           type: integer
           format: int64
-        index:
+        routeIndex:
           type: integer
           format: int64
         shipmentRateNumber:
@@ -1336,7 +1336,7 @@ components:
         salesNumber:
           type: integer
           format: int64
-        index:
+        routeIndex:
           type: integer
           format: int64
         carrierRefNumber:
