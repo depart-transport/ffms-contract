@@ -1097,9 +1097,6 @@ components:
         contact:
           type: integer
           format: int64
-        date:
-          type: string
-          format: date
         readyTime:
           type: string
         closeTime:
@@ -1307,6 +1304,20 @@ components:
         surcharges:
           description: price of the surcharge - all triprate surcharge combine
           type: number
+        saleNumber:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        shipmentReferenceNumber:
+          type: string
+        pickupDate:
+          type: string
+          format: date
+        departureDate:
+          type: string
+          format: date
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
@@ -1361,6 +1372,20 @@ components:
           description: timestamp of the last update of the trip
           type: string
           format: date-time
+        saleNumber:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        carrierRefNumber:
+          type: string
+        pickupDate:
+          type: string
+          format: date
+        departureDate:
+          type: string
+          format: date
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
