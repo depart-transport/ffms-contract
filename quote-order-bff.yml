@@ -1752,14 +1752,6 @@ components:
         surcharges:
           description: price of the surcharge - all vendor surcharge combine
           type: number
-        saleNumber:
-          type: integer
-          format: int64
-        index:
-          type: integer
-          format: int64
-        shipmentReferenceNumber:
-          type: string
         pickupDate:
           type: string
           format: date
@@ -1821,14 +1813,6 @@ components:
           description: timestamp of the last update of the trip
           type: string
           format: date-time
-        saleNumber:
-          type: integer
-          format: int64
-        index:
-          type: integer
-          format: int64
-        carrierRefNumber:
-          type: string
         pickupDate:
           type: string
           format: date
