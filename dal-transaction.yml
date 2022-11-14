@@ -1055,6 +1055,7 @@ components:
         salesNumber:
           description: the number that is display on the ticket to identify the sales
           type: integer
+          format: int64
         shipper:
           $ref: '#/components/schemas/SaleAddress'
         consignee:
@@ -1286,6 +1287,14 @@ components:
         shipmentRateId:
           type: integer
           format: int64
+        shipmentRateNumber:
+          type: string
+        shipmentReferenceNumber:
+          type: string
+        shipper:
+          $ref: '#/components/schemas/SaleAddress'
+        consignee:
+          $ref: '#/components/schemas/SaleAddress'
         price:
           description: Price of the rate - all triprate price combine
           type: number
@@ -1308,13 +1317,21 @@ components:
           $ref: '#/components/schemas/ShipmentRateType'
     ShipmentRateType:
       type: string
-      enum: [ CUST_RS, VEND_RS, VEND_BID ]
+      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG ]
     TripRate:
       type: object
       properties:
         tripRateId:
           type: integer
           format: int64
+        saleNumber:
+          type: integer
+          format: int64
+        index:
+          type: integer
+          format: int64
+        carrierRefNumber:
+          type: string
         vendorId:
           type: integer
           format: int64
