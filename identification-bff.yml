@@ -1276,17 +1276,22 @@ components:
     ShipmentCategory:
       type: string
       enum:
-        - LTR #letter
-        - PCK #pack
-        - PCL #parcel
-        - SKD #Palet / skid
+        - SKD #Palette / SKD
         - CRT #Crate
+        - FLL #Floor Loaded
         - BDL #Bundle
-        - RLL #Roll
-        - FLL #Floor loaded
-        - FSD #Full truck palet
-        - FFL #Full truck floor
+        - BLS #Bales
+        - RLL #Rolls
+        - CTN #Cartons
+        - C20 #Container 20
+        - C40 #Container 40
+        - FTF #Full Truck Floor
+        - FTP #Full Truck Palette
         - HLY #Hourly
+        - FSV #Full Service (User Intervention Required)
+        - LTR #Letter
+        - PCK #Pack
+        - PCL #Parcel
     Temperature:
       type: string
       enum:
@@ -2100,7 +2105,7 @@ components:
       enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     EquipmentType:
       type: string
-      enum: [ CBOX, FBED ]
+      enum: [ CVAN, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS ]
     HazMat:
       type: object
       properties:
