@@ -1210,6 +1210,8 @@ components:
           type: boolean
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
+        equipmentType:
+          $ref: '#/components/schemas/EquipmentType'
         packageCaracteristic:
           type: array
           items:

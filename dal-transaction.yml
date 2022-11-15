@@ -1154,6 +1154,8 @@ components:
           type: number
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
+        equipmentType:
+          $ref: '#/components/schemas/EquipmentType'
         packageCaracteristic:
           type: array
           items:
@@ -1423,5 +1425,6 @@ components:
         - IN_TRANSIT # On route to destination
         - OUT_FOR_DELIVERY # The package is out for delivery
         - COMPLETED # The package is delivered, invoice paid and received payment from customer
-
-
+    EquipmentType:
+      type: string
+      enum: [ CVAN, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS ]
