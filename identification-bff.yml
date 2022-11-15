@@ -2078,8 +2078,6 @@ components:
           $ref: '#/components/schemas/EquipmentType'
         isDcab:
           type: boolean
-        boxType:
-          $ref: '#/components/schemas/BoxType'
         length:
           type: number
         width:
@@ -2107,7 +2105,7 @@ components:
       enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     EquipmentType:
       type: string
-      enum: [ CVAN, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS ]
+      enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
     HazMat:
       type: object
       properties:
@@ -2388,9 +2386,6 @@ components:
     RadiusUnit:
       type: string
       enum: [ KM, MI ]
-    BoxType:
-      type: string
-      enum: [ CVAN, LTRK, FBED, LBOY, SDCK, DDRP, RGNK, CSTG, SKIT ]
     ZonesRateSchedules:
       type: object
       properties:
