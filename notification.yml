@@ -118,11 +118,13 @@ components:
       type: object
       properties:
         notificationType:
-          type: string
+          $ref: '#/components/schemas/NotificationType'
         companyId:
-          type: string
+          type: integer
+          format: int64
         bidOrderCenterId:
-          type: string
+          type: integer
+          format: int64
         context:
           type: string
         contextElementId:
@@ -132,6 +134,12 @@ components:
         accessGroup:
           type: string
         status:
-          type: string
+          $ref: '#/components/schemas/NotificationStatus'
         userName:
           type: string
+    NotificationType:
+      type: string
+      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE ]
+    NotificationStatus:
+      type: string
+      enum: [ READ, UNREAD ]
