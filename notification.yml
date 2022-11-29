@@ -138,6 +138,9 @@ components:
       required: [ ]
       type: object
       properties:
+        notificationLogId:
+          type: string
+          format: uuid
         notificationType:
           $ref: '#/components/schemas/NotificationType'
         companyId:
@@ -158,6 +161,12 @@ components:
           $ref: '#/components/schemas/NotificationStatus'
         userName:
           type: string
+        createdTimestamp:
+          type: string
+          format: date-time
+        updatedTimestamp:
+          type: string
+          format: date-time
     NotificationType:
       type: string
       enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE ]
