@@ -169,7 +169,7 @@ components:
           format: date-time
     NotificationType:
       type: string
-      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE ]
+      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY ]
     NotificationStatus:
       type: string
       enum: [ READ, UNREAD ]
