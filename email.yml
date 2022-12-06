@@ -183,9 +183,9 @@ components:
     ReminderRow:
       type: object
       properties:
-        saleNumber:
+        salesNumber:
           type: string
-        index:
+        routeIndex:
           type: string
         carrierRefNumber:
           type: string
