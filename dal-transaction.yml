@@ -1420,6 +1420,7 @@ components:
     RateStatus:
       type: string
       enum:
+        - QUOTE # Rate initial state when created
         - REQUESTED # A bid or an availability is requested to the vendor
         - REJECTED # Vendor trip is rejected by customer
         - BIDDED # Vendor summited a price for the trip (bidding process)

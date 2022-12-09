@@ -1907,6 +1907,7 @@ components:
     RateStatus:
       type: string
       enum:
+        - QUOTE # Rate initial state when created
         - REQUESTED # Rate requested to the vendor
         - REJECTED # Customer rejected the rate
         - BIDDED # Vendor bidded on the rate
