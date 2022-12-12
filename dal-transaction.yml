@@ -1380,6 +1380,9 @@ components:
         pickupDate:
           type: string
           format: date
+        deliveryDate:
+          type: string
+          format: date
         departureDate:
           type: string
           format: date
