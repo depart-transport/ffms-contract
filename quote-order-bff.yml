@@ -1923,6 +1923,7 @@ components:
         - IN_TRANSIT
         - OUT_FOR_DELIVERY
         - COMPLETED
+        - CANCELLED
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
