@@ -1073,6 +1073,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        searchedBidLeg:
+          type: boolean
     SaleAddress:
       required:
         [ address, fromDate, toDate, locationType, phone, email ]
@@ -1318,6 +1320,9 @@ components:
           description: price of the surcharge - all triprate surcharge combine
           type: number
         pickupDate:
+          type: string
+          format: date
+        deliveryDate:
           type: string
           format: date
         departureDate:

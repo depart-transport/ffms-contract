@@ -1349,6 +1349,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        searchedBidLeg:
+          type: boolean
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1760,6 +1762,9 @@ components:
           description: price of the surcharge - all vendor surcharge combine
           type: number
         pickupDate:
+          type: string
+          format: date
+        deliveryDate:
           type: string
           format: date
         departureDate:
