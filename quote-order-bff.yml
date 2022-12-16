@@ -1587,7 +1587,7 @@ components:
           type: string
     ShipmentDetails:
       required:
-        [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
+        [ numberPieces, shipmentType, packageCharacteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1596,18 +1596,18 @@ components:
         numberPieces:
           type: integer
           format: int32
-        totalVolume:
+        totalActualLinearFeet:
           type: number
-        totalChargeableWeight:
+        totalActualWeight:
           type: number
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        packageCaracteristic:
+        packageCharacteristic:
           type: array
           items:
-            $ref: '#/components/schemas/PackageCaracteristic'
+            $ref: '#/components/schemas/PackageCharacteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -1624,12 +1624,12 @@ components:
           format: int32
         docOnly:
           type: boolean
-    PackageCaracteristic:
+    PackageCharacteristic:
       required:
         [ numberPkg, description, length, width, height, weight, freightClass, nmfc, numberPieces, isHazMat ]
       type: object
       properties:
-        packageCaracteristicId:
+        packageCharacteristicId:
           type: integer
           format: int64
         numberPkg:

@@ -1,1098 +1,1098 @@
 {
-	"info": {
-		"_postman_id": "89bd2ec9-ec73-4f81-9d00-00fa9335549f",
-		"name": "quote-order-bff",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "quote",
-			"item": [
-				{
-					"name": "getShipmentRatesByCustomerIdQuoteId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}/rates/{{shipmentId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}",
-								"quote",
-								"{{quotesId}}",
-								"rates",
-								"{{shipmentId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getRatesByCustomerIdQuoteId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}/rates",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}",
-								"quote",
-								"{{quotesId}}",
-								"rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getQuoteByCustomerIdAndQuoteId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}",
-								"quote",
-								"{{quotesId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "putQquotesByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "postQquotesByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"quoteId\": null,\n  \"customerId\": 2,\n  \"shipments\": [\n    {\n      \"isInsured\": false,\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"postalZipCode\": \"H2Y 3T5\",\n        \"fromDate\": \"2022-04-18T04:00:00.000Z\",\n        \"toDate\": \"2022-04-22T04:00:00.000Z\",\n        \"locationType\": \"RES_HOU\",\n        \"quoteAddressId\": null,\n        \"country\": \"Canada\",\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Montreal\",\n          \"location\": \"123, Rue Saint-Pierre,Montréal,Québec,H2Y 3T5\",\n          \"longitude\": -73.5542331,\n          \"latitude\": 45.5005232,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\"ORG\", \"DST\"]\n        },\n        \"additionnalServices\": [\"LFT\"]\n      },\n      \"consignee\": {\n        \"postalZipCode\": \"H2Y 3T5\",\n        \"fromDate\": \"2022-04-12T04:00:00.000Z\",\n        \"toDate\": \"2022-04-15T04:00:00.000Z\",\n        \"locationType\": \"RES_HOU\",\n        \"quoteAddressId\": null,\n        \"country\": \"Canada\",\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Montreal\",\n          \"location\": \"123, Rue Saint-Pierre,Montréal,Québec,H2Y 3T5\",\n          \"longitude\": -73.5542331,\n          \"latitude\": 45.5005232,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\"ORG\", \"DST\"]\n        },\n        \"additionnalServices\": [\"INS\"]\n      },\n      \"shipmentDetails\": {\n        \"commodityName\": \"commodity 1\",\n        \"shipmentDetailsId\": null,\n        \"shipmentType\": \"PCL\",\n        \"packaging\": \"BAG\",\n        \"isFreezeProtect\": false,\n        \"docOnly\": true,\n        \"isTempControl\": false,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"tempUnit\": null,\n        \"numberPieces\": 3,\n        \"packageCaracteristic\": [\n          {\n            \"packageCaracteristicId\": null,\n            \"customPackages\": null,\n            \"hsCode\": \"1200000000\",\n            \"freightClass\": \"121\",\n            \"freightSubClass\": \"1\",\n            \"length\": 12,\n            \"width\": 8,\n            \"height\": 11,\n            \"weight\": 12,\n            \"numberPieces\": 3,\n            \"isHazMat\": false,\n            \"emergencyContact\": null,\n            \"emergencyTel\": null\n          }\n        ]\n      },\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": null,\n        \"currency\": null,\n        \"insuranceType\": null\n      }\n    }\n  ]\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getShipmentByQuoteIdAndShipmentId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}/rates/{{shipmentId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"{{quotesId}}",
-								"rates",
-								"{{shipmentId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getQquotesByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getRatesByQuoteId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}/rates",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"{{quotesId}}",
-								"rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getQuotesByQuoteId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								"{{quotesId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "putQuote",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{id_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCaracteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Fonctionnel",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{id_token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCaracteristic\": [\n          {\n            \"packageCaracteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
-									"host": [
-										"{{quote_order_url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"autotransport",
-										"quote-order-bff",
-										"quotes",
-										"customer",
-										"1"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						}
-					]
-				},
-				{
-					"name": "PostQuote",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{id_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCaracteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Fonctionnel",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{id_token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCaracteristic\": [\n          {\n            \"packageCaracteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
-									"host": [
-										"{{quote_order_url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"autotransport",
-										"quote-order-bff",
-										"quotes",
-										"customer",
-										"1"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						}
-					]
-				},
-				{
-					"name": "getQuotes",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}//api/v1/autotransport/quote-order-bff/quotes/",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"",
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"quotes",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "order",
-			"item": [
-				{
-					"name": "getOrders",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}//api/v1/autotransport/quote-order-bff/orders/",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"",
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PostOrder",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{id_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCaracteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Fonctionnel",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{id_token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCaracteristic\": [\n          {\n            \"packageCaracteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
-									"host": [
-										"{{quote_order_url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"autotransport",
-										"quote-order-bff",
-										"quotes",
-										"customer",
-										"1"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						}
-					]
-				},
-				{
-					"name": "putOrder",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{id_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCaracteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Fonctionnel",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{id_token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCaracteristic\": [\n          {\n            \"packageCaracteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
-									"host": [
-										"{{quote_order_url}}"
-									],
-									"path": [
-										"api",
-										"v1",
-										"autotransport",
-										"quote-order-bff",
-										"quotes",
-										"customer",
-										"1"
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
-						}
-					]
-				},
-				{
-					"name": "getOrdersByOrderId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"{{ordersId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getRatesByOrderId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}/rates",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"{{ordersId}}",
-								"rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getShipmentByOrderIdAndShipmentId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}/rates/{{shipmentId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"{{ordersId}}",
-								"rates",
-								"{{shipmentId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getOrdersByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "postOrdersByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "putOrdersByCustomerId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getOrderByCustomerIdAndOrderId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}",
-								"order",
-								"{{ordersId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getRatesByCustomerIdOrderId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}/rates",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}",
-								"order",
-								"{{ordersId}}",
-								"rates"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getShipmentRatesByCustomerIdOrderId",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{id_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}/rates/{{shipmentId}}",
-							"host": [
-								"{{quote_order_url}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"autotransport",
-								"quote-order-bff",
-								"orders",
-								"customer",
-								"{{customerId}}",
-								"order",
-								"{{ordersId}}",
-								"rates",
-								"{{shipmentId}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "89bd2ec9-ec73-4f81-9d00-00fa9335549f",
+    "name": "quote-order-bff",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "quote",
+      "item": [
+        {
+          "name": "getShipmentRatesByCustomerIdQuoteId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}/rates/{{shipmentId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}",
+                "quote",
+                "{{quotesId}}",
+                "rates",
+                "{{shipmentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getRatesByCustomerIdQuoteId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}/rates",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}",
+                "quote",
+                "{{quotesId}}",
+                "rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getQuoteByCustomerIdAndQuoteId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}/quote/{{quotesId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}",
+                "quote",
+                "{{quotesId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "putQquotesByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "postQquotesByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quoteId\": null,\n  \"customerId\": 2,\n  \"shipments\": [\n    {\n      \"isInsured\": false,\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"postalZipCode\": \"H2Y 3T5\",\n        \"fromDate\": \"2022-04-18T04:00:00.000Z\",\n        \"toDate\": \"2022-04-22T04:00:00.000Z\",\n        \"locationType\": \"RES_HOU\",\n        \"quoteAddressId\": null,\n        \"country\": \"Canada\",\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Montreal\",\n          \"location\": \"123, Rue Saint-Pierre,Montréal,Québec,H2Y 3T5\",\n          \"longitude\": -73.5542331,\n          \"latitude\": 45.5005232,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\"ORG\", \"DST\"]\n        },\n        \"additionnalServices\": [\"LFT\"]\n      },\n      \"consignee\": {\n        \"postalZipCode\": \"H2Y 3T5\",\n        \"fromDate\": \"2022-04-12T04:00:00.000Z\",\n        \"toDate\": \"2022-04-15T04:00:00.000Z\",\n        \"locationType\": \"RES_HOU\",\n        \"quoteAddressId\": null,\n        \"country\": \"Canada\",\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Montreal\",\n          \"location\": \"123, Rue Saint-Pierre,Montréal,Québec,H2Y 3T5\",\n          \"longitude\": -73.5542331,\n          \"latitude\": 45.5005232,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\"ORG\", \"DST\"]\n        },\n        \"additionnalServices\": [\"INS\"]\n      },\n      \"shipmentDetails\": {\n        \"commodityName\": \"commodity 1\",\n        \"shipmentDetailsId\": null,\n        \"shipmentType\": \"PCL\",\n        \"packaging\": \"BAG\",\n        \"isFreezeProtect\": false,\n        \"docOnly\": true,\n        \"isTempControl\": false,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"tempUnit\": null,\n        \"numberPieces\": 3,\n        \"packageCharacteristic\": [\n          {\n            \"packageCharacteristicId\": null,\n            \"customPackages\": null,\n            \"hsCode\": \"1200000000\",\n            \"freightClass\": \"121\",\n            \"freightSubClass\": \"1\",\n            \"length\": 12,\n            \"width\": 8,\n            \"height\": 11,\n            \"weight\": 12,\n            \"numberPieces\": 3,\n            \"isHazMat\": false,\n            \"emergencyContact\": null,\n            \"emergencyTel\": null\n          }\n        ]\n      },\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": null,\n        \"currency\": null,\n        \"insuranceType\": null\n      }\n    }\n  ]\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getShipmentByQuoteIdAndShipmentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}/rates/{{shipmentId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "{{quotesId}}",
+                "rates",
+                "{{shipmentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getQquotesByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getRatesByQuoteId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}/rates",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "{{quotesId}}",
+                "rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getQuotesByQuoteId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/{{quotesId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                "{{quotesId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "putQuote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{id_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCharacteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Fonctionnel",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{id_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCharacteristic\": [\n          {\n            \"packageCharacteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
+                  "host": [
+                    "{{quote_order_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "autotransport",
+                    "quote-order-bff",
+                    "quotes",
+                    "customer",
+                    "1"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "PostQuote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{id_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCharacteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Fonctionnel",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{id_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCharacteristic\": [\n          {\n            \"packageCharacteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
+                  "host": [
+                    "{{quote_order_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "autotransport",
+                    "quote-order-bff",
+                    "quotes",
+                    "customer",
+                    "1"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "getQuotes",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}//api/v1/autotransport/quote-order-bff/quotes/",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "quotes",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "getOrders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}//api/v1/autotransport/quote-order-bff/orders/",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "",
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PostOrder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{id_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCharacteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Fonctionnel",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{id_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCharacteristic\": [\n          {\n            \"packageCharacteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
+                  "host": [
+                    "{{quote_order_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "autotransport",
+                    "quote-order-bff",
+                    "quotes",
+                    "customer",
+                    "1"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "putOrder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{id_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quoteId\": null,\n    \"customerId\": 1,\n    \"shipments\": [\n        {\n            \"shipper\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"BUS\",\n                \"coordinate\": {\n                    \"coordinateId\": 2,\n                    \"coordinateName\": \"Ioc 1\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -73.9333123,\n                    \"latitude\": 40.6997847,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"LFT\",\n                    \"INS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-22T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-31T00:00:00.000Z\"\n                }\n            },\n            \"consignee\": {\n                \"country\": \"United States\",\n                \"postalZipCode\": \"77064\",\n                \"locationType\": \"RES_HOU\",\n                \"coordinate\": {\n                    \"coordinateId\": 3,\n                    \"coordinateName\": \"Ioc 2\",\n                    \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n                    \"longitude\": -95.54942349999999,\n                    \"latitude\": 29.9400443,\n                    \"radius\": 0,\n                    \"radiusUnit\": \"MI\",\n                    \"directions\": [\n                        \"ORG\",\n                        \"DST\"\n                    ]\n                },\n                \"additionalService\": [\n                    \"RES\",\n                    \"CNS\"\n                ],\n                \"date\": {\n                    \"fromDate\": \"2022-03-21T23:00:00.000Z\",\n                    \"toDate\": \"2022-03-30T00:00:00.000Z\"\n                }\n            },\n            \"shipmentDetails\": {\n                \"shipmentType\": \"RLL\",\n                \"packaging\": \"BAG\",\n                \"numberPieces\": \"5555\",\n                \"packageCharacteristic\": \n                    [\n                        {\n                            \"customPackages\": \"Cp1\",\n                            \"hsCode\": \"4544545454\",\n                            \"freightClass\": \"454\",\n                            \"freightSubClass\": \"4\",\n                            \"length\": \"41\",\n                            \"width\": \"44\",\n                            \"height\": \"455\",\n                            \"weight\": \"4444\",\n                            \"numberPieces\": \"5555\",\n                            \"isHazMat\": true,\n                            \"hazmatClass\": \"545\",\n                            \"hazmatSubClass\": \"45454\",\n                            \"un\": \"4545\",\n                            \"packageGroup\": \"45454\",\n                            \"emergencyContact\": \"45454545454\",\n                            \"emergencyTel\": \"5140000005\"                            \n                        }\n                    ]\n                \n            },\n            \"insurance\": {\n                \"totalCostValue\": 1245,\n                \"currency\": \"DH\",\n                \"insuranceType\": \"IT exp\"\n            },\n            \"additionnalServices\": {\n                \"deliveryInstruction\": \"\",\n                \"Fl\": false,\n                \"Lft\": false,\n                \"Ins\": false,\n                \"Ass\": false,\n                \"Res\": false,\n                \"Cns\": false,\n                \"Acc\": false,\n                \"Hzm\": true,\n                \"Ht\": false,\n                \"Apd\": true,\n                \"Rsh\": false,\n                \"App\": false\n            }\n        }\n    ]\n}\n\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Fonctionnel",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{id_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quoteId\": null,\n  \"customerId\": 1,\n  \"shipments\": [\n    {\n      \"quoteShipmentId\": null,\n      \"shipmentId\": null,\n      \"shipper\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"BUS\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 1\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -73.9333123,\n          \"latitude\": 40.6997847,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"consignee\": {\n        \"quoteAddressId\": null,\n        \"country\": \"United States\",\n        \"postalZipCode\": \"77064\",\n        \"dateRange\": null,\n        \"locationType\": \"RES_HOU\",\n        \"additionnalServices\": null,\n        \"coordinate\": {\n          \"coordinateId\": null,\n          \"coordinateName\": \"Ioc 2\",\n          \"location\": \"11311, North Gessner Road,Houston,Texas,77064\",\n          \"longitude\": -95.54942349999999,\n          \"latitude\": 29.9400443,\n          \"radius\": 0,\n          \"radiusUnit\": \"MI\",\n          \"directions\": [\n            \"ORG\",\n            \"DST\"\n          ]\n        }\n      },\n      \"shipmentDetails\": {\n        \"shipmentDetailsId\": null,\n        \"numberPieces\": 5555,\n        \"shipmentType\": \"RLL\",\n        \"packaging\": \"BAG\",\n        \"packageCharacteristic\": [\n          {\n            \"packageCharacteristicId\": null,\n            \"customPackages\": \"Cp1\",\n            \"length\": 41,\n            \"width\": 44,\n            \"height\": 455,\n            \"weight\": 4444,\n            \"hsCode\": \"4544545454\",\n            \"nmfc\": null,\n            \"freightClass\": \"454\",\n            \"freightSubClass\": \"4\",\n            \"hazMat\": null,\n            \"emergencyTel\": \"5140000005\",\n            \"emergencyContact\": \"45454545454\",\n            \"numberPieces\": 5555,\n            \"isHazMat\": true\n          }\n        ],\n        \"isFreezeProtect\": false,\n        \"isTempControl\": false,\n        \"tempUnit\": null,\n        \"tempMin\": null,\n        \"tempMax\": null,\n        \"docOnly\": false\n      },\n      \"isInsured\": null,\n      \"insurance\": {\n        \"insuranceId\": null,\n        \"totalCostValue\": 1245,\n        \"currency\": \"DH\",\n        \"insuranceType\": \"IT exp\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/quotes/customer/1",
+                  "host": [
+                    "{{quote_order_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "autotransport",
+                    "quote-order-bff",
+                    "quotes",
+                    "customer",
+                    "1"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": null,
+              "header": null,
+              "cookie": [],
+              "body": null
+            }
+          ]
+        },
+        {
+          "name": "getOrdersByOrderId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "{{ordersId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getRatesByOrderId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}/rates",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "{{ordersId}}",
+                "rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getShipmentByOrderIdAndShipmentId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/{{ordersId}}/rates/{{shipmentId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "{{ordersId}}",
+                "rates",
+                "{{shipmentId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOrdersByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "postOrdersByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "putOrdersByCustomerId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOrderByCustomerIdAndOrderId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}",
+                "order",
+                "{{ordersId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getRatesByCustomerIdOrderId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}/rates",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}",
+                "order",
+                "{{ordersId}}",
+                "rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getShipmentRatesByCustomerIdOrderId",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{id_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{quote_order_url}}/api/v1/autotransport/quote-order-bff/orders/customer/{{customerId}}/order/{{ordersId}}/rates/{{shipmentId}}",
+              "host": [
+                "{{quote_order_url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "autotransport",
+                "quote-order-bff",
+                "orders",
+                "customer",
+                "{{customerId}}",
+                "order",
+                "{{ordersId}}",
+                "rates",
+                "{{shipmentId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }
