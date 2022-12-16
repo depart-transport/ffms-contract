@@ -1212,10 +1212,10 @@ components:
           $ref: '#/components/schemas/ShipmentCategory'
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        packageCaracteristic:
+        packageCharacteristic:
           type: array
           items:
-            $ref: '#/components/schemas/PackageCaracteristic'
+            $ref: '#/components/schemas/PackageCharacteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -1230,10 +1230,10 @@ components:
           format: int32
         docOnly:
           type: boolean
-    PackageCaracteristic:
+    PackageCharacteristic:
       type: object
       properties:
-        packageCaracteristicId:
+        packageCharacteristicId:
           type: integer
           format: int64
         numberPkg:

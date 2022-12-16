@@ -1073,6 +1073,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        searchedBidLeg:
+          type: boolean
     SaleAddress:
       required:
         [ address, fromDate, toDate, locationType, phone, email ]
@@ -1140,7 +1142,7 @@ components:
         - BISP
         - STRG
     ShipmentDetails:
-      required: [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
+      required: [ numberPieces, shipmentType, packageCharacteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1149,18 +1151,18 @@ components:
         numberPieces:
           type: integer
           format: int32
-        totalVolume:
+        totalActualLinearFeet:
           type: number
-        totalChargeableWeight:
+        totalActualWeight:
           type: number
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        packageCaracteristic:
+        packageCharacteristic:
           type: array
           items:
-            $ref: '#/components/schemas/PackageCaracteristic'
+            $ref: '#/components/schemas/PackageCharacteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -1177,11 +1179,11 @@ components:
           format: int32
         docOnly:
           type: boolean
-    PackageCaracteristic:
+    PackageCharacteristic:
       required: [ numberPkg, description, length, width, height, weight, freightClass, nmfc, isHazMat, numberPieces ]
       type: object
       properties:
-        packageCaracteristicId:
+        packageCharacteristicId:
           type: integer
           format: int64
         isStackable:
@@ -1320,6 +1322,9 @@ components:
         pickupDate:
           type: string
           format: date
+        deliveryDate:
+          type: string
+          format: date
         departureDate:
           type: string
           format: date
@@ -1380,6 +1385,9 @@ components:
         pickupDate:
           type: string
           format: date
+        deliveryDate:
+          type: string
+          format: date
         departureDate:
           type: string
           format: date
@@ -1420,6 +1428,7 @@ components:
     RateStatus:
       type: string
       enum:
+        - QUOTE # Rate initial state when created
         - REQUESTED # A bid or an availability is requested to the vendor
         - REJECTED # Vendor trip is rejected by customer
         - BIDDED # Vendor summited a price for the trip (bidding process)
@@ -1432,6 +1441,7 @@ components:
         - IN_TRANSIT # On route to destination
         - OUT_FOR_DELIVERY # The package is out for delivery
         - COMPLETED # The package is delivered, invoice paid and received payment from customer
+        - CANCELLED
     EquipmentType:
       type: string
       enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]

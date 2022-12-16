@@ -1349,6 +1349,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        searchedBidLeg:
+          type: boolean
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1585,7 +1587,7 @@ components:
           type: string
     ShipmentDetails:
       required:
-        [ numberPieces, shipmentType, packageCaracteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
+        [ numberPieces, shipmentType, packageCharacteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
       type: object
       properties:
         shipmentDetailsId:
@@ -1594,18 +1596,18 @@ components:
         numberPieces:
           type: integer
           format: int32
-        totalVolume:
+        totalActualLinearFeet:
           type: number
-        totalChargeableWeight:
+        totalActualWeight:
           type: number
         shipmentType:
           $ref: '#/components/schemas/ShipmentCategory'
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        packageCaracteristic:
+        packageCharacteristic:
           type: array
           items:
-            $ref: '#/components/schemas/PackageCaracteristic'
+            $ref: '#/components/schemas/PackageCharacteristic'
         isFreezeProtect:
           type: boolean
         isTempControl:
@@ -1622,12 +1624,12 @@ components:
           format: int32
         docOnly:
           type: boolean
-    PackageCaracteristic:
+    PackageCharacteristic:
       required:
         [ numberPkg, description, length, width, height, weight, freightClass, nmfc, numberPieces, isHazMat ]
       type: object
       properties:
-        packageCaracteristicId:
+        packageCharacteristicId:
           type: integer
           format: int64
         numberPkg:
@@ -1762,6 +1764,9 @@ components:
         pickupDate:
           type: string
           format: date
+        deliveryDate:
+          type: string
+          format: date
         departureDate:
           type: string
           format: date
@@ -1823,9 +1828,14 @@ components:
         pickupDate:
           type: string
           format: date
+        deliveryDate:
+          type: string
+          format: date
         departureDate:
           type: string
           format: date
+        transporterType:
+          $ref: '#/components/schemas/TransporterType'
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
@@ -1907,6 +1917,7 @@ components:
     RateStatus:
       type: string
       enum:
+        - QUOTE # Rate initial state when created
         - REQUESTED # Rate requested to the vendor
         - REJECTED # Customer rejected the rate
         - BIDDED # Vendor bidded on the rate
@@ -1919,6 +1930,7 @@ components:
         - IN_TRANSIT
         - OUT_FOR_DELIVERY
         - COMPLETED
+        - CANCELLED
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
@@ -1942,3 +1954,6 @@ components:
     EquipmentType:
       type: string
       enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+    TransporterType:
+      type: string
+      enum: [ STD, DIR, EXP ]
