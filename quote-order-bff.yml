@@ -1834,6 +1834,8 @@ components:
         departureDate:
           type: string
           format: date
+        transporterType:
+          $ref: '#/components/schemas/TransporterType'
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
@@ -1952,3 +1954,6 @@ components:
     EquipmentType:
       type: string
       enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+    TransporterType:
+      type: string
+      enum: [ STD, DIR, EXP ]
