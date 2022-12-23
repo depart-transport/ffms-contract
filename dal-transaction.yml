@@ -1245,7 +1245,7 @@ components:
     ShipmentCategory:
       type: string
       enum:
-        - SKD #Palette / SKD
+        - PAL #Palette / SKD
         - CRT #Crate
         - FLL #Floor Loaded
         - BDL #Bundle
