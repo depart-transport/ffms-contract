@@ -21,7 +21,7 @@
         <java.version>17</java.version>
         <openapi.version>1.5.2</openapi.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <version.jackson.databind.nullable>0.2.1</version.jackson.databind.nullable>
+        <version.jackson.databind.nullable>0.2.4</version.jackson.databind.nullable>
         <version.springfox.swagger2>3.0.0</version.springfox.swagger2>
         <version.openapi.generator>5.1.0</version.openapi.generator>
     </properties>
