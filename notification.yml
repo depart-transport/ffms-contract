@@ -182,8 +182,12 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/NotificationStatus'
-        userName:
+        contactPerson:
           type: string
+          description: Username of user who has an issue with the request
+        readBy:
+          type: string
+          description: Username of user who reads the notification
         createdTimestamp:
           type: string
           format: date-time
@@ -201,7 +205,7 @@ components:
       enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY, CUSTOMER_RATING_EXPIRY, VENDOR_RATING_EXPIRY ]
     NotificationTo:
       type: string
-      enum: [ CUSTOMER, VENDOR, INTERNAL ]
+      enum: [ CUSTOMER, VENDOR, INTERNAL, SALES_REP ]
     NotificationStatus:
       type: string
       enum: [ READ, UNREAD ]
