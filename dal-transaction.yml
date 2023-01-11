@@ -1430,18 +1430,19 @@ components:
       enum:
         - QUOTE # Rate initial state when created
         - REQUESTED # A bid or an availability is requested to the vendor
-        - REJECTED # Vendor trip is rejected by customer
-        - BIDDED # Vendor summited a price for the trip (bidding process)
-        - READY # Package is ready to pick up
-        - EXPIRED # Vendor time expired for bidding process
         - ACCEPTED # Vendor trip is accepted by customer
+        - CANCELLED # Vendor trip is rejected by customer
+        - READY # Package is ready to pick up
+        - BIDDED # Vendor summited a price for the trip (bidding process)
+        - EXPIRED # Vendor time expired for bidding process
         - BOOKED # The trip is booked with the vendor
         - PICKED_UP # The package is picked up from source address
         - DELIVERED # The package is delivered
         - IN_TRANSIT # On route to destination
         - OUT_FOR_DELIVERY # The package is out for delivery
         - COMPLETED # The package is delivered, invoice paid and received payment from customer
-        - CANCELLED
+        - REJECTED # Vendor cancel (reject) trip rate
+        - LEG_EXP # TripRate that has another trip rate expired in the shipmentrate
     EquipmentType:
       type: string
       enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]

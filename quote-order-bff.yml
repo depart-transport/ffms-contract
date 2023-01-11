@@ -1918,19 +1918,20 @@ components:
       type: string
       enum:
         - QUOTE # Rate initial state when created
-        - REQUESTED # Rate requested to the vendor
-        - REJECTED # Customer rejected the rate
-        - BIDDED # Vendor bidded on the rate
-        - READY # All vendors rate are bidded and price ready to display.
-        - EXPIRED # Rate is expired.
-        - ACCEPTED # Rate accepted by customer
-        - BOOKED # Rate booked
-        - PICKED_UP # Rate picked up
-        - DELIVERED # Rate delivered
-        - IN_TRANSIT
-        - OUT_FOR_DELIVERY
-        - COMPLETED
-        - CANCELLED
+        - REQUESTED # A bid or an availability is requested to the vendor
+        - ACCEPTED # Vendor trip is accepted by customer
+        - CANCELLED # Vendor trip is rejected by customer
+        - READY # Package is ready to pick up
+        - BIDDED # Vendor summited a price for the trip (bidding process)
+        - EXPIRED # Vendor time expired for bidding process
+        - BOOKED # The trip is booked with the vendor
+        - PICKED_UP # The package is picked up from source address
+        - DELIVERED # The package is delivered
+        - IN_TRANSIT # On route to destination
+        - OUT_FOR_DELIVERY # The package is out for delivery
+        - COMPLETED # The package is delivered, invoice paid and received payment from customer
+        - REJECTED # Vendor cancel (reject) trip rate
+        - LEG_EXP # TripRate that has another trip rate expired in the shipmentrate
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
