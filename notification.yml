@@ -171,11 +171,13 @@ components:
           type: integer
           format: int64
         context:
-          type: string
+          $ref: '#/components/schemas/NotificationContext'
         contextElementId:
           type: string
-        stackTrace:
+        contextDescription:
           type: string
+        notifyTo:
+          $ref: '#/components/schemas/NotificationTo'
         accessGroup:
           type: string
         status:
@@ -188,9 +190,18 @@ components:
         updatedTimestamp:
           type: string
           format: date-time
+        followDate:
+          type: string
+          format: date
     NotificationType:
       type: string
+      enum: [ LOW, MEDIUM, HIGH ]
+    NotificationContext:
+      type: string
       enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY, CUSTOMER_RATING_EXPIRY, VENDOR_RATING_EXPIRY ]
+    NotificationTo:
+      type: string
+      enum: [ CUSTOMER, VENDOR, INTERNAL ]
     NotificationStatus:
       type: string
       enum: [ READ, UNREAD ]
