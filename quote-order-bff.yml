@@ -1446,7 +1446,7 @@ components:
             $ref: '#/components/schemas/Role'
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, CENT, TERM ]
+      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, DISP, TERM ]
     Notification:
       type: string
       enum:
@@ -1689,7 +1689,7 @@ components:
     ShipmentCategory:
       type: string
       enum:
-        - SKD #Palette / SKD
+        - PAL #Palette / SKD
         - CRT #Crate
         - FLL #Floor Loaded
         - BDL #Bundle

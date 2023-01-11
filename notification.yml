@@ -48,7 +48,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseError'
         '201':
-          description: UPDATED          
+          description: UPDATED
     get:
       tags:
         - NotificationHandler
@@ -190,7 +190,7 @@ components:
           format: date-time
     NotificationType:
       type: string
-      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY ]
+      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY, CUSTOMER_RATING_EXPIRY, VENDOR_RATING_EXPIRY ]
     NotificationStatus:
       type: string
       enum: [ READ, UNREAD ]
@@ -204,4 +204,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Notification'
-
