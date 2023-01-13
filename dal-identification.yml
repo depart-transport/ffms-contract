@@ -3514,26 +3514,12 @@ components:
         dateStart:
           type: string
           format: date
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
         margins:
           type: array
           items:
             $ref: '#/components/schemas/Margin'
-        skidLength:
-          type: number
-        skidWidth:
-          type: number
-        skidHeight:
-          type: number
-        thresholdHeight:
-          type: number
-        thresholdLength:
-          type: number
-        thresholdWidth:
-          type: number
-        ceilingCube:
-          type: number
-        wallCube:
-          type: number
         additionalFees:
           type: array
           items:
@@ -3554,6 +3540,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+    CubingRules:
+      type: object
+      properties:
+        cubingRulesId:
+          type: integer
+          format: int64
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
+        thresholdHeight:
+          type: number
+        thresholdLength:
+          type: number
+        thresholdWidth:
+          type: number
+        ceilingCube:
+          type: number
+        wallCube:
+          type: number
     TimeTable:
       type: object
       properties:
