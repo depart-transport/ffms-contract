@@ -172,6 +172,8 @@ components:
           format: int64
         context:
           $ref: '#/components/schemas/NotificationContext'
+        contextElement:
+          type: string
         contextElementId:
           type: string
         contextDescription:
@@ -202,7 +204,7 @@ components:
       enum: [ LOW, MEDIUM, HIGH ]
     NotificationContext:
       type: string
-      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY, CUSTOMER_RATING_EXPIRY, VENDOR_RATING_EXPIRY, NEW_CUSTOMER, NEW_VENDOR ]
+      enum: [ PICKUP_DEADLINE, DELIVERY_DEADLINE, INSURANCE_EXPIRY, CUSTOMER_RATING_EXPIRY, VENDOR_RATING_EXPIRY, NEW_CUSTOMER, NEW_VENDOR, UPDATED_CUSTOMER, UPDATED_VENDOR, CUSTOMER_ERROR, VENDOR_ERROR ]
     NotificationTo:
       type: string
       enum: [ CUSTOMER, VENDOR, INTERNAL, SALES_REP ]
