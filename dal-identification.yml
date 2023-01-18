@@ -3514,26 +3514,12 @@ components:
         dateStart:
           type: string
           format: date
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
         margins:
           type: array
           items:
             $ref: '#/components/schemas/Margin'
-        skidLength:
-          type: number
-        skidWidth:
-          type: number
-        skidHeight:
-          type: number
-        thresholdHeight:
-          type: number
-        thresholdLength:
-          type: number
-        thresholdWidth:
-          type: number
-        ceilingCube:
-          type: number
-        wallCube:
-          type: number
         additionalFees:
           type: array
           items:
@@ -3554,6 +3540,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coordinate'
+    CubingRules:
+      type: object
+      properties:
+        cubingRulesId:
+          type: integer
+          format: int64
+        skidLength:
+          type: number
+        skidWidth:
+          type: number
+        skidHeight:
+          type: number
+        thresholdHeight:
+          type: number
+        thresholdLength:
+          type: number
+        thresholdWidth:
+          type: number
+        ceilingCube:
+          type: number
+        wallCube:
+          type: number
     TimeTable:
       type: object
       properties:
@@ -3941,3 +3949,25 @@ components:
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]
+    Wholesaler:
+      type: object
+      properties:
+        wholesalerId:
+          type: integer
+          format: int64
+        enterprise:
+          $ref: '#/components/schemas/Enterprise'
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        margins:
+          type: array
+          items:
+            $ref: '#/components/schemas/Margin'
+        additionalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'

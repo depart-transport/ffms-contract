@@ -1965,8 +1965,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZonesRateSchedules'
-        cubeRules:
-          $ref: '#/components/schemas/CubeRules'
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
         zonesCovered:
           type: array
           items:
@@ -2271,8 +2271,8 @@ components:
           type: string
         trackerInfos:
           $ref: '#/components/schemas/TrackerInfos'
-        cubeRules:
-          $ref: '#/components/schemas/CubeRules'
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
         bidOrderContacts:
           type: array
           items:
@@ -2297,9 +2297,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DeliveryService'
-    CubeRules:
+    CubingRules:
       type: object
       properties:
+        cubingRulesId:
+          type: integer
+          format: int64
         thresholdHeight:
           type: number
         thresholdLength:
