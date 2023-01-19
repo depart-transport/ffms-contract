@@ -1073,7 +1073,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
-        searchedBidLeg:
+        searchedBid:
+          type: boolean
+        searchedLeg:
           type: boolean
     SaleAddress:
       required:
