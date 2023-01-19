@@ -1349,7 +1349,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
-        searchedBidLeg:
+        searchedBid:
+          type: boolean
+        searchedLeg:
           type: boolean
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
