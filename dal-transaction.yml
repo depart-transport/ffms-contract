@@ -1330,6 +1330,12 @@ components:
         departureDate:
           type: string
           format: date
+        pickupWindow:
+          type: string
+          format: time
+        expiryDate:
+          type: string
+          format: date-time
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         tripRates:
@@ -1393,6 +1399,12 @@ components:
         departureDate:
           type: string
           format: date
+        pickupWindow:
+          type: string
+          format: time
+        expiryDate:
+          type: string
+          format: date-time
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
         shipper:
