@@ -1775,7 +1775,7 @@ components:
         pickupWindow:
           type: string
           format: time
-        expiryDate:
+        expirationDate:
           type: string
           format: date-time
         rateStatus:
@@ -1845,7 +1845,7 @@ components:
         pickupWindow:
           type: string
           format: time
-        expiryDate:
+        expirationDate:
           type: string
           format: date-time
         transporterType:
