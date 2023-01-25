@@ -106,7 +106,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Customer'
+                $ref: '#/components/schemas/CustomerUpdate'
         required: true
       responses:
         '404':
@@ -338,7 +338,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Vendor'
+                $ref: '#/components/schemas/VendorUpdate'
         required: true
       responses:
         '404':
@@ -1525,6 +1525,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Customer'
+    CustomerUpdate:
+      type: object
+      properties:
+        section:
+          type: string
+        customer:
+          $ref: '#/components/schemas/Customer'
     Customer:
       required: [ customerStatus, isBusiness ]
       type: object
@@ -2157,6 +2164,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Vendor'
+    VendorUpdate:
+      type: object
+      properties:
+        section:
+          type: string
+        vendor:
+          $ref: '#/components/schemas/Vendor'
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
