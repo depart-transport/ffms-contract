@@ -1773,8 +1773,8 @@ components:
           type: string
           format: date
         pickupWindow:
-          type: string
-          format: time
+          type: integer
+          format: int64
         expirationDate:
           type: string
           format: date-time
@@ -1843,8 +1843,8 @@ components:
           type: string
           format: date
         pickupWindow:
-          type: string
-          format: time
+          type: integer
+          format: int64
         expirationDate:
           type: string
           format: date-time
@@ -1946,6 +1946,8 @@ components:
         - COMPLETED # The package is delivered, invoice paid and received payment from customer
         - REJECTED # Vendor cancel (reject) trip rate
         - LEG_EXP # TripRate that has another trip rate expired in the shipmentrate
+        - MBB_EXP # Must book by expired - or pickup windows not respected.
+        - MBB_CXL # Must book by canceled
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
