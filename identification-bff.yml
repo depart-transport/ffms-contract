@@ -2283,6 +2283,8 @@ components:
           format: int64
         bidOrderCenterName:
           type: string
+        wholesaler:
+          type: string
         trackerInfos:
           $ref: '#/components/schemas/TrackerInfos'
         cubingRules:

@@ -3842,6 +3842,8 @@ components:
           type: boolean
         trackerProvider:
           type: string
+        wholesaler:
+          type: string
         cubingRules:
           $ref: '#/components/schemas/CubingRules'
         bidOrderContacts:
