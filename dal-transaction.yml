@@ -1456,6 +1456,7 @@ components:
         - OUT_FOR_DELIVERY # The package is out for delivery
         - COMPLETED # The package is delivered, invoice paid and received payment from customer
         - REJECTED # Vendor cancel (reject) trip rate
+        - LEG_REJ # TripRate that has another trip rate rejected in the shipmentrate
         - LEG_EXP # TripRate that has another trip rate expired in the shipmentrate
         - MBB_EXP # Must book by expired - or pickup windows not respected.
         - MBB_CXL # Must book by canceled
