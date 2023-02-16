@@ -158,7 +158,8 @@ components:
         contextElement:
           type: string
         contextElementId:
-          type: string
+          type: integer
+          format: int64
         contextDescription:
           type: string
         notifyTo:
