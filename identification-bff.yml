@@ -1547,6 +1547,8 @@ components:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
+        wholesalerName:
+          type: string
         wholesalerId:
           type: integer
           format: int64
@@ -2180,6 +2182,8 @@ components:
           format: int64
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
+        wholesalerName:
+          type: string
         wholesalerId:
           type: integer
           format: int64
