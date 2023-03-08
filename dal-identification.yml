@@ -3772,7 +3772,7 @@ components:
           type: boolean
         mc:
           type: string
-          pattern: '^\d{8}$'
+          pattern: '^\d{1,10}$'
         scac:
           type: string
           maxLength: 4
