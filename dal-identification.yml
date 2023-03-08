@@ -3089,9 +3089,8 @@ components:
           type: string
           maxLength: 50
         usaTaxInfo:
-          type: integer
-          format: int64
-          maximum: 999999999
+          type: string
+          pattern: '^\d{2}-\d{7}'
     CreditCard:
       required: [ cardholder, creditCardNumber, expDate, cvc ]
       type: object
