@@ -1547,6 +1547,8 @@ components:
           $ref: '#/components/schemas/Business'
         personal:
           $ref: '#/components/schemas/Personal'
+        wholesalerName:
+          type: string
         wholesalerId:
           type: integer
           format: int64
@@ -2180,6 +2182,8 @@ components:
           format: int64
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
+        wholesalerName:
+          type: string
         wholesalerId:
           type: integer
           format: int64
@@ -2216,7 +2220,7 @@ components:
       properties:
         mc:
           type: string
-          pattern: '^\d{8}$'
+          pattern: '^\d{1,10}$'
         scac:
           type: string
           maxLength: 4
