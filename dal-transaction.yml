@@ -1040,7 +1040,7 @@ components:
         url:
           type: string
     Sale:
-      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
+      required: [ saleType, customerId ]
       type: object
       properties:
         saleId:
@@ -1056,6 +1056,25 @@ components:
           description: the number that is display on the ticket to identify the sales
           type: integer
           format: int64
+        shipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shipment'
+        saleRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleRate'
+    Shipment:
+      required: [ shipper, consignee, shipmentDetails, isInsured ]
+      type: object
+      properties:
+        shipmentId:
+          type: integer
+          format: int64
+        salesNumber:
+          description: the number that is display on the ticket to identify the shipment
+          type: integer
+          format: int64
         shipper:
           $ref: '#/components/schemas/SaleAddress'
         consignee:
@@ -1069,10 +1088,6 @@ components:
         customBroker:
           type: integer
           format: int64
-        shipmentRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentRate'
         searchedBid:
           type: boolean
         searchedLeg:
@@ -1289,10 +1304,30 @@ components:
           type: string
         insuranceType:
           type: string
+    SaleRate:
+      type: object
+      properties:
+        saleRateId:
+          type: integer
+          format: int64
+        salesNumber:
+          type: integer
+          format: int64
+        pricing:
+          $ref: '#/components/schemas/Pricing'
+        shipmentRateType:
+          $ref: '#/components/schemas/TransactionRateType'
+        shipmentRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
     ShipmentRate:
       type: object
       properties:
         shipmentRateId:
+          type: integer
+          format: int64
+        shipmentId:
           type: integer
           format: int64
         salesNumber:
@@ -1309,18 +1344,8 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         consignee:
           $ref: '#/components/schemas/SaleAddress'
-        price:
-          description: Price of the rate - all triprate price combine
-          type: number
-        baseCharge:
-          description: price of the base charge - all triprate base charge combine
-          type: number
-        fuelCharges:
-          description: charges of fuel
-          type: number
-        surcharges:
-          description: price of the surcharge - all triprate surcharge combine
-          type: number
+        pricing:
+          $ref: '#/components/schemas/Pricing'
         pickupDate:
           type: string
           format: date
@@ -1342,9 +1367,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripRate'
-        shipmentRateType:
-          $ref: '#/components/schemas/ShipmentRateType'
-    ShipmentRateType:
+    Pricing:
+      type: object
+      properties:
+        price:
+          description: Price of the rate
+          type: number
+        baseCharge:
+          description: price of the base charge
+          type: number
+        fuelCharges:
+          description: charges of fuel
+          type: number
+        surcharges:
+          description: price of the surcharge
+          type: number
+    TransactionRateType:
       type: string
       enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG ]
     TripRate:
@@ -1370,18 +1408,8 @@ components:
         customBroker:
           type: integer
           format: int64
-        baseCharge:
-          description: price of the base charge for a specific vendor/trip
-          type: number
-        fuelCharges:
-          description: charges of fuel
-          type: number
-        surcharges:
-          description: price of the surcharge for a specific vendor/trip
-          type: number
-        price:
-          description: total price for a specific vendor/trip
-          type: number
+        pricing:
+          $ref: '#/components/schemas/Pricing'
         createdTimestamp:
           description: timestamp of the creation of the trip
           type: string
