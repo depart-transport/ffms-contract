@@ -1313,7 +1313,7 @@ components:
           format: int64
         pricing:
           $ref: '#/components/schemas/Pricing'
-        shipmentRateType:
+        transactionRateType:
           $ref: '#/components/schemas/TransactionRateType'
         shipmentRates:
           type: array
