@@ -1337,8 +1337,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Shipment'
-        saleRate:
-          $ref: '#/components/schemas/SaleRate'
+        saleRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleRate'
     Shipment:
       required: [ shipper, consignee, shipmentDetails, isInsured ]
       type: object
