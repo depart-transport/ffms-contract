@@ -1120,7 +1120,7 @@ components:
           type: string
         closeTime:
           type: string
-        additionnalServices:
+        additionalServices:
           type: array
           items:
             $ref: '#/components/schemas/ChargeType'
@@ -1158,6 +1158,15 @@ components:
         - ISW
         - BISP
         - STRG
+    ChargeUnit:
+      type: string
+      enum:
+        - CWT
+        - PU
+        - TIME
+        - FIX
+        - PFR
+        - SQ
     ShipmentDetails:
       required: [ numberPieces, shipmentType, packageCharacteristic, isFreezeProtect, isTempControl, docOnly, isStackable ]
       type: object
@@ -1321,6 +1330,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        additionalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fees'
     ShipmentRate:
       type: object
       properties:
@@ -1381,6 +1394,22 @@ components:
           type: number
         surcharges:
           description: price of the surcharge
+          type: number
+    Fees:
+      type: object
+      properties:
+        feesId:
+          type: integer
+          format: int64
+        chargeName:
+          $ref: '#/components/schemas/ChargeType'
+        chargeMethod:
+          $ref: '#/components/schemas/ChargeUnit'
+        freeUpTo:
+          type: number
+        price:
+          type: number
+        maxPrice:
           type: number
     TransactionRateType:
       type: string
