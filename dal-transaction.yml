@@ -1376,6 +1376,8 @@ components:
           format: date-time
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
+        transactionRateType:
+          $ref: '#/components/schemas/TransactionRateType'
         tripRates:
           type: array
           items:
