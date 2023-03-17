@@ -1064,6 +1064,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SaleRate'
+        searchedBid:
+          type: boolean
+        searchedLeg:
+          type: boolean
     Shipment:
       required: [ shipper, consignee, shipmentDetails, isInsured ]
       type: object
@@ -1088,10 +1092,6 @@ components:
         customBroker:
           type: integer
           format: int64
-        searchedBid:
-          type: boolean
-        searchedLeg:
-          type: boolean
     SaleAddress:
       required:
         [ address, fromDate, toDate, locationType, phone, email ]
@@ -1415,7 +1415,7 @@ components:
           type: number
     TransactionRateType:
       type: string
-      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG ]
+      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG, MAN_SHMT ]
     TripRate:
       type: object
       properties:
