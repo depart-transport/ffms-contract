@@ -1292,9 +1292,10 @@ components:
         - tracking
         - delivery
         - pickup
-        - bidding
+        - spotquote
         - confirmation
-        - acceptation
+        - booking
+        - availability
         - history
     SaleList:
       type: object
