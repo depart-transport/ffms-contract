@@ -244,7 +244,7 @@ components:
           format: int64
     EmailType:
       type: string
-      enum: [ AVAILABILITY, BOOKING, CONFIRMATION, RATE, EXPIRATION ]
+      enum: [ AVAILABILITY, BOOKING, CONFIRMATION, RATE, EXPIRATION, SPOT_QUOTE ]
     EmailObjectType:
       type: string
       enum: [ TRIP_RATE, SHIPMENT_RATE, RATE, INSURANCE_DETAILS, ]
