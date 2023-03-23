@@ -1876,6 +1876,8 @@ components:
         expirationDate:
           type: string
           format: date-time
+        transactionRateType:
+          $ref: '#/components/schemas/TransactionRateType'
         transporterType:
           $ref: '#/components/schemas/TransporterType'
         rateStatus:
