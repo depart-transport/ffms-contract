@@ -1334,6 +1334,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Fees'
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
     ShipmentRate:
       type: object
       properties:
