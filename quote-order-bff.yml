@@ -1297,6 +1297,7 @@ components:
         - booking
         - availability
         - history
+        - pending
     SaleList:
       type: object
       properties:
