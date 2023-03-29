@@ -1828,7 +1828,7 @@ components:
             $ref: '#/components/schemas/TripRate'
     TransactionRateType:
       type: string
-      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG, MAN_SHMT ]
+      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG, MAN_SHMT, EMPTY ]
     TripRate:
       type: object
       properties:
