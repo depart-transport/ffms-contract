@@ -2076,9 +2076,13 @@ components:
           $ref: '#/components/schemas/ProvinceState'
         tax1Label:
           type: string
-        tax1:
+        tax1Pct:
+          type: number
+        tax1Price:
           type: number
         tax2Label:
           type: string
-        tax2:
+        tax2Pct:
+          type: number
+        tax2Price:
           type: number
