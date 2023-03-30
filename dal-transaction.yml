@@ -1330,10 +1330,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
-        additionalFees:
-          type: array
-          items:
-            $ref: '#/components/schemas/Fees'
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
     ShipmentRate:
@@ -1385,33 +1381,43 @@ components:
     Pricing:
       type: object
       properties:
-        price:
-          description: Price of the rate
-          type: number
+        pricingId:
+          type: integer
+          format: int64
         baseCharge:
           description: price of the base charge
           type: number
-        fuelCharges:
+        surcharges:
+          description: List of surchages
+          type: array
+          items:
+            $ref: '#/components/schemas/Charge'
+        fuelCharge:
           description: charges of fuel
           type: number
-        surcharges:
-          description: price of the surcharge
+        additionalCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalCharge'
+        subPrice:
+          description: All charges and fees added up
           type: number
-    Fees:
+        taxation:
+          $ref: '#/components/schemas/Taxation'
+        totalPrice:
+          description: Price of the rate
+          type: number
+    AdditionalCharge:
       type: object
       properties:
-        feesId:
+        additionalChargeId:
           type: integer
           format: int64
-        chargeName:
+        chargeType:
           $ref: '#/components/schemas/ChargeType'
-        chargeMethod:
-          $ref: '#/components/schemas/ChargeUnit'
-        freeUpTo:
+        numberOfUnit:
           type: number
-        price:
-          type: number
-        maxPrice:
+        totalPrice:
           type: number
     TransactionRateType:
       type: string
@@ -1494,7 +1500,7 @@ components:
           pattern: '^\d{10}$'
         linkForSatelliteTracker:
           type: string
-        bordeCrossing:
+        borderCrossing:
           type: string
         papsNumber:
           type: number
@@ -1532,3 +1538,33 @@ components:
       type: string
       enum: [ AL, AK, AZ, AR, AS, CA, CO, CT, DE, DC, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, MP, OH, OK, OR, PA, PR, RI, SC, SD, TN, TX, TT, UT, VT, VA, VI, WA, WV, WI, WY, NL, PE, NS, NB, QC, ON, MB, SK, AB, BC, YT, NT, NU ]
       x-enum-varnames: [ ALABAMA, ALASKA, ARIZONA, ARKANSAS, AMERICAN_SAMOA, CALIFORNIA, COLORADO, CONNECTICUT, DELAWARE, DISTRICT_OF_COLUMBIA, FLORIDA, GEORGIA, GUAM, HAWAII, IDAHO, ILLINOIS, INDIANA, IOWA, KANSAS, KENTUCKY, LOUISIANA, MAINE, MARYLAND, MASSACHUSETTS, MICHIGAN, MINNESOTA, MISSISSIPPI, MISSOURI, MONTANA, NEBRASKA, NEVADA, NEW_HAMPSHIRE, NEW_JERSEY, NEW_MEXICO, NEW_YORK, NORTH_CAROLINA, NORTH_DAKOTA, NORTHERN_MARIANA_ISLANDS, OHIO, OKLAHOMA, OREGON, PENNSYLVANIA, PUERTO_RICO, RHODE_ISLAND, SOUTH_CAROLINA, SOUTH_DAKOTA, TENNESSEE, TEXAS, TRUST_TERRITORIES, UTAH, VERMONT, VIRGINIA, VIRGIN_ISLANDS, WASHINGTON, WEST_VIRGINIA, WISCONSIN, WYOMING, NEWFOUNDLAND_AND_LABRADOR, PRINCE_EDWARD_ISLAND, NOVA_SCOTIA, NEW_BRUNSWICK, QUEBEC, ONTARIO, MANITOBA, SASKATCHEWAN, ALBERTA, BRITISH_COLUMBIA, YUKON, NORTHWEST_TERRITORIES, NUNAVUT ]
+    Charge:
+      type: object
+      properties:
+        chargeId:
+          type: integer
+          format: int64
+        chargeType:
+          $ref: '#/components/schemas/ChargeType'
+        numberOfUnit:
+          type: number
+        totalPrice:
+          type: number
+    Taxation:
+      type: object
+      properties:
+        taxationId:
+          type: integer
+          format: int64
+        country:
+          $ref: '#/components/schemas/Country'
+        provState:
+          $ref: '#/components/schemas/ProvinceState'
+        tax1Label:
+          type: string
+        tax1:
+          type: number
+        tax2Label:
+          type: string
+        tax2:
+          type: number
