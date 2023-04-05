@@ -1384,6 +1384,8 @@ components:
         pricingId:
           type: integer
           format: int64
+        currency:
+          $ref: '#/components/schemas/Currency'
         baseCharge:
           description: price of the base charge
           type: number
@@ -1572,3 +1574,6 @@ components:
           type: number
         tax2Price:
           type: number
+    Currency:
+      type: string
+      enum: [ CAD, USD ]
