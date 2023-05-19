@@ -3271,6 +3271,9 @@ components:
         policyNumber:
           type: string
           maxLength: 20
+        lastUpdated:
+          type: string
+          format: date-time
         start:
           type: string
           format: date
@@ -3958,3 +3961,58 @@ components:
             $ref: '#/components/schemas/AccessoryCharge'
         cubingRules:
           $ref: '#/components/schemas/CubingRules'
+    Document:
+      required: [ businessId, parentId, filename, fileUrl, fileSize, documentStatus, documentType ]
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        businessId:
+          type: integer
+          format: int64
+        parentId:
+          type: integer
+          format: int64
+        fileName:
+          type: string
+          maxLength: 100
+        mediaType:
+          type: string
+          maxLength: 100
+        fileKeys:
+          type: string
+          maxLength: 100
+        temporalFileUrl:
+          type: string
+          maxLength: 100
+        filePath:
+          type: string
+          maxLength: 255
+        fileSize:
+          type: number
+        createTimestamp:
+          type: string
+          format: date
+        updateTimestamp:
+          type: string
+          format: date
+        deleteTimestamp:
+          type: string
+          format: date
+        validFrom:
+          type: string
+          format: date-time
+        validTo:
+          type: string
+          format: date-time
+        documentStatus:
+          $ref: '#/components/schemas/DocumentStatus'
+        documentType:
+          $ref: '#/components/schemas/DocumentType'
+    DocumentStatus:
+      type: string
+      enum: [ INITIATE, SEND, ARCHIVED, ACCEPTED, DELETE ]
+    DocumentType:
+      type: string
+      enum: [ VENDOR, CUSTOMER, BID_ORDER, INSURANCE ,POD, NOTE]
