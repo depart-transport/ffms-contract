@@ -1068,6 +1068,36 @@ components:
           type: boolean
         searchedLeg:
           type: boolean
+        shipmentCombinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentCombination'
+    ShipmentCombination:
+      properties:
+        shipmentCombinationId:
+          type: integer
+          format: int64
+        vendorIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        vendorShipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorShipments'
+    VendorShipments:
+      properties:
+        vendorShipmentsId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        shipmentRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
     Shipment:
       required: [ shipper, consignee, shipmentDetails, isInsured ]
       type: object
