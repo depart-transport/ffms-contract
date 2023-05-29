@@ -1451,6 +1451,8 @@ components:
           type: number
         totalPrice:
           type: number
+        description:
+          type: string
     TransactionRateType:
       type: string
       enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG, MAN_SHMT, EMPTY ]
@@ -1582,6 +1584,8 @@ components:
           type: number
         totalPrice:
           type: number
+        description:
+          type: string
     Taxation:
       type: object
       properties:

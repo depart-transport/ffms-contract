@@ -1966,6 +1966,8 @@ components:
           type: number
         totalPrice:
           type: number
+        description:
+          type: string
     BookingRequirements:
       type: object
       properties:
@@ -2096,6 +2098,8 @@ components:
           type: number
         totalPrice:
           type: number
+        description:
+          type: string
     Taxation:
       type: object
       properties:
