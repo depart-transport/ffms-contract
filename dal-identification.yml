@@ -4000,12 +4000,6 @@ components:
         deleteTimestamp:
           type: string
           format: date
-        validFrom:
-          type: string
-          format: date-time
-        validTo:
-          type: string
-          format: date-time
         documentStatus:
           $ref: '#/components/schemas/DocumentStatus'
         documentType:
@@ -4015,4 +4009,4 @@ components:
       enum: [ INITIATE, SEND, ARCHIVED, ACCEPTED, DELETE ]
     DocumentType:
       type: string
-      enum: [ VENDOR, CUSTOMER, BID_ORDER, INSURANCE ,POD, NOTE]
+      enum: [ VENDOR, CUSTOMER, BID_ORDER, INSURANCE ,POD, NOTE ]
