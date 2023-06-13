@@ -2955,7 +2955,7 @@ components:
         telephone:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          #pattern: '^\d{10}$'
         extension:
           type: string
           maxLength: 7
