@@ -1068,10 +1068,6 @@ components:
           type: boolean
         searchedLeg:
           type: boolean
-        shipmentCombinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentCombination'
     ShipmentCombination:
       properties:
         shipmentCombinationId:
@@ -1360,6 +1356,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ShipmentRate'
+        shipmentCombinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentCombination'
         rateStatus:
           $ref: '#/components/schemas/RateStatus'
     ShipmentRate:
