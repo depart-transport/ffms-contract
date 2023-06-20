@@ -2959,19 +2959,19 @@ components:
         extension:
           type: string
           maxLength: 7
-          pattern: '^\d{0,7}$'
+          #pattern: '^\d{0,7}$'
         cell:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          #pattern: '^\d{10}$'
         tollFree:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          #pattern: '^\d{10}$'
         fax:
           type: string
           maxLength: 10
-          pattern: '^\d{10}$'
+          #pattern: '^\d{10}$'
         email:
           type: string
           maxLength: 255
