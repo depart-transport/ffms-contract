@@ -1831,6 +1831,7 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         pricing:
           $ref: '#/components/schemas/Pricing'
+          description: equivalent to revenue
         pickupDate:
           type: string
           format: date
@@ -1881,6 +1882,7 @@ components:
           type: string
         pricing:
           $ref: '#/components/schemas/Pricing'
+          description: equivalent to expenses
         createdTimestamp:
           description: timestamp of the creation of the trip
           type: string
