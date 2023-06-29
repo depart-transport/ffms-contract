@@ -1082,6 +1082,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorShipments'
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
     VendorShipments:
       properties:
         vendorShipmentsId:
