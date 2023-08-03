@@ -1292,10 +1292,12 @@ components:
         - tracking
         - delivery
         - pickup
-        - bidding
+        - spotquote
         - confirmation
-        - acceptation
+        - booking
+        - availability
         - history
+        - pending
     SaleList:
       type: object
       properties:
@@ -1317,7 +1319,7 @@ components:
           items:
             $ref: '#/components/schemas/TripRate'
     Sale:
-      required: [ saleType, customerId, shipper, consignee, shipmentDetails, isInsured ]
+      required: [ saleType, customerId ]
       type: object
       properties:
         saleId:
@@ -1333,6 +1335,29 @@ components:
           description: the number that is display on the ticket to identify the sales
           type: integer
           format: int64
+        shipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Shipment'
+        saleRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleRate'
+        searchedBid:
+          type: boolean
+        searchedLeg:
+          type: boolean
+    Shipment:
+      required: [ shipper, consignee, shipmentDetails, isInsured ]
+      type: object
+      properties:
+        shipmentId:
+          type: integer
+          format: int64
+        salesNumber:
+          description: the number that is display on the ticket to identify the shipment
+          type: integer
+          format: int64
         shipper:
           $ref: '#/components/schemas/SaleAddress'
         consignee:
@@ -1345,14 +1370,6 @@ components:
           $ref: '#/components/schemas/Insurance'
         customBroker:
           $ref: '#/components/schemas/CustomBroker'
-        shipmentRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/ShipmentRate'
-        searchedBid:
-          type: boolean
-        searchedLeg:
-          type: boolean
     Coordinate:
       required: [ coordinateName, longitude, latitude, radius, directions ]
       type: object
@@ -1410,7 +1427,7 @@ components:
           type: string
         closeTime:
           type: string
-        additionnalServices:
+        additionalServices:
           type: array
           items:
             $ref: '#/components/schemas/ChargeType'
@@ -1568,6 +1585,15 @@ components:
         - ISW
         - BISP
         - STRG
+    ChargeUnit:
+      type: string
+      enum:
+        - CWT
+        - PU
+        - TIME
+        - FIX
+        - PFR
+        - SQ
     Address:
       required: [ add, city, postalZipCode, provinceState, country ]
       type: object
@@ -1733,10 +1759,64 @@ components:
           type: string
         insuranceType:
           type: string
+    SaleRate:
+      type: object
+      properties:
+        saleRateId:
+          type: integer
+          format: int64
+        salesNumber:
+          type: integer
+          format: int64
+        pricing:
+          $ref: '#/components/schemas/Pricing'
+        transactionRateType:
+          $ref: '#/components/schemas/TransactionRateType'
+        shipmentRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
+        shipmentCombinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentCombination'
+    ShipmentCombination:
+      properties:
+        shipmentCombinationId:
+          type: integer
+          format: int64
+        vendorIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        vendorShipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorShipments'
+        rateStatus:
+          $ref: '#/components/schemas/RateStatus'
+    VendorShipments:
+      properties:
+        vendorShipmentsId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        shipmentRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShipmentRate'
     ShipmentRate:
       type: object
       properties:
         shipmentRateId:
+          type: integer
+          format: int64
+        shipmentId:
           type: integer
           format: int64
         salesNumber:
@@ -1751,18 +1831,9 @@ components:
           $ref: '#/components/schemas/SaleAddress'
         consignee:
           $ref: '#/components/schemas/SaleAddress'
-        price:
-          description: Price of the rate - all vendor price combine
-          type: number
-        baseCharge:
-          description: price of the base charge - all vendor base charge combine
-          type: number
-        fuelCharges:
-          description: charges of fuel
-          type: number
-        surcharges:
-          description: price of the surcharge - all vendor surcharge combine
-          type: number
+        pricing:
+          $ref: '#/components/schemas/Pricing'
+          description: equivalent to revenue
         pickupDate:
           type: string
           format: date
@@ -1784,11 +1855,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripRate'
-        shipmentRateType:
-          $ref: '#/components/schemas/ShipmentRateType'
-    ShipmentRateType:
+    TransactionRateType:
       type: string
-      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG ]
+      enum: [ CUST_RS, VEND_RS, VEND_BID, VEND_LEG, MAN_SHMT, EMPTY ]
     TripRate:
       type: object
       properties:
@@ -1813,18 +1882,9 @@ components:
           type: string
         bidOrderCenterName:
           type: string
-        baseCharge:
-          description: price of the base charge for a specific vendor/trip
-          type: number
-        fuelCharges:
-          description: charges of fuel
-          type: number
-        surcharges:
-          description: price of the surcharge for a specific vendor/trip
-          type: number
-        price:
-          description: total price for a specific vendor/trip
-          type: number
+        pricing:
+          $ref: '#/components/schemas/Pricing'
+          description: equivalent to expenses
         createdTimestamp:
           description: timestamp of the creation of the trip
           type: string
@@ -1848,6 +1908,8 @@ components:
         expirationDate:
           type: string
           format: date-time
+        transactionRateType:
+          $ref: '#/components/schemas/TransactionRateType'
         transporterType:
           $ref: '#/components/schemas/TransporterType'
         rateStatus:
@@ -1865,6 +1927,51 @@ components:
         podFile:
           type: string
           format: byte
+    Pricing:
+      type: object
+      properties:
+        pricingId:
+          type: integer
+          format: int64
+        currency:
+          $ref: '#/components/schemas/Currency'
+        baseCharge:
+          description: price of the base charge
+          type: number
+        surcharges:
+          description: List of surchages
+          type: array
+          items:
+            $ref: '#/components/schemas/Charge'
+        fuelCharge:
+          description: charges of fuel
+          type: number
+        additionalFees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdditionalCharge'
+        subPrice:
+          description: All charges and fees added up
+          type: number
+        taxation:
+          $ref: '#/components/schemas/Taxation'
+        totalPrice:
+          description: Price of the rate
+          type: number
+    AdditionalCharge:
+      type: object
+      properties:
+        additionalChargeId:
+          type: integer
+          format: int64
+        chargeType:
+          $ref: '#/components/schemas/ChargeType'
+        numberOfUnit:
+          type: number
+        totalPrice:
+          type: number
+        description:
+          type: string
     BookingRequirements:
       type: object
       properties:
@@ -1880,7 +1987,7 @@ components:
           pattern: '^\d{10}$'
         linkForSatelliteTracker:
           type: string
-        bordeCrossing:
+        borderCrossing:
           type: string
         papsNumber:
           type: number
@@ -1975,3 +2082,50 @@ components:
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]
+    Country:
+      type: string
+      enum: [ CAN, USA ]
+      x-enum-varnames: [ CANADA, UNITED_STATES_AMERICA ]
+    ProvinceState:
+      type: string
+      enum: [ AL, AK, AZ, AR, AS, CA, CO, CT, DE, DC, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, MP, OH, OK, OR, PA, PR, RI, SC, SD, TN, TX, TT, UT, VT, VA, VI, WA, WV, WI, WY, NL, PE, NS, NB, QC, 'ON', MB, SK, AB, BC, YT, NT, NU ]
+      x-enum-varnames: [ ALABAMA, ALASKA, ARIZONA, ARKANSAS, AMERICAN_SAMOA, CALIFORNIA, COLORADO, CONNECTICUT, DELAWARE, DISTRICT_OF_COLUMBIA, FLORIDA, GEORGIA, GUAM, HAWAII, IDAHO, ILLINOIS, INDIANA, IOWA, KANSAS, KENTUCKY, LOUISIANA, MAINE, MARYLAND, MASSACHUSETTS, MICHIGAN, MINNESOTA, MISSISSIPPI, MISSOURI, MONTANA, NEBRASKA, NEVADA, NEW_HAMPSHIRE, NEW_JERSEY, NEW_MEXICO, NEW_YORK, NORTH_CAROLINA, NORTH_DAKOTA, NORTHERN_MARIANA_ISLANDS, OHIO, OKLAHOMA, OREGON, PENNSYLVANIA, PUERTO_RICO, RHODE_ISLAND, SOUTH_CAROLINA, SOUTH_DAKOTA, TENNESSEE, TEXAS, TRUST_TERRITORIES, UTAH, VERMONT, VIRGINIA, VIRGIN_ISLANDS, WASHINGTON, WEST_VIRGINIA, WISCONSIN, WYOMING, NEWFOUNDLAND_AND_LABRADOR, PRINCE_EDWARD_ISLAND, NOVA_SCOTIA, NEW_BRUNSWICK, QUEBEC, ONTARIO, MANITOBA, SASKATCHEWAN, ALBERTA, BRITISH_COLUMBIA, YUKON, NORTHWEST_TERRITORIES, NUNAVUT ]
+    Charge:
+      type: object
+      properties:
+        chargeId:
+          type: integer
+          format: int64
+        chargeType:
+          $ref: '#/components/schemas/ChargeType'
+        numberOfUnit:
+          type: number
+        totalPrice:
+          type: number
+        description:
+          type: string
+    Taxation:
+      type: object
+      properties:
+        taxationId:
+          type: integer
+          format: int64
+        country:
+          $ref: '#/components/schemas/Country'
+        provState:
+          $ref: '#/components/schemas/ProvinceState'
+        tax1Label:
+          type: string
+        tax1Pct:
+          type: number
+        tax1Price:
+          type: number
+        tax2Label:
+          type: string
+        tax2Pct:
+          type: number
+        tax2Price:
+          type: number
+    Currency:
+      type: string
+      enum: [ CAD, USD ]

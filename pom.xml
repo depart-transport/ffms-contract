@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -94,8 +95,10 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.customerbff.api</apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.customerbff</modelPackage>
+                                <apiPackage>com.depart.transport.autodepart.customerbff.api
+                                </apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.customerbff
+                                </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
                                 <dateLibrary>java8</dateLibrary>
@@ -120,9 +123,11 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.identitydalapi.identification.api
+                                <apiPackage>
+                                    com.depart.transport.autodepart.identitydalapi.identification.api
                                 </apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.identitydalapi.identification
+                                <modelPackage>
+                                    com.depart.transport.autodepart.identitydalapi.identification
                                 </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
@@ -148,9 +153,11 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.transactiondalapi.transaction.api
+                                <apiPackage>
+                                    com.depart.transport.autodepart.transactiondalapi.transaction.api
                                 </apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.transactiondalapi.transaction
+                                <modelPackage>
+                                    com.depart.transport.autodepart.transactiondalapi.transaction
                                 </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
@@ -176,8 +183,10 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.quoteorderbff.api</apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.quoteorderbff.dtos</modelPackage>
+                                <apiPackage>com.depart.transport.autodepart.quoteorderbff.api
+                                </apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.quoteorderbff.dtos
+                                </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
                                 <dateLibrary>java8</dateLibrary>
@@ -199,8 +208,10 @@
                                 <sourceFolder>src/main/java</sourceFolder>
                                 <library>spring-boot</library>
                                 <delegatePattern>true</delegatePattern>
-                                <apiPackage>com.depart.transport.autodepart.emailservice.api</apiPackage>
-                                <modelPackage>com.depart.transport.autodepart.emailservice.dtos</modelPackage>
+                                <apiPackage>com.depart.transport.autodepart.emailservice.api
+                                </apiPackage>
+                                <modelPackage>com.depart.transport.autodepart.emailservice.dtos
+                                </modelPackage>
                                 <reactive>false</reactive>
                                 <useTags>true</useTags>
                                 <dateLibrary>java8</dateLibrary>
@@ -222,7 +233,8 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>${project.build.directory}/generated-sources/annotations</source>
+                                <source>${project.build.directory}/generated-sources/annotations
+                                </source>
                             </sources>
                         </configuration>
                     </execution>
