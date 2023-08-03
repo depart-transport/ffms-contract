@@ -3271,6 +3271,9 @@ components:
         policyNumber:
           type: string
           maxLength: 20
+        lastUpdated:
+          type: string
+          format: date-time
         start:
           type: string
           format: date
