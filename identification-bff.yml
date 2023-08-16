@@ -1389,7 +1389,7 @@ components:
         - IN_TRANSIT
         - CUSTOMS_RELEASED
         - OUT_FOR_DELIVERY
-        - DELIVRED
+        - DELIVERED
         - RECEIVE_INVOICE
         - RECEIVE_STATEMENT
         - SHIPMENT_TRACKING
@@ -1399,7 +1399,6 @@ components:
         - POD_REQUEST
         - INVOICE
         - STATEMENT
-        - OSD
         - CLAIMS
     CreditApplication:
       required: [ enterprise, enterpriseType ]
@@ -1615,17 +1614,16 @@ components:
     BusinessType:
       type: string
       enum:
-        - C_SHC
-        - C_WLS
-        - C_RTL
-        - C_TRS
-        - C_OTH
-        - V_CAR
-        - V_MCO
-        - V_LPR
-        - V_WHS
-        - V_FFD
-        - V_INM
+        - C_BUS
+        - C_TC
+        - C_FF
+        - V_DIR_P
+        - V_DIR_E
+        - V_COM_P
+        - V_COM_E
+        - V_COM_I
+        - V_DIR_LM
+        - V_FF
     InsuranceDetails:
       required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
@@ -2453,4 +2451,3 @@ components:
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]
-

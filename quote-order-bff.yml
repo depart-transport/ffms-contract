@@ -1474,7 +1474,7 @@ components:
         - IN_TRANSIT
         - CUSTOMS_RELEASED
         - OUT_FOR_DELIVERY
-        - DELIVRED
+        - DELIVERED
         - RECEIVE_INVOICE
         - RECEIVE_STATEMENT
         - SHIPMENT_TRACKING
@@ -1484,7 +1484,6 @@ components:
         - POD_REQUEST
         - INVOICE
         - STATEMENT
-        - OSD
         - CLAIMS
     Role:
       type: string
