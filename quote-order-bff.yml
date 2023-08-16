@@ -1465,7 +1465,7 @@ components:
             $ref: '#/components/schemas/Role'
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, DISP, TERM ]
+      enum: [ OWNR, COOW, VP, CNTRLR, SALESREP, PSQUOTE, CUSTSRVC, PODRQ, OPSMNGR, SPVSR, MNGR, OSDCLM, ACCPYBL, TRFC, LOGT, BLNG, SHPRECEV, WHMNGR, WH, OPER, SAFE, DISP, TERM ]
     Notification:
       type: string
       enum:
