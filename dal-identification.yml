@@ -3139,6 +3139,8 @@ components:
           maxLength: 255
         partnerNumYr:
           type: number
+        businessType:
+          $ref: '#/components/schemas/BusinessType'
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
@@ -3607,7 +3609,10 @@ components:
       enum:
         - COR
         - ASS
-        - OTH
+        - SPR
+        - PAR
+        - LLC
+        - COO
     DeliveryService:
       type: object
       properties:

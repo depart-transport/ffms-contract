@@ -2024,7 +2024,10 @@ components:
       enum:
         - COR
         - ASS
-        - OTH
+        - SPR
+        - PAR
+        - LLC
+        - COO
     DeliveryService:
       type: object
       properties:
