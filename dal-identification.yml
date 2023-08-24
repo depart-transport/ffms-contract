@@ -2645,6 +2645,36 @@ components:
           type: number
         maxPrice:
           type: number
+        minPrice:
+          type: number
+        percentage:
+          type: number
+        description:
+          type: string
+        status:
+          type: boolean
+        originCode:
+          type: string
+        destinationCode:
+          type: string
+        validFrom:
+          type: string
+          format: date-time
+        validTo:
+          type: string
+          format: date-time
+        createDate:
+          type: string
+          format: date-time
+        createUser:
+          type: string
+        lastUpdate:
+          type: string
+          format: date-time
+        lastUserUpdate:
+          type: string
+        version:
+          type: integer
     BlockType:
       type: string
       enum:
@@ -2653,6 +2683,7 @@ components:
     ChargeUnit:
       type: string
       enum:
+        - OTHER
         - CWT
         - PU
         - TIME
@@ -2662,6 +2693,7 @@ components:
     ChargeType:
       type: string
       enum:
+        - OTHER
         - APP
         - LFT
         - INSD
@@ -2824,6 +2856,36 @@ components:
           $ref: '#/components/schemas/Enterprise'
         billing:
           $ref: '#/components/schemas/Billing'
+    User:
+      required: [ extId, ownerId,email ]
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        subId:
+          type: string
+          maxLength: 100
+        ownerId:
+          type: integer
+          format: int64
+        email:
+          type: string
+        roles:
+          type: string
+        createDate:
+          type: string
+          format: date-time
+        userType:
+          $ref: '#/components/schemas/UserTypeEnum'
+    UserTypeEnum:
+      type: string
+      enum:
+        - VENDOR
+        - CUSTOMER
+        - INTERNAL
+        - ADMIN
+        - ACCOUNTING
     Business:
       required: [ enterprise, isSameBilling ]
       type: object
@@ -3750,6 +3812,8 @@ components:
         vendorId:
           type: integer
           format: int64
+        vendorCode:
+          type: string
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
         wholesalerId:
@@ -3816,10 +3880,22 @@ components:
         vendorBranchId:
           type: integer
           format: int64
+        branchCode:
+          type: string
         branchName:
           type: string
         enterprise:
           $ref: '#/components/schemas/Enterprise'
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
         bidOrders:
           type: array
           items:
