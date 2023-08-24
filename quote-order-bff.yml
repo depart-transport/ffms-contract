@@ -1557,6 +1557,7 @@ components:
     ChargeType:
       type: string
       enum:
+        - OTHER
         - APP
         - LFT
         - INSD
@@ -1588,6 +1589,7 @@ components:
     ChargeUnit:
       type: string
       enum:
+        - OTHER
         - CWT
         - PU
         - TIME
