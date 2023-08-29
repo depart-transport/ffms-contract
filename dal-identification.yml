@@ -3732,28 +3732,28 @@ components:
         equipmentId:
           type: integer
           format: int64
+        quantity:
+          type: integer
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        isDcab:
+        flatbedType:
+          $ref: '#/components/schemas/FlatbedType'
+        isDayCab:
+          type: boolean
+        isSleeper:
           type: boolean
         length:
           type: number
         width:
           type: number
-        clearance:
+        height:
           type: number
         cargoMassCapacity:
           type: number
-        isLogistic:
-          type: boolean
         isDockLevel:
           type: boolean
-        doorType:
-          $ref: '#/components/schemas/DoorType'
-        liftgateType:
-          $ref: '#/components/schemas/Liftgate'
-        isReefer:
-          type: boolean
+        liftgateLoad:
+          type: integer
         hazmatService:
           type: array
           items:
@@ -3763,7 +3763,11 @@ components:
       enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     EquipmentType:
       type: string
-      enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+      enum: [ DRY_VAN,
+              DRY_STRAIGHT_TRUCK,
+              REEFER,
+              REEFER_STRAIGHT_TRUCK,
+              FLATBED_TRAILER ]
     HazMat:
       type: object
       properties:
@@ -3804,7 +3808,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ LTL, FTL ]
+      enum: [ LTL_PAL, FTL_PAL, LTL_FL, FTL_FL, HS ]
     Vendor:
       required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
       type: object
@@ -4038,3 +4042,6 @@ components:
             $ref: '#/components/schemas/AccessoryCharge'
         cubingRules:
           $ref: '#/components/schemas/CubingRules'
+    FlatbedType:
+      type: string
+      enum: [ FLATBED, STEP_DECK, ROLL_TITE, RACK_TARP, CONESTOGA, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]
