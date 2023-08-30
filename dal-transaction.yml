@@ -1567,7 +1567,11 @@ components:
         - MBB_CXL # Must book by canceled
     EquipmentType:
       type: string
-      enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+      enum: [ DRY_VAN,
+              DRY_STRAIGHT_TRUCK,
+              REEFER,
+              REEFER_STRAIGHT_TRUCK,
+              FLATBED_TRAILER ]
     Country:
       type: string
       enum: [ CAN, USA ]
