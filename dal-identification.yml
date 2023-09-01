@@ -3767,7 +3767,8 @@ components:
               DRY_STRAIGHT_TRUCK,
               REEFER,
               REEFER_STRAIGHT_TRUCK,
-              FLATBED_TRAILER ]
+              FLATBED_TRAILER,
+              CHASSIS ]
     HazMat:
       type: object
       properties:
@@ -4044,4 +4045,4 @@ components:
           $ref: '#/components/schemas/CubingRules'
     FlatbedType:
       type: string
-      enum: [ FLATBED, STEP_DECK, ROLL_TITE, RACK_TARP, CONESTOGA, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]
+      enum: [ FLATBED, STEP_DECK, ROLL_TITE_CONESTOGA, RACK_TARP, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]

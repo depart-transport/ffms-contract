@@ -2083,7 +2083,8 @@ components:
               DRY_STRAIGHT_TRUCK,
               REEFER,
               REEFER_STRAIGHT_TRUCK,
-              FLATBED_TRAILER ]
+              FLATBED_TRAILER,
+              CHASSIS ]
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]

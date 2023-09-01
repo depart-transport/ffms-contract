@@ -1571,7 +1571,8 @@ components:
               DRY_STRAIGHT_TRUCK,
               REEFER,
               REEFER_STRAIGHT_TRUCK,
-              FLATBED_TRAILER ]
+              FLATBED_TRAILER,
+              CHASSIS ]
     Country:
       type: string
       enum: [ CAN, USA ]
