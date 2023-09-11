@@ -2324,10 +2324,57 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BidOrderCenter'
-        insuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
+        insurance:
+          $ref: '#/components/schemas/Insurance'
         receivable:
           $ref: '#/components/schemas/Receivable'
+    Insurance:
+      type: object
+      properties:
+        insuranceId:
+          type: integer
+          format: int64
+        liability:
+          $ref: '#/components/schemas/InsuranceInfo'
+        cargo:
+          $ref: '#/components/schemas/InsuranceInfo'
+        insuranceBroker:
+          $ref: '#/components/schemas/InsuranceBroker'
+        file:
+          type: string
+          format: byte
+    InsuranceInfo:
+      type: object
+      properties:
+        insuranceInfoId:
+          type: integer
+          format: int64
+        companyName:
+          type: string
+        start:
+          type: string
+          format: date
+        expiry:
+          type: string
+          format: date
+        policyNumber:
+          type: string
+        coverage:
+          type: string
+        currency:
+          $ref: '#/components/schemas/Currency'
+    InsuranceBroker:
+      type: object
+      properties:
+        insuranceBrokerId:
+          type: integer
+          format: int64
+        contactFirstName:
+          type: string
+        contactLastName:
+          type: string
+        contactComm:
+          $ref: '#/components/schemas/Communication'
     BidOrderCenter:
       type: object
       properties:

@@ -352,5 +352,11 @@ components:
         id:
           type: integer
           format: int64
-
-
+    DocumentForm:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        file:
+          type: string
+          format: byte
