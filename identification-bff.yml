@@ -1620,7 +1620,7 @@ components:
         - ONBOARDING
         - PENDING
     Enterprise:
-      required: [ legalName, commInfo, address, businessType ]
+      required: [ legalName, commInfo, address ]
       type: object
       properties:
         enterpriseId:
