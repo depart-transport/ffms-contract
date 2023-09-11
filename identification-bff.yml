@@ -1632,6 +1632,9 @@ components:
         commonName:
           type: string
           maxLength: 50
+        businessPhone:
+          type: string
+          maxLength: 50
         remitName:
           type: string
           maxLength: 50
