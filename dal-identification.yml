@@ -3811,7 +3811,7 @@ components:
       type: string
       enum: [ LTL_PAL, FTL_PAL, LTL_FL, FTL_FL, HS ]
     Vendor:
-      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
+      required: [ vendorStatus, headOffice, contacts ]
       type: object
       properties:
         vendorId:

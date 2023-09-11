@@ -2211,7 +2211,7 @@ components:
         vendor:
           $ref: '#/components/schemas/Vendor'
     Vendor:
-      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
+      required: [ vendorStatus, headOffice, contacts ]
       type: object
       properties:
         vendorId:
