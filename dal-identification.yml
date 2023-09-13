@@ -2882,8 +2882,11 @@ components:
       type: string
       enum:
         - VENDOR
+        - VEND
         - CUSTOMER
+        - CUST
         - INTERNAL
+        - INTR
         - ADMIN
         - ACCOUNTING
     Business:
