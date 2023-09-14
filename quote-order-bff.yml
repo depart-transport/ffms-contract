@@ -1465,7 +1465,7 @@ components:
             $ref: '#/components/schemas/Role'
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, DISP, TERM ]
+      enum: [ OWNR, COOW, VP, CNTRLR, SALESREP, PSQUOTE, CUSTSRVC, PODRQ, OPSMNGR, SPVSR, MNGR, OSDCLM, ACCPYBL, TRFC, LOGT, BLNG, SHPRECEV, WHMNGR, WH, OPER, SAFE, DISP, TERM ]
     Notification:
       type: string
       enum:
@@ -1474,7 +1474,7 @@ components:
         - IN_TRANSIT
         - CUSTOMS_RELEASED
         - OUT_FOR_DELIVERY
-        - DELIVRED
+        - DELIVERED
         - RECEIVE_INVOICE
         - RECEIVE_STATEMENT
         - SHIPMENT_TRACKING
@@ -1484,7 +1484,6 @@ components:
         - POD_REQUEST
         - INVOICE
         - STATEMENT
-        - OSD
         - CLAIMS
     Role:
       type: string
@@ -1557,6 +1556,7 @@ components:
     ChargeType:
       type: string
       enum:
+        - OTHER
         - APP
         - LFT
         - INSD
@@ -1588,6 +1588,7 @@ components:
     ChargeUnit:
       type: string
       enum:
+        - OTHER
         - CWT
         - PU
         - TIME
@@ -2078,7 +2079,12 @@ components:
           $ref: '#/components/schemas/Contact'
     EquipmentType:
       type: string
-      enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+      enum: [ DRY_VAN,
+              DRY_STRAIGHT_TRUCK,
+              REEFER,
+              REEFER_STRAIGHT_TRUCK,
+              FLATBED_TRAILER,
+              CHASSIS ]
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]

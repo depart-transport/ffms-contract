@@ -244,10 +244,10 @@ components:
           format: int64
     EmailType:
       type: string
-      enum: [ AVAILABILITY, BOOKING, CONFIRMATION, RATE, EXPIRATION, SPOT_QUOTE ]
+      enum: [ AVAILABILITY, BOOKING, CONFIRMATION, RATE, EXPIRATION, SPOT_QUOTE, ONBOARDING ]
     EmailObjectType:
       type: string
-      enum: [ TRIP_RATE, SHIPMENT_RATE, RATE, INSURANCE_DETAILS, ]
+      enum: [ TRIP_RATE, SHIPMENT_RATE, RATE, INSURANCE_DETAILS, NEW_CUSTOMER, NEW_VENDOR ]
     DocumentBase:
       required: [ businessId, parentId, filename, fileUrl, fileSize, documentStatus, documentType,subject,description ]
       type: object
@@ -352,5 +352,11 @@ components:
         id:
           type: integer
           format: int64
-
-
+    DocumentForm:
+      type: object
+      properties:
+        document:
+          $ref: '#/components/schemas/Document'
+        file:
+          type: string
+          format: byte

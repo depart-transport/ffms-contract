@@ -1002,9 +1002,40 @@ components:
           type: number
         maxPrice:
           type: number
+        minPrice:
+          type: number
+        percentage:
+          type: number
+        description:
+          type: string
+        status:
+          type: boolean
+        originCode:
+          type: string
+        destinationCode:
+          type: string
+        validFrom:
+          type: string
+          format: date-time
+        validTo:
+          type: string
+          format: date-time
+        createDate:
+          type: string
+          format: date-time
+        createUser:
+          type: string
+        lastUpdate:
+          type: string
+          format: date-time
+        lastUserUpdate:
+          type: string
+        version:
+          type: integer
     ChargeUnit:
       type: string
       enum:
+        - OTHER
         - CWT
         - PU
         - TIME
@@ -1014,6 +1045,7 @@ components:
     ChargeType:
       type: string
       enum:
+        - OTHER
         - APP
         - LFT
         - INSD
@@ -1380,7 +1412,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, ACNT, SECR, SAFE, SECU, OPER, DISP, TERM ]
+      enum: [ OWNR, COOW, VP, CNTRLR, SALESREP, PSQUOTE, CUSTSRVC, PODRQ, OPSMNGR, SPVSR, MNGR, OSDCLM, ACCPYBL, TRFC, LOGT, BLNG, SHPRECEV, WHMNGR, WH, SAFE, OPER, DISP, TERM ]
     Notification:
       type: string
       enum:
@@ -1389,7 +1421,7 @@ components:
         - IN_TRANSIT
         - CUSTOMS_RELEASED
         - OUT_FOR_DELIVERY
-        - DELIVRED
+        - DELIVERED
         - RECEIVE_INVOICE
         - RECEIVE_STATEMENT
         - SHIPMENT_TRACKING
@@ -1399,7 +1431,6 @@ components:
         - POD_REQUEST
         - INVOICE
         - STATEMENT
-        - OSD
         - CLAIMS
     CreditApplication:
       required: [ enterprise, enterpriseType ]
@@ -1589,7 +1620,7 @@ components:
         - ONBOARDING
         - PENDING
     Enterprise:
-      required: [ legalName, commInfo, address, businessType ]
+      required: [ legalName, commInfo, address ]
       type: object
       properties:
         enterpriseId:
@@ -1599,6 +1630,9 @@ components:
           type: string
           maxLength: 50
         commonName:
+          type: string
+          maxLength: 50
+        businessPhone:
           type: string
           maxLength: 50
         remitName:
@@ -1615,17 +1649,16 @@ components:
     BusinessType:
       type: string
       enum:
-        - C_SHC
-        - C_WLS
-        - C_RTL
-        - C_TRS
-        - C_OTH
-        - V_CAR
-        - V_MCO
-        - V_LPR
-        - V_WHS
-        - V_FFD
-        - V_INM
+        - C_BUS
+        - C_TC
+        - C_FF
+        - V_DIR_P
+        - V_DIR_E
+        - V_COM_P
+        - V_COM_E
+        - V_COM_I
+        - V_DIR_LM
+        - V_FF
     InsuranceDetails:
       required: [ currency, liabilityCoverage, cargoCoverage, provider, policyNumber, start, expiry, contact ]
       type: object
@@ -2026,7 +2059,10 @@ components:
       enum:
         - COR
         - ASS
-        - OTH
+        - SPR
+        - PAR
+        - LLC
+        - COO
     DeliveryService:
       type: object
       properties:
@@ -2077,34 +2113,33 @@ components:
       type: string
       enum: [ B, R ]
     Equipment:
-      required: [ isDcab, isLogistic, isDockLevel, isReefer ]
       type: object
       properties:
         equipmentId:
           type: integer
           format: int64
+        quantity:
+          type: integer
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
-        isDcab:
+        flatbedType:
+          $ref: '#/components/schemas/FlatbedType'
+        isDayCab:
+          type: boolean
+        isSleeper:
           type: boolean
         length:
           type: number
         width:
           type: number
-        clearance:
+        height:
           type: number
         cargoMassCapacity:
           type: number
-        isLogistic:
-          type: boolean
         isDockLevel:
           type: boolean
-        doorType:
-          $ref: '#/components/schemas/DoorType'
-        liftgateType:
-          $ref: '#/components/schemas/Liftgate'
-        isReefer:
-          type: boolean
+        liftgateLoad:
+          type: integer
         hazmatService:
           type: array
           items:
@@ -2114,7 +2149,12 @@ components:
       enum: [ FT53, FT48, FT40, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
     EquipmentType:
       type: string
-      enum: [ CVAN_CARG, CVAN_LRG, CVAN_NOREEF, FBED_53, FBED_48, FBED_SD, FBED_DD, FBED_ROLLTT, FBED_RT, FBED_FLOATS, FBED_LB, FBED_RGN, FBED_CHAS, FBED_CSTG ]
+      enum: [ DRY_VAN,
+              DRY_STRAIGHT_TRUCK,
+              REEFER,
+              REEFER_STRAIGHT_TRUCK,
+              FLATBED_TRAILER,
+              CHASSIS ]
     HazMat:
       type: object
       properties:
@@ -2155,7 +2195,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ LTL, FTL ]
+      enum: [ LTL_PAL, FTL_PAL, LTL_FL, FTL_FL, HS ]
     VendorList:
       required: [ count, vendors ]
       properties:
@@ -2174,12 +2214,14 @@ components:
         vendor:
           $ref: '#/components/schemas/Vendor'
     Vendor:
-      required: [ vendorStatus, headOffice, contacts, flag1099Required, contractOnFile, isSameReceivable, isSameInsurance ]
+      required: [ vendorStatus, headOffice, contacts ]
       type: object
       properties:
         vendorId:
           type: integer
           format: int64
+        vendorCode:
+          type: string
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
         wholesalerName:
@@ -2268,14 +2310,71 @@ components:
           type: string
         enterprise:
           $ref: '#/components/schemas/Enterprise'
+        cubingRules:
+          $ref: '#/components/schemas/CubingRules'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
         bidOrders:
           type: array
           items:
             $ref: '#/components/schemas/BidOrderCenter'
-        insuranceDetails:
-          $ref: '#/components/schemas/InsuranceDetails'
+        insurance:
+          $ref: '#/components/schemas/Insurance'
         receivable:
           $ref: '#/components/schemas/Receivable'
+    Insurance:
+      type: object
+      properties:
+        insuranceId:
+          type: integer
+          format: int64
+        liability:
+          $ref: '#/components/schemas/InsuranceInfo'
+        cargo:
+          $ref: '#/components/schemas/InsuranceInfo'
+        insuranceBroker:
+          $ref: '#/components/schemas/InsuranceBroker'
+        file:
+          type: string
+          format: byte
+    InsuranceInfo:
+      type: object
+      properties:
+        insuranceInfoId:
+          type: integer
+          format: int64
+        companyName:
+          type: string
+        start:
+          type: string
+          format: date
+        expiry:
+          type: string
+          format: date
+        policyNumber:
+          type: string
+        coverage:
+          type: string
+        currency:
+          $ref: '#/components/schemas/Currency'
+    InsuranceBroker:
+      type: object
+      properties:
+        insuranceBrokerId:
+          type: integer
+          format: int64
+        contactFirstName:
+          type: string
+        contactLastName:
+          type: string
+        contactComm:
+          $ref: '#/components/schemas/Communication'
     BidOrderCenter:
       type: object
       properties:
@@ -2453,4 +2552,63 @@ components:
     TransporterType:
       type: string
       enum: [ STD, DIR, EXP ]
+    DocumentStatus:
+      type: string
+      enum: [ INITIATE, SEND, ARCHIVED, ACCEPTED, DELETE ]
+    DocumentType:
+      type: string
+      enum: [ VENDOR, CUSTOMER, BID_ORDER, INSURANCE ,POD, NOTE ]
+    Document:
+      required: [ businessId, parentId, filename, fileUrl, fileSize, documentStatus, documentType,subject,description ]
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        businessId:
+          type: integer
+          format: int64
+        parentId:
+          type: integer
+          format: int64
+        fileName:
+          type: string
+          maxLength: 100
+        subject:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+          maxLength: 1000
+        mediaType:
+          type: string
+          maxLength: 100
+        fileKeys:
+          type: string
+          maxLength: 100
+        temporalFileUrl:
+          type: string
+          maxLength: 100
+        filePath:
+          type: string
+          maxLength: 255
+        fileSize:
+          type: integer
+          format: int64
+        createTimestamp:
+          type: string
+          format: date
+        updateTimestamp:
+          type: string
+          format: date
+        deleteTimestamp:
+          type: string
+          format: date
+        documentStatus:
+          $ref: '#/components/schemas/DocumentStatus'
+        documentType:
+          $ref: '#/components/schemas/DocumentType'
+    FlatbedType:
+      type: string
+      enum: [ FLATBED, STEP_DECK, ROLL_TITE_CONESTOGA, RACK_TARP, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]
 
