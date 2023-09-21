@@ -3748,6 +3748,8 @@ components:
           type: boolean
         isSleeper:
           type: boolean
+        isLiftgateLoad:
+          type: boolean
         length:
           type: number
         width:
@@ -3774,7 +3776,8 @@ components:
               REEFER,
               REEFER_STRAIGHT_TRUCK,
               FLATBED_TRAILER,
-              CHASSIS ]
+              CHASSIS,
+              SPRINTER ]
     HazMat:
       type: object
       properties:
@@ -4051,7 +4054,31 @@ components:
           $ref: '#/components/schemas/CubingRules'
     FlatbedType:
       type: string
-      enum: [ FLATBED, STEP_DECK, ROLL_TITE_CONESTOGA, RACK_TARP, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]
+      enum: [
+        _53_FT_SLEEPER,
+        _53_FT_DAYCAD,
+        _48_FT_SLEEPER,
+        _48_FT_DAYCAD,
+        _40_FT_SLEEPER,
+        _40_FT_DAYCAD,
+        _30_FT,
+        _28_FT,
+        _26_FT,
+        _24_FT,
+        _22_FT,
+        _20_FT,
+        _53_FT,
+        _40_FT,
+        _53_FT_FLATBED,
+        _48_FT_FLATBED,
+        _53_FT_STEP_DECK,
+        _48_FT_STEP_DECK,
+        _53_FT_RACK_TARQ,
+        _53_FT_CONESTOGA_ROLL_TITE,
+        _53_FT_DOUBLE_DROP,
+        _53_FT_LOWBOY,
+        _53_FT_RGN,
+        _53_FT_FLOAT ]
     Insurance:
       type: object
       properties:
