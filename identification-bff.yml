@@ -2285,6 +2285,14 @@ components:
         hazmatNumber:
           type: string
           pattern: '^\d{1,8}$'
+        hazmatExpiry:
+          type: string
+          format: date
+        hazmatTypeEnum:
+          $ref: '#/components/schemas/HazmatType'
+        hazmatFile:
+          type: string
+          format: byte
         reviewRating:
           type: number
         wcbNumber:
@@ -2638,3 +2646,6 @@ components:
         _53_FT_LOWBOY,
         _53_FT_RGN,
         _53_FT_FLOAT ]
+    HazmatType:
+      type: string
+      enum: [ CLASS_1_EXP, CLASS_2_GAS, CLASS_3_FCL, CLASS_4_FS_SC_DWW, CLASS_5_OOP, CLASS_6_PPIH, CLASS_7_RAD, CLASS_8_COR, CLASS_9_MIS ]
