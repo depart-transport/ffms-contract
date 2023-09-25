@@ -2759,6 +2759,8 @@ components:
         account:
           type: string
           maxLength: 17
+        swiftCode:
+          type: string
         address:
           $ref: '#/components/schemas/Address'
         comm:
@@ -3892,6 +3894,8 @@ components:
         lastUpdated:
           type: string
           format: date-time
+        coverage:
+          $ref: '#/components/schemas/Coverage'
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object
@@ -4133,3 +4137,6 @@ components:
     HazmatType:
       type: string
       enum: [ CLASS_1_EXP, CLASS_2_GAS, CLASS_3_FCL, CLASS_4_FS_SC_DWW, CLASS_5_OOP, CLASS_6_PPIH, CLASS_7_RAD, CLASS_8_COR, CLASS_9_MIS ]
+    Coverage:
+      type: string
+      enum: [ DOM_CA, DOM_US, CB, MEX ]
