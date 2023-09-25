@@ -2380,6 +2380,8 @@ components:
         insuranceBrokerId:
           type: integer
           format: int64
+        businessName:
+          type: string
         contactFirstName:
           type: string
         contactLastName:
