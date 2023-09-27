@@ -3820,7 +3820,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ LTL_PAL, FTL_PAL, LTL_FL, FTL_FL, HS ]
+      enum: [ LTL, FTL, LTL_FL, FTL_FL, HS, FOOD_GRADE_LTL, FOOD_GRADE_FTL, FOOD_GRADE_LTL_FL, FOOD_GRADE_FTL_FL, FOOD_GRADE_HS ]
     Vendor:
       required: [ vendorStatus, headOffice, contacts ]
       type: object
@@ -3830,6 +3830,10 @@ components:
           format: int64
         vendorCode:
           type: string
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
         wholesalerId:
