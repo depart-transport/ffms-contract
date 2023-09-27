@@ -3179,33 +3179,20 @@ components:
           maxLength: 3
           pattern: '^[0-9\*]{3}$'
     CreditReference:
-      required: [ supplierName, contactName, address, telephone, email ]
+      required: [ ]
       type: object
       properties:
         creditReferenceId:
           type: integer
           format: int64
-        supplierName:
+        companyName:
           type: string
-        contactName:
-          type: string
-          maxLength: 100
-        address:
-          type: string
-          maxLength: 255
-        telephone:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        fax:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        email:
-          type: string
-          maxLength: 255
         partnerNumYr:
           type: number
+        person:
+          $ref: '#/components/schemas/Person'
+        communication:
+          $ref: '#/components/schemas/Communication'
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
