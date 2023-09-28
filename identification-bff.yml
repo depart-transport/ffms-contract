@@ -2334,6 +2334,8 @@ components:
           $ref: '#/components/schemas/Insurance'
         receivable:
           $ref: '#/components/schemas/Receivable'
+        administration:
+          $ref: '#/components/schemas/Administration'
     Insurance:
       type: object
       properties:
