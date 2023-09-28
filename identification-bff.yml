@@ -2649,3 +2649,69 @@ components:
     Coverage:
       type: string
       enum: [ DOM_CA, DOM_US, CB, MEX ]
+    Administration:
+      type: object
+      properties:
+        administrationId:
+          type: integer
+          format: int64
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditReference'
+        accountNumber:
+          type: string
+        accountsReceivable:
+          $ref: '#/components/schemas/AccountsReceivable'
+        bankingInfo:
+          $ref: '#/components/schemas/BankAccount'
+    AccountsReceivable:
+      type: object
+      properties:
+        accountsReceivableId:
+          type: integer
+          format: int64
+        currency:
+          $ref: '#/components/schemas/Currency'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        isQuickPayProgram:
+          type: boolean
+        termOfPayment:
+          type: integer
+          format: int32
+        gstNumber:
+          type: string
+          maxLength: 9
+        pstNumber:
+          type: string
+          maxLength: 50
+        hstNumber:
+          type: string
+          maxLength: 50
+        irsNumber:
+          type: string
+          maxLength: 50
+        factoringCompany:
+          $ref: '#/components/schemas/FactoringCompany'
+        address:
+          $ref: '#/components/schemas/Address'
+    FactoringCompany:
+      type: object
+      properties:
+        factoringCompanyId:
+          type: integer
+          format: int64
+        factoringCoName:
+          type: string
+        careOf:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        person:
+          $ref: '#/components/schemas/Person'
+        communication:
+          $ref: '#/components/schemas/Communication'
+        noticeOfAssignment:
+          type: string
+          format: byte
