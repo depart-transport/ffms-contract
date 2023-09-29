@@ -3338,9 +3338,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
-                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
-                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
+      required: [ locationType, companyName ]
       type: object
       properties:
         locationId:
@@ -3352,16 +3350,6 @@ components:
           type: string
         isPublicLocation:
           type: boolean
-        isApptRequired:
-          type: boolean
-        apptWindowBeg:
-          type: Time
-        apptWindowEnd:
-          type: Time
-        apptNumber:
-          type: boolean
-        isLumperRequired:
-          type: boolean
         coordinate:
           $ref: '#/components/schemas/Coordinate'
         locComm:
@@ -3370,40 +3358,52 @@ components:
           $ref: '#/components/schemas/Address'
         locContact:
           $ref: '#/components/schemas/Contact'
-        availability:
-          $ref: '#/components/schemas/TimeTable'
-        maxTruckSize:
-          $ref: '#/components/schemas/TruckSize'
-        isDock:
-          type: boolean
-        isTailgate:
-          type: boolean
-        isCurbside:
-          type: boolean
-        is53Ft:
-          type: boolean
-        isAddLaborRequired:
-          type: boolean
-        isInside:
-          type: boolean
         insideClearance:
           $ref: '#/components/schemas/InsideClearance'
-        clearLength:
-          type: number
-        clearWidth:
-          type: number
-        clearHeight:
-          type: number
-        isDriverAssist:
+        isSameScheduleDaily:
+          type: boolean
+        isWeekEndClosed:
+          type: boolean
+        isClosedForLunchtime:
+          type: boolean
+        dailyScheduleOp:
+          type: Time
+        dailyScheduleCl:
+          type: Time
+        lunchtimeHourOp:
+          type: Time
+        lunchtimeHourCl:
+          type: Time
+        availability:
+          $ref: '#/components/schemas/TimeTable'
+        isApptRequired:
+          type: boolean
+        apptWindowBeg:
+          type: Time
+        apptWindowEnd:
+          type: Time
+        isDock:
           type: boolean
         isForkLiftAvail:
           type: boolean
         isPaletteJackAvail:
           type: boolean
+        isLumperRequired:
+          type: boolean
         isOnsiteSleepAvail:
           type: boolean
         sleepSectionDesc:
           type: string
+        specialInstruction:
+          type: string
+        flatbedTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlatbedType'
+        maxTruckSize:
+          $ref: '#/components/schemas/TruckSize'
+        version:
+          type: number
     LocationType:
       type: string
       enum:
@@ -3832,6 +3832,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+        warehouses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
         transporterType:
           $ref: '#/components/schemas/TransporterType'
         branches:
