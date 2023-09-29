@@ -247,7 +247,7 @@ components:
       enum: [ AVAILABILITY, BOOKING, CONFIRMATION, RATE, EXPIRATION, SPOT_QUOTE, ONBOARDING ]
     EmailObjectType:
       type: string
-      enum: [ TRIP_RATE, SHIPMENT_RATE, RATE, INSURANCE_DETAILS, NEW_CUSTOMER, NEW_VENDOR ]
+      enum: [ TRIP_RATE, SHIPMENT_RATE, RATE, INSURANCE_DETAILS, HAZMAT, NEW_CUSTOMER, NEW_VENDOR ]
     DocumentBase:
       required: [ businessId, parentId, filename, fileUrl, fileSize, documentStatus, documentType,subject,description ]
       type: object

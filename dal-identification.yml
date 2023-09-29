@@ -2759,6 +2759,8 @@ components:
         account:
           type: string
           maxLength: 17
+        swiftCode:
+          type: string
         address:
           $ref: '#/components/schemas/Address'
         comm:
@@ -3177,33 +3179,20 @@ components:
           maxLength: 3
           pattern: '^[0-9\*]{3}$'
     CreditReference:
-      required: [ supplierName, contactName, address, telephone, email ]
+      required: [ ]
       type: object
       properties:
         creditReferenceId:
           type: integer
           format: int64
-        supplierName:
+        companyName:
           type: string
-        contactName:
-          type: string
-          maxLength: 100
-        address:
-          type: string
-          maxLength: 255
-        telephone:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        fax:
-          type: string
-          maxLength: 10
-          pattern: '^\d{10}$'
-        email:
-          type: string
-          maxLength: 255
         partnerNumYr:
           type: number
+        person:
+          $ref: '#/components/schemas/Person'
+        communication:
+          $ref: '#/components/schemas/Communication'
     CustomBroker:
       required: [ country, brokerName, accountNumber, primaryContact ]
       type: object
@@ -3349,9 +3338,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, isPublicLocation, isApptRequired, isLumperRequired, coordinate, locComm, locAdd, locContact,
-                  availability, is53Ft, isForkLiftAvail, isPaletteJackAvail, isOnsiteSleepAvail, isAddLaborRequired,
-                  apptNumber, isDock, isTailgate, isCurbside, isInside, isDriverAssist ]
+      required: [ locationType, companyName ]
       type: object
       properties:
         locationId:
@@ -3363,16 +3350,6 @@ components:
           type: string
         isPublicLocation:
           type: boolean
-        isApptRequired:
-          type: boolean
-        apptWindowBeg:
-          type: Time
-        apptWindowEnd:
-          type: Time
-        apptNumber:
-          type: boolean
-        isLumperRequired:
-          type: boolean
         coordinate:
           $ref: '#/components/schemas/Coordinate'
         locComm:
@@ -3381,40 +3358,52 @@ components:
           $ref: '#/components/schemas/Address'
         locContact:
           $ref: '#/components/schemas/Contact'
-        availability:
-          $ref: '#/components/schemas/TimeTable'
-        maxTruckSize:
-          $ref: '#/components/schemas/TruckSize'
-        isDock:
-          type: boolean
-        isTailgate:
-          type: boolean
-        isCurbside:
-          type: boolean
-        is53Ft:
-          type: boolean
-        isAddLaborRequired:
-          type: boolean
-        isInside:
-          type: boolean
         insideClearance:
           $ref: '#/components/schemas/InsideClearance'
-        clearLength:
-          type: number
-        clearWidth:
-          type: number
-        clearHeight:
-          type: number
-        isDriverAssist:
+        isSameScheduleDaily:
+          type: boolean
+        isWeekEndClosed:
+          type: boolean
+        isClosedForLunchtime:
+          type: boolean
+        dailyScheduleOp:
+          type: Time
+        dailyScheduleCl:
+          type: Time
+        lunchtimeHourOp:
+          type: Time
+        lunchtimeHourCl:
+          type: Time
+        availability:
+          $ref: '#/components/schemas/TimeTable'
+        isApptRequired:
+          type: boolean
+        apptWindowBeg:
+          type: Time
+        apptWindowEnd:
+          type: Time
+        isDock:
           type: boolean
         isForkLiftAvail:
           type: boolean
         isPaletteJackAvail:
           type: boolean
+        isLumperRequired:
+          type: boolean
         isOnsiteSleepAvail:
           type: boolean
         sleepSectionDesc:
           type: string
+        specialInstruction:
+          type: string
+        flatbedTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/FlatbedType'
+        maxTruckSize:
+          $ref: '#/components/schemas/TruckSize'
+        version:
+          type: number
     LocationType:
       type: string
       enum:
@@ -3748,6 +3737,8 @@ components:
           type: boolean
         isSleeper:
           type: boolean
+        isLiftgateLoad:
+          type: boolean
         length:
           type: number
         width:
@@ -3774,7 +3765,8 @@ components:
               REEFER,
               REEFER_STRAIGHT_TRUCK,
               FLATBED_TRAILER,
-              CHASSIS ]
+              CHASSIS,
+              SPRINTER ]
     HazMat:
       type: object
       properties:
@@ -3815,7 +3807,7 @@ components:
               TN_USA, TX_USA, UT_USA, VT_USA, VA_USA, WA_USA, WV_USA, WI_USA, WY_USA ]
     TransportService:
       type: string
-      enum: [ LTL_PAL, FTL_PAL, LTL_FL, FTL_FL, HS ]
+      enum: [ LTL, FTL, LTL_FL, FTL_FL, HS, FOOD_GRADE_LTL, FOOD_GRADE_FTL, FOOD_GRADE_LTL_FL, FOOD_GRADE_FTL_FL, FOOD_GRADE_HS ]
     Vendor:
       required: [ vendorStatus, headOffice, contacts ]
       type: object
@@ -3825,6 +3817,10 @@ components:
           format: int64
         vendorCode:
           type: string
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
         wholesalerId:
@@ -3836,6 +3832,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
+        warehouses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
         transporterType:
           $ref: '#/components/schemas/TransporterType'
         branches:
@@ -3870,6 +3870,11 @@ components:
         hazmatNumber:
           type: string
           pattern: '^\d{1,8}$'
+        hazmatExpiry:
+          type: string
+          format: date
+        hazmatTypeEnum:
+          $ref: '#/components/schemas/HazmatType'
         reviewRating:
           type: number
         wcbNumber:
@@ -3884,6 +3889,8 @@ components:
         lastUpdated:
           type: string
           format: date-time
+        coverage:
+          $ref: '#/components/schemas/Coverage'
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object
@@ -3915,6 +3922,8 @@ components:
           $ref: '#/components/schemas/Insurance'
         receivable:
           $ref: '#/components/schemas/Receivable'
+        administration:
+          $ref: '#/components/schemas/Administration'
     BidOrderCenter:
       type: object
       properties:
@@ -4051,7 +4060,31 @@ components:
           $ref: '#/components/schemas/CubingRules'
     FlatbedType:
       type: string
-      enum: [ FLATBED, STEP_DECK, ROLL_TITE_CONESTOGA, RACK_TARP, DOUBLE_DROP, LOWBOY, RGN, FLOAT ]
+      enum: [
+        _53_FT_SLEEPER,
+        _53_FT_DAYCAD,
+        _48_FT_SLEEPER,
+        _48_FT_DAYCAD,
+        _40_FT_SLEEPER,
+        _40_FT_DAYCAD,
+        _30_FT,
+        _28_FT,
+        _26_FT,
+        _24_FT,
+        _22_FT,
+        _20_FT,
+        _53_FT,
+        _40_FT,
+        _53_FT_FLATBED,
+        _48_FT_FLATBED,
+        _53_FT_STEP_DECK,
+        _48_FT_STEP_DECK,
+        _53_FT_RACK_TARQ,
+        _53_FT_CONESTOGA_ROLL_TITE,
+        _53_FT_DOUBLE_DROP,
+        _53_FT_LOWBOY,
+        _53_FT_RGN,
+        _53_FT_FLOAT ]
     Insurance:
       type: object
       properties:
@@ -4090,9 +4123,80 @@ components:
         insuranceBrokerId:
           type: integer
           format: int64
+        businessName:
+          type: string
         contactFirstName:
           type: string
         contactLastName:
           type: string
         contactComm:
+          $ref: '#/components/schemas/Communication'
+    HazmatType:
+      type: string
+      enum: [ CLASS_1_EXP, CLASS_2_GAS, CLASS_3_FCL, CLASS_4_FS_SC_DWW, CLASS_5_OOP, CLASS_6_PPIH, CLASS_7_RAD, CLASS_8_COR, CLASS_9_MIS ]
+    Coverage:
+      type: string
+      enum: [ DOM_CA, DOM_US, CB, MEX ]
+    Administration:
+      type: object
+      properties:
+        administrationId:
+          type: integer
+          format: int64
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditReference'
+        accountNumber:
+          type: string
+        accountsReceivable:
+          $ref: '#/components/schemas/AccountsReceivable'
+        bankingInfo:
+          $ref: '#/components/schemas/BankAccount'
+    AccountsReceivable:
+      type: object
+      properties:
+        accountsReceivableId:
+          type: integer
+          format: int64
+        currency:
+          $ref: '#/components/schemas/Currency'
+        paymentType:
+          $ref: '#/components/schemas/PaymentType'
+        termOfPayment:
+          type: integer
+          format: int32
+        isQuickPayProgram:
+          type: boolean
+        gstNumber:
+          type: string
+          maxLength: 9
+        pstNumber:
+          type: string
+          maxLength: 50
+        hstNumber:
+          type: string
+          maxLength: 50
+        irsNumber:
+          type: string
+          maxLength: 50
+        factoringCompany:
+          $ref: '#/components/schemas/FactoringCompany'
+        address:
+          $ref: '#/components/schemas/Address'
+    FactoringCompany:
+      type: object
+      properties:
+        factoringCompanyId:
+          type: integer
+          format: int64
+        factoringCoName:
+          type: string
+        careOf:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+        person:
+          $ref: '#/components/schemas/Person'
+        communication:
           $ref: '#/components/schemas/Communication'
