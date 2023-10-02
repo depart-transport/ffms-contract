@@ -1676,7 +1676,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, companyName ]
+      required: [ locationType, companyName, availability, locAdd, locContact, flatbedTypes, flatbedTypes ]
       type: object
       properties:
         locationId:
@@ -1705,21 +1705,21 @@ components:
         isClosedForLunchtime:
           type: boolean
         dailyScheduleOp:
-          type: Time
+          type: string
         dailyScheduleCl:
-          type: Time
+          type: string
         lunchtimeHourOp:
-          type: Time
+          type: string
         lunchtimeHourCl:
-          type: Time
+          type: string
         availability:
           $ref: '#/components/schemas/TimeTable'
         isApptRequired:
           type: boolean
         apptWindowBeg:
-          type: Time
+          type: string
         apptWindowEnd:
-          type: Time
+          type: string
         isDock:
           type: boolean
         isForkLiftAvail:
