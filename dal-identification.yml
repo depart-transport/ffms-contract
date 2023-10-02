@@ -3338,7 +3338,7 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, companyName ]
+      required: [ locationType, companyName, availability, locAdd, locContact, flatbedTypes, flatbedTypes ]
       type: object
       properties:
         locationId:
