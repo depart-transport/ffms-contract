@@ -2290,7 +2290,9 @@ components:
           type: string
           format: date
         hazmatTypeEnum:
-          $ref: '#/components/schemas/HazmatType'
+          type: array
+          items:
+            $ref: '#/components/schemas/HazmatType'
         hazmatFile:
           type: string
           format: byte
@@ -2653,7 +2655,7 @@ components:
         _53_FT_FLOAT ]
     HazmatType:
       type: string
-      enum: [ CLASS_1_EXP, CLASS_2_GAS, CLASS_3_FCL, CLASS_4_FS_SC_DWW, CLASS_5_OOP, CLASS_6_PPIH, CLASS_7_RAD, CLASS_8_COR, CLASS_9_MIS ]
+      enum: [ C1_EXP, C2_GAS, C3_FCL, C4_FS_SC_DWW, C5_OOP, C6_PPIH, C7_RAD, C8_COR, C9_MIS ]
     Coverage:
       type: string
       enum: [ DOM_CA, DOM_US, CB, MEX ]
