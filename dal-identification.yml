@@ -3890,7 +3890,9 @@ components:
           type: string
           format: date-time
         coverage:
-          $ref: '#/components/schemas/Coverage'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverage'
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object

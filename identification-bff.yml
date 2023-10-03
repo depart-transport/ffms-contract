@@ -2257,7 +2257,9 @@ components:
           type: string
           format: date-time
         coverage:
-          $ref: '#/components/schemas/Coverage'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverage'
     Authority:
       required: [ mc, scac, usdot ]
       type: object
