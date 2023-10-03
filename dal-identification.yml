@@ -3268,7 +3268,7 @@ components:
         - ONBOARDING
         - PENDING
     Enterprise:
-      required: [ legalName, commInfo, address ]
+      required: [ legalName, address ]
       type: object
       properties:
         enterpriseId:
