@@ -992,6 +992,8 @@ components:
         accessoryChargeId:
           type: integer
           format: int64
+        parent:
+          $ref: '#/components/schemas/VendorBranch'
         chargeName:
           $ref: '#/components/schemas/ChargeType'
         chargeMethod:
@@ -1682,6 +1684,8 @@ components:
         locationId:
           type: integer
           format: int64
+        parent:
+          $ref: '#/components/schemas/Vendor'
         locationType:
           $ref: '#/components/schemas/LocationType'
         companyName:
@@ -1932,7 +1936,7 @@ components:
         - LF47
         - LF48
     RateSchedule:
-      required: [ origin, destination ]
+      required: [ origin ]
       type: object
       properties:
         rateScheduleId:
@@ -1942,7 +1946,9 @@ components:
           type: integer
           format: int64
         departureDays:
-          $ref: '#/components/schemas/Week'
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
         pickupWindow:
           type: integer
           format: int64
@@ -1950,17 +1956,17 @@ components:
           $ref: '#/components/schemas/Coordinate'
         destination:
           $ref: '#/components/schemas/Coordinate'
+        originCity:
+          $ref: '#/components/schemas/Coordinate'
+        destinationCity:
+          $ref: '#/components/schemas/Coordinate'
+        rateScheduleCode:
+          type: string
+        vendorCode:
+          type: string
         rateType:
           $ref: '#/components/schemas/RateType'
-        fixedRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
-        weightRates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rate'
-        skidRates:
+        rates:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
@@ -1968,6 +1974,71 @@ components:
           type: number
         maxWeightSkid:
           type: number
+        minWeightSkid:
+          type: number
+        startDate:
+          type: string
+          format: date
+        expDate:
+          type: string
+          format: date
+        rateScheduleName:
+          type: string
+        originGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        destinationGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+        contactAssociate:
+          $ref: '#/components/schemas/Contact'
+        warehouseAssociate:
+          $ref: '#/components/schemas/Location'
+    GroupingPoint:
+      type: object
+      properties:
+        gpId:
+          type: integer
+          format: int64
+        gpCode:
+          type: string
+        gpName:
+          type: string
+        gpCities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
+    City:
+      type: object
+      properties:
+        cityId:
+          type: integer
+          format: int64
+        cityCode:
+          type: string
+        country:
+          type: string
+        countryCode:
+          type: string
+        provState:
+          type: string
+        provStateCode:
+          type: string
+        cityName:
+          type: string
+    DayOfWeek:
+      type: string
+      enum: [ MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY ]
     Rating:
       type: object
       properties:
@@ -2076,24 +2147,38 @@ components:
             $ref: '#/components/schemas/Equipment'
         dedicatedTo:
           $ref: '#/components/schemas/Enterprise'
+        rateSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateSchedule'
         inbound:
           type: array
           items:
-            $ref: '#/components/schemas/ZonesRateSchedules'
+            $ref: '#/components/schemas/Coordinate'
         outbound:
           type: array
           items:
-            $ref: '#/components/schemas/ZonesRateSchedules'
+            $ref: '#/components/schemas/Coordinate'
         transportServices:
           type: array
           items:
             $ref: '#/components/schemas/TransportService'
+        coverageEnum:
+          $ref: '#/components/schemas/Coverage'
+        contactAssociate:
+          $ref: '#/components/schemas/Contact'
+        warehouseAssociate:
+          $ref: '#/components/schemas/Location'
     Zone:
       type: object
       properties:
         zoneId:
           type: integer
           format: int64
+        pickups:
+          type: boolean
+        deliveries:
+          type: boolean
         coordinate:
           $ref: '#/components/schemas/Coordinate'
         location:
@@ -2109,6 +2194,8 @@ components:
           format: int64
         quantity:
           type: integer
+        parent:
+          $ref: '#/components/schemas/VendorBranch'
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
         flatbedType:
@@ -2220,8 +2307,6 @@ components:
             $ref: '#/components/schemas/TransportService'
         vendorStatus:
           $ref: '#/components/schemas/BusinessStatus'
-        wholesalerName:
-          type: string
         wholesalerId:
           type: integer
           format: int64
@@ -2235,20 +2320,70 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+        coverages:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeliveryService'
+        rateSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/RateSchedule'
+        coverageEnums:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverage'
         transporterType:
           $ref: '#/components/schemas/TransporterType'
         branches:
           type: array
           items:
             $ref: '#/components/schemas/VendorBranch'
-        authority:
-          $ref: '#/components/schemas/Authority'
+        groupingPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupingPoint'
         flag1099Required:
           type: boolean
         federalIdNumber:
           type: string
         contractOnFile:
           type: boolean
+        mc:
+          type: string
+          pattern: '^\d{1,10}$'
+        scac:
+          type: string
+          maxLength: 4
+          minLength: 4
+        usdot:
+          type: string
+          pattern: '^[0-9]{1,12}$'
+        cadBondNumber:
+          type: string
+        usBondNumber:
+          type: string
+        ctpat:
+          type: string
+          pattern: '^\d{10}$'
+        fastApproved:
+          type: boolean
+        hazmatNumber:
+          type: string
+          pattern: '^\d{1,8}$'
+        hazmatExpiry:
+          type: string
+          format: date
+        hazmatType:
+          type: array
+          items:
+            $ref: '#/components/schemas/HazmatType'
+        reviewRating:
+          type: number
+        wcbNumber:
+          type: string
+          maxLength: 10
+        smc3TarriffCode:
+          type: string
         isSameReceivable:
           type: boolean
         isSameInsurance:
@@ -2256,10 +2391,6 @@ components:
         lastUpdated:
           type: string
           format: date-time
-        coverage:
-          type: array
-          items:
-            $ref: '#/components/schemas/Coverage'
     Authority:
       required: [ mc, scac, usdot ]
       type: object
