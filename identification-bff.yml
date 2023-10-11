@@ -1143,6 +1143,11 @@ components:
         terms:
           type: integer
           format: int32
+        yearsInBusiness:
+          type: integer
+          format: int32
+        bankruptcy:
+          type: boolean
         creditStatus:
           $ref: '#/components/schemas/CreditStatus'
         creditApprovedBy:
@@ -1159,6 +1164,10 @@ components:
           $ref: '#/components/schemas/PodRequirement'
         creditApplication:
           $ref: '#/components/schemas/CreditApplication'
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditReference'
         checkedBy:
           type: string
           maxLength: 255
@@ -1210,6 +1219,10 @@ components:
           $ref: '#/components/schemas/Enterprise'
         billing:
           $ref: '#/components/schemas/Billing'
+        taxInformation:
+          $ref: '#/components/schemas/TaxInformation'
+        referralCode:
+          type: string
     Business:
       required: [ enterprise, isSameBilling ]
       type: object
@@ -2725,3 +2738,17 @@ components:
         noticeOfAssignment:
           type: string
           format: byte
+    TaxInformation:
+      type: object
+      properties:
+        taxInformationId:
+          type: integer
+          format: int64
+        gst:
+          type: string
+        qst:
+          type: string
+        hst:
+          type: string
+        irsNumber:
+          type: string
