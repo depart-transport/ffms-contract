@@ -1970,9 +1970,9 @@ components:
         destination:
           $ref: '#/components/schemas/Coordinate'
         originCity:
-          $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/City'
         destinationCity:
-          $ref: '#/components/schemas/Coordinate'
+          $ref: '#/components/schemas/City'
         rateScheduleCode:
           type: string
         vendorCode:
@@ -2035,9 +2035,13 @@ components:
         gpId:
           type: integer
           format: int64
+        parent:
+          $ref: '#/components/schemas/Vendor'
         gpCode:
           type: string
         gpName:
+          type: string
+        vendorCode:
           type: string
         gpCities:
           type: array
