@@ -2373,42 +2373,6 @@ components:
           type: string
         contractOnFile:
           type: boolean
-        mc:
-          type: string
-          pattern: '^\d{1,10}$'
-        scac:
-          type: string
-          maxLength: 4
-          minLength: 4
-        usdot:
-          type: string
-          pattern: '^[0-9]{1,12}$'
-        cadBondNumber:
-          type: string
-        usBondNumber:
-          type: string
-        ctpat:
-          type: string
-          pattern: '^\d{10}$'
-        fastApproved:
-          type: boolean
-        hazmatNumber:
-          type: string
-          pattern: '^\d{1,8}$'
-        hazmatExpiry:
-          type: string
-          format: date
-        hazmatType:
-          type: array
-          items:
-            $ref: '#/components/schemas/HazmatType'
-        reviewRating:
-          type: number
-        wcbNumber:
-          type: string
-          maxLength: 10
-        smc3TarriffCode:
-          type: string
         isSameReceivable:
           type: boolean
         isSameInsurance:
@@ -2451,9 +2415,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HazmatType'
-        hazmatFile:
-          type: string
-          format: byte
         reviewRating:
           type: number
         wcbNumber:
@@ -2461,6 +2422,9 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
+        hazmatFile:
+          type: string
+          format: byte
     TrackerInfos:
       required: [ isSatelliteTracker, isTrackerOnAllTruck ]
       type: object
