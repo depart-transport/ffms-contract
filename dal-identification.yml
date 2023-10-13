@@ -3578,7 +3578,7 @@ components:
         rates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/Tariff'
         minMargin:
           type: number
         maxWeightSkid:
