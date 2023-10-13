@@ -2189,7 +2189,9 @@ components:
           items:
             $ref: '#/components/schemas/TransportService'
         coverageEnum:
-          $ref: '#/components/schemas/Coverage'
+          type: array
+          items:
+            $ref: '#/components/schemas/Coverage'
         contactAssociate:
           $ref: '#/components/schemas/Contact'
         warehouseAssociate:
