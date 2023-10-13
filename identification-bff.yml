@@ -1949,7 +1949,7 @@ components:
         - LF47
         - LF48
     RateSchedule:
-      required: [ originCity , destinationCity ]
+      required: [ ]
       type: object
       properties:
         rateScheduleId:

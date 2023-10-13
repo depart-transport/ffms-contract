@@ -3543,7 +3543,7 @@ components:
         - WT
         - SK
     RateSchedule:
-      required: [ origin ]
+      required: [ ]
       type: object
       properties:
         rateScheduleId:
