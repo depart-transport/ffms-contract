@@ -3549,6 +3549,8 @@ components:
         rateScheduleId:
           type: integer
           format: int64
+        vendor:
+          $ref: '#/components/schemas/Vendor'
         numberTransitDays:
           type: integer
           format: int64
@@ -3765,6 +3767,8 @@ components:
         deliveryServiceId:
           type: integer
           format: int64
+        vendor:
+          $ref: '#/components/schemas/Vendor'
         coverageName:
           type: string
         startDate:
