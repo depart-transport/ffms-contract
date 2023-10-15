@@ -1949,7 +1949,7 @@ components:
         - LF47
         - LF48
     RateSchedule:
-      required: [ ]
+      required: [ numberTransitDays, departureDays ]
       type: object
       properties:
         rateScheduleId:
@@ -1984,7 +1984,7 @@ components:
         rates:
           type: array
           items:
-            $ref: '#/components/schemas/Rate'
+            $ref: '#/components/schemas/Tariff'
         minMargin:
           type: number
         maxWeightSkid:
