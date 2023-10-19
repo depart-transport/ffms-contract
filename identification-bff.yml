@@ -1979,6 +1979,8 @@ components:
           type: string
         vendorCode:
           type: string
+        rateTypeCode:
+          type: string
         rateType:
           $ref: '#/components/schemas/RateType'
         rates:
@@ -2622,7 +2624,7 @@ components:
         receivableStatus:
           $ref: '#/components/schemas/CreditStatus'
     Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
+      #  required: [ coordinateName, longitude, latitude, radius ]
       type: object
       properties:
         coordinateId:
