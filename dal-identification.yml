@@ -3787,6 +3787,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Equipment'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
         dedicatedTo:
           $ref: '#/components/schemas/Enterprise'
         rateSchedules:
