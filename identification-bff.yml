@@ -992,8 +992,9 @@ components:
         accessoryChargeId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/VendorBranch'
+        parentId:
+          type: integer
+          format: int64
         chargeName:
           $ref: '#/components/schemas/ChargeType'
         chargeMethod:
@@ -1697,8 +1698,9 @@ components:
         locationId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/Vendor'
+        parentId:
+          type: integer
+          format: int64
         locationType:
           $ref: '#/components/schemas/LocationType'
         companyName:
@@ -1955,8 +1957,9 @@ components:
         rateScheduleId:
           type: integer
           format: int64
-        vendor:
-          $ref: '#/components/schemas/Vendor'
+        vendorId:
+          type: integer
+          format: int64
         numberTransitDays:
           type: integer
           format: int64
@@ -2039,8 +2042,9 @@ components:
         gpId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/Vendor'
+        parentId:
+          type: integer
+          format: int64
         gpCode:
           type: string
         gpName:
@@ -2162,8 +2166,9 @@ components:
         deliveryServiceId:
           type: integer
           format: int64
-        vendor:
-          $ref: '#/components/schemas/Vendor'
+        vendorId:
+          type: integer
+          format: int64
         coverageName:
           type: string
         startDate:
@@ -2235,8 +2240,9 @@ components:
           format: int64
         quantity:
           type: integer
-        parent:
-          $ref: '#/components/schemas/VendorBranch'
+        parentId:
+          type: integer
+          format: int64
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
         flatbedType:
