@@ -1579,6 +1579,16 @@ components:
           $ref: '#/components/schemas/BusinessStatus'
         isBusiness:
           type: boolean
+        referralCode:
+          type: string
+        gst:
+          type: string
+        qst:
+          type: string
+        hst:
+          type: string
+        irsNumber:
+          type: string
         business:
           $ref: '#/components/schemas/Business'
         personal:
@@ -1838,6 +1848,8 @@ components:
         personalId:
           type: integer
           format: int64
+        address:
+          $ref: '#/components/schemas/Address'
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
@@ -2071,7 +2083,9 @@ components:
           type: string
         provStateCode:
           type: string
-        cityName:
+        cityNameFr:
+          type: string
+        cityNameEn:
           type: string
     DayOfWeek:
       type: string
