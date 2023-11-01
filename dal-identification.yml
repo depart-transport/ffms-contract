@@ -2635,8 +2635,9 @@ components:
         accessoryChargeId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/VendorBranch'
+        parentId:
+          type: integer
+          format: int64
         chargeName:
           $ref: '#/components/schemas/ChargeType'
         chargeMethod:
@@ -3236,6 +3237,18 @@ components:
         customerId:
           type: integer
           format: int64
+        isBusiness:
+          type: boolean
+        referralCode:
+          type: string
+        gst:
+          type: string
+        qst:
+          type: string
+        hst:
+          type: string
+        irsNumber:
+          type: string
         blockType:
           $ref: '#/components/schemas/BlockType'
         vendorBlockList:
@@ -3359,8 +3372,9 @@ components:
         locationId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/Vendor'
+        parentId:
+          type: integer
+          format: int64
         locationType:
           $ref: '#/components/schemas/LocationType'
         companyName:
@@ -3498,6 +3512,8 @@ components:
         personalId:
           type: integer
           format: int64
+        address:
+          $ref: '#/components/schemas/Address'
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
@@ -3549,8 +3565,9 @@ components:
         rateScheduleId:
           type: integer
           format: int64
-        vendor:
-          $ref: '#/components/schemas/Vendor'
+        vendorId:
+          type: integer
+          format: int64
         numberTransitDays:
           type: integer
           format: int64
@@ -3572,6 +3589,8 @@ components:
         rateScheduleCode:
           type: string
         vendorCode:
+          type: string
+        rateTypeCode:
           type: string
         rateType:
           $ref: '#/components/schemas/RateType'
@@ -3619,8 +3638,9 @@ components:
         gpId:
           type: integer
           format: int64
-        parent:
-          $ref: '#/components/schemas/Vendor'
+        parentId:
+          type: integer
+          format: int64
         gpCode:
           type: string
         gpName:
@@ -3647,7 +3667,9 @@ components:
           type: string
         provStateCode:
           type: string
-        cityName:
+        cityNameFr:
+          type: string
+        cityNameEn:
           type: string
     DayOfWeek:
       type: string
@@ -3767,8 +3789,9 @@ components:
         deliveryServiceId:
           type: integer
           format: int64
-        vendor:
-          $ref: '#/components/schemas/Vendor'
+        vendorId:
+          type: integer
+          format: int64
         coverageName:
           type: string
         startDate:
@@ -3785,6 +3808,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Equipment'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
         dedicatedTo:
           $ref: '#/components/schemas/Enterprise'
         rateSchedules:
@@ -3836,8 +3863,9 @@ components:
           format: int64
         quantity:
           type: integer
-        parent:
-          $ref: '#/components/schemas/VendorBranch'
+        parentId:
+          type: integer
+          format: int64
         equipmentType:
           $ref: '#/components/schemas/EquipmentType'
         flatbedType:
@@ -4127,7 +4155,7 @@ components:
         receivableStatus:
           $ref: '#/components/schemas/CreditStatus'
     Coordinate:
-      required: [ coordinateName, longitude, latitude, radius ]
+      #  required: [ coordinateName, longitude, latitude, radius ]
       type: object
       properties:
         coordinateId:
