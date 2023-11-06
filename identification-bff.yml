@@ -2069,7 +2069,7 @@ components:
           items:
             $ref: '#/components/schemas/City'
     City:
-      required: [ country , countryCode , provState , cityNameEn ]
+      required: [ country , provState , cityNameEn ]
       type: object
       properties:
         cityId:
