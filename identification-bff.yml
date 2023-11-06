@@ -2048,6 +2048,88 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Rate'
+    VendorRateSchedule:
+      required: [ vendorId, vendorCode, rateScheduleName, startDate , transportServices ]
+      type: object
+      properties:
+        rateScheduleId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        vendorCode:
+          type: string
+        rateScheduleCode:
+          type: string
+        rateScheduleName:
+          type: string
+        startDate:
+          type: string
+          format: date
+        expDate:
+          type: string
+          format: date
+        rateTypeCode:
+          type: string
+        transportServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransportService'
+        contactAssociate:
+          $ref: '#/components/schemas/Contact'
+        warehouseAssociate:
+          $ref: '#/components/schemas/Location'
+        equipments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+        accessoryCharges:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessoryCharge'
+    VendorRate:
+      required: [ vendorRateScheduleId, rateName, rateType , departureDays, pickupWindow , numberTransitDays , tariffs ]
+      type: object
+      properties:
+        vendorRateId:
+          type: integer
+          format: int64
+        vendorRateScheduleId:
+          type: integer
+          format: int64
+        rateName:
+          type: string
+        rateCode:
+          type: string
+        rateType:
+          $ref: '#/components/schemas/RateType'
+        departureDays:
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        pickupWindow:
+          type: integer
+          format: int64
+        originCity:
+          $ref: '#/components/schemas/City'
+        originGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        destinationCity:
+          $ref: '#/components/schemas/City'
+        destinationGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        numberTransitDays:
+          type: integer
+          format: int64
+        maxWeightSkid:
+          type: number
+        minWeightSkid:
+          type: number
+        tariffs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tariff'
     GroupingPoint:
       required: [ parentId , gpName , gpCities , vendorCode ]
       type: object
