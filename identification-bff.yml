@@ -2049,6 +2049,7 @@ components:
           items:
             $ref: '#/components/schemas/Rate'
     GroupingPoint:
+      required: [ parentId , gpName , gpCities , vendorCode ]
       type: object
       properties:
         gpId:
@@ -2068,6 +2069,7 @@ components:
           items:
             $ref: '#/components/schemas/City'
     City:
+      required: [ country , countryCode , provState , cityNameEn ]
       type: object
       properties:
         cityId:
