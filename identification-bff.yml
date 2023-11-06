@@ -1769,8 +1769,6 @@ components:
             $ref: '#/components/schemas/FlatbedType'
         maxTruckSize:
           $ref: '#/components/schemas/TruckSize'
-        version:
-          type: number
     LocationType:
       type: string
       enum:
