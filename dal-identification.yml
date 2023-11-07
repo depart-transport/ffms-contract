@@ -3556,6 +3556,9 @@ components:
         - FX
         - WT
         - SK
+        - CWT
+        - LINEAR_FT
+        - FTL_RATES
     RateSchedule:
       required: [ numberTransitDays, departureDays ]
       type: object
@@ -3671,7 +3674,7 @@ components:
           items:
             $ref: '#/components/schemas/AccessoryCharge'
     VendorRate:
-      required: [ vendorRateScheduleId, rateName, rateType , departureDays, pickupWindow , numberTransitDays , tariffs ]
+      required: [ vendorRateScheduleId, rateName, rateType , departureDays, pickupWindow ]
       type: object
       properties:
         vendorRateId:
@@ -3697,6 +3700,37 @@ components:
           $ref: '#/components/schemas/City'
         originGP:
           $ref: '#/components/schemas/GroupingPoint'
+        maxWeightSkid:
+          type: number
+        minWeightSkid:
+          type: number
+        itemsLinearFt:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorRateItemsLinearFt'
+        itemsCwt:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorRateItemsCwt'
+        itemsFtlRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/VendorRateItemsFtlRates'
+    VendorRateItemsFtlRates:
+      required: [ rateScheduleId, vendorId, numberTransitDays , price ]
+      type: object
+      properties:
+        itemsId:
+          type: integer
+          format: int64
+        rateScheduleId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        itemsCode:
+          type: string
         destinationCity:
           $ref: '#/components/schemas/City'
         destinationGP:
@@ -3704,14 +3738,128 @@ components:
         numberTransitDays:
           type: integer
           format: int64
-        maxWeightSkid:
+        maximum:
           type: number
-        minWeightSkid:
+        minimum:
           type: number
-        tariffs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tariff'
+        price:
+          type: number
+    VendorRateItemsCwt:
+      required: [ rateScheduleId, vendorId, numberTransitDays ]
+      type: object
+      properties:
+        itemsId:
+          type: integer
+          format: int64
+        rateScheduleId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        itemsCode:
+          type: string
+        destinationCity:
+          $ref: '#/components/schemas/City'
+        destinationGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        numberTransitDays:
+          type: integer
+          format: int64
+        maximum:
+          type: number
+        minimum:
+          type: number
+        ltl:
+          type: number
+        cwt500:
+          type: number
+        cwt1M:
+          type: number
+        cwt2M:
+          type: number
+        cwt5M:
+          type: number
+        cwt10M:
+          type: number
+        cwt20M:
+          type: number
+    VendorRateItemsLinearFt:
+      required: [ rateScheduleId, vendorId, numberTransitDays ]
+      type: object
+      properties:
+        itemsId:
+          type: integer
+          format: int64
+        rateScheduleId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        itemsCode:
+          type: string
+        destinationCity:
+          $ref: '#/components/schemas/City'
+        destinationGP:
+          $ref: '#/components/schemas/GroupingPoint'
+        numberTransitDays:
+          type: integer
+          format: int64
+        maximum:
+          type: number
+        minimum:
+          type: number
+        l1ft:
+          type: number
+        l2ft:
+          type: number
+        l3ft:
+          type: number
+        l4ft:
+          type: number
+        l5ft:
+          type: number
+        l6ft:
+          type: number
+        l7ft:
+          type: number
+        l8ft:
+          type: number
+        l9ft:
+          type: number
+        l10ft:
+          type: number
+        l11ft:
+          type: number
+        l12ft:
+          type: number
+        l13ft:
+          type: number
+        l14ft:
+          type: number
+        l15ft:
+          type: number
+        l16ft:
+          type: number
+        l17ft:
+          type: number
+        l18ft:
+          type: number
+        l19ft:
+          type: number
+        l20ft:
+          type: number
+        l21ft:
+          type: number
+        l22ft:
+          type: number
+        l23ft:
+          type: number
+        l24ft:
+          type: number
+        l25ft:
+          type: number
     GroupingPoint:
       type: object
       properties:
