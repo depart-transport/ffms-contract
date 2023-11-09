@@ -2149,8 +2149,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -2177,8 +2175,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -2217,8 +2213,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -2607,14 +2601,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
-        warehouses:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
-        coverages:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryService'
         rateSchedules:
           type: array
           items:
