@@ -1581,6 +1581,15 @@ components:
           type: boolean
         referralCode:
           type: string
+        agreementDate:
+          type: string
+          format: date-time
+        agreementSignature:
+          type: string
+        agreementSignatureName:
+          type: string
+        agreementValid:
+          type: boolean
         gst:
           type: string
         qst:
@@ -2077,10 +2086,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransportService'
-        contactAssociate:
-          $ref: '#/components/schemas/Contact'
-        warehouseAssociate:
-          $ref: '#/components/schemas/Location'
+        contactAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        warehouseAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
         equipments:
           type: array
           items:
@@ -2449,10 +2462,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coverage'
-        contactAssociate:
-          $ref: '#/components/schemas/Contact'
-        warehouseAssociate:
-          $ref: '#/components/schemas/Location'
+        contactAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        warehouseAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
     Zone:
       type: object
       properties:
@@ -2586,6 +2603,15 @@ components:
           format: int64
         vendorCode:
           type: string
+        agreementDate:
+          type: string
+          format: date-time
+        agreementSignature:
+          type: string
+        agreementSignatureName:
+          type: string
+        agreementValid:
+          type: boolean
         transportServices:
           type: array
           items:
