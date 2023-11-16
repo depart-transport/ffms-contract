@@ -3109,7 +3109,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, VP, CNTRLR, SALESREP, PSQUOTE, CUSTSRVC, PODRQ, OPSMNGR, SPVSR, MNGR, OSDCLM, ACCPYBL, TRFC, LOGT, BLNG, SHPRECEV, WHMNGR, WH, SAFE, OPER, DISP, TERM ]
+      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, MNGR, SAFE, OSDCLM, TERM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, SHIP, REC, WHMNGR, WHSTF, OPER ]
     Notification:
       type: string
       enum:
@@ -4241,6 +4241,19 @@ components:
           type: string
         contractOnFile:
           type: boolean
+        isSameReceivable:
+          type: boolean
+        isSameInsurance:
+          type: boolean
+        lastUpdated:
+          type: string
+          format: date-time
+        authority:
+          $ref: '#/components/schemas/Authority'
+    Authority:
+      required: [ mc, scac, usdot ]
+      type: object
+      properties:
         mc:
           type: string
           pattern: '^\d{1,10}$'
@@ -4266,7 +4279,7 @@ components:
         hazmatExpiry:
           type: string
           format: date
-        hazmatType:
+        hazmatTypeEnum:
           type: array
           items:
             $ref: '#/components/schemas/HazmatType'
@@ -4277,13 +4290,9 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-        isSameReceivable:
-          type: boolean
-        isSameInsurance:
-          type: boolean
-        lastUpdated:
+        hazmatFile:
           type: string
-          format: date-time
+          format: byte
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object
