@@ -4322,8 +4322,6 @@ components:
             $ref: '#/components/schemas/BidOrderCenter'
         insurance:
           $ref: '#/components/schemas/Insurance'
-        receivable:
-          $ref: '#/components/schemas/Receivable'
         administration:
           $ref: '#/components/schemas/Administration'
     BidOrderCenter:
