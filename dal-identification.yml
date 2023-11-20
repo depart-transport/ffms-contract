@@ -4100,6 +4100,10 @@ components:
           format: int64
         quantity:
           type: integer
+        howMany:
+          type: string
+        rateType:
+          $ref: '#/components/schemas/RateType'
         parentId:
           type: integer
           format: int64
