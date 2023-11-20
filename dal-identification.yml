@@ -3436,10 +3436,8 @@ components:
           type: string
         specialInstruction:
           type: string
-        flatbedTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlatbedType'
+        flatbedType:
+          $ref: '#/components/schemas/FlatbedType'
         maxTruckSize:
           $ref: '#/components/schemas/TruckSize'
     LocationType:
