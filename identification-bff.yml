@@ -2685,7 +2685,6 @@ components:
         authority:
           $ref: '#/components/schemas/Authority'
     Authority:
-      required:
       type: object
       properties:
         mc:
