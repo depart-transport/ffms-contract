@@ -1681,6 +1681,9 @@ components:
         businessPhone:
           type: string
           maxLength: 50
+        phoneExtension:
+          type: string
+          maxLength: 50
         remitName:
           type: string
           maxLength: 50
