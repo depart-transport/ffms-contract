@@ -2663,7 +2663,7 @@ components:
         authority:
           $ref: '#/components/schemas/Authority'
     Authority:
-      required: [ mc, scac, usdot ]
+      required:
       type: object
       properties:
         mc:
