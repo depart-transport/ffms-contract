@@ -2688,7 +2688,6 @@ components:
         authority:
           $ref: '#/components/schemas/Authority'
     Authority:
-      required: [ mc, scac, usdot ]
       type: object
       properties:
         mc:
