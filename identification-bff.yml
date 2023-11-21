@@ -1038,7 +1038,6 @@ components:
     ChargeUnit:
       type: string
       enum:
-        - OTHER
         - CWT
         - PU
         - TIME
@@ -1048,35 +1047,58 @@ components:
     ChargeType:
       type: string
       enum:
-        - OTHER
+        - AH_ALL
+        - AH_APP
         - APP
-        - LFT
-        - INSD
-        - DRS
-        - WGV
-        - ACC
-        - RES
-        - JOB
-        - TRDS
-        - INSE
-        - INSS
-        - APPF
-        - LFTF
-        - INSF
-        - RESD
-        - LTLFS
-        - TLFS
-        - WTIM
-        - MP
-        - MD
-        - AHP
-        - AHD
-        - TONU
-        - HZMT
-        - TMPC
-        - ISW
-        - BISP
-        - STRG
+        - ATT
+        - DEBRIS_RMV
+        - DRIVER_ASS
+        - DROP_TRA
+        - INSIDE_TRH
+        - INSIDE_STE
+        - INSIDE_ELV
+        - LIFTGATE
+        - LIMITED_ACC
+        - LUMPER_SWA
+        - RES_AREA
+        - TRADE_SHOW
+        - WEEK_APP
+        - WHITE_GLOVE
+        - BORDER_DET
+        - BORDER_INS
+        - CAN_BOND
+        - CARTON_PICK
+        - DEAD_MILES_S50
+        - DESTUFFING
+        - DEMURRAGE
+        - EXTRA_MAN
+        - FDA
+        - FUEL_LTL
+        - FUEL_FTL
+        - HAZMAT
+        - ISW_CHARGES
+        - LAY_OVER
+        - ORDER_PRO
+        - PALETTE_SUPP
+        - PALLETIZATION
+        - PER_DIEM
+        - PERMITS
+        - PRE_PULL_FEE
+        - PROTECT_FR_FREEZE
+        - RE_DELIVERY
+        - RE_MEASURE
+        - RE_WEIGHT
+        - REMANIFEST
+        - REROUTING
+        - STORAGE
+        - STRAAPS
+        - TARPS
+        - TEMP_CONTROL
+        - TRUCK_ORDER_L50
+        - US_BOND
+        - WAITING_TIME
+        - WHSE_HAND_IN
+        - WHSE_HAND_OUT
     Address:
       required: [ add, city, postalZipCode, provinceState, country ]
       type: object
