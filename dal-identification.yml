@@ -2686,7 +2686,6 @@ components:
     ChargeUnit:
       type: string
       enum:
-        - OTHER
         - CWT
         - PU
         - TIME
@@ -2696,35 +2695,58 @@ components:
     ChargeType:
       type: string
       enum:
-        - OTHER
+        - AH_ALL
+        - AH_APP
         - APP
-        - LFT
-        - INSD
-        - DRS
-        - WGV
-        - ACC
-        - RES
-        - JOB
-        - TRDS
-        - INSE
-        - INSS
-        - APPF
-        - LFTF
-        - INSF
-        - RESD
-        - LTLFS
-        - TLFS
-        - WTIM
-        - MP
-        - MD
-        - AHP
-        - AHD
-        - TONU
-        - HZMT
-        - TMPC
-        - ISW
-        - BISP
-        - STRG
+        - ATT
+        - DEBRIS_RMV
+        - DRIVER_ASS
+        - DROP_TRA
+        - INSIDE_TRH
+        - INSIDE_STE
+        - INSIDE_ELV
+        - LIFTGATE
+        - LIMITED_ACC
+        - LUMPER_SWA
+        - RES_AREA
+        - TRADE_SHOW
+        - WEEK_APP
+        - WHITE_GLOVE
+        - BORDER_DET
+        - BORDER_INS
+        - CAN_BOND
+        - CARTON_PICK
+        - DEAD_MILES_S50
+        - DESTUFFING
+        - DEMURRAGE
+        - EXTRA_MAN
+        - FDA
+        - FUEL_LTL
+        - FUEL_FTL
+        - HAZMAT
+        - ISW_CHARGES
+        - LAY_OVER
+        - ORDER_PRO
+        - PALETTE_SUPP
+        - PALLETIZATION
+        - PER_DIEM
+        - PERMITS
+        - PRE_PULL_FEE
+        - PROTECT_FR_FREEZE
+        - RE_DELIVERY
+        - RE_MEASURE
+        - RE_WEIGHT
+        - REMANIFEST
+        - REROUTING
+        - STORAGE
+        - STRAAPS
+        - TARPS
+        - TEMP_CONTROL
+        - TRUCK_ORDER_L50
+        - US_BOND
+        - WAITING_TIME
+        - WHSE_HAND_IN
+        - WHSE_HAND_OUT
     Address:
       required: [ add, city, postalZipCode, provinceState, country ]
       type: object
@@ -3109,7 +3131,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, VP, CNTRLR, SALESREP, PSQUOTE, CUSTSRVC, PODRQ, OPSMNGR, SPVSR, MNGR, OSDCLM, ACCPYBL, TRFC, LOGT, BLNG, SHPRECEV, WHMNGR, WH, SAFE, OPER, DISP, TERM ]
+      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, MNGR, SAFE, OSDCLM, TERM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, SHIP, REC, WHMNGR, WHSTF, OPER ]
     Notification:
       type: string
       enum:
@@ -3241,6 +3263,15 @@ components:
           type: boolean
         referralCode:
           type: string
+        agreementDate:
+          type: string
+          format: date-time
+        agreementSignature:
+          type: string
+        agreementSignatureName:
+          type: string
+        agreementValid:
+          type: boolean
         gst:
           type: string
         qst:
@@ -3309,6 +3340,9 @@ components:
           type: string
           maxLength: 50
         businessPhone:
+          type: string
+          maxLength: 50
+        phoneExtension:
           type: string
           maxLength: 50
         remitName:
@@ -3427,10 +3461,8 @@ components:
           type: string
         specialInstruction:
           type: string
-        flatbedTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/FlatbedType'
+        flatbedType:
+          $ref: '#/components/schemas/FlatbedType'
         maxTruckSize:
           $ref: '#/components/schemas/TruckSize'
     LocationType:
@@ -3661,10 +3693,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransportService'
-        contactAssociate:
-          $ref: '#/components/schemas/Contact'
-        warehouseAssociate:
-          $ref: '#/components/schemas/Location'
+        contactAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        warehouseAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
         equipments:
           type: array
           items:
@@ -3733,8 +3769,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -3761,8 +3795,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -3801,8 +3833,6 @@ components:
           type: string
         destinationCity:
           $ref: '#/components/schemas/City'
-        destinationGP:
-          $ref: '#/components/schemas/GroupingPoint'
         numberTransitDays:
           type: integer
           format: int64
@@ -4062,10 +4092,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Coverage'
-        contactAssociate:
-          $ref: '#/components/schemas/Contact'
-        warehouseAssociate:
-          $ref: '#/components/schemas/Location'
+        contactAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        warehouseAssociates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
     Zone:
       type: object
       properties:
@@ -4091,6 +4125,10 @@ components:
           format: int64
         quantity:
           type: integer
+        howMany:
+          type: string
+        rateType:
+          $ref: '#/components/schemas/RateType'
         parentId:
           type: integer
           format: int64
@@ -4182,6 +4220,15 @@ components:
           format: int64
         vendorCode:
           type: string
+        agreementDate:
+          type: string
+          format: date-time
+        agreementSignature:
+          type: string
+        agreementSignatureName:
+          type: string
+        agreementValid:
+          type: boolean
         transportServices:
           type: array
           items:
@@ -4197,14 +4244,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Contact'
-        warehouses:
-          type: array
-          items:
-            $ref: '#/components/schemas/Location'
-        coverages:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeliveryService'
         rateSchedules:
           type: array
           items:
@@ -4229,6 +4268,18 @@ components:
           type: string
         contractOnFile:
           type: boolean
+        isSameReceivable:
+          type: boolean
+        isSameInsurance:
+          type: boolean
+        lastUpdated:
+          type: string
+          format: date-time
+        authority:
+          $ref: '#/components/schemas/Authority'
+    Authority:
+      type: object
+      properties:
         mc:
           type: string
           pattern: '^\d{1,10}$'
@@ -4254,7 +4305,7 @@ components:
         hazmatExpiry:
           type: string
           format: date
-        hazmatType:
+        hazmatTypeEnum:
           type: array
           items:
             $ref: '#/components/schemas/HazmatType'
@@ -4265,13 +4316,9 @@ components:
           maxLength: 10
         smc3TarriffCode:
           type: string
-        isSameReceivable:
-          type: boolean
-        isSameInsurance:
-          type: boolean
-        lastUpdated:
+        hazmatFile:
           type: string
-          format: date-time
+          format: byte
     VendorBranch:
       required: [ branchName, enterprise ]
       type: object
@@ -4301,8 +4348,6 @@ components:
             $ref: '#/components/schemas/BidOrderCenter'
         insurance:
           $ref: '#/components/schemas/Insurance'
-        receivable:
-          $ref: '#/components/schemas/Receivable'
         administration:
           $ref: '#/components/schemas/Administration'
     BidOrderCenter:
