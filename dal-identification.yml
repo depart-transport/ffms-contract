@@ -3400,7 +3400,6 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, companyName, availability, locAdd, locContact, flatbedTypes, flatbedTypes ]
       type: object
       properties:
         locationId:
@@ -3422,7 +3421,9 @@ components:
         locAdd:
           $ref: '#/components/schemas/Address'
         locContact:
-          $ref: '#/components/schemas/Contact'
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
         insideClearance:
           $ref: '#/components/schemas/InsideClearance'
         isSameScheduleDaily:
