@@ -1145,7 +1145,7 @@ components:
         contact:
           $ref: '#/components/schemas/Person'
     Billing:
-      required: [ creditStatus, currency, podRequirement, payment, isSameBillAdd, payableCreditCard ]
+      required: [ currency, isSameBillAdd ]
       type: object
       properties:
         billingId:
@@ -1196,9 +1196,9 @@ components:
         checkedBy:
           type: string
           maxLength: 255
-        payableCreditCard:
+        isPayableCreditCard:
           type: boolean
-        payableInvoice:
+        isPayableInvoice:
           type: boolean
     Currency:
       type: string
@@ -1880,6 +1880,10 @@ components:
           format: int64
         address:
           $ref: '#/components/schemas/Address'
+        owner:
+          $ref: '#/components/schemas/Person'
+        commInfo:
+          $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
