@@ -2793,7 +2793,7 @@ components:
         contact:
           $ref: '#/components/schemas/Person'
     Billing:
-      required: [ currencyType, podRequirement, paymentType, isSameBillAdd, payableCreditCard ]
+      required: [ currency, isSameBillAdd ]
       type: object
       properties:
         billingId:
@@ -2802,8 +2802,6 @@ components:
         currency:
           $ref: '#/components/schemas/Currency'
         isSameBillAdd:
-          type: boolean
-        payableCreditCard:
           type: boolean
         creditCard:
           $ref: '#/components/schemas/CreditCard'
@@ -2846,7 +2844,9 @@ components:
         checkedBy:
           type: string
           maxLength: 255
-        payableInvoice:
+        isPayableCreditCard:
+          type: boolean
+        isPayableInvoice:
           type: boolean
     Currency:
       type: string
@@ -3151,6 +3151,7 @@ components:
         - INVOICE
         - STATEMENT
         - CLAIMS
+        - SHIPMENT_UPDATES
     CreditApplication:
       required: [ enterprise, enterpriseType ]
       type: object
@@ -3400,7 +3401,6 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Location:
-      required: [ locationType, companyName, availability, locAdd, locContact, flatbedTypes, flatbedTypes ]
       type: object
       properties:
         locationId:
@@ -3422,7 +3422,9 @@ components:
         locAdd:
           $ref: '#/components/schemas/Address'
         locContact:
-          $ref: '#/components/schemas/Contact'
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
         insideClearance:
           $ref: '#/components/schemas/InsideClearance'
         isSameScheduleDaily:
@@ -3544,6 +3546,10 @@ components:
           format: int64
         address:
           $ref: '#/components/schemas/Address'
+        owner:
+          $ref: '#/components/schemas/Person'
+        commInfo:
+          $ref: '#/components/schemas/Communication'
         billing:
           $ref: '#/components/schemas/Billing'
     Rate:
