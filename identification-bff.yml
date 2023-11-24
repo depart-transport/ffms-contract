@@ -1472,6 +1472,7 @@ components:
         - INVOICE
         - STATEMENT
         - CLAIMS
+        - SHIPMENT_UPDATES
     CreditApplication:
       required: [ enterprise, enterpriseType ]
       type: object
