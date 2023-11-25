@@ -2805,6 +2805,10 @@ components:
           type: boolean
         creditCard:
           $ref: '#/components/schemas/CreditCard'
+        creditCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCard'
         billingAddress:
           $ref: '#/components/schemas/Address'
         bankAccount:
