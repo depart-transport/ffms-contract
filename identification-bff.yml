@@ -1157,6 +1157,10 @@ components:
           type: boolean
         creditCard:
           $ref: '#/components/schemas/CreditCard'
+        creditCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditCard'
         billingAddress:
           $ref: '#/components/schemas/Address'
         bankAccount:
@@ -1882,6 +1886,10 @@ components:
           format: int64
         address:
           $ref: '#/components/schemas/Address'
+        notifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
         owner:
           $ref: '#/components/schemas/Person'
         commInfo:
