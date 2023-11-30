@@ -3135,7 +3135,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, MNGR, SAFE, OSDCLM, TERM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, SHIP, REC, WHMNGR, WHSTF, OPER ]
+      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, SAFE, OSDCLM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, WHMNGR, WHSTF, OPER, SHIPREC, TERMSTF, TERMNGR, ACCNT ]
     Notification:
       type: string
       enum:
