@@ -3124,7 +3124,9 @@ components:
         currency:
           $ref: '#/components/schemas/Currency'
         paymentType:
-          $ref: '#/components/schemas/PaymentType'
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentType'
         isQuickPayProgram:
           type: boolean
         termOfPayment:
