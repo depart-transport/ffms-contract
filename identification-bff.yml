@@ -2729,7 +2729,7 @@ components:
         hazmatExpiry:
           type: string
           format: date
-        hazmatTypeEnum:
+        hazmatType:
           type: array
           items:
             $ref: '#/components/schemas/HazmatType'
