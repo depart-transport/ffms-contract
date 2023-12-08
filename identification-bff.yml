@@ -2814,7 +2814,7 @@ components:
         policyNumber:
           type: string
         coverage:
-          type: string
+          type: number
         currency:
           $ref: '#/components/schemas/Currency'
     InsuranceBroker:
