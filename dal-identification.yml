@@ -3135,7 +3135,7 @@ components:
         - Cognito_vendor_readAuth_Role
     FunctionTitle:
       type: string
-      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, MNGR, SAFE, OSDCLM, TERM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, SHIP, REC, WHMNGR, WHSTF, OPER ]
+      enum: [ OWNR, COOW, VP, CNTRLR, CRED, SALESREP, PSQUOTE, DISP, TRACK, PODRQ, OPSMNGR, SPVSR, SAFE, OSDCLM, ACCPYBL, BLNG, CUSTSV, TRFC, LOGT, WHMNGR, WHSTF, OPER, SHIPREC, TERMSTF, TERMNGR, ACCNT ]
     Notification:
       type: string
       enum:
@@ -4319,7 +4319,7 @@ components:
         hazmatExpiry:
           type: string
           format: date
-        hazmatTypeEnum:
+        hazmatType:
           type: array
           items:
             $ref: '#/components/schemas/HazmatType'
@@ -4507,12 +4507,14 @@ components:
         _48_FT_DAYCAD,
         _40_FT_SLEEPER,
         _40_FT_DAYCAD,
+        _32_FT_DAYCAD,
         _30_FT,
         _28_FT,
         _26_FT,
         _24_FT,
         _22_FT,
         _20_FT,
+        _12_FT,
         _53_FT,
         _40_FT,
         _53_FT_FLATBED,
@@ -4554,7 +4556,7 @@ components:
         policyNumber:
           type: string
         coverage:
-          type: string
+          type: number
         currency:
           $ref: '#/components/schemas/Currency'
     InsuranceBroker:
@@ -4602,7 +4604,9 @@ components:
         currency:
           $ref: '#/components/schemas/Currency'
         paymentType:
-          $ref: '#/components/schemas/PaymentType'
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentType'
         termOfPayment:
           type: integer
           format: int32
