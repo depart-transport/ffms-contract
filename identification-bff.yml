@@ -1000,7 +1000,7 @@ components:
         chargeMethod:
           $ref: '#/components/schemas/ChargeUnit'
         freeUpTo:
-          type: number
+          type: string
         price:
           type: number
         maxPrice:
