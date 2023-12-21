@@ -1785,6 +1785,8 @@ components:
           $ref: '#/components/schemas/TimeTable'
         isApptRequired:
           type: boolean
+        asOfApptPallets:
+          type: integer
         apptWindowBeg:
           type: string
         apptWindowEnd:
