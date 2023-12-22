@@ -1000,7 +1000,7 @@ components:
         chargeMethod:
           $ref: '#/components/schemas/ChargeUnit'
         freeUpTo:
-          type: number
+          type: string
         price:
           type: number
         maxPrice:
@@ -1785,6 +1785,8 @@ components:
           $ref: '#/components/schemas/TimeTable'
         isApptRequired:
           type: boolean
+        asOfApptPallets:
+          type: integer
         apptWindowBeg:
           type: string
         apptWindowEnd:
