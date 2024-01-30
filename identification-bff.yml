@@ -1415,6 +1415,12 @@ components:
         contactId:
           type: integer
           format: int64
+        customerId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
         contact:
           $ref: '#/components/schemas/Person'
         contactComm:
@@ -1434,6 +1440,10 @@ components:
             $ref: '#/components/schemas/Notification'
         isUser:
           type: boolean
+        isExternal:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/UserStatus'
         roles:
           type: array
           items:
@@ -3183,3 +3193,6 @@ components:
           type: string
         irsNumber:
           type: string
+    UserStatus:
+      type: string
+      enum: [ PNDG, ACT ]
