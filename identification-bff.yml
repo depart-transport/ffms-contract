@@ -1671,14 +1671,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
     BusinessStatus:
       type: string
       enum:
         - ACTIVE
-        - PROSPECT
         - INACTIVE
-        - GUEST
-        - ONBOARDING
         - PENDING
     Enterprise:
       required: [ legalName, address ]
@@ -1822,24 +1823,8 @@ components:
     LocationType:
       type: string
       enum:
-        - BUS
-        - RES_APP
-        - RES_HOU
-        - OTR_JS
-        - OTR_CC
-        - OTR_OB
-        - OTR_HTL
-        - OTR_SHL
-      description: >
-        Location type signification:
-        * BUS: Business
-        * RES_APT: Residential apartment
-        * RES_HOU: Residential house
-        * OTR_JS: Other - Jobsite
-        * OTR_CC: Other - Convention Center
-        * OTR_OB: Other - Office Building
-        * OTR_HTL:  Other - Hotel
-        * OTR_SHL:  Other - School
+        - WHS
+        - ADR
     TruckSize:
       type: string
       enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
@@ -3193,6 +3178,66 @@ components:
           type: string
         irsNumber:
           type: string
+    User:
+      required: [ ownerId,email ]
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        subId:
+          type: string
+          maxLength: 100
+        ownerId:
+          type: integer
+          format: int64
+        userType:
+          $ref: '#/components/schemas/UserType'
+        email:
+          type: string
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permissions'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        createDate:
+          type: string
+          format: date-time
+        profileType:
+          $ref: '#/components/schemas/ProfileType'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phoneNumber:
+          type: string
+    UserType:
+      type: string
+      enum:
+        - VENDOR
+        - CUSTOMER
+        - INTERNAL
+    ProfileType:
+      type: string
+      enum:
+        - ROOT
+        - SUPER
+        - USER
+    Permissions:
+      type: string
+      enum:
+        - ALL
+        - ADM
+        - QTS
+        - QTS_HST
+        - ORD
+        - ORD_HST
+        - INV
     UserStatus:
       type: string
-      enum: [ PNDG, ACT ]
+      enum:
+        - PNDG
+        - ACT
+        - NA
+
