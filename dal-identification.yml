@@ -3363,6 +3363,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+        image:
+          type: string
+          format: byte
     BusinessStatus:
       type: string
       enum:
