@@ -3356,8 +3356,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CustomBroker'
-        rating:
-          $ref: '#/components/schemas/Rating'
         lastUpdated:
           type: string
           format: date-time
