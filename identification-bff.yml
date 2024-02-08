@@ -1421,6 +1421,13 @@ components:
         vendorId:
           type: integer
           format: int64
+        userId:
+          type: integer
+          format: int64
+        profileType:
+          $ref: '#/components/schemas/ProfileType'
+        userType:
+          $ref: '#/components/schemas/UserType'
         contact:
           $ref: '#/components/schemas/Person'
         contactComm:
@@ -1652,10 +1659,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Commodity'
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
         brokers:
           type: array
           items:
