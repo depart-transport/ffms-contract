@@ -1421,9 +1421,9 @@ components:
         vendorId:
           type: integer
           format: int64
-        userId:
-          type: integer
-          format: int64
+        subId:
+          type: string
+          maxLength: 100
         profileType:
           $ref: '#/components/schemas/ProfileType'
         userType:
