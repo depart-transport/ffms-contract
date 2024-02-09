@@ -2934,6 +2934,20 @@ components:
           type: string
         phoneNumber:
           type: string
+        phoneExtension:
+          type: string
+        mobilePhone:
+          type: string
+        userName:
+          type: string
+        cognito_groups:
+          type: string
+        email_verified:
+          type: boolean
+        functionTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
     UserType:
       type: string
       enum:
