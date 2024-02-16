@@ -2766,6 +2766,10 @@ components:
           type: string
         country:
           type: string
+        provinceStateCode:
+          type: string
+        countryCode:
+          type: string
     BankAccount:
       required: [ branchName, institution, transit, account, address, comm, contact ]
       type: object
@@ -3253,8 +3257,17 @@ components:
           type: number
         gstNumber:
           type: string
-          maxLength: 9
+          maxLength: 50
         pstNumber:
+          type: string
+          maxLength: 50
+        hstNumber:
+          type: string
+          maxLength: 50
+        qstNumber:
+          type: string
+          maxLength: 50
+        irsNumber:
           type: string
           maxLength: 50
         usaTaxInfo:
@@ -3342,6 +3355,8 @@ components:
         qst:
           type: string
         hst:
+          type: string
+        pst:
           type: string
         irsNumber:
           type: string
@@ -4658,11 +4673,14 @@ components:
           type: boolean
         gstNumber:
           type: string
-          maxLength: 9
+          maxLength: 50
         pstNumber:
           type: string
           maxLength: 50
         hstNumber:
+          type: string
+          maxLength: 50
+        qstNumber:
           type: string
           maxLength: 50
         irsNumber:
