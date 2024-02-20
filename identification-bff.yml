@@ -3240,9 +3240,7 @@ components:
           type: string
         userName:
           type: string
-        cognito_groups:
-          type: string
-        email_verified:
+        emailVerified:
           type: boolean
         functionTitle:
           type: array
