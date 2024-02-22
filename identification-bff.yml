@@ -1386,15 +1386,15 @@ components:
         commId:
           type: integer
           format: int64
-        telephone:
+        phoneNumber:
           type: string
           maxLength: 10
           pattern: '^\d{10}$'
-        extension:
+        phoneExtension:
           type: string
           maxLength: 7
           pattern: '^\d{0,7}$'
-        cell:
+        mobilePhone:
           type: string
           maxLength: 10
           pattern: '^\d{10}$'
