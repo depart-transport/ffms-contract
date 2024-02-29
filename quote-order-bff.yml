@@ -1485,6 +1485,9 @@ components:
         - INVOICE
         - STATEMENT
         - CLAIMS
+        - SHIPMENT_UPDATES
+        - LOAD_CONFIRMATION
+        - BILLING_REVISIONS
     Role:
       type: string
       enum:

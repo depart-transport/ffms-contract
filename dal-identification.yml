@@ -3218,6 +3218,8 @@ components:
         - STATEMENT
         - CLAIMS
         - SHIPMENT_UPDATES
+        - LOAD_CONFIRMATION
+        - BILLING_REVISIONS
     CreditApplication:
       required: [ enterprise, enterpriseType ]
       type: object
