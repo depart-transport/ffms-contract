@@ -3288,8 +3288,8 @@ components:
           pattern: '^[0-9\*]{16}$'
         expDate:
           type: string
-          maxLength: 4
-          pattern: '^\d{4}$'
+          maxLength: 5
+          pattern: '^(0[1-9]|1[0-2])\/(0[0-9]|[1-9][0-9])$'
         cvc:
           type: string
           maxLength: 3
