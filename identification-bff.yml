@@ -1118,6 +1118,10 @@ components:
           type: string
         country:
           type: string
+        provinceStateCode:
+          type: string
+        countryCode:
+          type: string
     BankAccount:
       required: [ branchName, institution, transit, account, address, comm, contact ]
       type: object
@@ -1382,15 +1386,15 @@ components:
         commId:
           type: integer
           format: int64
-        telephone:
+        phoneNumber:
           type: string
           maxLength: 10
           pattern: '^\d{10}$'
-        extension:
+        phoneExtension:
           type: string
           maxLength: 7
           pattern: '^\d{0,7}$'
-        cell:
+        mobilePhone:
           type: string
           maxLength: 10
           pattern: '^\d{10}$'
@@ -1415,6 +1419,19 @@ components:
         contactId:
           type: integer
           format: int64
+        customerId:
+          type: integer
+          format: int64
+        vendorId:
+          type: integer
+          format: int64
+        subId:
+          type: string
+          maxLength: 100
+        profileType:
+          $ref: '#/components/schemas/ProfileType'
+        userType:
+          $ref: '#/components/schemas/UserType'
         contact:
           $ref: '#/components/schemas/Person'
         contactComm:
@@ -1434,6 +1451,10 @@ components:
             $ref: '#/components/schemas/Notification'
         isUser:
           type: boolean
+        isExternal:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/UserStatus'
         roles:
           type: array
           items:
@@ -1477,6 +1498,8 @@ components:
         - STATEMENT
         - CLAIMS
         - SHIPMENT_UPDATES
+        - LOAD_CONFIRMATION
+        - BILLING_REVISIONS
     CreditApplication:
       required: [ enterprise, enterpriseType ]
       type: object
@@ -1514,8 +1537,17 @@ components:
           type: number
         gstNumber:
           type: string
-          maxLength: 9
+          maxLength: 50
         pstNumber:
+          type: string
+          maxLength: 50
+        hstNumber:
+          type: string
+          maxLength: 50
+        qstNumber:
+          type: string
+          maxLength: 50
+        irsNumber:
           type: string
           maxLength: 50
         usaTaxInfo:
@@ -1537,8 +1569,8 @@ components:
           pattern: '^[0-9\*]{16}$'
         expDate:
           type: string
-          maxLength: 4
-          pattern: '^\d{4}$'
+          maxLength: 5
+          pattern: '^(0[1-9]|1[0-2])\/(0[0-9]|[1-9][0-9])$'
         cvc:
           type: string
           maxLength: 3
@@ -1623,6 +1655,8 @@ components:
           type: string
         hst:
           type: string
+        pst:
+          type: string
         irsNumber:
           type: string
         business:
@@ -1642,16 +1676,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Commodity'
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contact'
         brokers:
           type: array
           items:
             $ref: '#/components/schemas/CustomBroker'
-        rating:
-          $ref: '#/components/schemas/Rating'
         lastUpdated:
           type: string
           format: date-time
@@ -1661,14 +1689,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorDef'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        image:
+          type: string
+          format: byte
     BusinessStatus:
       type: string
       enum:
         - ACTIVE
-        - PROSPECT
         - INACTIVE
-        - GUEST
-        - ONBOARDING
         - PENDING
     Enterprise:
       required: [ legalName, address ]
@@ -1812,24 +1844,8 @@ components:
     LocationType:
       type: string
       enum:
-        - BUS
-        - RES_APP
-        - RES_HOU
-        - OTR_JS
-        - OTR_CC
-        - OTR_OB
-        - OTR_HTL
-        - OTR_SHL
-      description: >
-        Location type signification:
-        * BUS: Business
-        * RES_APT: Residential apartment
-        * RES_HOU: Residential house
-        * OTR_JS: Other - Jobsite
-        * OTR_CC: Other - Convention Center
-        * OTR_OB: Other - Office Building
-        * OTR_HTL:  Other - Hotel
-        * OTR_SHL:  Other - School
+        - WHS
+        - ADR
     TruckSize:
       type: string
       enum: [ DCAB, FT53, FT52, FT48, FT40, FT32, FT30, FT28, FT26, FT24, FT22, FT20, SPTR ]
@@ -3136,11 +3152,14 @@ components:
           format: int32
         gstNumber:
           type: string
-          maxLength: 9
+          maxLength: 50
         pstNumber:
           type: string
           maxLength: 50
         hstNumber:
+          type: string
+          maxLength: 50
+        qstNumber:
           type: string
           maxLength: 50
         irsNumber:
@@ -3183,3 +3202,78 @@ components:
           type: string
         irsNumber:
           type: string
+    User:
+      required: [ ]
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        subId:
+          type: string
+          maxLength: 100
+        ownerId:
+          type: integer
+          format: int64
+        userType:
+          $ref: '#/components/schemas/UserType'
+        email:
+          type: string
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permissions'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        createDate:
+          type: string
+          format: date-time
+        profileType:
+          $ref: '#/components/schemas/ProfileType'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phoneNumber:
+          type: string
+        phoneExtension:
+          type: string
+        mobilePhone:
+          type: string
+        userName:
+          type: string
+        emailVerified:
+          type: boolean
+        functionTitle:
+          type: array
+          items:
+            $ref: '#/components/schemas/FunctionTitle'
+    UserType:
+      type: string
+      enum:
+        - VENDOR
+        - CUSTOMER
+        - INTERNAL
+    ProfileType:
+      type: string
+      enum:
+        - ROOT
+        - SUPER
+        - USER
+    Permissions:
+      type: string
+      enum:
+        - ALL
+        - ADM
+        - QTS
+        - QTS_HST
+        - ORD
+        - ORD_HST
+        - INV
+    UserStatus:
+      type: string
+      enum:
+        - PNDG
+        - ACT
+        - NA
+
